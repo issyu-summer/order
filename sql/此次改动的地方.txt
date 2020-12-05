@@ -1,0 +1,4 @@
+1、foot_print中的goods_spu_id改为goods_sku_id
+
+2、freight_model中的name设为了唯一索引
+
