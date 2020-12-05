@@ -70,7 +70,7 @@ public class OrderControllerTest {
                                                 .expectBody()
                                                 .returnResult().getResponseBodyContent();
                     String responseStr = new String(responseString,"UTF-8");
-                    //System.out.println(responseStr);
+                    System.out.println(responseStr);
                     JSONAssert.assertEquals(expectedResponse,responseStr,true);
         }catch (Exception e){
             e.printStackTrace();
