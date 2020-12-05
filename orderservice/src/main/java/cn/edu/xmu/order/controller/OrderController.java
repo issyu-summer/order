@@ -6,9 +6,11 @@ import cn.edu.xmu.ooad.annotation.LoginUser;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.Common;
 import cn.edu.xmu.ooad.util.OrderStateCode;
+import cn.edu.xmu.ooad.util.ResponseUtil;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.order.model.bo.OrderInfo;
 import cn.edu.xmu.order.model.bo.OrderStateBo;
+import cn.edu.xmu.order.model.vo.AdressVo;
 import cn.edu.xmu.order.model.vo.OrderInfoVo;
 import cn.edu.xmu.order.service.OrderService;
 import com.github.pagehelper.PageInfo;
@@ -135,4 +137,63 @@ public class OrderController {
             return Common.getNullRetObj(new ReturnObject<>(retObject.getCode(), retObject.getErrmsg()), httpServletResponse);
         }
     }
+    /*
+     * 买家查询订单完整信息
+     * @author 史韬韬
+     * created in 2020/12/2
+     */
+    @ApiOperation(value = "买家查询订单完整信息", produces = "application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header", dataType = "String", name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(name="id",required = true, dataType="Integer", paramType="path")
+
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0, message = "成功"),
+            @ApiResponse(code = 504, message = "操作id不存在")
+    })
+    @Audit
+    @GetMapping("/orders/{id}")
+    public Object getOrderById(@PathVariable Long id){
+        return Common.decorateReturnObject(orderService.getOrderById(id));
+
+    }
+
+    /*
+     * 买家修改本人名下订单
+     * @author 史韬韬
+     * created in 2020/12/3
+     */
+    @ApiOperation(value = "买家修改本人名下订单")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header", dataType = "String", name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(name="id", required = true, dataType="Integer", paramType="path")
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0, message = "成功")
+    })
+    @Audit
+    @RequestMapping(value="/orders/{id}",method = RequestMethod.PUT)
+    public Object changeOrder(@PathVariable Long id, @RequestBody AdressVo adressVo){
+        return Common.decorateReturnObject(orderService.changeOrder(id,adressVo));
+    }
+    /*
+     * 买家取消、逻辑删除本人名下订单
+     * @author 史韬韬
+     * created in 2020/12/3
+     */
+    @ApiOperation(value = "买家取消、修改本人名下订单")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header", dataType = "String", name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(name="id", required = true, dataType="Integer", paramType="path")
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0, message = "成功")
+    })
+    @Audit
+    @RequestMapping(value="/orders/{id}",method = RequestMethod.DELETE)
+    public Object deleteOrder(@PathVariable Long id){
+        return Common.getRetObject(orderService.deleteOrder(id));
+    }
+
 }

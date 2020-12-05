@@ -6,6 +6,7 @@ import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.order.mapper.OrderItemPoMapper;
 import cn.edu.xmu.order.mapper.OrderPoMapper;
+import cn.edu.xmu.order.model.bo.Order;
 import cn.edu.xmu.order.model.bo.OrderInfo;
 import cn.edu.xmu.order.model.bo.OrderSimpleInfoBo;
 import cn.edu.xmu.order.model.bo.OrderStateBo;
@@ -13,7 +14,9 @@ import cn.edu.xmu.order.model.po.OrderItemPo;
 import cn.edu.xmu.order.model.po.OrderItemPoExample;
 import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.order.model.po.OrderPoExample;
+import cn.edu.xmu.order.model.vo.AdressVo;
 import cn.edu.xmu.order.model.vo.OrderInfoVo;
+import cn.edu.xmu.order.model.vo.OrderRetVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mysql.cj.x.protobuf.MysqlxCrud;
@@ -173,5 +176,75 @@ public class OrderDao {
             retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：" + e.getMessage()));
         }
         return retObj;
+    }
+
+    /*
+     *查询订单完整信息
+     * @parameter id 订单id
+     * @author 史韬韬
+     */
+    public ReturnObject<OrderRetVo> getOrderById(Long id){
+
+        logger.debug("getOrderByID: ID =" + id);
+        try {
+            OrderPo ordersPo = orderPoMapper.selectByPrimaryKey(id);
+            Order order=new Order(ordersPo);
+            OrderRetVo orderRetVo=order.createVo();
+            return new ReturnObject<>(orderRetVo);
+
+        }catch (DataAccessException e){
+            logger.error("getOrderById: DataAccessException:" + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
+        }
+
+    }
+    /*
+     *买家修改本人名下订单
+     * @parameter id 订单id
+     * @author 史韬韬
+     */
+    public ReturnObject<VoObject> changeOrder(Long id, AdressVo adressVo){
+        logger.debug("changeOrder: ID =" + id);
+        try {
+            OrderPo newPo = orderPoMapper.selectByPrimaryKey(id);
+            Byte state=newPo.getState();
+            if(state.equals((byte)0)||state.equals((byte)13)||state.equals((byte)14)||state.equals((byte)15)||state.equals((byte)16)||state.equals((byte)17)||state.equals((byte)18)){
+                ReturnObject<VoObject> returnObject=new ReturnObject<VoObject>(ResponseCode.ORDER_STATENOTALLOW,"不能修改此状态的订单");
+            }
+            newPo.setAddress(adressVo.getAddress());
+            newPo.setConsignee(adressVo.getConsignee());
+            newPo.setRegionId(adressVo.getRegionId());
+            newPo.setMobile(adressVo.getMobile());
+            orderPoMapper.updateByPrimaryKeySelective(newPo);
+            return new ReturnObject<VoObject>();
+
+        }catch (DataAccessException e){
+            logger.error("changeOrder: DataAccessException:" + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
+        }
+    }
+    /*
+     * 买家取消、逻辑删除本人名下订单
+     * @author 史韬韬
+     * created in 2020/12/3
+     */
+    public ReturnObject<VoObject> deleteOrder(Long id) {
+        logger.debug("deleteOrder: ID =" + id);
+        try {
+            OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
+            Byte state = orderPo.getState();
+            //未发货
+            if (state.equals((byte) 6) || state.equals((byte) 2)) {
+                orderPo.setState((byte) 0);
+            }
+            //已发货
+            if (state.equals((byte) 0) || state.equals((byte) 13) || state.equals((byte)18)) {
+                orderPo.setBeDeleted((byte) 1);
+            }
+            return new ReturnObject<VoObject>();
+        } catch (DataAccessException e) {
+            logger.error("deleteOrder: DataAccessException:" + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
+        }
     }
 }

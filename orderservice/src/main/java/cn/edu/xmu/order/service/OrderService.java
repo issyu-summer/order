@@ -4,6 +4,8 @@ import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.order.dao.OrderDao;
 import cn.edu.xmu.order.model.bo.OrderInfo;
+import cn.edu.xmu.order.model.vo.AdressVo;
+import cn.edu.xmu.order.model.vo.OrderRetVo;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,5 +59,31 @@ public class OrderService {
     public ReturnObject<OrderInfo> createOrder(OrderInfo orderInfo){
         ReturnObject<OrderInfo> returnObject = orderDao.createOrder(orderInfo);
         return returnObject;
+    }
+
+    /*
+     * 获取订单完整信息
+     * @author 史韬韬
+     * created in 2020/12/2
+     */
+    public ReturnObject<OrderRetVo> getOrderById(Long id){
+        return orderDao.getOrderById(id);
+    }
+
+    /*
+     *买家修改本人名下订单
+     * @parameter id 订单id
+     * @author 史韬韬
+     */
+    public ReturnObject<VoObject> changeOrder(Long id, AdressVo adressVo){
+        return orderDao.changeOrder(id,adressVo);
+    }
+    /*
+     * 买家取消、逻辑删除本人名下订单
+     * @author 史韬韬
+     * created in 2020/12/3
+     */
+    public ReturnObject<VoObject> deleteOrder(Long id){
+        return orderDao.deleteOrder(id);
     }
 }

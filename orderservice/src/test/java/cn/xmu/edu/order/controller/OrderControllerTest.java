@@ -106,5 +106,28 @@ public class OrderControllerTest {
             e.printStackTrace();
         }
     }
+    /*
+    * 查询订单完整信息
+    * @author 史韬韬
+    * @date 2020/12/6
+     */
+    @Test
+    public void getOrderById(){
+        String token = createTestToken(23L,0L,100);
 
+        try{
+            byte [] responseString = webTestClient.get().uri("/order/orders/{id}",1)
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
