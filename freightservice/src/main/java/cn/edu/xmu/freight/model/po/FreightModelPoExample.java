@@ -395,62 +395,52 @@ public class FreightModelPoExample {
             return (Criteria) this;
         }
 
-        public Criteria andDefaultModelEqualTo(String value) {
+        public Criteria andDefaultModelEqualTo(Byte value) {
             addCriterion("default_model =", value, "defaultModel");
             return (Criteria) this;
         }
 
-        public Criteria andDefaultModelNotEqualTo(String value) {
+        public Criteria andDefaultModelNotEqualTo(Byte value) {
             addCriterion("default_model <>", value, "defaultModel");
             return (Criteria) this;
         }
 
-        public Criteria andDefaultModelGreaterThan(String value) {
+        public Criteria andDefaultModelGreaterThan(Byte value) {
             addCriterion("default_model >", value, "defaultModel");
             return (Criteria) this;
         }
 
-        public Criteria andDefaultModelGreaterThanOrEqualTo(String value) {
+        public Criteria andDefaultModelGreaterThanOrEqualTo(Byte value) {
             addCriterion("default_model >=", value, "defaultModel");
             return (Criteria) this;
         }
 
-        public Criteria andDefaultModelLessThan(String value) {
+        public Criteria andDefaultModelLessThan(Byte value) {
             addCriterion("default_model <", value, "defaultModel");
             return (Criteria) this;
         }
 
-        public Criteria andDefaultModelLessThanOrEqualTo(String value) {
+        public Criteria andDefaultModelLessThanOrEqualTo(Byte value) {
             addCriterion("default_model <=", value, "defaultModel");
             return (Criteria) this;
         }
 
-        public Criteria andDefaultModelLike(String value) {
-            addCriterion("default_model like", value, "defaultModel");
-            return (Criteria) this;
-        }
-
-        public Criteria andDefaultModelNotLike(String value) {
-            addCriterion("default_model not like", value, "defaultModel");
-            return (Criteria) this;
-        }
-
-        public Criteria andDefaultModelIn(List<String> values) {
+        public Criteria andDefaultModelIn(List<Byte> values) {
             addCriterion("default_model in", values, "defaultModel");
             return (Criteria) this;
         }
 
-        public Criteria andDefaultModelNotIn(List<String> values) {
+        public Criteria andDefaultModelNotIn(List<Byte> values) {
             addCriterion("default_model not in", values, "defaultModel");
             return (Criteria) this;
         }
 
-        public Criteria andDefaultModelBetween(String value1, String value2) {
+        public Criteria andDefaultModelBetween(Byte value1, Byte value2) {
             addCriterion("default_model between", value1, value2, "defaultModel");
             return (Criteria) this;
         }
 
-        public Criteria andDefaultModelNotBetween(String value1, String value2) {
+        public Criteria andDefaultModelNotBetween(Byte value1, Byte value2) {
             addCriterion("default_model not between", value1, value2, "defaultModel");
             return (Criteria) this;
         }

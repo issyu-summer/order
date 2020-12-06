@@ -1,6 +1,7 @@
 package cn.edu.xmu.freight.model.vo;
 
 import cn.edu.xmu.freight.model.bo.FreightModelBo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
@@ -13,9 +14,17 @@ public class FreightModelRetVo {
     private Long id;
     private String name;
     private Byte type;
+    @JsonProperty(value = "default")
     private Boolean isDefault;
     private String gmtCreate;
     private String gmtModified;
+
+    /*
+    @JsonProperty("default")
+    public String getIsDefault(){
+        return this.isDefault;
+    }
+    */
 
     public FreightModelRetVo(FreightModelBo freightModelBo){
         this.setGmtCreate(freightModelBo.getGmtCreate());

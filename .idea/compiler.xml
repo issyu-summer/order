@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
         <module name="freightservice" />
+        <module name="paymentservice" />
         <module name="orderservice" />
       </profile>
     </annotationProcessing>
@@ -18,6 +19,7 @@
       <module name="freightservice" target="11" />
       <module name="order" target="11" />
       <module name="orderservice" target="11" />
+      <module name="paymentservice" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -27,6 +29,7 @@
       <module name="freightservice" options="-parameters" />
       <module name="order" options="-parameters" />
       <module name="orderservice" options="-parameters" />
+      <module name="paymentservice" options="-parameters" />
     </option>
   </component>
 </project>

@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../idea_space/privilege-master/core/pom.xml" />
+        <option value="$PROJECT_DIR$/paymentservice/pom.xml" />
       </list>
     </option>
   </component>
