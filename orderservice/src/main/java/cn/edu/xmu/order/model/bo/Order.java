@@ -68,23 +68,33 @@ public class Order {
     Order(){}
 
     public Order(OrderPo po){
-        id=po.getId();
-        customerId=po.getCustomerId();
-        shopId=po.getShopId();
-        orderSn=po.getOrderSn();
-        pid=po.getPid();
-        consignee=po.getConsignee();
-        regionId=po.getRegionId();
-        address=po.getAddress();
-        mobile=po.getMobile();
-        message=po.getMessage();
-        orderType=po.getOrderType();
-        freightPrice=po.getFreightPrice();
-        couponId=po.getCouponId();
-        couponActivityId=po.getCouponActivityId();
-        discountPrice=po.getDiscountPrice();
-        originPrice=po.getOriginPrice();
-
+        this.setId(po.getId());
+        this.setCustomerId(po.getCustomerId());
+        this.setShopId(po.getShopId());
+        this.setOrderSn(po.getOrderSn());
+        this.setPid(po.getPid());
+        this.setConsignee(po.getConsignee());
+        this.setRegionId(po.getRegionId());
+        this.setAddress(po.getAddress());
+        this.setMobile(po.getMobile());
+        this.setMessage(po.getMessage());
+        this.setOrderType(po.getOrderType());
+        this.setFreightPrice(po.getFreightPrice());
+        this.setCouponId(po.getCouponId());
+        this.setCouponActivityId(po.getCouponActivityId());
+        this.setDiscountPrice(po.getDiscountPrice());
+        this.setOriginPrice(po.getOriginPrice());
+        this.setPresaleId(po.getPresaleId());
+        this.setGrouponDiscount(po.getGrouponDiscount());
+        this.setRebateNum(po.getRebateNum());
+        this.setConfirmTime(po.getConfirmTime());
+        this.setShipmentSn(po.getShipmentSn());
+        this.setState(po.getState());
+        this.setSubstate(po.getSubstate());
+        this.setBeDeleted(po.getBeDeleted());
+        this.setGmtCreate(po.getGmtCreate());
+        this.setGmtModified(po.getGmtModified());
+        this.setGrouponId(po.getGrouponId());
     }
 
     public OrderRetVo createVo(){
@@ -100,4 +110,40 @@ public class Order {
         return  orderRetVo;
     }
 
+    /**
+     * @author
+     * @date
+     * @return
+     */
+    public OrderPo getOrderPo() {
+        OrderPo po = new OrderPo();
+        po.setId(this.getId());
+        po.setCustomerId(this.getCustomerId());
+        po.setShopId(this.getShopId());
+        po.setOrderSn(this.getOrderSn());
+        po.setPid(this.getPid());
+        po.setConsignee(this.getConsignee());
+        po.setRegionId(this.getRegionId());
+        po.setAddress(this.getAddress());
+        po.setMobile(this.getMobile());
+        po.setMessage(this.getMessage());
+        po.setOrderType(this.getOrderType());
+        po.setFreightPrice(this.getFreightPrice());
+        po.setCouponId(this.getCouponId());
+        po.setCouponActivityId(this.getCouponActivityId());
+        po.setDiscountPrice(this.getDiscountPrice());
+        po.setOriginPrice(this.getOriginPrice());
+        po.setPresaleId(this.getPresaleId());
+        po.setGrouponDiscount(this.getGrouponDiscount());
+        po.setRebateNum(this.getRebateNum());
+        po.setConfirmTime(this.getConfirmTime());
+        po.setShipmentSn(this.getShipmentSn());
+        po.setState(this.getState());
+        po.setSubstate(this.getSubstate());
+        po.setBeDeleted(this.getBeDeleted());
+        po.setGmtCreate(this.getGmtCreate());
+        po.setGmtModified(this.getGmtModified());
+        po.setGrouponId(this.getGrouponId());
+        return po;
+    }
 }

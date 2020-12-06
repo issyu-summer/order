@@ -16,6 +16,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.io.UnsupportedEncodingException;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -127,6 +129,31 @@ public class OrderControllerTest {
             System.out.println(responseStr);
 
         }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 标记确认收货
+     * @author 王薪蕾
+     * @date 2020/12/6
+     */
+    @Test
+    public void confirmOrderTest(){
+        String token = createTestToken(1L, 0L, 100);
+        String expectStr = "{\"errno\":0,\"errmsg\":\"成功\"}";
+        try {
+            byte [] responseString = webTestClient.put().uri("/order/orders/29/confirm")
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
     }

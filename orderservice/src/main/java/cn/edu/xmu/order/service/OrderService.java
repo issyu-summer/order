@@ -9,6 +9,7 @@ import cn.edu.xmu.order.model.vo.OrderRetVo;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author issyu 30320182200070
@@ -85,5 +86,16 @@ public class OrderService {
      */
     public ReturnObject<VoObject> deleteOrder(Long id){
         return orderDao.deleteOrder(id);
+    }
+
+    /**
+     * 客户确认收货
+     *
+     * @author 王薪蕾
+     * created in 2020/12/6
+     */
+    @Transactional
+    public ReturnObject confirmOrders(Long id,Long userId) {
+        return orderDao.confirmOrders(id,userId);
     }
 }

@@ -196,4 +196,28 @@ public class OrderController {
         return Common.getRetObject(orderService.deleteOrder(id));
     }
 
+    /**
+     * 买家标记确认收货
+     *
+     * @param id 订单ID
+     * @return Object 确认后结果
+     * createdBy 王薪蕾 2020/11/30
+     */
+    @ApiOperation(value = "买家标记确认收货", produces = "application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header", dataType = "String", name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType="path", dataType="Long",name="id", value = "订单Id",required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 800, message = "订单状态禁止"),
+            @ApiResponse(code = 0, message = "成功"),
+    })
+    @Audit
+    @PutMapping("/orders/{id}/confirm")
+    public Object confirmOrders(
+            @PathVariable("id") Long id,
+            @LoginUser Long userId) {
+        return Common.decorateReturnObject(orderService.confirmOrders(id,userId));
+        //return Common.getNullRetObj()
+    }
 }

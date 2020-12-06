@@ -244,4 +244,49 @@ public class OrderDao {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
         }
     }
+
+    /**
+     * 确认收货
+     * createby 王薪蕾 2020/12/6
+     */
+    public ReturnObject<Object> confirmOrders(Long id,Long userId) {
+
+        logger.debug("confirmOrder: ID =" + id);
+        OrderPo orig = orderPoMapper.selectByPrimaryKey(id);
+        System.out.println(orig.getOrderSn());
+        Byte no=17;
+        Byte state=18;
+        ReturnObject<Object> retObj = null;
+        if (orig == null || !orig.getState().equals(no)) {
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止" + id));
+            return retObj;
+        }
+        if (orig.getCustomerId()!=userId) {
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("操作资源不是自己的对象" + id));
+            return retObj;
+        }
+        Order order = new Order(orig);
+        order.setState(state);
+        OrderPo record=order.getOrderPo();
+        try {
+            int ret = orderPoMapper.updateByPrimaryKey(record);
+            if (ret == 0) {
+                //确认收货失败
+                logger.debug("confirmOrders: confirm order fail: " + record.toString());
+                retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止" + record.getId()));
+            } else {
+                //确认收货成功
+                logger.debug("confirmOrders: confirm order = " + record.toString());
+                retObj = new ReturnObject<>(ResponseCode.OK,String.format("成功"));
+            }
+        } catch (DataAccessException e) {
+            logger.error("database exception: " + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
+        } catch (Exception e) {
+            // 其他Exception错误
+            logger.error("other exception : " + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了严重的数据库错误：%s", e.getMessage()));
+        }
+        return retObj;
+    }
 }
