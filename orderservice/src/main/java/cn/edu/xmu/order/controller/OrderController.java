@@ -4,10 +4,7 @@ import cn.edu.xmu.ooad.annotation.Audit;
 import cn.edu.xmu.ooad.annotation.Depart;
 import cn.edu.xmu.ooad.annotation.LoginUser;
 import cn.edu.xmu.ooad.model.VoObject;
-import cn.edu.xmu.ooad.util.Common;
-import cn.edu.xmu.ooad.util.OrderStateCode;
-import cn.edu.xmu.ooad.util.ResponseUtil;
-import cn.edu.xmu.ooad.util.ReturnObject;
+import cn.edu.xmu.ooad.util.*;
 import cn.edu.xmu.order.model.bo.OrderInfo;
 import cn.edu.xmu.order.model.bo.OrderStateBo;
 import cn.edu.xmu.order.model.vo.AdressVo;
@@ -243,4 +240,82 @@ public class OrderController {
         return Common.getRetObject(orderService.grouponToNormalOrders(id,userId));
 
     }
+
+    /**
+     * 店家查询商户所有订单 (概要)
+     * @author 王子扬 30320182200071
+     * @date 2020/12/5 23:04
+     */
+    @ApiOperation(value = "店家查询商户所有订单 (概要)")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header", name = "authorization", value = "Token", required = true, dataType = "String"),
+            @ApiImplicitParam(paramType = "path", name = "shopId", required = true, dataType = "int"),
+            @ApiImplicitParam(paramType = "query", dataType = "int", name = "customerId", value = "顾客Id", required = false),
+            @ApiImplicitParam(paramType = "query", dataType = "int", name = "orderSn", value = "订单Sn", required = false),
+            @ApiImplicitParam(paramType = "query", dataType = "string", name = "beginTime", value = "开始时间", required = false),
+            @ApiImplicitParam(paramType = "query", dataType = "string", name = "endTime", value = "结束时间", required = false),
+            @ApiImplicitParam(paramType = "query", dataType = "int", name = "page", value = "页码", required = false),
+            @ApiImplicitParam(paramType = "query", dataType = "int", name = "pageSize", value = "每页数目", required = false)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0, message = "成功"),
+    })
+    @Audit
+    @GetMapping("/shops/{shopId}/orders")
+    public Object getAllOrders(@PathVariable("shopId") Long shopId,
+                               @RequestParam(required = false) Long customerId,
+                               @RequestParam(required = false) String orderSn,
+                               @RequestParam(required = false) String beginTime,
+                               @RequestParam(required = false) String endTime,
+                               @RequestParam(required = false) Integer page,
+                               @RequestParam(required = false) Integer pageSize){
+        logger.debug("getAllOrders: page = "+ page +"  pageSize ="+pageSize);
+        page = (page == null)?1:page;
+        pageSize = (pageSize == null)?10:pageSize;
+        LocalDateTime localBeginTime = null;
+        LocalDateTime localEndTime = null;
+        if(beginTime!=null){
+            localBeginTime= TimeFormat.stringToDateTime(beginTime);
+        }
+        if(endTime!=null){
+            localEndTime=TimeFormat.stringToDateTime(endTime);
+        }
+
+        ReturnObject<PageInfo<VoObject>> returnObject = orderService.selectOrders(shopId,customerId,orderSn,localBeginTime,localEndTime,page,pageSize);
+        return Common.getPageRetObject(returnObject);
+    }
+
+    /**
+     * 店家修改订单 (留言)
+     * @author 王子扬 30320182200071
+     * @date  2020/12/5 23:38
+     */
+    @ApiOperation(value = "店家修改订单 (留言)")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header", name = "authorization", value = "Token", required = true, dataType = "String"),
+            @ApiImplicitParam(paramType = "path", name = "shopId", required = true, dataType = "int"),
+            @ApiImplicitParam(paramType = "path", name = "id", required = true, dataType = "int"),
+            @ApiImplicitParam(paramType = "query", dataType = "string", name = "message", value = "操作字段（状态）", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0, message = "成功"),
+    })
+    @Audit
+    @PutMapping("/shops/{shopId}/orders/{id}")
+    public Object getAllOrders(@PathVariable("shopId") Long shopId,
+                               @PathVariable("id") Long id,
+                               @RequestParam(required = true) String message){
+        ReturnObject retObject = orderService.updateOrderMessage(shopId,id,message);
+
+        if (retObject.getData() != null) {
+            httpServletResponse.setStatus(HttpStatus.CREATED.value());
+            return Common.getRetObject(retObject);
+            /*
+            此处返回值错误。
+             */
+        } else {
+            return Common.getNullRetObj(new ReturnObject<>(retObject.getCode(), retObject.getErrmsg()), httpServletResponse);
+        }
+    }
+
 }

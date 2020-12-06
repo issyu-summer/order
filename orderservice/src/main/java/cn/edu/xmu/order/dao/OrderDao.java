@@ -6,10 +6,7 @@ import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.order.mapper.OrderItemPoMapper;
 import cn.edu.xmu.order.mapper.OrderPoMapper;
-import cn.edu.xmu.order.model.bo.Order;
-import cn.edu.xmu.order.model.bo.OrderInfo;
-import cn.edu.xmu.order.model.bo.OrderSimpleInfoBo;
-import cn.edu.xmu.order.model.bo.OrderStateBo;
+import cn.edu.xmu.order.model.bo.*;
 import cn.edu.xmu.order.model.po.OrderItemPo;
 import cn.edu.xmu.order.model.po.OrderItemPoExample;
 import cn.edu.xmu.order.model.po.OrderPo;
@@ -27,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -333,5 +331,82 @@ public class OrderDao {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了严重的数据库错误：%s", e.getMessage()));
         }
         return retObj;
+    }
+    /**
+     * 店家查询商户所有订单 (概要)
+     * @author 王子扬 30320182200071
+     * @date  2020/12/5 16:09
+     */
+    public ReturnObject<PageInfo<VoObject>> findAllOrders(Long shopId, Long customerId, String orderSn, LocalDateTime beginTime,
+                                                          LocalDateTime endTime, Integer page, Integer pageSize){
+        OrderPoExample example = new OrderPoExample();
+        OrderPoExample.Criteria criteria = example.createCriteria();
+        criteria.andShopIdEqualTo(shopId);
+        criteria.andBeDeletedEqualTo((byte)0);//已经删除订单即被删除状态不为0的订单就不再显示
+        if(customerId != null){
+            criteria.andCustomerIdEqualTo(customerId);
+        }
+        if(orderSn != null){
+            criteria.andOrderSnEqualTo(orderSn);
+        }
+        if(beginTime != null && endTime != null){
+            criteria.andConfirmTimeBetween(beginTime,endTime);
+        }else{
+            if(endTime != null){
+                criteria.andConfirmTimeLessThanOrEqualTo(endTime);
+            }
+            if(beginTime != null){
+                criteria.andConfirmTimeGreaterThanOrEqualTo(beginTime);
+            }
+        }
+
+        PageHelper.startPage(page,pageSize);
+        List<OrderPo> orderPos = null;
+        logger.debug("page = " + page + "pageSize = " + pageSize);
+        try{
+            orderPos = orderPoMapper.selectByExample(example);
+            List<VoObject> ret = new ArrayList<>(orderPos.size());
+            for(OrderPo po : orderPos){
+                OrderBrief order = new OrderBrief(po);
+                ret.add(order);
+            }
+            PageInfo<VoObject> orderPage = PageInfo.of(ret);
+            return new ReturnObject<>(orderPage);
+        }catch (DataAccessException e){
+            logger.error("OrderDao: DataAccessException:" + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
+        }catch (Exception e){
+            logger.error("OrderDao other exception : " + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
+    }
+
+    /**
+     * 店家修改订单 (留言)
+     * @author 王子扬 30320182200071
+     * @date  2020/12/5 23:38
+     */
+    public ReturnObject<OrderBrief> updateOrderMessage(Long shopId, Long id, String message) {
+        ReturnObject<OrderBrief> retObj = null;
+        try{
+            OrderPo orderPo=orderPoMapper.selectByPrimaryKey(id);
+            if(orderPo==null || orderPo.getBeDeleted()!=(byte)0){//订单已经逻辑删除视为订单不存在
+                retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单id不存在：" + id));
+                return retObj;
+            }
+            if(orderPo.getShopId()!=shopId){
+                retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("店铺不存在该订单：" + shopId));
+                return retObj;
+            }
+            orderPo.setMessage(message);
+            orderPoMapper.updateByPrimaryKey(orderPo);
+            return new ReturnObject<>();
+        }catch (DataAccessException e){
+            logger.error("OrderDao: DataAccessException:" + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
+        }catch (Exception e){
+            logger.error("OrderDao other exception : " + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
     }
 }

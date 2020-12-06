@@ -3,6 +3,7 @@ package cn.edu.xmu.order.service;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.order.dao.OrderDao;
+import cn.edu.xmu.order.model.bo.OrderBrief;
 import cn.edu.xmu.order.model.bo.OrderInfo;
 import cn.edu.xmu.order.model.vo.AdressVo;
 import cn.edu.xmu.order.model.vo.OrderRetVo;
@@ -10,6 +11,8 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
 
 /**
  * @author issyu 30320182200070
@@ -106,5 +109,34 @@ public class OrderService {
     @Transactional
     public ReturnObject grouponToNormalOrders(Long id,Long userId) {
         return orderDao.grouponToNormalOrders(id,userId);
+    }
+
+    /**
+     * 分页查询店家查询商户所有订单 (概要)
+     *
+     * @author 30320182200071 王子扬
+     * @param shopId 商户id, required
+     * @param customerId 查询的购买者用户id
+     * @param orderSn 订单Sn
+     * @param beginTime 从开始时间查询
+     * @param endTime 从结束时间开始查询
+     * @param page  页码
+     * @param pageSize 每页数目
+     * @return ReturnObject<PageInfo < VoObject>> 分页返回订单信息
+     * createdBy 王子扬 2020/12/04 16:17
+     */
+    public ReturnObject<PageInfo<VoObject>> selectOrders(Long shopId, Long customerId, String orderSn, LocalDateTime beginTime, LocalDateTime endTime, Integer page, Integer pageSize){
+        ReturnObject<PageInfo<VoObject>> returnObject = orderDao.findAllOrders(shopId, customerId, orderSn, beginTime, endTime, page, pageSize);
+        return returnObject;
+    }
+
+    /**
+     * 店家修改订单 (留言)
+     * @author 王子扬 30320182200071
+     * @date  2020/12/5 23:38
+     */
+    public ReturnObject<OrderBrief> updateOrderMessage(Long shopId, Long id, String message) {
+        ReturnObject<OrderBrief> returnObject = orderDao.updateOrderMessage(shopId,id,message);
+        return returnObject;
     }
 }
