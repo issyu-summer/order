@@ -157,4 +157,28 @@ public class OrderControllerTest {
             e.printStackTrace();
         }
     }
+    /**
+     * 团购转普通订单
+     * @author 王薪蕾
+     * @date 2020/12/6
+     */
+    @Test
+    public void grouponToNormalOrderTest(){
+        String token = createTestToken(1L, 0L, 100);
+        String expectStr = "{\"errno\":0,\"errmsg\":\"成功\"}";
+        try {
+            byte [] responseString = webTestClient.post().uri("/order/orders/29/groupon-normal")
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
 }

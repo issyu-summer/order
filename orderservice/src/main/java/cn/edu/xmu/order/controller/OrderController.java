@@ -217,7 +217,30 @@ public class OrderController {
     public Object confirmOrders(
             @PathVariable("id") Long id,
             @LoginUser Long userId) {
-        return Common.decorateReturnObject(orderService.confirmOrders(id,userId));
+        return Common.getRetObject(orderService.confirmOrders(id,userId));
         //return Common.getNullRetObj()
+    } /**
+     * 团购订单转普通
+     *
+     * @param id 订单ID
+     * @return Object 确认后结果
+     * createdBy 王薪蕾 2020/12/6
+     */
+    @ApiOperation(value = "团购订单转普通", produces = "application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header", dataType = "String", name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType="path", dataType="Long",name="id", value = "订单Id",required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 800, message = "订单状态禁止"),
+            @ApiResponse(code = 0, message = "成功"),
+    })
+    @Audit
+    @PostMapping("/orders/{id}/groupon-normal")
+    public Object grouponToNormalOrders(
+            @PathVariable("id") Long id,
+            @LoginUser Long userId) {
+        return Common.getRetObject(orderService.grouponToNormalOrders(id,userId));
+
     }
 }

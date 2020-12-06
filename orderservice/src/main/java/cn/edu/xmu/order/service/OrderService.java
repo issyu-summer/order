@@ -97,5 +97,14 @@ public class OrderService {
     @Transactional
     public ReturnObject confirmOrders(Long id,Long userId) {
         return orderDao.confirmOrders(id,userId);
+    }    /**
+     * 团购订单转普通
+     *
+     * @author 王薪蕾
+     * created in 2020/12/6
+     */
+    @Transactional
+    public ReturnObject grouponToNormalOrders(Long id,Long userId) {
+        return orderDao.grouponToNormalOrders(id,userId);
     }
 }
