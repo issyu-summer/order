@@ -76,7 +76,7 @@ public class FreightControllerTest {
                 int ret=this.insertFreightModelPo(1L,"test", (byte) 0,
                         (byte) 0,0,"2020-12-01 17:33:10","2020-12-01 17:33:10");
             }
-            //System.out.println(ret);
+            //System.out.println(123ret);
             //???部门Id对应（）???
             String token = createTestToken(1L,0L,100);
 
