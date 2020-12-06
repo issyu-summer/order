@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: cn.xmu.edu.order.dao.OrderDaoTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.375 s <<< FAILURE! - in cn.xmu.edu.order.dao.OrderDaoTest
-getOrderStatesTest  Time elapsed: 0.317 s  <<< ERROR!
-java.lang.ClassCastException: class cn.edu.xmu.order.model.bo.OrderStateBo cannot be cast to class cn.edu.xmu.ooad.util.OrderStateCode (cn.edu.xmu.order.model.bo.OrderStateBo and cn.edu.xmu.ooad.util.OrderStateCode are in unnamed module of loader 'app')
-	at cn.xmu.edu.order.dao.OrderDaoTest.getOrderStatesTest(OrderDaoTest.java:35)
-
