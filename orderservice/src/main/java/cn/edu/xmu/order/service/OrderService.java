@@ -61,7 +61,7 @@ public class OrderService {
         return returnObject;
     }
 
-    /*
+    /**
      * 获取订单完整信息
      * @author 史韬韬
      * created in 2020/12/2
@@ -70,7 +70,7 @@ public class OrderService {
         return orderDao.getOrderById(id);
     }
 
-    /*
+    /**
      *买家修改本人名下订单
      * @parameter id 订单id
      * @author 史韬韬
@@ -78,7 +78,7 @@ public class OrderService {
     public ReturnObject<VoObject> changeOrder(Long id, AdressVo adressVo){
         return orderDao.changeOrder(id,adressVo);
     }
-    /*
+    /**
      * 买家取消、逻辑删除本人名下订单
      * @author 史韬韬
      * created in 2020/12/3

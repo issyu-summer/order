@@ -140,9 +140,6 @@ public class OrderDao {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误："+e.getMessage()));
         }
 
-
-
-
     }
 
     /**
@@ -178,7 +175,7 @@ public class OrderDao {
         return retObj;
     }
 
-    /*
+    /**
      *查询订单完整信息
      * @parameter id 订单id
      * @author 史韬韬
@@ -198,7 +195,7 @@ public class OrderDao {
         }
 
     }
-    /*
+    /**
      *买家修改本人名下订单
      * @parameter id 订单id
      * @author 史韬韬
@@ -223,7 +220,7 @@ public class OrderDao {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
         }
     }
-    /*
+    /**
      * 买家取消、逻辑删除本人名下订单
      * @author 史韬韬
      * created in 2020/12/3
