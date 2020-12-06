@@ -6,22 +6,16 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+/*
+ * @author 史韬韬
+ * @date 2020/12/6
+ * 此类是get order/{id}返回信息的类，如有改动请通知我--史韬韬
+ */
 @Data
 public class OrderRetVo {
     private Long id;
-    @Data
-    class customer {
-        private Long customerId;
-        private String userName;
-        private String realName;
-    }
-    @Data
-    class shop {
-        private Long id;
-        private String name;
-        private LocalDateTime gmtCreateTime;
-        private LocalDateTime gmtModiTime;
-    }
+    public CustomerVo customer=new CustomerVo();
+    public ShopVo shop=new ShopVo();
     private Long pid;
     private Byte orderType;
     private Byte state;
@@ -35,16 +29,6 @@ public class OrderRetVo {
     private Long couponId;
     private Long couponActivityId;
     private Long grouponId;
-    @Data
-    class orderItems {
-        private Long skuId;
-        private Long orderId;
-        private String name;
-        private Long quantity;
-        private Long price;
-        private Long discount;
-        private Long couponId;
-        private Long couponActivityId;
-        private Long beSharedId;
-    }
+
+    public OrderItemVo orderItem=new OrderItemVo();
 }

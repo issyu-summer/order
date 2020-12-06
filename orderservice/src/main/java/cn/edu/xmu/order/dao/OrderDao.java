@@ -182,9 +182,9 @@ public class OrderDao {
 
         logger.debug("getOrderByID: ID =" + id);
         try {
-            OrderPo ordersPo = orderPoMapper.selectByPrimaryKey(id);
-            Order order=new Order(ordersPo);
-            OrderRetVo orderRetVo=order.createVo();
+            OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
+            Order order=new Order(orderPo);
+            OrderRetVo orderRetVo=order.createOrderRetVo();
             return new ReturnObject<>(orderRetVo);
 
         }catch (DataAccessException e){
@@ -203,15 +203,19 @@ public class OrderDao {
         try {
             OrderPo newPo = orderPoMapper.selectByPrimaryKey(id);
             Byte state=newPo.getState();
-            if(state.equals((byte)0)||state.equals((byte)13)||state.equals((byte)14)||state.equals((byte)15)||state.equals((byte)16)||state.equals((byte)17)||state.equals((byte)18)){
-                ReturnObject<VoObject> returnObject=new ReturnObject<VoObject>(ResponseCode.ORDER_STATENOTALLOW,"不能修改此状态的订单");
+            //订单状态为创建订单、待支付或已支付时可以修改地址
+            if(state.equals((byte)2)||state.equals((byte)6)||state.equals((byte)11)){
+                newPo.setAddress(adressVo.getAddress());
+                newPo.setConsignee(adressVo.getConsignee());
+                newPo.setRegionId(adressVo.getRegionId());
+                newPo.setMobile(adressVo.getMobile());
+                orderPoMapper.updateByPrimaryKeySelective(newPo);
+                return new ReturnObject<VoObject>();
+
+            }else {
+                ReturnObject<VoObject> returnObject = new ReturnObject<VoObject>(ResponseCode.ORDER_STATENOTALLOW, "不能修改此状态的订单");
+                return returnObject;
             }
-            newPo.setAddress(adressVo.getAddress());
-            newPo.setConsignee(adressVo.getConsignee());
-            newPo.setRegionId(adressVo.getRegionId());
-            newPo.setMobile(adressVo.getMobile());
-            orderPoMapper.updateByPrimaryKeySelective(newPo);
-            return new ReturnObject<VoObject>();
 
         }catch (DataAccessException e){
             logger.error("changeOrder: DataAccessException:" + e.getMessage());
@@ -221,6 +225,7 @@ public class OrderDao {
     /**
      * 买家取消、逻辑删除本人名下订单
      * @author 史韬韬
+     * @parameter id 订单id
      * created in 2020/12/3
      */
     public ReturnObject<VoObject> deleteOrder(Long id) {
@@ -228,13 +233,16 @@ public class OrderDao {
         try {
             OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
             Byte state = orderPo.getState();
-            //未发货
+            //发货前，订单处于待支付和创建订单状态时可以取消订单
             if (state.equals((byte) 6) || state.equals((byte) 2)) {
                 orderPo.setState((byte) 0);
             }
-            //已发货
-            if (state.equals((byte) 0) || state.equals((byte) 13) || state.equals((byte)18)) {
+            //已完成，订单处于取消0、已退款13、已签收18、订单中止14状态时可以逻辑删除订单
+            else if (state.equals((byte) 0) || state.equals((byte) 13) || state.equals((byte)18)||state.equals((byte)14)) {
                 orderPo.setBeDeleted((byte) 1);
+            }
+            else{
+                return new ReturnObject<VoObject>(ResponseCode.ORDER_STATENOTALLOW,"不能取消或删除此状态的订单");
             }
             return new ReturnObject<VoObject>();
         } catch (DataAccessException e) {

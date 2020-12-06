@@ -164,7 +164,7 @@ public class OrderController {
     @ApiOperation(value = "买家修改本人名下订单")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "header", dataType = "String", name = "authorization", value = "Token", required = true),
-            @ApiImplicitParam(name="id", required = true, dataType="Integer", paramType="path")
+            @ApiImplicitParam(name="addressVo", required = true, dataType="class", paramType="body")
     })
     @ApiResponses({
             @ApiResponse(code = 0, message = "成功")
@@ -190,7 +190,7 @@ public class OrderController {
     @Audit
     @RequestMapping(value="/orders/{id}",method = RequestMethod.DELETE)
     public Object deleteOrder(@PathVariable Long id){
-        return Common.getRetObject(orderService.deleteOrder(id));
+        return Common.decorateReturnObject(orderService.deleteOrder(id));
     }
 
     /**

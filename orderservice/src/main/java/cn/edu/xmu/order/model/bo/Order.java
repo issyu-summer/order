@@ -8,6 +8,10 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+/*
+* @author 史韬韬
+* created in 2020/12/3
+ */
 @Data
 public class Order {
 
@@ -97,7 +101,7 @@ public class Order {
         this.setGrouponId(po.getGrouponId());
     }
 
-    public OrderRetVo createVo(){
+    public OrderRetVo createOrderRetVo(){
         OrderRetVo orderRetVo=new OrderRetVo();
         orderRetVo.setId(id);
         orderRetVo.setConsignee(consignee);
@@ -107,6 +111,12 @@ public class Order {
         orderRetVo.setGmtCreateTime(gmtCreate);
         orderRetVo.setMessage(message);
         orderRetVo.setCouponId(couponId);
+        orderRetVo.setPid(pid);
+        orderRetVo.setState(state);
+        orderRetVo.setOrderType(orderType);
+        orderRetVo.setGrouponId(grouponId);
+        orderRetVo.setSubState(substate);
+
         return  orderRetVo;
     }
 

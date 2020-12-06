@@ -108,30 +108,6 @@ public class OrderControllerTest {
             e.printStackTrace();
         }
     }
-    /*
-    * 查询订单完整信息
-    * @author 史韬韬
-    * @date 2020/12/6
-     */
-    @Test
-    public void getOrderById(){
-        String token = createTestToken(23L,0L,100);
-
-        try{
-            byte [] responseString = webTestClient.get().uri("/order/orders/{id}",1)
-                    .header("authorization",token)
-                    .exchange()
-                    .expectStatus().isOk()
-                    .expectHeader().contentType("application/json;charset=UTF-8")
-                    .expectBody()
-                    .returnResult().getResponseBodyContent();
-            String responseStr = new String(responseString,"UTF-8");
-            System.out.println(responseStr);
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 
     /**
      * 标记确认收货
@@ -178,6 +154,87 @@ public class OrderControllerTest {
             System.out.println(responseStr);
 
         } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+    /*
+     * 查询订单完整信息
+     * @author 史韬韬
+     * @date 2020/12/6
+     */
+    @Test
+    public void getOrderById(){
+        String token = createTestToken(23L,0L,100);
+
+        String expectedResponse="{\"errno\":0,\"data\":{\"id\":1,\"customer\":{\"customerId\":null,\"userName\":null, "+
+                "\"realName\":null},\"shop\":{\"id\":null,\"name\":null,\"gmtCreateTime\":null,\"gmtModiTime\":null},"+
+                "\"pid\":null,\"orderType\":null,\"state\":6,\"subState\":null,\"gmtCreateTime\":\"2020-12-01T09:03:54\",\"originPrice\":null,"+
+                "\"discountPrice\":null,\"freightPrice\":null,\"message\":null,\"consignee\":\"张伟\",\"couponId\":null,\"couponActivityId\":null,\"grouponId\":null,"+
+                "\"orderItem\":{\"skuId\":null,\"orderId\":null,\"name\":null,\"quantity\":null,\"price\":null,\"discount\":null,"+
+                "\"couponId\":null,\"couponActivityId\":null,\"beSharedId\":null}},\"errmsg\":\"成功\"}";
+        try{
+            byte [] responseString = webTestClient.get().uri("/order/orders/{id}",1)
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /*
+     * 买家修改本人名下订单
+     * @author 史韬韬
+     * @date 2020/12/6
+     */
+    @Test
+    public void changeOrder(){
+        String token = createTestToken(23L,0L,100);
+        String adressJson="{\"consignee\":\"张伟\","+
+                "\"regionId\": 123456,\"address\":\"深圳\", \"mobile\":\"112233445566\"}";
+        try{
+            byte [] responseString = webTestClient.put().uri("/order/orders/{id}",1)
+                    .header("authorization",token)
+                    .bodyValue(adressJson)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    /*
+     * 买家取消、逻辑删除本人名下订单
+     * @author 史韬韬
+     * created in 2020/12/6
+     */
+    @Test
+    public void deleteOrder(){
+        String token = createTestToken(23L,0L,100);
+
+        try{
+            byte [] responseString = webTestClient.delete().uri("/order/orders/{id}",1)
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
             e.printStackTrace();
         }
     }
