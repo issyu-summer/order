@@ -22,6 +22,7 @@ The following guides illustrate how to use some features concretely:
 
 # order
 已完成： 1-1、1-2、1-4、1-5、1-6
+
 需要集成其他接口：1-3
 # freight
 已完成：2-3
@@ -29,6 +30,7 @@ The following guides illustrate how to use some features concretely:
 # payment
 已完成：null
 #core
-工具类新增----字符串转LoaclDateTime(TimeFormat类）
+工具类新增----字符串转LoaclDateTime(TimeFormat类)
+
 工具类新增----订单状态枚举类
 
