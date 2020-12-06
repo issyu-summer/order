@@ -21,9 +21,9 @@ The following guides illustrate how to use some features concretely:
 * [Messaging with Redis](https://spring.io/guides/gs/messaging-redis/)
 
 # order
-已完成： 1-1、1-2、1-4、1-5、1-6、1-8、1-9
+已完成： 1-1、1-2、1-4、1-5、1-6、1-7、1-8、1-9、1-11
 
-需要集成其他接口：1-3
+需要集成其他接口：1-3、1-10
 # freight
 已完成：2-3
 需要集成其他接口：

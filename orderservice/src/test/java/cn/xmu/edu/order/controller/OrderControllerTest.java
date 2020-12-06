@@ -164,7 +164,7 @@ public class OrderControllerTest {
      */
     @Test
     public void grouponToNormalOrderTest(){
-        String token = createTestToken(1L, 0L, 100);
+        String token = createTestToken(2L, 0L, 100);
         String expectStr = "{\"errno\":0,\"errmsg\":\"成功\"}";
         try {
             byte [] responseString = webTestClient.post().uri("/order/orders/29/groupon-normal")
