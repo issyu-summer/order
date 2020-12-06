@@ -64,5 +64,15 @@ public class FreightController {
         return Common.getPageRetObject(returnObject);
     }
 
+/**
+ * 管理员定义店铺的运费模板
+ * @author issyu 30320182200070
+ * @date 2020/12/6 11:04
+ */
+    @ApiOperation(value = "管理员定义店铺的运费模板",produces="application/json")
 
+    public Object defineFreightModel(){
+
+        return null;
+    }
 }
