@@ -437,4 +437,33 @@ public class OrderDao {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
         }
     }
+    /**
+     * 店家查询店内订单完整信息(普通，团购，预售)
+     * @author 陈星如
+     * @date 2020/12/5 16:10
+     * @param shopId
+     * @param id
+     **/
+    public ReturnObject getOrderByShopId(Long shopId, Long id) {
+        logger.debug("getOrderByShopID: ID =" + id);
+        logger.debug("getOrderByShopID: ShopID =" + shopId);
+        try {
+            OrderPo ordersPo = orderPoMapper.selectByPrimaryKey(id);
+            Order order = new Order(ordersPo);
+            if (ordersPo == null) {
+                logger.debug("操作的订单id不存在: " + ordersPo.toString());
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+            } else if (!ordersPo.getShopId().equals(shopId)) {
+                System.out.println(shopId);
+                logger.debug("操作的商店id不是自己的对象: " + ordersPo.toString());
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE);
+            }
+            OrderRetVo orderRetVo = order.createOrderRetVo();
+            return new ReturnObject<>(orderRetVo);
+
+        } catch (DataAccessException e) {
+            logger.error("getOrderById: DataAccessException:" + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
+        }
+    }
 }

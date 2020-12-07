@@ -316,10 +316,28 @@ public class OrderController {
         } else {
             return Common.getNullRetObj(new ReturnObject<>(retObject.getCode(), retObject.getErrmsg()), httpServletResponse);
         }
-    }
-    /**
-     * /shops/{shopId}/orders
-     * @author 王子扬 30320182200071
-     * @date  2020/12/5 23:38
+    }    /*
+     * 店家查询店内订单完整信息(普通，团购，预售)
+     * @author 陈星如
+     * @date 2020/12/5 14:55
      */
+    @ApiOperation(value = "店家查询店内订单完整信息(普通，团购，预售)", produces = "application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header", dataType = "String", name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path", dataType = "int", name = "shopId", value = "商户id", required = true),
+            @ApiImplicitParam(paramType = "path", dataType = "int", name = "id", value = "订单id", required = true)
+
+
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0, message = "成功"),
+            @ApiResponse(code = 504, message = "操作id不存在"),
+            @ApiResponse(code = 505, message = "操作的shopId不是自己的对象")
+    })
+    //@Audit
+    @GetMapping("order/shops/{shopId}/orders/{id}")
+    public Object getOrderByShopId(@PathVariable(name="shopId") Long shopId,@PathVariable(name="id") Long id){
+        return Common.decorateReturnObject(orderService.getOrderByShopId(shopId,id));
+
+    }
 }

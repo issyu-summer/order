@@ -139,4 +139,12 @@ public class OrderService {
         ReturnObject<OrderBrief> returnObject = orderDao.updateOrderMessage(shopId,id,message);
         return returnObject;
     }
+    /*
+     * 店家查询店内订单完整信息(普通，团购，预售)
+     * @author 陈星如
+     * @date 2020/12/5 16:10
+     */
+    public ReturnObject<VoObject>  getOrderByShopId(Long shopId, Long id) {
+        System.out.println("ser");return orderDao.getOrderByShopId(shopId,id);
+    }
 }
