@@ -64,7 +64,11 @@ public class FreightControllerTest {
             return ret;
         }
 
-        @Test
+    /**
+     * @author issyu 30320182200070
+     * @date 2020/12/8 2:01
+     */
+    @Test
         public void getFreightModelsInShop(){
 
 
@@ -98,6 +102,37 @@ public class FreightControllerTest {
                 e.printStackTrace();
             }
         }
+
+    /**
+     * @author issyu 30320182200070
+     * @date 2020/12/8 2:03
+     */
+    @Test
+    public void defineFreightModelTest(){
+
+        String token = createTestToken(1L,0L,100);
+
+        /*
+            变动的id如何测试？
+         */
+        String expectedResponse =
+                "{\"errno\":0,\"data\":{\"id\":47,\"name\":\"test-temp\",\"type\":7,\"unit\":15,\"gmtCreate\":\"2020-12-08T02:01:38.135470300\",\"gmtModified\":\"2020-12-08T02:01:38.135470300\",\"default\":true},\"errmsg\":\"成功\"}";
+
+        try{
+            byte [] responseString = webTestClient.post().uri("/freight/shops/1/freightmodels")
+                    .header("authorization",token).bodyValue("{\"name\":\"test-temp\",\"type\":7,\"unit\":15}")
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            JSONAssert.assertEquals(expectedResponse,responseStr,false);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     @Test
     public void postFreightModelsToShop(){
         String token = createTestToken(1L,0L,100);
