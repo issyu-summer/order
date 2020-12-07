@@ -5,15 +5,19 @@ import cn.edu.xmu.freight.model.bo.FreightModelBo;
 import cn.edu.xmu.freight.model.po.FreightModelPo;
 import cn.edu.xmu.freight.model.po.FreightModelPoExample;
 import cn.edu.xmu.freight.model.vo.FreightModelVo;
+import cn.edu.xmu.ooad.annotation.Audit;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.GetMapping;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -69,6 +73,31 @@ public class FreightDao {
         }catch (DataAccessException e){
             return  new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误："+ e.getMessage()));
         }
+    }
+
+    /**
+     * 定义店铺中商品的运费模板
+     * @author issyu 30320182200070
+     * @date 2020/12/8 1:33
+     */
+    public ReturnObject<VoObject> defineFreightModel(FreightModelVo freightModelVo,Long id,Long departId){
+
+        FreightModelPo freightModelPo = freightModelVo.createFreightModePo(Boolean.TRUE,id);
+
+        try{
+            int ret = freightModelPoMapper.insertSelective(freightModelPo);
+            FreightModelBo freightModelBo  = new FreightModelBo(freightModelPo);
+
+            if(ret == 0){
+                return  new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误"));
+            }else{
+                return new ReturnObject<>(freightModelBo);
+            }
+
+        }catch (DataAccessException e){
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库内部错误："+e.getMessage()));
+        }
+
     }
     /**
      * 店家或管理员为店铺定义默认运费模板

@@ -35,4 +35,13 @@ public class FreightService {
         ReturnObject returnObject = freightDao.postFreightModelToShop(userId,shopId,id);
         return returnObject;
     }
+
+    /**
+     * 定义店铺中商品的运费模板
+     * @author issyu 30320182200070
+     * @date 2020/12/8 1:38
+     */
+    public ReturnObject defineFreightModel(FreightModelVo freightModelVo,Long id,Long departId){
+        return freightDao.defineFreightModel(freightModelVo,id,departId);
+    }
 }

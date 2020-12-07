@@ -4,6 +4,7 @@ import cn.edu.xmu.freight.model.bo.FreightModelBo;
 import cn.edu.xmu.freight.model.vo.FreightModelVo;
 import cn.edu.xmu.freight.service.FreightService;
 import cn.edu.xmu.ooad.annotation.Audit;
+import cn.edu.xmu.ooad.annotation.Depart;
 import cn.edu.xmu.ooad.annotation.LoginUser;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.Common;
@@ -13,7 +14,9 @@ import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -64,6 +67,37 @@ public class FreightController {
         ReturnObject<PageInfo<VoObject>> returnObject = freightService.getFreghtModelsInShop(freightModelVo,page,pageSize);
         return Common.getPageRetObject(returnObject);
     }
+
+    /**
+     * 定义店铺中商品的运费模板
+     * @author issyu 30320182200070
+     * @date 2020/12/5 1:33
+     */
+
+    @ApiOperation(value = "定义店铺中商品的运费模板",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "Id", value = "店铺Id", required = true),
+            @ApiImplicitParam(paramType = "body",dataType = "FreightModelVo",name = "freightModelVo", value = "运费模板资料", required = true),
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @PostMapping("/shops/{id}/freightmodels")
+    public Object defineFreightModel(
+            @Depart @ApiIgnore Long departId,
+            @PathVariable("id") Long id,
+            @RequestBody(required = false) FreightModelVo freightModelVo , BindingResult bindingResult){
+        Object returnObject = Common.processFieldErrors(bindingResult,httpServletResponse);
+        if (null != returnObject) {
+            logger.debug("validate fail");
+            return returnObject;
+        }
+
+        return Common.getRetObject(freightService.defineFreightModel(freightModelVo,id,departId));
+    }
+
 
     /**
      * 店家或管理员为店铺定义默认运费模板

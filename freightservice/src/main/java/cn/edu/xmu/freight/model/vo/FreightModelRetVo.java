@@ -16,6 +16,7 @@ public class FreightModelRetVo {
     private Byte type;
     @JsonProperty(value = "default")
     private Boolean isDefault;
+    private Integer unit;
     private String gmtCreate;
     private String gmtModified;
 
@@ -26,6 +27,11 @@ public class FreightModelRetVo {
     }
     */
 
+    /**
+     * @author issyu 30320182200070
+     * @date 2020/12/8 1:44
+     * @param freightModelBo
+     */
     public FreightModelRetVo(FreightModelBo freightModelBo){
         this.setGmtCreate(freightModelBo.getGmtCreate());
         this.setGmtModified(freightModelBo.getGmtModified());
@@ -33,6 +39,7 @@ public class FreightModelRetVo {
         this.setIsDefault(freightModelBo.getIsDefault());
         this.setName(freightModelBo.getName());
         this.setType(freightModelBo.getType());
+        this.setUnit(freightModelBo.getUnit());
     }
 
 }
