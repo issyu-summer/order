@@ -258,31 +258,27 @@ public class OrderDao {
     public ReturnObject<Object> confirmOrders(Long id,Long userId) {
 
         logger.debug("confirmOrder: ID =" + id);
-        OrderPo orig = orderPoMapper.selectByPrimaryKey(id);
-        System.out.println(orig.getOrderSn());
-        Byte no=17;
-        Byte state=18;
+        OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
         ReturnObject<Object> retObj = null;
-        if (orig == null || !orig.getState().equals(no)) {
-            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止" + id));
+        //状态不是到货的无法收货
+        if (orderPo == null || !orderPo.getState().equals((byte) 17)) {
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止：订单id=" + id));
             return retObj;
         }
-        if (orig.getCustomerId()!=userId) {
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("操作资源不是自己的对象" + id));
+        if (orderPo.getCustomerId()!=userId) {
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("操作资源不是自己的对象：订单id=" + id));
             return retObj;
         }
-        Order order = new Order(orig);
-        order.setState(state);
-        OrderPo record=order.getOrderPo();
+        orderPo.setState((byte) 18);
         try {
-            int ret = orderPoMapper.updateByPrimaryKey(record);
+            int ret = orderPoMapper.updateByPrimaryKey(orderPo);
             if (ret == 0) {
                 //确认收货失败
-                logger.debug("confirmOrders: confirm order fail: " + record.toString());
-                retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止" + record.getId()));
+                logger.debug("confirmOrders: confirm order fail: " + orderPo.toString());
+                retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止订单：id=" + orderPo.getId()));
             } else {
                 //确认收货成功
-                logger.debug("confirmOrders: confirm order = " + record.toString());
+                logger.debug("confirmOrders: confirm order = " + orderPo.toString());
                 retObj = new ReturnObject<>(ResponseCode.OK,String.format("成功"));
             }
         } catch (DataAccessException e) {
@@ -291,7 +287,7 @@ public class OrderDao {
         } catch (Exception e) {
             // 其他Exception错误
             logger.error("other exception : " + e.getMessage());
-            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了严重的数据库错误：%s", e.getMessage()));
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
         }
         return retObj;
     }
@@ -303,31 +299,34 @@ public class OrderDao {
     public ReturnObject<Object> grouponToNormalOrders(Long id,Long userId) {
 
         logger.debug("confirmOrder: ID =" + id);
-        OrderPo orig = orderPoMapper.selectByPrimaryKey(id);
-        System.out.println(orig.getOrderSn());
-        Byte no=9;
-        Byte state=11;
+        OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
         ReturnObject<Object> retObj = null;
-        if (orig == null || !orig.getState().equals(no)) {
+        //状态不是未成团就无法转成普通订单
+        if (orderPo == null || !orderPo.getState().equals((byte) 9)) {
             retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止" + id));
             return retObj;
         }
-        if (orig.getCustomerId()!=userId) {
+        if (orderPo.getCustomerId()!=userId) {
             retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("操作资源不是自己的对象" + id));
             return retObj;
         }
-        Order order = new Order(orig);
-        order.setState(state);
-        OrderPo record=order.getOrderPo();
+        //改订单状态
+        orderPo.setState((byte) 11);
+        //改订单类型
+        orderPo.setOrderType((byte)0);
+        //删除团购相关
+        orderPo.setGrouponDiscount(null);
+        orderPo.setGrouponId(null);
+        orderPo.setSubstate(null);
         try {
-            int ret = orderPoMapper.updateByPrimaryKey(record);
+            int ret = orderPoMapper.updateByPrimaryKey(orderPo);
             if (ret == 0) {
-                //确认收货失败
-                logger.debug("confirmOrders: confirm order fail: " + record.toString());
-                retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止" + record.getId()));
+                // 团购转普通
+                logger.debug("confirmOrders: confirm order fail: " + orderPo.toString());
+                retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止" + orderPo.getId()));
             } else {
-                //确认收货成功
-                logger.debug("confirmOrders: confirm order = " + record.toString());
+                // 团购转普通
+                logger.debug("confirmOrders: confirm order = " + orderPo.toString());
                 retObj = new ReturnObject<>(ResponseCode.OK,String.format("成功"));
             }
         } catch (DataAccessException e) {
@@ -336,7 +335,7 @@ public class OrderDao {
         } catch (Exception e) {
             // 其他Exception错误
             logger.error("other exception : " + e.getMessage());
-            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了严重的数据库错误：%s", e.getMessage()));
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
         }
         return retObj;
     }
