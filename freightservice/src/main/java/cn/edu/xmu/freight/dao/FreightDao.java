@@ -70,4 +70,44 @@ public class FreightDao {
             return  new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误："+ e.getMessage()));
         }
     }
+    /**
+     * 店家或管理员为店铺定义默认运费模板
+     * @author 王薪蕾
+     * @date 2020/12/7
+     */
+
+    public ReturnObject<Object> postFreightModelToShop(Long userId,Long shopId,Long id){
+
+        FreightModelPo freightModelPo = freightModelPoMapper.selectByPrimaryKey(id);
+        ReturnObject<Object> retObj = null;
+        //资源不存在
+        if (freightModelPo == null) {
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在：id=" + id));
+            return retObj;
+        }
+        //不是本店铺模板
+        if (freightModelPo.getShopId()!=shopId) {
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + id));
+            return retObj;
+        }
+        //用户无权限，暂无
+        //设为默认
+        freightModelPo.setDefaultModel((byte)1);
+        try {
+            int ret = freightModelPoMapper.updateByPrimaryKey(freightModelPo);
+            if (ret == 0) {
+                //设置失败
+                retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库更新不成功"));
+            } else {
+                //设置成功
+                retObj = new ReturnObject<>(ResponseCode.OK,String.format("成功"));
+            }
+        } catch (DataAccessException e) {
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
+        } catch (Exception e) {
+            // 其他Exception错误
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
+        return retObj;
+    }
 }

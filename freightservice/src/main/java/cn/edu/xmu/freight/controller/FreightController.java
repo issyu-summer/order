@@ -4,6 +4,7 @@ import cn.edu.xmu.freight.model.bo.FreightModelBo;
 import cn.edu.xmu.freight.model.vo.FreightModelVo;
 import cn.edu.xmu.freight.service.FreightService;
 import cn.edu.xmu.ooad.annotation.Audit;
+import cn.edu.xmu.ooad.annotation.LoginUser;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.Common;
 import cn.edu.xmu.ooad.util.ReturnObject;
@@ -64,5 +65,28 @@ public class FreightController {
         return Common.getPageRetObject(returnObject);
     }
 
+    /**
+     * 店家或管理员为店铺定义默认运费模板
+     * @author 王薪蕾
+     * @date 2020/12/7
+     */
+
+    @ApiOperation(value = "店家或管理员为店铺定义默认运费模板",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺Id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "Id", value = "运费模板Id", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @PostMapping("/shops/{shopId}/freight_models/{id}/default")
+    public Object postFreightModelToShop(
+            @LoginUser Long userId,
+            @PathVariable("shopId") Long shopId,
+            @PathVariable("id") Long id){
+        return Common.getRetObject(freightService.postFreightModelToShop(userId,shopId,id));
+    }
 
 }

@@ -25,7 +25,7 @@ The following guides illustrate how to use some features concretely:
 
 需要集成其他接口：1-3、1-10
 # freight
-已完成：2-3
+已完成：2-3、2-8（缺少判断用户权限，暂未写测试类）
 需要集成其他接口：
 # payment
 已完成：null

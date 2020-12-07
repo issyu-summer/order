@@ -23,4 +23,16 @@ public class FreightService {
         ReturnObject returnObject = freightDao.getFreghtModelsInShop(freightModelVo,page,pageSize);
         return returnObject;
     }
+
+    /**
+     * 店家或管理员为店铺定义默认运费模板
+     * @author 王薪蕾
+     * @date 2020/12/7
+     */
+
+    public ReturnObject postFreightModelToShop(Long userId,Long shopId,Long id) {
+
+        ReturnObject returnObject = freightDao.postFreightModelToShop(userId,shopId,id);
+        return returnObject;
+    }
 }

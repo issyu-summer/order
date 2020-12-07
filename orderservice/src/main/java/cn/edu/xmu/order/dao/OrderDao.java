@@ -260,22 +260,29 @@ public class OrderDao {
         logger.debug("confirmOrder: ID =" + id);
         OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
         ReturnObject<Object> retObj = null;
-        //状态不是到货的无法收货
-        if (orderPo == null || !orderPo.getState().equals((byte) 17)) {
-            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止：订单id=" + id));
+        //订单不存在
+        if (orderPo == null){
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单不存在：id=" + id));
             return retObj;
         }
+        //该订单不是此用户订单
         if (orderPo.getCustomerId()!=userId) {
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("操作资源不是自己的对象：订单id=" + id));
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("订单不是自己的对象：id=" + id));
             return retObj;
         }
+        //状态不是到货的无法收货
+        if (!orderPo.getState().equals((byte) 17)) {
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止：id=" + id));
+            return retObj;
+        }
+        //收货
         orderPo.setState((byte) 18);
         try {
             int ret = orderPoMapper.updateByPrimaryKey(orderPo);
             if (ret == 0) {
                 //确认收货失败
                 logger.debug("confirmOrders: confirm order fail: " + orderPo.toString());
-                retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止订单：id=" + orderPo.getId()));
+                retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库更新不成功"));
             } else {
                 //确认收货成功
                 logger.debug("confirmOrders: confirm order = " + orderPo.toString());
@@ -301,17 +308,31 @@ public class OrderDao {
         logger.debug("confirmOrder: ID =" + id);
         OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
         ReturnObject<Object> retObj = null;
-        //状态不是未成团就无法转成普通订单
-        if (orderPo == null || !orderPo.getState().equals((byte) 9)) {
-            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止" + id));
+        //订单不存在
+        if (orderPo == null){
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单不存在：id=" + id));
             return retObj;
         }
+        //该订单不是此用户订单
         if (orderPo.getCustomerId()!=userId) {
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("操作资源不是自己的对象" + id));
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("订单不是自己的对象：id=" + id));
             return retObj;
         }
-        //改订单状态
-        orderPo.setState((byte) 11);
+        //订单不是团购订单
+        if (orderPo.getOrderType()!=(byte)1){
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单不是团购订单：id=" + id));
+            return retObj;
+        }
+        //状态不是已支付
+        if (orderPo.getState() != (byte) 11){
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止：id=" + id));
+            return retObj;
+        }
+        //子状态不是未成团就无法转成普通订单
+        if (!orderPo.getSubstate().equals((byte) 9)) {
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单子状态禁止：id=" + id));
+            return retObj;
+        }
         //改订单类型
         orderPo.setOrderType((byte)0);
         //删除团购相关
@@ -323,7 +344,7 @@ public class OrderDao {
             if (ret == 0) {
                 // 团购转普通
                 logger.debug("confirmOrders: confirm order fail: " + orderPo.toString());
-                retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止" + orderPo.getId()));
+                retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库更新不成功"));
             } else {
                 // 团购转普通
                 logger.debug("confirmOrders: confirm order = " + orderPo.toString());
