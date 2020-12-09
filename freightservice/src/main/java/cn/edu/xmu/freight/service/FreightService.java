@@ -2,8 +2,8 @@ package cn.edu.xmu.freight.service;
 
 import cn.edu.xmu.freight.dao.FreightDao;
 import cn.edu.xmu.freight.model.bo.FreightModelBo;
-import cn.edu.xmu.freight.model.vo.FreightModelVo;
-import cn.edu.xmu.freight.model.vo.WeightModelInfoVo;
+import cn.edu.xmu.freight.model.vo.*;
+import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,5 +62,31 @@ public class FreightService {
 
     public ReturnObject deleteFreightModel(Long shopId, Long id) {
         return freightDao.deleteFreightModel(shopId,id);
+    }
+    /*
+     * 管理员克隆店铺的运费模板
+     * @author 史韬韬
+     * @parameter shopId 店铺id
+     * @parameter id 运费模板id
+     */
+    public ReturnObject<FreightModelRetVo> cloneFreightModel(Long id, Long shopId){
+        return freightDao.cloneFreightModel(id,shopId);
+    }
+
+    /*
+     * 获得运费模板概要
+     * @author 史韬韬
+     * @parameter id 运费模板id
+     */
+    public ReturnObject<FreightModelSimpleInfoRetVo> getFreightModelSimpleInfo(Long id){
+        return  freightDao.getFreightModelSimpleInfo(id);
+    }
+    /*
+     * 管理员修改店铺运费模板
+     * @author 史韬韬
+     * created in 2020/12/7
+     */
+    public ReturnObject<VoObject> changeFreightModel(Long id, Long shopId, FreightModelInfoVo freightModelInfoVo){
+        return freightDao.chanegFreightModel(id,shopId,freightModelInfoVo);
     }
 }

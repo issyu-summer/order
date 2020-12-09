@@ -168,4 +168,76 @@ public class FreightControllerTest {
             e.printStackTrace();
         }
     }
+    /*
+     * @author 史韬韬
+     * @date 202012/8
+     * 获取运费模板概要
+     */
+    @Test
+    public void getFreightModelSimpleInfo(){
+        String token = createTestToken(1L,0L,100);
+        String expectedResponse;
+        try{
+            byte [] responseString = webTestClient.get().uri("/freight/freightmodels/{id}",2,1)
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    /*
+     * @author 史韬韬
+     * @Date 2020/12/9
+     * 管理员修改运费模板
+     */
+    @Test
+    public void changeFreightModel(){
+        String token = createTestToken(1L,0L,100);
+        String infoString="{\"name\":\"test\",\"unit\":500}";
+        try{
+            byte [] responseString = webTestClient.put().uri("/freight/shops/{shopId}/freightmodels/{id}",2,1)
+                    .header("authorization",token)
+                    .bodyValue(infoString)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    /*
+     * @author 史韬韬
+     * @Date 2020/12/9
+     * 管理员克隆运费模板（此测试未通过，应该是数据库查询的问题，我之后再修改一下）
+     */
+    @Test
+    public void cloneFreightModel(){
+        String token = createTestToken(1L,0L,100);
+        try{
+            byte [] responseString = webTestClient.post().uri("/freight/shops/{shopId}/freightmodels/{id}/clone",2,1)
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

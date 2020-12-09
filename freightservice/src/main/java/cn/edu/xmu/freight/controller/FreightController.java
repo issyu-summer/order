@@ -1,6 +1,8 @@
 package cn.edu.xmu.freight.controller;
 
 import cn.edu.xmu.freight.model.bo.FreightModelBo;
+import cn.edu.xmu.freight.model.vo.FreightModelInfoVo;
+import cn.edu.xmu.freight.model.vo.FreightModelRetVo;
 import cn.edu.xmu.freight.model.vo.FreightModelVo;
 import cn.edu.xmu.freight.model.vo.WeightModelInfoVo;
 import cn.edu.xmu.freight.service.FreightService;
@@ -175,5 +177,73 @@ public class FreightController {
             @PathVariable("id") Long id
     ){
         return Common.decorateReturnObject(freightService.deleteFreightModel(shopId,id));
+    }
+    /*
+     * 管理员克隆店铺的运费模板
+     * @author 史韬韬
+     * @parameter shopId 店铺id
+     * @parameter id 运费模板id
+     * created in 2020/12/7
+     * 此api的测试用例暂时没跑通，应该是数据库查询的问题，我之后再修改
+     */
+    @ApiOperation(value = "管理员克隆店铺的运费模板",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "Long",name = "id", value = "运费模板id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "Long",name = "shopId", value = "店铺Id", required = true),
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @PostMapping("/shops/{shopId}/freightmodels/{id}/clone")
+    public Object cloneFreightModel(@PathVariable Long id,@PathVariable Long shopId) {
+        ReturnObject<FreightModelRetVo> retVoReturnObject = freightService.cloneFreightModel(id, shopId);
+        return Common.decorateReturnObject(retVoReturnObject);
+    }
+
+    /*
+     * 获得运费模板概要
+     * @author 史韬韬
+     * @parameter id 运费模板id
+     * created in 2020/12/7
+     */
+    @ApiOperation(value = "获得运费模板概要",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "Long",name = "id", value = "运费模板id", required = true),
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @GetMapping("/freightmodels/{id}")
+    public Object getFreightModelSimpleInfo(@PathVariable Long id){
+        return Common.decorateReturnObject(freightService.getFreightModelSimpleInfo(id));
+    }
+
+    /*
+     * 管理员修改店铺运费模板
+     * @author 史韬韬
+     * @parameter id 运费模板id
+     * @parameter shopId 商铺id
+     * @parameter freightModelVo 修改的信息
+     * created in 2020/12/7
+     */
+    @ApiOperation(value = "获得运费模板概要",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "Long",name = "id", value = "运费模板id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "Long",name = "shopId", value = "商铺id", required = true),
+            @ApiImplicitParam(paramType = "body",dataType = "object",name = "freightModelInfoVo", value = "运费模板信息", required = true),
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @PutMapping("/shops/{shopId}/freightmodels/{id}")
+    public Object changeFreightModel(@PathVariable Long id, @PathVariable Long shopId, @RequestBody FreightModelInfoVo freightModelInfoVo){
+
+        return Common.decorateReturnObject(freightService.changeFreightModel(id,shopId,freightModelInfoVo));
     }
 }

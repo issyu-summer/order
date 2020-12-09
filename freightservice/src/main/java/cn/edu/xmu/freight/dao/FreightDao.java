@@ -1,16 +1,11 @@
 package cn.edu.xmu.freight.dao;
 
 import cn.edu.xmu.freight.mapper.FreightModelPoMapper;
+import cn.edu.xmu.freight.mapper.PieceFreightModelPoMapper;
 import cn.edu.xmu.freight.mapper.WeightFreightModelPoMapper;
-import cn.edu.xmu.freight.model.bo.FreightModelBo;
-import cn.edu.xmu.freight.model.bo.WeightModelInfoBo;
-import cn.edu.xmu.freight.model.po.FreightModelPo;
-import cn.edu.xmu.freight.model.po.FreightModelPoExample;
-import cn.edu.xmu.freight.model.po.WeightFreightModelPo;
-import cn.edu.xmu.freight.model.po.WeightFreightModelPoExample;
-import cn.edu.xmu.freight.model.vo.FreightModelVo;
-import cn.edu.xmu.freight.model.vo.WeightModelInfoRetVo;
-import cn.edu.xmu.freight.model.vo.WeightModelInfoVo;
+import cn.edu.xmu.freight.model.bo.*;
+import cn.edu.xmu.freight.model.po.*;
+import cn.edu.xmu.freight.model.vo.*;
 import cn.edu.xmu.ooad.annotation.Audit;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.ResponseCode;
@@ -39,6 +34,8 @@ public class FreightDao {
     private FreightModelPoMapper freightModelPoMapper;
     @Autowired
     private WeightFreightModelPoMapper weightFreightModelPoMapper;
+    @Autowired
+    private PieceFreightModelPoMapper pieceFreightModelPoMapper;
 
     /**
      * 获取店铺中商品的运费模板
@@ -251,5 +248,86 @@ public class FreightDao {
         }catch (Exception e){
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
         }
+    }
+    /*
+     * 管理员克隆店铺的运费模板
+     * @author 史韬韬
+     * @parameter shopId 店铺id
+     * @parameter id 运费模板id
+     */
+    public ReturnObject<FreightModelRetVo> cloneFreightModel(Long shopId, Long id){
+
+        try{
+            FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(id);
+            FreightModelBo freightModelBo=new FreightModelBo(freightModelPo);
+            FreightModelPo freightModelPo1=freightModelBo.createClonePo(shopId);
+            freightModelPoMapper.insertSelective(freightModelPo1);
+            Long freightModelId=freightModelPo1.getId();
+            if(freightModelPo.getType().equals((byte) 0)){
+                WeightFreightModelPoExample weightFreightModelPoExample= new WeightFreightModelPoExample();
+                WeightFreightModelPoExample.Criteria criteria=weightFreightModelPoExample.createCriteria();
+                criteria.andFreightModelIdEqualTo(id);
+                List<WeightFreightModelPo> weightFreightModelPoList=weightFreightModelPoMapper.selectByExample(weightFreightModelPoExample);
+                WeightFreightModelPo weightFreightModelPo=weightFreightModelPoList.get(0);
+                WeightFreightModelBo weightFreightModelBo=new WeightFreightModelBo(weightFreightModelPo);
+                WeightFreightModelPo weightFreightModelPo1=weightFreightModelBo.createClonePo(shopId);
+                weightFreightModelPo1.setFreightModelId(freightModelId);
+                weightFreightModelPoMapper.insertSelective(weightFreightModelPo1);
+            }
+            else{
+                PieceFreightModelPoExample pieceFreightModelPoExample= new PieceFreightModelPoExample();
+                PieceFreightModelPoExample.Criteria criteria=pieceFreightModelPoExample.createCriteria();
+                criteria.andFreightModelIdEqualTo(id);
+                List<PieceFreightModelPo> pieceFreightModelPoList=pieceFreightModelPoMapper.selectByExample(pieceFreightModelPoExample);
+                PieceFreightModelPo pieceFreightModelPo=pieceFreightModelPoList.get(0);
+                PieceFreightModelBo pieceFreightModelBo=new PieceFreightModelBo(pieceFreightModelPo);
+                PieceFreightModelPo pieceFreightModelPo1= pieceFreightModelBo.createClonePo();
+                pieceFreightModelPo1.setFreightModelId(freightModelId);
+                pieceFreightModelPoMapper.insertSelective(pieceFreightModelPo1);
+            }
+            FreightModelBo freightModelBo1=new FreightModelBo(freightModelPo1);
+            FreightModelRetVo freightModelRetVo=new FreightModelRetVo(freightModelBo1);
+            return new ReturnObject<FreightModelRetVo>(freightModelRetVo);
+        }catch (DataAccessException e){
+            return  new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误："+ e.getMessage()));
+        }
+
+    }
+
+    /*
+     * 获得运费模板概要
+     * @author 史韬韬
+     * @parameter id 运费模板id
+     */
+    public ReturnObject<FreightModelSimpleInfoRetVo> getFreightModelSimpleInfo(Long id){
+        try {
+            FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(id);
+            FreightModelSimpleInfoBo freightModelSimpleInfoBo=new FreightModelSimpleInfoBo(freightModelPo);
+            FreightModelSimpleInfoRetVo freightModelSimpleInfoRetVo=freightModelSimpleInfoBo.createfreightModelSimpleInfoRetVo();
+            return new ReturnObject<>(freightModelSimpleInfoRetVo);
+        }
+        catch (DataAccessException e){
+            return  new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误："+ e.getMessage()));
+        }
+    }
+
+    /*
+     * 管理员修改店铺运费模板
+     * @author 史韬韬
+     * created in 2020/12/7
+     */
+    public ReturnObject<VoObject> chanegFreightModel(Long id, Long shopId, FreightModelInfoVo freightModelInfoVo){
+        try {
+            FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(id);
+            freightModelPo.setName(freightModelInfoVo.getName());
+            freightModelPo.setUnit(freightModelInfoVo.getUnit());
+            freightModelPo.setShopId(shopId);
+            freightModelPoMapper.updateByPrimaryKeySelective(freightModelPo);
+            return new ReturnObject<VoObject>();
+        }
+        catch (DataAccessException e){
+            return  new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误："+ e.getMessage()));
+        }
+
     }
 }
