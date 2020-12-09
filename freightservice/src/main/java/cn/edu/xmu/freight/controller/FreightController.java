@@ -1,10 +1,7 @@
 package cn.edu.xmu.freight.controller;
 
 import cn.edu.xmu.freight.model.bo.FreightModelBo;
-import cn.edu.xmu.freight.model.vo.FreightModelInfoVo;
-import cn.edu.xmu.freight.model.vo.FreightModelRetVo;
-import cn.edu.xmu.freight.model.vo.FreightModelVo;
-import cn.edu.xmu.freight.model.vo.WeightModelInfoVo;
+import cn.edu.xmu.freight.model.vo.*;
 import cn.edu.xmu.freight.service.FreightService;
 import cn.edu.xmu.ooad.annotation.Audit;
 import cn.edu.xmu.ooad.annotation.Depart;
@@ -245,5 +242,32 @@ public class FreightController {
     public Object changeFreightModel(@PathVariable Long id, @PathVariable Long shopId, @RequestBody FreightModelInfoVo freightModelInfoVo){
 
         return Common.decorateReturnObject(freightService.changeFreightModel(id,shopId,freightModelInfoVo));
+    }
+    /*
+     * 管理员定义件数模板明细
+     * @author 陈星如
+     * @date 2020/12/9 9:13
+     */
+
+
+    @ApiOperation(value = "管理员定义件数模板明细",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺Id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "id", value = "运费模板Id", required = true),
+            @ApiImplicitParam(paramType = "body", dataType = "class", name = "vo", value = "运费模板资料", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功"),
+            @ApiResponse(code = 803,message = "运费模板中该地区已经定义")
+    })
+    @Audit
+    @PostMapping("/shops/{shopId}/freightmodels/{id}/pieceItems")
+    public Object postPieceItems(
+            @LoginUser Long userId,
+            @PathVariable("shopId") Long shopId,
+            @PathVariable("id") Long id,
+            @RequestBody PieceModelInfoVo vo
+    ){
+        return Common.decorateReturnObject(freightService.postPieceItems(vo,shopId,id));
     }
 }

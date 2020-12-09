@@ -240,4 +240,34 @@ public class FreightControllerTest {
             e.printStackTrace();
         }
     }
+    /**
+     * 店家或管理员查询运费模板明细
+     * @author 陈星如
+     * @date 2020/12/8 13:33
+     */
+    /*
+     * 管理员定义件数模板明细
+     * @author 陈星如
+     * @date 2020/12/9 9:13
+     */
+    @Test
+    public void postPieceItems(){
+        String token = createTestToken(1L,0L,100);
+
+        String adressJson="{\"regionId\":0,\"firstItem\":0,\"firstItemPrice\":0,\"additionalItems\":0,\"additionalItemsPrice\":0}";
+        try{
+            byte [] responseString = webTestClient.post().uri("/freight/shops/9/freightmodels/4/pieceItems")
+                    .header("authorization",token)
+                    .bodyValue(adressJson)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

@@ -316,7 +316,8 @@ public class OrderController {
         } else {
             return Common.getNullRetObj(new ReturnObject<>(retObject.getCode(), retObject.getErrmsg()), httpServletResponse);
         }
-    }    /*
+    }
+    /*
      * 店家查询店内订单完整信息(普通，团购，预售)
      * @author 陈星如
      * @date 2020/12/5 14:55

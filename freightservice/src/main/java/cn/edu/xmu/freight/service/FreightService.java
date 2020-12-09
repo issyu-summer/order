@@ -9,6 +9,8 @@ import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
+
 /**
  * @author issyu 30320182200070
  * @date 2020/12/5 1:24
@@ -88,5 +90,15 @@ public class FreightService {
      */
     public ReturnObject<VoObject> changeFreightModel(Long id, Long shopId, FreightModelInfoVo freightModelInfoVo){
         return freightDao.chanegFreightModel(id,shopId,freightModelInfoVo);
+    }
+
+    /*
+     * 管理员定义件数模板明细
+     * @author 陈星如
+     * @date 2020/12/9 9:13
+     */
+    public ReturnObject postPieceItems(PieceModelInfoVo vo, Long shopId, Long id) {
+        ReturnObject returnObject = freightDao.postPieceItems(vo,shopId,id);
+        return returnObject;
     }
 }

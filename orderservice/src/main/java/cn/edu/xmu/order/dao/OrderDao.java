@@ -451,10 +451,9 @@ public class OrderDao {
             OrderPo ordersPo = orderPoMapper.selectByPrimaryKey(id);
             Order order = new Order(ordersPo);
             if (ordersPo == null) {
-                logger.debug("操作的订单id不存在: " + ordersPo.toString());
+                logger.debug("操作的订单id不存在:");
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
             } else if (!ordersPo.getShopId().equals(shopId)) {
-                System.out.println(shopId);
                 logger.debug("操作的商店id不是自己的对象: " + ordersPo.toString());
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE);
             }
