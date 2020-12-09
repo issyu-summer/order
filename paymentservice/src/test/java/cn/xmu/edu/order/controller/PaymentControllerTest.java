@@ -64,6 +64,11 @@ public class PaymentControllerTest {
             e.printStackTrace();
         }
     }
+    /**
+     * 管理员查询售后单的支付信息
+     * @author 王薪蕾
+     * @date 2020/12/9
+     */
     @Test
     public void getShopAfterSalesPayments(){
         String token = createTestToken(23L,0L,100);

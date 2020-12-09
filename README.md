@@ -21,15 +21,15 @@ The following guides illustrate how to use some features concretely:
 * [Messaging with Redis](https://spring.io/guides/gs/messaging-redis/)
 
 # order
-已完成： 1-1、1-2、1-4、1-5、1-6、1-7、1-8、1-9、1-11
+已完成： 1-1、1-2、1-4、1-5、1-6、1-7、1-8、1-9、1-10、1-11
 
-需要集成其他接口：1-3、1-10
+需要集成其他接口：1-3、1-10（原1-10已删除，根据API 1.0.15版本）
 # freight
-已完成：2-2、2-3、2-7、2-8（缺少判断用户权限）、2-9
+已完成：2-2、2-3、2-7、2-8、2-9、2-11
 
 需要集成其他接口：2-7（商品模块）
 # payment
-已完成：3-7
+已完成：3-7、3-8
 #core
 工具类新增----字符串转LoaclDateTime(TimeFormat类)
 
