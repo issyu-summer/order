@@ -2,7 +2,9 @@ package cn.edu.xmu.freight.service;
 
 import cn.edu.xmu.freight.dao.FreightDao;
 import cn.edu.xmu.freight.model.bo.FreightModelBo;
+import cn.edu.xmu.freight.model.bo.WeightModelInfoBo;
 import cn.edu.xmu.freight.model.vo.FreightModelVo;
+import cn.edu.xmu.freight.model.vo.WeightModelInfoVo;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,15 @@ public class FreightService {
     public ReturnObject postFreightModelToShop(Long userId,Long shopId,Long id) {
 
         ReturnObject returnObject = freightDao.postFreightModelToShop(userId,shopId,id);
+        return returnObject;
+    }
+    /**
+     * 管理员定义重量模板明细
+     * @author 王薪蕾
+     * @date 2020/12/8
+     */
+    public ReturnObject postWeightItems(WeightModelInfoVo vo, Long shopId, Long id) {
+        ReturnObject returnObject = freightDao.postWeightItems(vo,shopId,id);
         return returnObject;
     }
 }

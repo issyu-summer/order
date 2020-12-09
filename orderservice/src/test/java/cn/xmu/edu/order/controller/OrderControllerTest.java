@@ -236,7 +236,7 @@ public class OrderControllerTest {
      * @date 2020/12/5 14:55
      */
     @Test
-    public void deleteOrderShopTest(){
+    public void getOrderByShopIdTest(){
         String token = createTestToken(23L,0L,100);
 
         try{

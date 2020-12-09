@@ -335,7 +335,7 @@ public class OrderController {
             @ApiResponse(code = 505, message = "操作的shopId不是自己的对象")
     })
     //@Audit
-    @GetMapping("order/shops/{shopId}/orders/{id}")
+    @GetMapping("/shops/{shopId}/orders/{id}")
     public Object getOrderByShopId(@PathVariable(name="shopId") Long shopId,@PathVariable(name="id") Long id){
         return Common.decorateReturnObject(orderService.getOrderByShopId(shopId,id));
 
