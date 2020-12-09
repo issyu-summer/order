@@ -98,43 +98,12 @@ public class FreightControllerTest {
                 e.printStackTrace();
             }
         }
-
-
-    /**
-     * 店家或管理员为店铺定义默认运费模板
-     * @author 王薪蕾
-     * @date 2020/12/7
-     */
     @Test
     public void postFreightModelsToShop(){
         String token = createTestToken(1L,0L,100);
         try{
             byte [] responseString = webTestClient.post().uri("/freight/shops/2/freight_models/1/default")
                     .header("authorization",token)
-                    .exchange()
-                    .expectStatus().isOk()
-                    .expectHeader().contentType("application/json;charset=UTF-8")
-                    .expectBody()
-                    .returnResult().getResponseBodyContent();
-            String responseStr = new String(responseString,"UTF-8");
-            System.out.println(responseStr);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }    /**
-     * 管理员定义重量运费明细
-     * @author 王薪蕾
-     * @date 2020/12/9
-     */
-    @Test
-    public void postWeightItemsTest(){
-        String token = createTestToken(1L,0L,100);
-        String adressJson="{\"firstWeight\":0,\"firstWeightFreight\":0,\"tenPrice\"" +
-                ":0,\"fiftyPrice\":0,\"hundredPrice\":0,\"trihunPrice\":0,\"abovePrice\":0,\"regionId\":0}";
-        try{
-            byte [] responseString = webTestClient.post().uri("/freight/shops/1/freight_models/1/weightItems")
-                    .header("authorization",token)
-                    .bodyValue(adressJson)
                     .exchange()
                     .expectStatus().isOk()
                     .expectHeader().contentType("application/json;charset=UTF-8")
