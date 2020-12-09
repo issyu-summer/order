@@ -48,17 +48,35 @@ public class PaymentControllerTest {
      */
     @Test
     public void getAfterSalesPayments(){
+        //根据数据库aftersaleId不存在返回售后单
+        String token = createTestToken(2L,0L,100);
+        try{
+            byte [] responseString = webTestClient.get().uri("/payment/aftersales/2/payments")
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void getShopAfterSalesPayments(){
         String token = createTestToken(23L,0L,100);
         try{
-                    byte [] responseString = webTestClient.get().uri("/payment/aftersales/1/payments")
-                                                .header("authorization",token)
-                                                .exchange()
-                                                .expectStatus().isOk()
-                                                .expectHeader().contentType("application/json;charset=UTF-8")
-                                                .expectBody()
-                                                .returnResult().getResponseBodyContent();
-                    String responseStr = new String(responseString,"UTF-8");
-                    System.out.println(responseStr);
+            byte [] responseString = webTestClient.get().uri("/payment/shops/2/aftersales/2/payments")
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
         }catch (Exception e){
             e.printStackTrace();
         }

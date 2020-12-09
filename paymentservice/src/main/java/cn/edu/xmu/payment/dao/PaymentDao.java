@@ -2,6 +2,8 @@ package cn.edu.xmu.payment.dao;
 
 import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
+import cn.edu.xmu.order.mapper.OrderPoMapper;
+import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.payment.mapper.PaymentPoMapper;
 import cn.edu.xmu.payment.mapper.RefundPoMapper;
 import cn.edu.xmu.payment.model.po.PaymentPo;
@@ -15,27 +17,78 @@ import java.util.List;
 
 @Repository
 public class PaymentDao {
+
+    @Autowired
+    private PaymentPoMapper paymentPoMapper;
+    @Autowired
+    private OrderPoMapper orderPoMapper;
+
     /**
      * 买家查询自己售后单的支付信息
      * @author 王薪蕾
      * @date 2020/12/9
      */
 
-    @Autowired
-    private PaymentPoMapper paymentPoMapper;
-
     public ReturnObject getAfterSalesPayments(Long userId, Long id) {
 
         ReturnObject<Object> retObj = null;
+        try {
+            //获得afterSaleId=id的支付单
+            PaymentPoExample paymentPoExample=new PaymentPoExample();
+            PaymentPoExample.Criteria criteria=paymentPoExample.createCriteria();
+            criteria.andAftersaleIdEqualTo(id);
+            if (criteria.isValid()){
+                List<PaymentPo> paymentPos=paymentPoMapper.selectByExample(paymentPoExample);
+                for (PaymentPo po : paymentPos) {
+                    //通过收货单orderId找到订单
+                    OrderPo orderPo=orderPoMapper.selectByPrimaryKey(po.getOrderId());
+                    //如果此订单是本人的
+                    if(orderPo.getCustomerId().equals(userId)){
+                        PaymentVo paymentVo=new PaymentVo(po);
+                        return new ReturnObject<>(paymentVo);
+                    }
+                    else {
+                        return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE);
+
+                    }
+                }
+            }
+            //空
+            else{
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST,String.format("操作资源不存在"));
+            }
+        } catch (DataAccessException e) {
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
+        } catch (Exception e) {
+            // 其他Exception错误
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
+        return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+    } /**
+     * 管理员查询自己售后单的支付信息
+     * @author 王薪蕾
+     * @date 2020/12/9
+     */
+
+    public ReturnObject getAfterSalesPayments(Long userId,Long shopId, Long id) {
+
         try {
             PaymentPoExample paymentPoExample=new PaymentPoExample();
             PaymentPoExample.Criteria criteria=paymentPoExample.createCriteria();
             criteria.andAftersaleIdEqualTo(id);
             List<PaymentPo> paymentPos=paymentPoMapper.selectByExample(paymentPoExample);
-            if (!paymentPos.isEmpty()){
+            if (criteria.isValid()){
                 for (PaymentPo po : paymentPos) {
-                    PaymentVo paymentVo=new PaymentVo(po);
-                    return new ReturnObject<>(paymentVo);
+                    //通过收货单orderId找到订单
+                    OrderPo orderPo=orderPoMapper.selectByPrimaryKey(po.getOrderId());
+                    //如果此订单是本店铺的
+                    if(orderPo.getShopId().equals(shopId)){
+                        PaymentVo paymentVo=new PaymentVo(po);
+                        return new ReturnObject<>(paymentVo);
+                    }
+                    else {
+                        return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE);
+                    }
                 }
             }
             else{
@@ -47,6 +100,6 @@ public class PaymentDao {
             // 其他Exception错误
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
         }
-        return retObj;
+        return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
     }
 }

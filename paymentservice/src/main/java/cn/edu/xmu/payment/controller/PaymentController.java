@@ -41,4 +41,26 @@ public class PaymentController {
             @LoginUser Long userId){
         return Common.decorateReturnObject(paymentService.getAfterSalesPayments(userId,id));
     }
+    /**
+     * 管理员查询售后单的支付信息
+     * @author 王薪蕾
+     * @date 2020/12/9
+     */
+    @ApiOperation(value = "管理员查询售后单的支付信息",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header", dataType = "String", name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType="path", dataType="Long",name="shopId", value = "店铺Id",required = true),
+            @ApiImplicitParam(paramType="path", dataType="Long",name="id", value = "售后单Id",required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @GetMapping("/shops/{shopId}/aftersales/{id}/payments")
+    public Object getAfterSalesPayments(
+            @PathVariable("shopId") Long shopId,
+            @PathVariable("id") Long id,
+            @LoginUser Long userId){
+        return Common.decorateReturnObject(paymentService.getAfterSalesPayments(userId,shopId,id));
+    }
 }

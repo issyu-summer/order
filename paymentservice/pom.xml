@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>cn.edu.xmu.payment</groupId>
     <artifactId>paymentservice</artifactId>
     <packaging>jar</packaging>
 
@@ -16,6 +17,10 @@
         <dependency>
             <groupId>cn.edu.xmu.ooad</groupId>
             <artifactId>core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.edu.xmu.order</groupId>
+            <artifactId>orderservice</artifactId>
         </dependency>
 
         <dependency>

@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>cn.edu.xmu.order</groupId>
     <artifactId>orderservice</artifactId>
     <packaging>jar</packaging>
 

@@ -34,6 +34,11 @@
                 <artifactId>core</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.edu.xmu.order</groupId>
+                <artifactId>orderservice</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.projectlombok</groupId>

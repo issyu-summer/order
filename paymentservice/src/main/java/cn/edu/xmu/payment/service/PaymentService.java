@@ -19,4 +19,13 @@ public class PaymentService {
         ReturnObject returnObject = paymentDao.getAfterSalesPayments(userId,id);
         return returnObject;
     }
+    /**
+     * 管理员查询自己售后单的支付信息
+     * @author 王薪蕾
+     * @date 2020/12/9
+     */
+    public ReturnObject getAfterSalesPayments(Long userId,Long shopId, Long id) {
+        ReturnObject returnObject = paymentDao.getAfterSalesPayments(userId,shopId,id);
+        return returnObject;
+    }
 }
