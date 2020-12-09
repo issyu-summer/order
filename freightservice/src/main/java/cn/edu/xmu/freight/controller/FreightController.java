@@ -2,6 +2,7 @@ package cn.edu.xmu.freight.controller;
 
 import cn.edu.xmu.freight.model.bo.FreightModelBo;
 import cn.edu.xmu.freight.model.vo.FreightModelVo;
+import cn.edu.xmu.freight.model.vo.WeightModelInfoVo;
 import cn.edu.xmu.freight.service.FreightService;
 import cn.edu.xmu.ooad.annotation.Audit;
 import cn.edu.xmu.ooad.annotation.Depart;
@@ -122,5 +123,31 @@ public class FreightController {
             @PathVariable("id") Long id){
         return Common.getRetObject(freightService.postFreightModelToShop(userId,shopId,id));
     }
+    /**
+     * 管理员定义重量模板明细
+     * @author 王薪蕾
+     * @date 2020/12/8
+     */
 
+    @ApiOperation(value = "管理员定义重量模板明细",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺Id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "id", value = "运费模板Id", required = true),
+            @ApiImplicitParam(paramType = "body", dataType = "class", name = "vo", value = "运费模板明细", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功"),
+            @ApiResponse(code = 803,message = "运费模板中该地区已经定义")
+    })
+    @Audit
+    @PostMapping("/shops/{shopId}/freight_models/{id}/weightItems")
+    public Object postWeightItems(
+            @LoginUser Long userId,
+            @PathVariable("shopId") Long shopId,
+            @PathVariable("id") Long id,
+            @RequestBody WeightModelInfoVo vo
+    ){
+        return Common.decorateReturnObject(freightService.postWeightItems(vo,shopId,id));
+    }
 }
