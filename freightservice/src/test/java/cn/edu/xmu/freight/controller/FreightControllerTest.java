@@ -145,5 +145,27 @@ public class FreightControllerTest {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }/**
+     *
+     * 删除运费模板
+     * @author 王薪蕾
+     * @date 2020/12/9
+     **/
+    @Test
+    public void deleteFreightModel(){
+        String token = createTestToken(1L,0L,100);
+        try{
+            byte [] responseString = webTestClient.delete().uri("/freight/shops/1/freightmodels/1")
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

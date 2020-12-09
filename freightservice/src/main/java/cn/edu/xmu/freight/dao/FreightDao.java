@@ -208,4 +208,48 @@ public class FreightDao {
         }
         return retObj;
     }
+
+    /**
+     * 管理员删除运费模板
+     * @author 王薪蕾
+     * @date 2020/12/9
+     */
+    public ReturnObject deleteFreightModel(Long shopId, Long id) {
+        try{
+            FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(id);
+            //运费模板不存在
+            if(freightModelPo==null){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
+            }
+            //运费模板不是本店铺的
+            if(freightModelPo.getId()!=shopId){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
+            }
+            //未实现级联删除与商品关联的
+            //获得数据库中此运费模板的所有明细,删除之
+            WeightFreightModelPoExample weightFreightModelPoExample=new WeightFreightModelPoExample();
+            WeightFreightModelPoExample.Criteria criteria=weightFreightModelPoExample.createCriteria();
+            criteria.andFreightModelIdEqualTo(id);
+            List<WeightFreightModelPo> weightFreightPos = weightFreightModelPoMapper.selectByExample(weightFreightModelPoExample);
+            if (!weightFreightPos.isEmpty()){
+                for (WeightFreightModelPo po : weightFreightPos) {
+                    weightFreightModelPoMapper.deleteByPrimaryKey(po.getId());
+                    }
+                }
+
+            //删除运费模板
+            int ret=freightModelPoMapper.deleteByPrimaryKey(id);
+            if(ret==0)
+            {
+                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误"));
+            }
+            else {
+                return new ReturnObject<>();
+            }
+        }catch (DataAccessException e){
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误:删除失败"));
+        }catch (Exception e){
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
+    }
 }

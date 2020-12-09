@@ -25,8 +25,9 @@ The following guides illustrate how to use some features concretely:
 
 需要集成其他接口：1-3、1-10
 # freight
-已完成：2-2、2-3、2-8（缺少判断用户权限）
-需要集成其他接口：
+已完成：2-2、2-3、2-7、2-8（缺少判断用户权限）、2-9
+
+需要集成其他接口：2-7（商品模块）
 # payment
 已完成：null
 #core

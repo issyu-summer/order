@@ -54,4 +54,13 @@ public class FreightService {
         ReturnObject returnObject = freightDao.postWeightItems(vo,shopId,id);
         return returnObject;
     }
+    /**
+     * 管理员删除运费模板
+     * @author 王薪蕾
+     * @date 2020/12/9
+     */
+
+    public ReturnObject deleteFreightModel(Long shopId, Long id) {
+        return freightDao.deleteFreightModel(shopId,id);
+    }
 }

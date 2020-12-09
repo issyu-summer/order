@@ -150,4 +150,30 @@ public class FreightController {
     ){
         return Common.decorateReturnObject(freightService.postWeightItems(vo,shopId,id));
     }
+    /**
+     * 管理员删除运费模板
+     * @author 王薪蕾
+     * @date 2020/12/9
+     */
+
+    @ApiOperation(value = "管理员定义重量模板明细",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺Id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "id", value = "运费模板Id", required = true),
+            @ApiImplicitParam(paramType = "body", dataType = "class", name = "vo", value = "运费模板明细", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功"),
+            @ApiResponse(code = 803,message = "运费模板中该地区已经定义")
+    })
+    @Audit
+    @DeleteMapping("/shops/{shopId}/freightmodels/{id}")
+    public Object deleteFreightModel(
+            @LoginUser Long userId,
+            @PathVariable("shopId") Long shopId,
+            @PathVariable("id") Long id
+    ){
+        return Common.decorateReturnObject(freightService.deleteFreightModel(shopId,id));
+    }
 }
