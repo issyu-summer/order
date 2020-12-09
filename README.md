@@ -29,7 +29,7 @@ The following guides illustrate how to use some features concretely:
 
 需要集成其他接口：2-7（商品模块）
 # payment
-已完成：null
+已完成：3-7
 #core
 工具类新增----字符串转LoaclDateTime(TimeFormat类)
 
