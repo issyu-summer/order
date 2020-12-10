@@ -101,4 +101,14 @@ public class FreightService {
         ReturnObject returnObject = freightDao.postPieceItems(vo,shopId,id);
         return returnObject;
     }
+
+    /*
+     * 管理员修改件数模板明细
+     * @author 王子扬
+     * @date 2020/12/10 9:13
+     */
+    public ReturnObject putPieceItems(PieceModelInfoVo vo, Long shopId, Long id) {
+        ReturnObject returnObject = freightDao.putPieceItems(vo,shopId,id);
+        return returnObject;
+    }
 }

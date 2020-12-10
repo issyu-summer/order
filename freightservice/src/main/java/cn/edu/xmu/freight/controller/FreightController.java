@@ -270,4 +270,30 @@ public class FreightController {
     ){
         return Common.decorateReturnObject(freightService.postPieceItems(vo,shopId,id));
     }
+
+    /*
+     * 管理员修改件数模板明细
+     * @author 王子扬
+     * @date 2020/12/10 9:13
+     */
+    @ApiOperation(value = "管理员定义件数模板明细",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺Id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "id", value = "运费模板Id", required = true),
+            @ApiImplicitParam(paramType = "body", dataType = "class", name = "vo", value = "运费模板资料", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功"),
+            @ApiResponse(code = 803,message = "运费模板中该地区已经定义")
+    })
+    @Audit
+    @PutMapping("/shops/{shopId}/freightmodels/{id}/pieceItems")
+    public Object putPieceItems(
+            @LoginUser Long userId,
+            @PathVariable("shopId") Long shopId,
+            @PathVariable("id") Long id,
+            @RequestBody PieceModelInfoVo vo
+    ){
+        return Common.decorateReturnObject(freightService.putPieceItems(vo,shopId,id));
+    }
 }

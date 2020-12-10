@@ -393,4 +393,48 @@ public class FreightDao {
         }
         return retObj;
     }
+
+    /*
+     * 管理员修改件数模板明细(未校验regionId是否合法、未校验Vo中负数数据是否合法)
+     * @author 王子扬
+     * @date 2020/12/10 9:13
+     */
+    public ReturnObject<Object> putPieceItems(PieceModelInfoVo vo, Long shopId, Long id){
+        try {
+            //获得运费模板
+            PieceFreightModelPo pieceFreightModelPo=pieceFreightModelPoMapper.selectByPrimaryKey(id);
+            if(pieceFreightModelPo==null){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("件数运费模板不存在"));
+            }
+
+            FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(pieceFreightModelPo.getFreightModelId());
+            if(freightModelPo==null){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
+            }
+            if(!freightModelPo.getShopId().equals(shopId)){//运费模板不是本店铺的
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
+            }
+            if(freightModelPo.getType()!=(byte)0){//运费模板模式不是件数运费模板
+                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("运费模板模式不是件数运费模板"));
+            }
+            PieceModelInfoBo pieceModelInfoBo=vo.createPieceModelInfoBo();
+            pieceModelInfoBo.setId(id);
+            pieceModelInfoBo.setGmtCreate(pieceFreightModelPo.getGmtCreate());
+            pieceModelInfoBo.setGmtModified(LocalDateTime.now());
+
+            PieceFreightModelPo pieceFreightModelPoUpdate=pieceModelInfoBo.getpieceFreightModelPo();
+            pieceFreightModelPoUpdate.setFreightModelId(freightModelPo.getId());
+            int ret=pieceFreightModelPoMapper.updateByPrimaryKey(pieceFreightModelPoUpdate);
+            if(ret == 0){
+                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：新增失败"));
+            }else{
+                PieceModelInfoRetVo pieceModelInfoRetVo=new PieceModelInfoRetVo(pieceModelInfoBo);
+                return new ReturnObject<>(pieceModelInfoRetVo);
+            }
+        }catch (DataAccessException e){
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误"));
+        }catch (Exception e){
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
+    }
 }
