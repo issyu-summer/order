@@ -361,4 +361,27 @@ public class OrderController {
     public Object deleteShopOrder(@PathVariable Long shopId,@PathVariable Long id){
         return Common.getRetObject(orderService.deleteShopOrder(shopId,id));
     }
+    /*
+     * 店家对订单标记发货
+     * @author 陈星如
+     * @date 2020/12/5 15:16
+     */
+    @ApiOperation(value = "店家对订单标记发货",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "商户id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "id", value = "订单id", required = true),
+            @ApiImplicitParam(paramType = "body", dataType = "String", name = "freightSn", value = "指定发货资讯", required = true)
+
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @PutMapping("/shops/{shopId}/orders/{id}/deliver")
+
+    public Object shipOrder(@PathVariable(name="shopId") Long shopId, @PathVariable(name="id")  Long id,@Validated @RequestBody String shipmentSn){
+        return Common.decorateReturnObject(orderService.shipOrder(shopId,id,shipmentSn));
+    }
+
 }

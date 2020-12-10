@@ -155,4 +155,10 @@ public class OrderService {
     public ReturnObject<VoObject> deleteShopOrder(Long shopId,Long id){
         return orderDao.deleteShopOrder(shopId,id);
     }
+    /* 店家对订单标记发货
+     * @author 陈星如
+     * @date 2020/12/5 21:16
+     */
+    public ReturnObject<VoObject> shipOrder(Long shopId, Long id, String shipmentSn) {return orderDao.shipOrder(shopId,id,shipmentSn);
+    }
 }
