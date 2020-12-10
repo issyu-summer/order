@@ -64,4 +64,13 @@ public class PaymentService {
         ReturnObject returnObject = paymentDao.getShopsOrdersRefunds(shopId, id);
         return returnObject;
     }
+    /**
+     *管理员查询售后订单的退款信息
+     * @author 陈星如
+     * @date 2020/12/9 18:10
+     **/
+    public ReturnObject getShopsAftersalesRefunds(Long shopId, Long id) {
+        ReturnObject returnObject = paymentDao.getShopsAftersalesRefunds(shopId, id);
+        return returnObject;
+    }
 }

@@ -212,4 +212,42 @@ public class PaymentDao {
         }
         return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
     }
+    /*
+     *管理员查询售后订单的退款信息
+     * @author 陈星如
+     * @date 2020/12/9 18:10
+     */
+
+    public ReturnObject getShopsAftersalesRefunds(Long shopId, Long id) {
+        try {
+            //获得afterSaleId=id的退款单
+            RefundPoExample refundPoExample=new RefundPoExample();
+            RefundPoExample.Criteria criteria=refundPoExample.createCriteria();
+            criteria.andAftersaleIdEqualTo(id);
+            List<RefundPo> refundPos=refundPoMapper.selectByExample(refundPoExample);
+            if (criteria.isValid()){
+                for (RefundPo po : refundPos) {
+                    //通过收货单orderId找到订单
+                    OrderPo orderPo=orderPoMapper.selectByPrimaryKey(po.getOrderId());
+                    //如果此订单是本店铺的
+                    if(orderPo.getShopId().equals(shopId)){
+                        ShopsPaymentsInfoRetVo shopsAftersalesPaymentsInfoRetVo=new ShopsPaymentsInfoRetVo(po);
+                        return new ReturnObject<>(shopsAftersalesPaymentsInfoRetVo);
+                    }
+                    else {
+                        return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE);
+                    }
+                }
+            }
+            else{
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+            }
+        } catch (DataAccessException e) {
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
+        } catch (Exception e) {
+            // 其他Exception错误
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
+        return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+    }
 }
