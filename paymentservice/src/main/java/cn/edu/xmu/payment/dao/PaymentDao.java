@@ -7,6 +7,7 @@ import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.payment.mapper.PaymentPoMapper;
 import cn.edu.xmu.payment.mapper.RefundPoMapper;
 import cn.edu.xmu.payment.model.bo.PaymentBo;
+import cn.edu.xmu.payment.model.bo.RefundBo;
 import cn.edu.xmu.payment.model.po.PaymentPo;
 import cn.edu.xmu.payment.model.po.PaymentPoExample;
 import cn.edu.xmu.payment.model.po.RefundPo;
@@ -249,5 +250,42 @@ public class PaymentDao {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
         }
         return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+    }
+    /*
+     *管理员创建退款信息
+     * @author 王薪蕾
+     * @date 2020/12/11
+     */
+    public ReturnObject postRefunds(Long shopId, Long id,Long amount) {
+        PaymentPo paymentPo=paymentPoMapper.selectByPrimaryKey(id);
+        //未查找到
+        if(paymentPo==null)
+        {
+            return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+        }
+        //查询是否已有退款
+        RefundPoExample refundPoExample=new RefundPoExample();
+        RefundPoExample.Criteria criteria=refundPoExample.createCriteria();
+        criteria.andPaymentIdEqualTo(id);
+        List<RefundPo> refundPos = refundPoMapper.selectByExample(refundPoExample);
+        if (!refundPos.isEmpty()) {
+            for (RefundPo po : refundPos) {
+                //如果找到payment的退款，且退款成功，则不在进行退款
+                if (po.getPaymentId().equals(id)&&po.getState().equals((byte)1)) {
+                    return new ReturnObject<>(ResponseCode.REFUND_MORE,String.format("该支付已退款"));
+                }
+            }
+        }
+        //支付未成功或退款大于付款
+        if(paymentPo.getState()!=(byte)0||paymentPo.getAmount()<amount)
+        {
+            return new ReturnObject<>(ResponseCode.REFUND_MORE);
+        }
+        //未验证shopId与paymen的shopid，通过order或aftersale判断
+        RefundBo refundBo=new RefundBo(id,amount,paymentPo.getOrderId(),paymentPo.getAftersaleId());
+        RefundPo refundPo=refundBo.createPo();
+        refundPoMapper.insert(refundPo);
+        refundBo.setId(refundPo.getId());
+        return new ReturnObject<>(refundBo);
     }
 }

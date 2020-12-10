@@ -73,4 +73,13 @@ public class PaymentService {
         ReturnObject returnObject = paymentDao.getShopsAftersalesRefunds(shopId, id);
         return returnObject;
     }
+    /*
+     *管理员创建退款信息
+     * @author 王薪蕾
+     * @date 2020/12/11
+     */
+    public ReturnObject postRefunds(Long shopId, Long id,Long amount) {
+        ReturnObject returnObject = paymentDao.postRefunds(shopId,id,amount);
+        return returnObject;
+    }
 }

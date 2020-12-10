@@ -206,4 +206,29 @@ public class PaymentControllerTest {
             e.printStackTrace();
         }
     }
+    /*
+     *管理员创建退款信息
+     * @author 王薪蕾
+     * @date 2020/12/11
+     */
+    @Test
+    public void postRefunds(){
+        String token = createTestToken(23L,0L,100);
+        String amount = "10";
+        try{
+            byte [] responseString = webTestClient.post().uri("/payment/shops/1/payments/1/refunds",1)
+                    .header("authorization",token)
+                    .bodyValue(amount)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
