@@ -171,7 +171,7 @@ public class PaymentControllerTest {
     public void getShopsOrdersRefunds(){
         String token = createTestToken(1L,0L,100);
         try{
-            byte [] responseString = webTestClient.get().uri("/payment/shops/1/orders/1/refunds")
+            byte [] responseString = webTestClient.get().uri("/payment/shops/{shopId}/orders/1/refunds",1)
                     .header("authorization",token)
                     .exchange()
                     .expectStatus().isOk()
