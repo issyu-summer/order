@@ -245,6 +245,24 @@ public class FreightControllerTest {
      * @author 陈星如
      * @date 2020/12/8 13:33
      */
+    @Test
+    public void getFreightModelsWeightItems(){
+        String token = createTestToken(1L,0L,100);
+             try{
+            byte [] responseString = webTestClient.get().uri("/freight/shops/9/freightmodels/4/weightItems")
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     /*
      * 管理员定义件数模板明细
      * @author 陈星如

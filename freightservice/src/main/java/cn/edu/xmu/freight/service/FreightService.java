@@ -141,4 +141,13 @@ public class FreightService {
         ReturnObject returnObject = freightDao.deleteWeightItems(shopId,id);
         return returnObject;
     }
+    /**
+     * 店家或管理员查询运费模板明细
+     * @author 陈星如
+     * @date 2020/12/8 13:33
+     */
+    public ReturnObject<java.util.List> getFreightModelsWeightItems(Long shopId, Long id) {
+        ReturnObject returnObject = freightDao.getFreightModelsWeightItems(shopId,id);
+        return returnObject;
+    }
 }
