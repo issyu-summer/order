@@ -392,4 +392,27 @@ public class FreightController {
         return Common.decorateReturnObject(freightService.getFreightModelsWeightItems(shopId,id));
 
     }
+
+    /*
+     * 店家或管理员查询件数运费模板的明细
+     * @author 陈星如
+     * @date 2020/12/8 14:13
+     */
+    @ApiOperation(value = "店家或管理员查询件数运费模板的明细",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "path",dataType = "Integer",name = "shopId", value = "店铺id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "Integer",name = "id", value = "运费模板ID", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @GetMapping("/shops/{shopId}/freightmodels/{id}/pieceItems")
+    public Object getFreightModelsPieceItems(
+            @PathVariable("shopId") Long shopId,
+            @PathVariable("id")  Long id){
+        return Common.decorateReturnObject(freightService.getFreightModelsPieceItems(shopId,id));
+    }
+
+
 }
