@@ -6,21 +6,16 @@ import cn.edu.xmu.freight.mapper.WeightFreightModelPoMapper;
 import cn.edu.xmu.freight.model.bo.*;
 import cn.edu.xmu.freight.model.po.*;
 import cn.edu.xmu.freight.model.vo.*;
-import cn.edu.xmu.ooad.annotation.Audit;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.support.WebContentGenerator;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
