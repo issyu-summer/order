@@ -243,7 +243,7 @@ public class FreightController {
 
         return Common.decorateReturnObject(freightService.changeFreightModel(id,shopId,freightModelInfoVo));
     }
-    /*
+    /**
      * 管理员定义件数模板明细
      * @author 陈星如
      * @date 2020/12/9 9:13

@@ -448,8 +448,7 @@ public class FreightDao {
             if(ret == 0){
                 return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：修改失败"));
             }else{
-                PieceModelInfoRetVo pieceModelInfoRetVo=new PieceModelInfoRetVo(pieceModelInfoBo);
-                return new ReturnObject<>(pieceModelInfoRetVo);
+                return new ReturnObject<>();
             }
         }catch (DataAccessException e){
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误"));
@@ -513,8 +512,7 @@ public class FreightDao {
             if(ret == 0){
                 return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：修改失败"));
             }else{
-                WeightModelInfoRetVo weightModelInfoRetVo = new WeightModelInfoRetVo(weightModelInfoBo);
-                return new ReturnObject<>(weightModelInfoRetVo);
+                return new ReturnObject<>();
             }
         }catch (DataAccessException e){
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误"));
