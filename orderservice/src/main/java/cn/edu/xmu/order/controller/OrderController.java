@@ -341,4 +341,24 @@ public class OrderController {
         return Common.decorateReturnObject(orderService.getOrderByShopId(shopId,id));
 
     }
+    /*
+     * 管理员取消本店铺订单
+     * @author 陈星如
+     * @date 2020/12/5 15:15
+     */
+    @ApiOperation(value = "管理员取消本店铺订单",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "商户id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "id", value = "订单id", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0, message = "成功"),
+            @ApiResponse(code = 800, message = "订单状态禁止")
+    })
+    @Audit
+    @RequestMapping(value="/shops/{shopId}/orders/{id}",method = RequestMethod.DELETE)
+    public Object deleteShopOrder(@PathVariable Long shopId,@PathVariable Long id){
+        return Common.getRetObject(orderService.deleteShopOrder(shopId,id));
+    }
 }

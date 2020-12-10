@@ -4,6 +4,8 @@ import cn.edu.xmu.freight.model.bo.FreightModelBo;
 import cn.edu.xmu.freight.model.bo.WeightModelInfoBo;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 /**
  * 重量运费模板返回值对象
  * @author 王薪蕾
@@ -20,6 +22,8 @@ public class WeightModelInfoRetVo {
     private Long trihunPrice;
     private Long abovePrice;
     private Long regionId;
+    private LocalDateTime gmtCreate;
+    private LocalDateTime gmtModified;
     public WeightModelInfoRetVo(WeightModelInfoBo weightModelInfoBo){
         this.id=weightModelInfoBo.getId();
         this.firstWeight=weightModelInfoBo.getFirstWeight();
@@ -30,6 +34,8 @@ public class WeightModelInfoRetVo {
         this.trihunPrice=weightModelInfoBo.getTrihunPrice();
         this.abovePrice=weightModelInfoBo.getAbovePrice();
         this.regionId=weightModelInfoBo.getRegionId();
+        this.gmtCreate=weightModelInfoBo.getGmtCreate();
+        this.gmtModified=weightModelInfoBo.getGmtModified();
     }
 
 }

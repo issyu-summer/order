@@ -166,7 +166,7 @@ public class FreightDao {
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
             }
             //运费模板不是本店铺的
-            if(freightModelPo.getId()!=shopId){
+            if(freightModelPo.getShopId()!=shopId){
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
             }
             //运费模板模式不是重量运费模板

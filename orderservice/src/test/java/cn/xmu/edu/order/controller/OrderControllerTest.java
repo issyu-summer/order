@@ -254,4 +254,28 @@ public class OrderControllerTest {
             e.printStackTrace();
         }
     }
+    /**
+     * 管理员取消本店铺订单
+     * @author 陈星如
+     * @date 2020/12/5 15:15
+     **/
+    @Test
+    public void deleteShopOrder(){
+        String token = createTestToken(1L,0L,100);
+        String expectStr = "{\"errno\":0,\"errmsg\":\"成功\"}";
+        try{
+            byte [] responseString = webTestClient.delete().uri("/order/shops/1/orders/1")
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
