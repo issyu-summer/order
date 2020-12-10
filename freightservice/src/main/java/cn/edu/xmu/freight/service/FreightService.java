@@ -111,4 +111,34 @@ public class FreightService {
         ReturnObject returnObject = freightDao.putPieceItems(vo,shopId,id);
         return returnObject;
     }
+
+    /*
+     * 管理员修改重量模板明细
+     * @author 王子扬
+     * @date 2020/12/10 9:13
+     */
+    public ReturnObject putWeightItems(WeightModelInfoVo vo, Long shopId, Long id) {
+        ReturnObject returnObject = freightDao.putWeightItems(vo,shopId,id);
+        return returnObject;
+    }
+
+    /*
+     * 管理员删除件数模板明细
+     * @author 王子扬
+     * @date 2020/12/10 9:13
+     */
+    public ReturnObject deletePieceItems(Long shopId, Long id) {
+        ReturnObject returnObject = freightDao.deletePieceItems(shopId,id);
+        return returnObject;
+    }
+
+    /*
+     * 管理员删除重量模板明细
+     * @author 王子扬
+     * @date 2020/12/10 9:13
+     */
+    public ReturnObject deleteWeightItems(Long shopId, Long id) {
+        ReturnObject returnObject = freightDao.deleteWeightItems(shopId,id);
+        return returnObject;
+    }
 }

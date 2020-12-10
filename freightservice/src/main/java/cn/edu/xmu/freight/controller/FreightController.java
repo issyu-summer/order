@@ -279,7 +279,7 @@ public class FreightController {
     @ApiOperation(value = "管理员定义件数模板明细",produces="application/json")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺Id", required = true),
-            @ApiImplicitParam(paramType = "path",dataType = "int",name = "id", value = "运费模板Id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "id", value = "运费明细Id", required = true),
             @ApiImplicitParam(paramType = "body", dataType = "class", name = "vo", value = "运费模板资料", required = true)
     })
     @ApiResponses({
@@ -287,7 +287,7 @@ public class FreightController {
             @ApiResponse(code = 803,message = "运费模板中该地区已经定义")
     })
     @Audit
-    @PutMapping("/shops/{shopId}/freightmodels/{id}/pieceItems")
+    @PutMapping("/shops/{shopId}/pieceItems/{id}")
     public Object putPieceItems(
             @LoginUser Long userId,
             @PathVariable("shopId") Long shopId,
@@ -295,5 +295,78 @@ public class FreightController {
             @RequestBody PieceModelInfoVo vo
     ){
         return Common.decorateReturnObject(freightService.putPieceItems(vo,shopId,id));
+    }
+
+    /*
+     * 管理员修改重量模板明细
+     * @author 王子扬
+     * @date 2020/12/10 9:13
+     */
+    @ApiOperation(value = "管理员定义件数模板明细",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺Id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "id", value = "运费明细Id", required = true),
+            @ApiImplicitParam(paramType = "body", dataType = "class", name = "vo", value = "运费模板资料", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功"),
+            @ApiResponse(code = 803,message = "运费模板中该地区已经定义")
+    })
+    @Audit
+    @PutMapping("/shops/{shopId}/weightItems/{id}")
+    public Object putWeightItems(
+            @LoginUser Long userId,
+            @PathVariable("shopId") Long shopId,
+            @PathVariable("id") Long id,
+            @RequestBody WeightModelInfoVo vo
+    ){
+        return Common.decorateReturnObject(freightService.putWeightItems(vo,shopId,id));
+    }
+
+    /*
+     * 管理员删除件数模板明细
+     * @author 王子扬
+     * @date 2020/12/10 9:13
+     */
+    @ApiOperation(value = "管理员删除件数模板明细",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺Id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "id", value = "运费明细Id", required = true),
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @DeleteMapping("/shops/{shopId}/pieceItems/{id}")
+    public Object deletePieceItems(
+            @LoginUser Long userId,
+            @PathVariable("shopId") Long shopId,
+            @PathVariable("id") Long id
+    ){
+        return Common.decorateReturnObject(freightService.deletePieceItems(shopId,id));
+    }
+
+
+    /*
+     * 管理员删除重量模板明细
+     * @author 王子扬
+     * @date 2020/12/10 9:13
+     */
+    @ApiOperation(value = "管理员删除重量模板明细",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺Id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "id", value = "运费明细Id", required = true),
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @DeleteMapping("/shops/{shopId}/weightItems/{id}")
+    public Object deleteWeightItems(
+            @LoginUser Long userId,
+            @PathVariable("shopId") Long shopId,
+            @PathVariable("id") Long id
+    ){
+        return Common.decorateReturnObject(freightService.deleteWeightItems(shopId,id));
     }
 }
