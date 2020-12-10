@@ -415,7 +415,7 @@ public class FreightDao {
             if(!freightModelPo.getShopId().equals(shopId)){//运费模板不是本店铺的
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
             }
-            if(freightModelPo.getType()!=(byte)0){//运费模板模式不是件数运费模板
+            if(freightModelPo.getType()!=(byte)1){//运费模板模式不是件数运费模板
                 return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("运费模板模式不是件数运费模板"));
             }
             PieceModelInfoBo pieceModelInfoBo=vo.createPieceModelInfoBo();
@@ -543,7 +543,7 @@ public class FreightDao {
             if(!freightModelPo.getShopId().equals(shopId)){//运费模板不是本店铺的
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
             }
-            if(freightModelPo.getType()!=(byte)0){//运费模板模式不是件数运费模板
+            if(freightModelPo.getType()!=(byte)1){//运费模板模式不是件数运费模板
                 return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("运费模板模式不是件数运费模板"));
             }
 
