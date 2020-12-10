@@ -86,4 +86,80 @@ public class PaymentControllerTest {
             e.printStackTrace();
         }
     }
+    /*
+     * @author 史韬韬
+     * @date 2020/12/9
+     * 买家查询自己的支付信息
+     */
+    @Test
+    public void getPaymentById(){
+        String token = createTestToken(23L,0L,100);
+        String expectedResponse ="{\"errno\":0,\"data\":{\"id\":1,\"orderId\":1"+
+                ",\"aftersaleId\":null,\"amount\":0,\"actualAmount\":0,\"payTime\":\"2020-12-01T17:04:55\","+
+                "\"paymentPattern\":0,\"state\":0,\"beginTime\":\"2020-12-01T17:04:55\",\"endTime\":"+
+                "\"2020-12-01T17:04:55\",\"gmtCreate\":\"2020-12-01T17:04:55\",\"gmtModified\":"+
+                "\"2020-12-01T17:04:55\"},\"errmsg\":\"成功\"}";
+        try{
+            byte [] responseString = webTestClient.get().uri("/payment/orders/{id}/payment",1)
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    /*
+     * @author 史韬韬
+     * @date 2020/12/10
+     * 买家为售后单创建支付单
+     */
+    @Test
+    public void createPaymentForAftersale(){
+        String token = createTestToken(23L,0L,100);
+        String paymentJson="{\"price\":100,\"paymentPattern\":1}";
+        try{
+            byte [] responseString = webTestClient.post().uri("/payment/aftersales/{id}/payments",1)
+                    .header("authorization",token)
+                    .bodyValue(paymentJson)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    /*
+     * @author 史韬韬
+     * @date 2020/12/10
+     * 管理员查看订单支付信息
+     */
+    @Test
+    public void getPaymentByOrderIdAndShopId(){
+        String token = createTestToken(23L,0L,100);
+        try{
+            byte [] responseString = webTestClient.get().uri("/payment/shops/{shopId}/orders/{id}/payments",1,1)
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
