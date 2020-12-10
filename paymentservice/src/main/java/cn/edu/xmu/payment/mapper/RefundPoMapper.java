@@ -2,7 +2,6 @@ package cn.edu.xmu.payment.mapper;
 
 import cn.edu.xmu.payment.model.po.RefundPo;
 import cn.edu.xmu.payment.model.po.RefundPoExample;
-
 import java.util.List;
 
 public interface RefundPoMapper {

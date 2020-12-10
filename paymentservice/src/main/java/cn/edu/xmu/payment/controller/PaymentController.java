@@ -118,4 +118,25 @@ public class PaymentController {
     public Object getPaymentByOrderIdAndShopId(@PathVariable Long id,@PathVariable Long shopId){
         return Common.decorateReturnObject(paymentService.getPaymentByOrderIdAndShopId(id,shopId));
     }
+    /*
+     *管理员查询订单的退款信息
+     * @author 陈星如
+     * @date 2020/12/9 18:13
+     */
+    @ApiOperation(value = "管理员查询订单的退款信息",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "Long",name = "shopId", value = "店铺id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "Long",name = "id", value = "订单id", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @GetMapping("/shops/{shopId}/orders/{id}/refunds")
+    public Object getShopsOrdersRefunds(
+            @PathVariable("shopId") Long shopId,
+            @PathVariable("id")  Long id){
+        return Common.decorateReturnObject(paymentService.getShopsOrdersRefunds(shopId,id));
+    }
 }

@@ -162,4 +162,26 @@ public class PaymentControllerTest {
             e.printStackTrace();
         }
     }
+    /*
+     *管理员查询订单的退款信息
+     * @author 陈星如
+     * @date 2020/12/9 18:13
+     */
+    @Test
+    public void getShopsOrdersRefunds(){
+        String token = createTestToken(1L,0L,100);
+        try{
+            byte [] responseString = webTestClient.get().uri("/payment/shops/1/orders/1/refunds")
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

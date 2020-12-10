@@ -8,6 +8,8 @@ import cn.edu.xmu.payment.model.vo.PaymentRetVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
+
 @Service
 public class PaymentService {
     @Autowired
@@ -53,5 +55,13 @@ public class PaymentService {
      */
     public ReturnObject<PaymentRetVo> getPaymentByOrderIdAndShopId(Long id,Long shopId) {
         return paymentDao.getPaymentByOrderIdAndShopId(id,shopId);
+    } /**
+     *管理员查询订单的退款信息
+     * @author 陈星如
+     * @date 2020/12/9 18:13
+     **/
+    public ReturnObject<List> getShopsOrdersRefunds(Long shopId, Long id) {
+        ReturnObject returnObject = paymentDao.getShopsOrdersRefunds(shopId, id);
+        return returnObject;
     }
 }
