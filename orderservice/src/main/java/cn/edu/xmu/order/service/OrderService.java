@@ -147,4 +147,18 @@ public class OrderService {
     public ReturnObject<VoObject>  getOrderByShopId(Long shopId, Long id) {
         System.out.println("ser");return orderDao.getOrderByShopId(shopId,id);
     }
+    /**
+     * 管理员取消本店铺订单
+     * @author 陈星如
+     * @date 2020/12/5 15:15
+     **/
+    public ReturnObject<VoObject> deleteShopOrder(Long shopId,Long id){
+        return orderDao.deleteShopOrder(shopId,id);
+    }
+    /* 店家对订单标记发货
+     * @author 陈星如
+     * @date 2020/12/5 21:16
+     */
+    public ReturnObject<VoObject> shipOrder(Long shopId, Long id, String shipmentSn) {return orderDao.shipOrder(shopId,id,shipmentSn);
+    }
 }

@@ -465,4 +465,100 @@ public class OrderDao {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
         }
     }
+    /*
+     * 管理员取消本店铺订单
+     * @author 陈星如
+     * @date 2020/12/5 15:15
+     */
+    public ReturnObject<VoObject> deleteShopOrder(Long shopId, Long id) {
+        logger.debug("confirmOrder: ID =" + id);
+        OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
+        ReturnObject<VoObject> retObj = null;
+        //订单不存在
+        if (orderPo == null){
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单不存在：id=" + id));
+            return retObj;
+        }
+        //该订单不是此店铺订单
+        if (!shopId.equals(orderPo.getShopId())) {
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("操作的店铺id不是自己的对象：id=" + id));
+            return retObj;
+        }
+        //订单处于无法取消状态
+        if (!orderPo.getState().equals((byte) 8)&&!orderPo.getState().equals((byte) 9)&&!orderPo.getState().equals((byte) 10)&&!orderPo.getState().equals((byte) 11)&&!orderPo.getState().equals((byte) 12)&&!orderPo.getState().equals((byte) 15)) {
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止：id=" + id));
+            return retObj;
+        }
+        //取消订单
+        orderPo.setState((byte) 0);
+        try {
+            int ret = orderPoMapper.updateByPrimaryKey(orderPo);
+            if (ret == 0) {
+                //取消订单失败
+                logger.debug("confirmOrders: confirm order fail: " + orderPo.toString());
+                retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库更新不成功"));
+            } else {
+                //取消订单成功
+                logger.debug("confirmOrders: confirm order = " + orderPo.toString());
+                retObj = new ReturnObject<>(ResponseCode.OK,String.format("成功"));
+            }
+        } catch (DataAccessException e) {
+            logger.error("database exception: " + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
+        } catch (Exception e) {
+            // 其他Exception错误
+            logger.error("other exception : " + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
+        return retObj;
+    }
+    /*
+     * 店家对订单标记发货
+     * @author 陈星如
+     * @date 2020/12/5 15:16
+     */
+    public ReturnObject<VoObject> shipOrder(Long shopId, Long id, String shipmentSn) {
+        logger.debug("confirmOrder: ID =" + id);
+        OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
+        ReturnObject<VoObject> retObj = null;
+        //订单不存在
+        if (orderPo == null){
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单不存在：id=" + id));
+            return retObj;
+        }
+        //该订单不是此店铺订单
+        if (!shopId.equals(orderPo.getShopId())) {
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("操作的店铺id不是自己的对象：id=" + id));
+            return retObj;
+        }
+        //订单处于无法发货状态
+        if (!orderPo.getState().equals((byte) 8)&&!orderPo.getState().equals((byte) 9)&&!orderPo.getState().equals((byte) 10)&&!orderPo.getState().equals((byte) 11)&&!orderPo.getState().equals((byte) 12)&&!orderPo.getState().equals((byte) 15)) {
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止：id=" + id));
+            return retObj;
+        }
+        //发货
+        orderPo.setState((byte) 16);
+        orderPo.setShipmentSn(shipmentSn);
+        try {
+            int ret = orderPoMapper.updateByPrimaryKey(orderPo);
+            if (ret == 0) {
+                //标记发货失败
+                logger.debug("confirmOrders: confirm order fail: " + orderPo.toString());
+                retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库更新不成功"));
+            } else {
+                //标记发货成功
+                logger.debug("confirmOrders: confirm order = " + orderPo.toString());
+                retObj = new ReturnObject<>(ResponseCode.OK,String.format("成功"));
+            }
+        } catch (DataAccessException e) {
+            logger.error("database exception: " + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
+        } catch (Exception e) {
+            // 其他Exception错误
+            logger.error("other exception : " + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
+        return retObj;
+    }
+
 }
