@@ -1,6 +1,7 @@
 package cn.edu.xmu.freight.model.vo;
 
 import cn.edu.xmu.freight.model.bo.PieceModelInfoBo;
+import cn.edu.xmu.freight.model.po.PieceFreightModelPo;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -30,6 +31,18 @@ public class PieceModelInfoRetVo {
         this.additionalItemsPrice=pieceModelInfoBo.getAdditionalItemsPrice();
         this.gmtCreate=pieceModelInfoBo.getGmtCreate();
         this.gmtModified=pieceModelInfoBo.getGmtModified();
+
+    }
+
+    public PieceModelInfoRetVo(PieceFreightModelPo pieceFreightModelPo){
+        this.id=pieceFreightModelPo.getId();
+        this.regionId=pieceFreightModelPo.getRegionId();
+        this.firstItems=pieceFreightModelPo.getFirstItems();
+        this.firstItemsPrice=pieceFreightModelPo.getFirstItemsPrice();
+        this.additionalItems=pieceFreightModelPo.getAdditionalItems();
+        this.additionalItemsPrice=pieceFreightModelPo.getAdditionalItemsPrice();
+        this.gmtCreate=pieceFreightModelPo.getGmtCreate();
+        this.gmtModified=pieceFreightModelPo.getGmtModified();
 
     }
 }

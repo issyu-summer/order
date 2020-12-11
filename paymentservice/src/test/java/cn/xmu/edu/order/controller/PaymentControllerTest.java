@@ -162,4 +162,73 @@ public class PaymentControllerTest {
             e.printStackTrace();
         }
     }
+    /*
+     *管理员查询订单的退款信息
+     * @author 陈星如
+     * @date 2020/12/9 18:13
+     */
+    @Test
+    public void getShopsOrdersRefunds(){
+        String token = createTestToken(1L,0L,100);
+        try{
+            byte [] responseString = webTestClient.get().uri("/payment/shops/{shopId}/orders/1/refunds",1)
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    /*
+     *管理员查询售后订单的退款信息
+     * @author 陈星如
+     * @date 2020/12/9 18:10
+     */
+    @Test
+    public void getShopsAftersalesRefunds(){
+        String token = createTestToken(1L,0L,100);
+        try{
+            byte [] responseString = webTestClient.get().uri("/payment/shops/1/aftersales/1/refunds")
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    /*
+     *管理员创建退款信息
+     * @author 王薪蕾
+     * @date 2020/12/11
+     */
+    @Test
+    public void postRefunds(){
+        String token = createTestToken(23L,0L,100);
+        String amount = "10";
+        try{
+            byte [] responseString = webTestClient.post().uri("/payment/shops/1/payments/1/refunds",1)
+                    .header("authorization",token)
+                    .bodyValue(amount)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

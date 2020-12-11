@@ -245,6 +245,24 @@ public class FreightControllerTest {
      * @author 陈星如
      * @date 2020/12/8 13:33
      */
+    @Test
+    public void getFreightModelsWeightItems(){
+        String token = createTestToken(1L,0L,100);
+             try{
+            byte [] responseString = webTestClient.get().uri("/freight/shops/9/freightmodels/4/weightItems")
+                    .header("authorization",token)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     /*
      * 管理员定义件数模板明细
      * @author 陈星如
@@ -259,6 +277,28 @@ public class FreightControllerTest {
             byte [] responseString = webTestClient.post().uri("/freight/shops/9/freightmodels/4/pieceItems")
                     .header("authorization",token)
                     .bodyValue(adressJson)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    /*
+     * 店家或管理员查询件数运费模板的明细
+     * @author 陈星如
+     * @date 2020/12/8 14:13
+     */
+    @Test
+    public void getFreightModelsPieceItems(){
+        String token = createTestToken(1L,0L,100);
+    try{
+            byte [] responseString = webTestClient.get().uri("/freight/shops/9/freightmodels/1/pieceItems")
+                    .header("authorization",token)
                     .exchange()
                     .expectStatus().isOk()
                     .expectHeader().contentType("application/json;charset=UTF-8")

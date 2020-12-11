@@ -348,12 +348,12 @@ public class FreightDao {
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
             }
             //运费模板不是本店铺的
-            if(!freightModelPo.getId().equals(shopId)){
+            if(!freightModelPo.getShopId().equals(shopId)){
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
             }
             //运费模板模式不是件数运费模板
-            if(freightModelPo.getType()!=(byte)0){
-                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("运费模板模式不是重量运费模板"));
+            if(freightModelPo.getType()!=(byte)1){
+                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("运费模板模式不是件数运费模板"));
             }
             //获得数据库中此运费模板的所有明细
             PieceFreightModelPoExample pieceFreightModelPoExample=new PieceFreightModelPoExample();
@@ -443,8 +443,7 @@ public class FreightDao {
             if(ret == 0){
                 return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：修改失败"));
             }else{
-                PieceModelInfoRetVo pieceModelInfoRetVo=new PieceModelInfoRetVo(pieceModelInfoBo);
-                return new ReturnObject<>(pieceModelInfoRetVo);
+                return new ReturnObject<>();
             }
         }catch (DataAccessException e){
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误"));
@@ -508,8 +507,7 @@ public class FreightDao {
             if(ret == 0){
                 return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：修改失败"));
             }else{
-                WeightModelInfoRetVo weightModelInfoRetVo = new WeightModelInfoRetVo(weightModelInfoBo);
-                return new ReturnObject<>(weightModelInfoRetVo);
+                return new ReturnObject<>();
             }
         }catch (DataAccessException e){
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误"));
@@ -591,4 +589,93 @@ public class FreightDao {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
         }
     }
+
+    /*
+     * 店家或管理员查询重量运费模板明细
+     * @author 陈星如
+     * @date 2020/12/8 13:33
+     */
+    public ReturnObject getFreightModelsWeightItems(Long shopId, Long id) {
+        ReturnObject<Object> retObj = null;
+        try {
+            //获得运费模板
+            FreightModelPo freightModelPo = freightModelPoMapper.selectByPrimaryKey(id);
+            //运费模板不存在
+            if (freightModelPo == null) {
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
+            }
+            //运费模板不是本店铺的
+            if (freightModelPo.getShopId().equals(shopId)) {
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
+            }
+            //运费模板模式不是重量运费模板
+            if (freightModelPo.getType() != (byte) 0) {
+                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("运费模板模式不是重量运费模板"));
+            }
+            //获得数据库中此运费模板的所有明细
+            WeightFreightModelPoExample weightFreightModelPoExample = new WeightFreightModelPoExample();
+            WeightFreightModelPoExample.Criteria criteria = weightFreightModelPoExample.createCriteria();
+            criteria.andFreightModelIdEqualTo(id);
+
+            List<WeightFreightModelPo> weightFreightPos = weightFreightModelPoMapper.selectByExample(weightFreightModelPoExample);
+            List<WeightModelInfoRetVo> ret = new ArrayList<>(weightFreightPos.size());
+            if (!weightFreightPos.isEmpty()) {
+                for (WeightFreightModelPo po : weightFreightPos) {
+                    WeightModelInfoRetVo weightFreightModelVo = new WeightModelInfoRetVo(po);
+                    ret.add(weightFreightModelVo);
+                }
+            }
+            //返回运费模板明细列表
+            return new ReturnObject<>(ret);
+        } catch (DataAccessException e) {
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误"));
+        } catch (Exception e) {
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
+    }
+    /**
+     * 店家或管理员查询件数运费模板的明细
+     * @author 陈星如
+     * @date 2020/12/8 14:13
+     **/
+    public ReturnObject getFreightModelsPieceItems(Long shopId, Long id) {
+        ReturnObject<Object> retObj = null;
+        try {
+            //获得运费模板
+            FreightModelPo freightModelPo = freightModelPoMapper.selectByPrimaryKey(id);
+            //运费模板不存在
+            if (freightModelPo == null) {
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
+            }
+            //运费模板不是本店铺的
+            if (!freightModelPo.getShopId().equals(shopId)) {
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
+            }
+            //运费模板模式不是件数运费模板
+            if (freightModelPo.getType() != (byte) 1) {
+                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("运费模板模式不是件数运费模板"));
+            }
+            //获得数据库中此运费模板的所有明细
+            PieceFreightModelPoExample pieceFreightModelPoExample = new PieceFreightModelPoExample();
+            PieceFreightModelPoExample.Criteria criteria = pieceFreightModelPoExample.createCriteria();
+            criteria.andFreightModelIdEqualTo(id);
+            List<PieceFreightModelPo> pieceFreightPos = pieceFreightModelPoMapper.selectByExample(pieceFreightModelPoExample);
+            List<PieceModelInfoRetVo> ret = new ArrayList<>(pieceFreightPos.size());
+            if (!pieceFreightPos.isEmpty()) {
+                for (PieceFreightModelPo po : pieceFreightPos) {
+                    PieceModelInfoRetVo pieceModelInfoRetVo = new PieceModelInfoRetVo(po);
+                    ret.add(pieceModelInfoRetVo);
+
+                }
+            }
+            //返回运费模板明细列表
+            return new ReturnObject<>(ret);
+
+        } catch (DataAccessException e) {
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误"));
+        } catch (Exception e) {
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
+    }
+
 }

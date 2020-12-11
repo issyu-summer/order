@@ -243,7 +243,7 @@ public class FreightController {
 
         return Common.decorateReturnObject(freightService.changeFreightModel(id,shopId,freightModelInfoVo));
     }
-    /*
+    /**
      * 管理员定义件数模板明细
      * @author 陈星如
      * @date 2020/12/9 9:13
@@ -369,4 +369,50 @@ public class FreightController {
     ){
         return Common.decorateReturnObject(freightService.deleteWeightItems(shopId,id));
     }
+    /*
+     * 店家或管理员查询重量运费模板明细
+     * @author 陈星如
+     * @date 2020/12/8 13:33
+     */
+    @ApiOperation(value = "店家或管理员查询某个运费模板的明细",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "int",name = "id", value = "运费模板ID", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @GetMapping("/shops/{shopId}/freightmodels/{id}/weightItems")
+    public Object getFreightModelsWeightItems(
+            @PathVariable(name="shopId") Long shopId,
+            @PathVariable(name="id")  Long id){
+
+        return Common.decorateReturnObject(freightService.getFreightModelsWeightItems(shopId,id));
+
+    }
+
+    /*
+     * 店家或管理员查询件数运费模板的明细
+     * @author 陈星如
+     * @date 2020/12/8 14:13
+     */
+    @ApiOperation(value = "店家或管理员查询件数运费模板的明细",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "path",dataType = "Integer",name = "shopId", value = "店铺id", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "Integer",name = "id", value = "运费模板ID", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @GetMapping("/shops/{shopId}/freightmodels/{id}/pieceItems")
+    public Object getFreightModelsPieceItems(
+            @PathVariable("shopId") Long shopId,
+            @PathVariable("id")  Long id){
+        return Common.decorateReturnObject(freightService.getFreightModelsPieceItems(shopId,id));
+    }
+
+
 }
