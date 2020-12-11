@@ -2,8 +2,6 @@ package cn.edu.xmu.payment.dao;
 
 import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
-import cn.edu.xmu.order.mapper.OrderPoMapper;
-import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.payment.mapper.PaymentPoMapper;
 import cn.edu.xmu.payment.mapper.RefundPoMapper;
 import cn.edu.xmu.payment.model.bo.PaymentBo;
@@ -20,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -29,8 +28,6 @@ public class PaymentDao {
     private PaymentPoMapper paymentPoMapper;
     @Autowired
     private RefundPoMapper refundPoMapper;
-    @Autowired
-    private OrderPoMapper orderPoMapper;
 
     /**
      * 买家查询自己售后单的支付信息
@@ -46,23 +43,16 @@ public class PaymentDao {
             PaymentPoExample paymentPoExample=new PaymentPoExample();
             PaymentPoExample.Criteria criteria=paymentPoExample.createCriteria();
             criteria.andAftersaleIdEqualTo(id);
+            List<PaymentPo> paymentPos=paymentPoMapper.selectByExample(paymentPoExample);
+            List<PaymentVo> paymentVos = new ArrayList<PaymentVo>(paymentPos.size());
             if (criteria.isValid()){
-                List<PaymentPo> paymentPos=paymentPoMapper.selectByExample(paymentPoExample);
                 for (PaymentPo po : paymentPos) {
-                    //通过收货单orderId找到订单
-                    OrderPo orderPo=orderPoMapper.selectByPrimaryKey(po.getOrderId());
-                    //如果此订单是本人的
-                    if(orderPo.getCustomerId().equals(userId)){
-                        PaymentVo paymentVo=new PaymentVo(po);
-                        return new ReturnObject<>(paymentVo);
-                    }
-                    else {
-                        return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE);
-
-                    }
+                    //需通过收货单售后单Id找到售后验证是否是本人的售后单
+                    PaymentVo paymentVo=new PaymentVo(po);
+                    paymentVos.add(paymentVo);
                 }
+                return new ReturnObject<>(paymentVos);
             }
-            //空
             else{
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST,String.format("操作资源不存在"));
             }
@@ -72,7 +62,6 @@ public class PaymentDao {
             // 其他Exception错误
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
         }
-        return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
     } /**
      * 管理员查询自己售后单的支付信息
      * @author 王薪蕾
@@ -86,19 +75,14 @@ public class PaymentDao {
             PaymentPoExample.Criteria criteria=paymentPoExample.createCriteria();
             criteria.andAftersaleIdEqualTo(id);
             List<PaymentPo> paymentPos=paymentPoMapper.selectByExample(paymentPoExample);
+            List<PaymentVo> paymentVos = new ArrayList<PaymentVo>(paymentPos.size());
             if (criteria.isValid()){
                 for (PaymentPo po : paymentPos) {
-                    //通过收货单orderId找到订单
-                    OrderPo orderPo=orderPoMapper.selectByPrimaryKey(po.getOrderId());
-                    //如果此订单是本店铺的
-                    if(orderPo.getShopId().equals(shopId)){
-                        PaymentVo paymentVo=new PaymentVo(po);
-                        return new ReturnObject<>(paymentVo);
-                    }
-                    else {
-                        return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE);
-                    }
+                    //需通过售后单Id找到售后单，确定是否是shopId的订单
+                    PaymentVo paymentVo=new PaymentVo(po);
+                    paymentVos.add(paymentVo);
                 }
+                return new ReturnObject<>(paymentVos);
             }
             else{
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
@@ -109,7 +93,6 @@ public class PaymentDao {
             // 其他Exception错误
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
         }
-        return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
     }
 
     /*
@@ -165,10 +148,10 @@ public class PaymentDao {
             criteria.andOrderIdEqualTo(id);
             List<PaymentPo> paymentPoList=paymentPoMapper.selectByExample(paymentPoExample);
             PaymentPo paymentPo=paymentPoList.get(0);
-            OrderPo orderPo=orderPoMapper.selectByPrimaryKey(paymentPo.getOrderId());
-            if(!orderPo.getShopId().equals(shopId)){
-                return new ReturnObject<>(ResponseCode.FIELD_NOTVALID,"商铺id与售后单id不符");
-            }
+//            OrderPo orderPo=orderPoMapper.selectByPrimaryKey(paymentPo.getOrderId());
+//            if(!orderPo.getShopId().equals(shopId)){
+//                return new ReturnObject<>(ResponseCode.FIELD_NOTVALID,"商铺id与售后单id不符");
+//            }
             PaymentBo paymentBo=new PaymentBo(paymentPo);
             PaymentRetVo paymentRetVo=paymentBo.createRetVo();
             return new ReturnObject<PaymentRetVo>(paymentRetVo);
@@ -228,16 +211,8 @@ public class PaymentDao {
             List<RefundPo> refundPos=refundPoMapper.selectByExample(refundPoExample);
             if (criteria.isValid()){
                 for (RefundPo po : refundPos) {
-                    //通过收货单orderId找到订单
-                    OrderPo orderPo=orderPoMapper.selectByPrimaryKey(po.getOrderId());
-                    //如果此订单是本店铺的
-                    if(orderPo.getShopId().equals(shopId)){
-                        ShopsPaymentsInfoRetVo shopsAftersalesPaymentsInfoRetVo=new ShopsPaymentsInfoRetVo(po);
-                        return new ReturnObject<>(shopsAftersalesPaymentsInfoRetVo);
-                    }
-                    else {
-                        return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE);
-                    }
+                    ShopsPaymentsInfoRetVo shopsAftersalesPaymentsInfoRetVo=new ShopsPaymentsInfoRetVo(po);
+                    return new ReturnObject<>(shopsAftersalesPaymentsInfoRetVo);
                 }
             }
             else{
@@ -286,6 +261,8 @@ public class PaymentDao {
         RefundPo refundPo=refundBo.createPo();
         refundPoMapper.insert(refundPo);
         refundBo.setId(refundPo.getId());
+        //改变order相应状态-->13
+        //改变其他模块售后的状态
         return new ReturnObject<>(refundBo);
     }
 }
