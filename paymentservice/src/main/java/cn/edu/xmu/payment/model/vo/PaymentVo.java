@@ -29,7 +29,7 @@ public class PaymentVo {
         this.amount=po.getAmount();
         this.actualAmount=po.getActualAmount();
         this.payTime=po.getPayTime();
-        this.paymentPattern=po.getPaymentPattern();
+        //this.paymentPattern=po.getPaymentPattern();
         this.state=po.getState();
         this.beginTime=po.getBeginTime();
         this.endTime=po.getEndTime();

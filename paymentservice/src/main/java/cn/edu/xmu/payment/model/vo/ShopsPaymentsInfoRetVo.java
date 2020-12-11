@@ -19,7 +19,7 @@ public class ShopsPaymentsInfoRetVo {
     public ShopsPaymentsInfoRetVo(RefundPo po){
         this.id=po.getId();
         this.paymentId=po.getPaymentId();
-        this.amout=po.getAmout();
+        //this.amout=po.getAmout();
         this.state=po.getState();
         this.gmtCreate=po.getGmtCreate();
         this.gmtModified=po.getGmtModified();

@@ -176,8 +176,8 @@ public class PaymentDao {
             List<RefundPo> refundPos = refundPoMapper.selectByExample(refundPoExample);
             if (criteria.isValid()) {
                 for (RefundPo po : refundPos) {
-                        ShopsPaymentsInfoRetVo shopsOrdersRefundsInfoRetVo = new ShopsPaymentsInfoRetVo(po);
-                        return new ReturnObject<>(shopsOrdersRefundsInfoRetVo);
+                    ShopsPaymentsInfoRetVo shopsOrdersRefundsInfoRetVo = new ShopsPaymentsInfoRetVo(po);
+                    return new ReturnObject<>(shopsOrdersRefundsInfoRetVo);
                 }
             } else {
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);

@@ -1,0 +1,42 @@
+package cn.edu.xmu.order.service.impl;
+
+import cn.edu.xmu.order.mapper.OrderPoMapper;
+import cn.edu.xmu.order.model.po.OrderPo;
+import cn.edu.xmu.order.model.po.OrderPoExample;
+import cn.edu.xmu.inner.service.OrderInnerService;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @author issyu 30320182200070
+ * @date 2020/12/8 18:10
+ */
+@Slf4j
+@DubboService
+public class OrderInnerServiceImpl implements OrderInnerService {
+    @Autowired
+    private OrderPoMapper orderPoMapper;
+
+    @Override
+    public List<Long> getOrderIdByUserId(Long userId) {
+        OrderPoExample orderPoExample = new OrderPoExample();
+        OrderPoExample.Criteria criteria = orderPoExample.createCriteria();
+
+        criteria.andCustomerIdEqualTo(userId);
+        List<Long> orderIds = new ArrayList<>();
+        try{
+            List<OrderPo> orderPoList = orderPoMapper.selectByExample(orderPoExample);
+            for(OrderPo orderPo:orderPoList){
+                orderIds.add(orderPo.getId());
+            }
+        }catch (DataAccessException e){
+            log.debug(e.getMessage());
+        }
+        return orderIds;
+    }
+}

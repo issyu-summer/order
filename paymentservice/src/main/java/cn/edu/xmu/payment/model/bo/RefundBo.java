@@ -28,7 +28,7 @@ public class RefundBo {
     public RefundPo createPo() {
         RefundPo refundPo=new RefundPo();
         refundPo.setPaymentId(this.paymentId);
-        refundPo.setAmout(this.amount);
+        //refundPo.setAmout(this.amount);
         refundPo.setState(this.state);
         refundPo.setGmtCreate(this.gmtCreate);
         refundPo.setGmtModified(this.gmtModified);

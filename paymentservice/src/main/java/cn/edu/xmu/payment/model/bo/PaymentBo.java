@@ -34,7 +34,7 @@ public class PaymentBo {
         id=paymentPo.getId();
         amount=paymentPo.getAmount();
         actualAmount=paymentPo.getActualAmount();
-        paymentPattern=paymentPo.getPaymentPattern();
+        //paymentPattern=paymentPo.getPaymentPattern();
         payTime=paymentPo.getPayTime();
         paySn=paymentPo.getPaySn();
         beginTime=paymentPo.getBeginTime();
@@ -70,7 +70,7 @@ public class PaymentBo {
         this.amount=afterSalePaymentVo.getPrice();
         paymentPo.setActualAmount(afterSalePaymentVo.getPrice());
         this.actualAmount=afterSalePaymentVo.getPrice();
-        paymentPo.setPaymentPattern(afterSalePaymentVo.getPaymentPattern());
+        //paymentPo.setPaymentPattern(afterSalePaymentVo.getPaymentPattern());
         this.paymentPattern=afterSalePaymentVo.getPaymentPattern();
         paymentPo.setState((byte)0);//支付成功
         this.state=(byte)0;

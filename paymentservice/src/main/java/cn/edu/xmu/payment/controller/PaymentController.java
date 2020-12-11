@@ -1,8 +1,11 @@
 package cn.edu.xmu.payment.controller;
+import cn.edu.xmu.inner.service.OrderInnerService;
 import cn.edu.xmu.ooad.annotation.Audit;
 import cn.edu.xmu.ooad.annotation.LoginUser;
+import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.payment.model.vo.AfterSalePaymentVo;
 import io.swagger.annotations.*;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletResponse;
@@ -10,15 +13,36 @@ import cn.edu.xmu.ooad.util.Common;
 import cn.edu.xmu.payment.service.PaymentService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Api(value = "支付服务",tags ="payment")
 @RestController
 @RequestMapping(value = "/payment",produces = "application/json;charset=UTF-8")
 public class PaymentController {
+
     @Autowired
     private PaymentService paymentService;
 
     @Autowired
     private HttpServletResponse httpServletResponse;
+
+
+    @DubboReference(check = false)
+    private OrderInnerService orderInnerService;
+    /**
+     * 根据用户id获取订单id
+     * @author issyu 30320182200070
+     * @date 2020/12/10 17:02
+     */
+    @GetMapping("/orderid")
+    public Object getOrderIdByUserId(){
+        List<Long> orderIds = orderInnerService.getOrderIdByUserId(23L);
+        for(Long id:orderIds){
+            System.out.println(id);
+        }
+        return Common.getListRetObject(new ReturnObject<>(orderIds));
+    }
+
     /**
      * 买家查询自己售后单的支付信息
      * @author 王薪蕾

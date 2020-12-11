@@ -32,29 +32,37 @@ public class PaymentService {
         ReturnObject returnObject = paymentDao.getAfterSalesPayments(userId,shopId,id);
         return returnObject;
     }
-    /*
+
+    /**
      * @author 史韬韬
      * @date 2020/12/9
      * 买家查询自己的支付信息
      */
+
     public ReturnObject<PaymentRetVo> getPaymentById(Long id){
-        return paymentDao.getPaymentById(id);
+        //return paymentDao.getPaymentById(id);
+        return null;
     }
-    /*
+
+    /**
      * @author 史韬韬
      * @date 2020/12/10
      * 买家为售后单创建支付单
      */
+
     public ReturnObject<PaymentRetVo> createPaymentForAftersale(Long id, AfterSalePaymentVo afterSalePaymentVo){
-        return paymentDao.createPaymentForAftersale(id,afterSalePaymentVo);
+        //return paymentDao.createPaymentForAftersale(id,afterSalePaymentVo);
+        return null;
     }
-    /*
+
+    /**
      * @author 史韬韬
      * @date 2020/12/10
      * 管理员查看订单支付信息
      */
     public ReturnObject<PaymentRetVo> getPaymentByOrderIdAndShopId(Long id,Long shopId) {
-        return paymentDao.getPaymentByOrderIdAndShopId(id,shopId);
+        //return paymentDao.getPaymentByOrderIdAndShopId(id,shopId);
+        return null;
     } /**
      *管理员查询订单的退款信息
      * @author 陈星如
