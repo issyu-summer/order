@@ -1,0 +1,1 @@
+1 flash_sale中增加了state栏

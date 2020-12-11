@@ -11,6 +11,7 @@
         <module name="freightservice" />
         <module name="paymentservice" />
         <module name="inner-api" />
+        <module name="outer-api" />
         <module name="orderservice" />
       </profile>
     </annotationProcessing>
@@ -21,6 +22,7 @@
       <module name="inner-api" target="11" />
       <module name="order" target="11" />
       <module name="orderservice" target="11" />
+      <module name="outer-api" target="11" />
       <module name="paymentservice" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -32,6 +34,7 @@
       <module name="inner-api" options="-parameters" />
       <module name="order" options="-parameters" />
       <module name="orderservice" options="-parameters" />
+      <module name="outer-api" options="-parameters" />
       <module name="paymentservice" options="-parameters" />
     </option>
   </component>

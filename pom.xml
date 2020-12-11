@@ -9,6 +9,7 @@
         <module>freightservice</module>
         <module>paymentservice</module>
         <module>inner-api</module>
+        <module>outer-api</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
