@@ -1,10 +1,14 @@
 package cn.edu.xmu.payment.dao;
 
+import cn.edu.xmu.inner.service.OrderInnerService;
+import cn.edu.xmu.ooad.model.VoObject;
+import cn.edu.xmu.ooad.util.PaymentStateCode;
 import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.payment.mapper.PaymentPoMapper;
 import cn.edu.xmu.payment.mapper.RefundPoMapper;
 import cn.edu.xmu.payment.model.bo.PaymentBo;
+import cn.edu.xmu.payment.model.bo.PaymentStateBo;
 import cn.edu.xmu.payment.model.bo.RefundBo;
 import cn.edu.xmu.payment.model.po.PaymentPo;
 import cn.edu.xmu.payment.model.po.PaymentPoExample;
@@ -14,12 +18,14 @@ import cn.edu.xmu.payment.model.vo.AfterSalePaymentVo;
 import cn.edu.xmu.payment.model.vo.PaymentRetVo;
 import cn.edu.xmu.payment.model.vo.PaymentVo;
 import cn.edu.xmu.payment.model.vo.ShopsPaymentsInfoRetVo;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class PaymentDao {
@@ -265,4 +271,31 @@ public class PaymentDao {
         //改变其他模块售后的状态
         return new ReturnObject<>(refundBo);
     }
+
+    /**
+     * @author issyu 30320182200070
+     * @date 2020/12/12 18:45
+     * 不在dao层实装DubboReference
+     */
+    public ReturnObject getPaymentStateByOrderIds(List<Long> orderIds){
+
+        PaymentPoExample paymentPoExample = new PaymentPoExample();
+        PaymentPoExample.Criteria criteria = paymentPoExample.createCriteria();
+
+        criteria.andOrderIdIn(orderIds);
+        List<PaymentStateBo> paymentStateBos = new ArrayList<>();
+        try{
+            List<PaymentPo> paymentPos = paymentPoMapper.selectByExample(paymentPoExample);
+            for(PaymentPo paymentPo:paymentPos){
+                PaymentStateBo paymentStateBo = new PaymentStateBo();
+                paymentStateBo.setCode(paymentPo.getState());
+                paymentStateBo.setMessage(PaymentStateCode.getMessageByCode(paymentPo.getState()));
+                paymentStateBos.add(paymentStateBo);
+            }
+        }catch (DataAccessException e){
+            return new ReturnObject(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库内部错："+e.getMessage()));
+        }
+        return new ReturnObject<List>(paymentStateBos);
+    }
+
 }

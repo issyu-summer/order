@@ -209,4 +209,29 @@ public class PaymentController {
             Long amout=Long.valueOf(amount);
             return Common.decorateReturnObject(paymentService.postRefunds(shopId,id,amout));
     }
+
+    /**
+     * @author issyu 30320182200070
+     * @date 2020/12/12 18:47
+     * dao层实装DubboReference
+     */
+    @ApiOperation(value = "查询所有支付状态",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @GetMapping("/payments/states")
+    public Object postRefunds(@LoginUser Long userId){
+        System.out.println(userId);
+        List<Long> orderIds = orderInnerService.getOrderIdByUserId(userId);
+        for(Long l:orderIds){
+            System.out.println(" "+l);
+        }
+        ReturnObject returnObject = paymentService.getPaymentStateByOrderIds(orderIds);
+        return Common.getListRetObject(returnObject);
+    }
+
 }

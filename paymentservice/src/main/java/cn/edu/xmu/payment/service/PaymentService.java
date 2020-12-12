@@ -1,14 +1,12 @@
 package cn.edu.xmu.payment.service;
 
-import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.payment.dao.PaymentDao;
 import cn.edu.xmu.payment.model.vo.AfterSalePaymentVo;
 import cn.edu.xmu.payment.model.vo.PaymentRetVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.awt.*;
+import java.util.List;
 
 @Service
 public class PaymentService {
@@ -89,5 +87,25 @@ public class PaymentService {
     public ReturnObject postRefunds(Long shopId, Long id,Long amount) {
         ReturnObject returnObject = paymentDao.postRefunds(shopId,id,amount);
         return returnObject;
+    }
+
+    /**
+     * @author issyu 30320182200070
+     * @date 2020/12/12 18:47
+     * dao层实装DubboReference
+     */
+    /*
+    public ReturnObject getPaymentStateByUserId(Long userId){
+        return paymentDao.getPaymentStateByUserId(userId);
+    }
+    */
+
+    /**
+     * @author issyu 30320182200070
+     * @date 2020/12/12 18:47
+     * 不在dao层实装DubboReference
+     */
+    public ReturnObject getPaymentStateByOrderIds(List<Long> orderIds){
+        return paymentDao.getPaymentStateByOrderIds(orderIds);
     }
 }
