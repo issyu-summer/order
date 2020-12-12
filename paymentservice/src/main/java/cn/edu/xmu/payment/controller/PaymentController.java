@@ -142,7 +142,7 @@ public class PaymentController {
     public Object getPaymentByOrderIdAndShopId(@PathVariable Long id,@PathVariable Long shopId){
         return Common.decorateReturnObject(paymentService.getPaymentByOrderIdAndShopId(id,shopId));
     }
-    /*
+    /**
      *管理员查询订单的退款信息
      * @author 陈星如
      * @date 2020/12/9 18:13
@@ -163,7 +163,7 @@ public class PaymentController {
             @PathVariable("id")  Long id){
         return Common.decorateReturnObject(paymentService.getShopsOrdersRefunds(shopId,id));
     }
-    /*
+    /**
      *管理员查询售后订单的退款信息
      * @author 陈星如
      * @date 2020/12/9 18:10
@@ -184,7 +184,7 @@ public class PaymentController {
             @PathVariable("id")  Long id){
         return Common.decorateReturnObject(paymentService.getShopsAftersalesRefunds(shopId,id));
     }
-    /*
+    /**
      *管理员创建退款信息
      * @author 王薪蕾
      * @date 2020/12/11
@@ -225,11 +225,7 @@ public class PaymentController {
     @Audit
     @GetMapping("/payments/states")
     public Object postRefunds(@LoginUser Long userId){
-        System.out.println(userId);
         List<Long> orderIds = orderInnerService.getOrderIdByUserId(userId);
-        for(Long l:orderIds){
-            System.out.println(" "+l);
-        }
         ReturnObject returnObject = paymentService.getPaymentStateByOrderIds(orderIds);
         return Common.getListRetObject(returnObject);
     }

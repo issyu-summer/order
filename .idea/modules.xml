@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/customer/customer.iml" filepath="$PROJECT_DIR$/customer/customer.iml" />
       <module fileurl="file://$PROJECT_DIR$/freightservice/freightservice.iml" filepath="$PROJECT_DIR$/freightservice/freightservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/inner-api/inner-api.iml" filepath="$PROJECT_DIR$/inner-api/inner-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/order.iml" filepath="$PROJECT_DIR$/order.iml" />
