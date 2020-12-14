@@ -64,6 +64,17 @@ public class CustomerController {
         }
     }
 
+    @GetMapping("/orderitemlist")
+    private Object getOrderItemList(){
+        Long id=1L;
+        if(iOrderService.getOrderItemIdList(id)==null){
+            return ResponseUtil.fail(ResponseCode.RESOURCE_ID_NOTEXIST,"无订单明细");
+        }else{
+            return Common.decorateReturnObject(iOrderService.getOrderItemIdList(id));
+
+        }
+    }
+
     /**
      * 不通
      * @return

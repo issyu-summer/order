@@ -21,7 +21,7 @@ public interface IOrderService {
      * 售后按条件进行查找时使用
      * @param skuId
      */
-    List<Long> getOrderItemIdList(Long skuId);
+    MyReturn<List<Long>> getOrderItemIdList(Long skuId);
 
     /**
      * 获得OrderItem的信息
