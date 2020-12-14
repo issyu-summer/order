@@ -8,6 +8,7 @@ import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.payment.mapper.PaymentPoMapper;
 import cn.edu.xmu.payment.mapper.RefundPoMapper;
 import cn.edu.xmu.payment.model.bo.PaymentBo;
+import cn.edu.xmu.payment.model.bo.PaymentPatternBo;
 import cn.edu.xmu.payment.model.bo.PaymentStateBo;
 import cn.edu.xmu.payment.model.bo.RefundBo;
 import cn.edu.xmu.payment.model.po.PaymentPo;
@@ -232,7 +233,7 @@ public class PaymentDao {
         }
         return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
     }
-    /*
+    /**
      *管理员创建退款信息
      * @author 王薪蕾
      * @date 2020/12/11
@@ -273,6 +274,7 @@ public class PaymentDao {
     }
 
     /**
+     * 通过userId获取订单Id(Dubbo),通过订单id获取支付状态
      * @author issyu 30320182200070
      * @date 2020/12/12 18:45
      * 不在dao层实装DubboReference
@@ -296,6 +298,30 @@ public class PaymentDao {
             return new ReturnObject(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库内部错："+e.getMessage()));
         }
         return new ReturnObject<List>(paymentStateBos);
+    }
+
+    /**
+     * 通过userId获取订单Id(Dubbo),通过订单id获取支付方式
+     * @author issyu 30320182200070
+     * @date 2020/12/14 11:31
+     */
+    public ReturnObject getPayPatternsByOrderId(List<Long> orderIds){
+
+        PaymentPoExample paymentPoExample = new PaymentPoExample();
+        PaymentPoExample.Criteria criteria =paymentPoExample.createCriteria();
+        criteria.andOrderIdIn(orderIds);
+        List<PaymentPatternBo> paymentPatternBos = new ArrayList<>();
+
+        try{
+            List<PaymentPo> paymentPos = paymentPoMapper.selectByExample(paymentPoExample);
+
+            for(PaymentPo paymentPo:paymentPos){
+                paymentPatternBos.add(new PaymentPatternBo(paymentPo));
+            }
+        }catch (DataAccessException e){
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库内部错误："+e.getMessage()));
+        }
+        return new ReturnObject<>(paymentPatternBos);
     }
 
 }

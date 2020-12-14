@@ -1,12 +1,11 @@
 package cn.edu.xmu.order.controller;
 
 import cn.edu.xmu.ooad.annotation.Audit;
-import cn.edu.xmu.ooad.annotation.Depart;
 import cn.edu.xmu.ooad.annotation.LoginUser;
 import cn.edu.xmu.ooad.model.VoObject;
-import cn.edu.xmu.ooad.util.*;
-import cn.edu.xmu.order.model.bo.OrderInfo;
-import cn.edu.xmu.order.model.bo.OrderStateBo;
+import cn.edu.xmu.ooad.util.Common;
+import cn.edu.xmu.ooad.util.ReturnObject;
+import cn.edu.xmu.ooad.util.TimeFormat;
 import cn.edu.xmu.order.model.vo.AdressVo;
 import cn.edu.xmu.order.model.vo.OrderInfoVo;
 import cn.edu.xmu.order.service.OrderService;
@@ -23,7 +22,6 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -44,6 +42,7 @@ public class OrderController {
     private HttpServletResponse httpServletResponse;
 
     /**
+     * V
      * 获得订单的所有状态
      * @author issyu 30320182200070
      * @date 2020/12/2 23:16
@@ -63,11 +62,10 @@ public class OrderController {
     }
 
     /**
+     * V
      * 买家查询名下所有订单概要
      * @author issyu 30320182200070
      * @date 2020/12/3 16:55
-     *
-     * *****userId从哪里来。*****
      */
     @ApiOperation(value = "买家查询名下所有订单概要",produces="application/json")
     @ApiImplicitParams({
@@ -95,7 +93,8 @@ public class OrderController {
     }
 
     /**
-     * 创建订单
+     * 这个api十分重要！！！！
+     * 创建订单数据库中的所有相关字段必须全部填充完整，这样才能走完整个流程。
      * @author issyu 30320182200070
      * @date 2020/12/4 23:22
      */
@@ -119,10 +118,7 @@ public class OrderController {
             logger.debug("validate fail");
             return returnObject;
         }
-        OrderInfo orderInfo = vo.createOrderInfo();
-        orderInfo.setCustomerId(userId);
-        orderInfo.setGmtCreate(LocalDateTime.now());
-        ReturnObject retObject = orderService.createOrder(orderInfo);
+        ReturnObject retObject = new ReturnObject<>(orderService.createOrder(vo));
 
         if (retObject.getData() != null) {
             httpServletResponse.setStatus(HttpStatus.CREATED.value());
@@ -134,7 +130,9 @@ public class OrderController {
             return Common.getNullRetObj(new ReturnObject<>(retObject.getCode(), retObject.getErrmsg()), httpServletResponse);
         }
     }
-    /*
+
+    /**
+     * 需要集成接口
      * 买家查询订单完整信息
      * @author 史韬韬
      * created in 2020/12/2
@@ -156,7 +154,7 @@ public class OrderController {
 
     }
 
-    /*
+    /**
      * 买家修改本人名下订单
      * @author 史韬韬
      * created in 2020/12/3
@@ -174,7 +172,7 @@ public class OrderController {
     public Object changeOrder(@PathVariable Long id, @RequestBody AdressVo adressVo){
         return Common.decorateReturnObject(orderService.changeOrder(id,adressVo));
     }
-    /*
+    /**
      * 买家取消、逻辑删除本人名下订单
      * @author 史韬韬
      * created in 2020/12/3
@@ -216,7 +214,9 @@ public class OrderController {
             @LoginUser Long userId) {
         return Common.getRetObject(orderService.confirmOrders(id,userId));
         //return Common.getNullRetObj()
-    } /**
+    }
+
+    /**
      * 团购订单转普通
      *
      * @param id 订单ID
@@ -242,6 +242,7 @@ public class OrderController {
     }
 
     /**
+     * V
      * 店家查询商户所有订单 (概要)
      * @author 王子扬 30320182200071
      * @date 2020/12/5 23:04
@@ -317,7 +318,7 @@ public class OrderController {
             return Common.getNullRetObj(new ReturnObject<>(retObject.getCode(), retObject.getErrmsg()), httpServletResponse);
         }
     }
-    /*
+    /**
      * 店家查询店内订单完整信息(普通，团购，预售)
      * @author 陈星如
      * @date 2020/12/5 14:55
@@ -341,7 +342,7 @@ public class OrderController {
         return Common.decorateReturnObject(orderService.getOrderByShopId(shopId,id));
 
     }
-    /*
+    /**
      * 管理员取消本店铺订单
      * @author 陈星如
      * @date 2020/12/5 15:15
@@ -361,10 +362,10 @@ public class OrderController {
     public Object deleteShopOrder(@PathVariable Long shopId,@PathVariable Long id){
         return Common.getRetObject(orderService.deleteShopOrder(shopId,id));
     }
-    /*
-     * 店家对订单标记发货
-     * @author 陈星如
-     * @date 2020/12/5 15:16
+    /**
+     *店家对订单标记发货
+     *@author 陈星如
+     *@date 2020/12/5 15:16
      */
     @ApiOperation(value = "店家对订单标记发货",produces="application/json")
     @ApiImplicitParams({

@@ -1,6 +1,9 @@
 package cn.edu.xmu.order.model.vo;
 
+import cn.edu.xmu.order.model.po.OrderItemPo;
 import lombok.Data;
+
+import java.time.LocalDateTime;
 
 /**
  * 创建订单传值对象
@@ -11,5 +14,13 @@ import lombok.Data;
 public class OrderItemVo {
     private Long skuId;
     private Integer quantity;
-    private Long couponActId;
+
+    public OrderItemPo getOrderItemPo() {
+        OrderItemPo orderItemPo = new OrderItemPo();
+        orderItemPo.setGoodsSkuId(this.getSkuId());
+        orderItemPo.setQuantity(this.getQuantity());
+        orderItemPo.setGmtCreate(LocalDateTime.now());
+        orderItemPo.setGmtModified(LocalDateTime.now());
+        return orderItemPo;
+    }
 }

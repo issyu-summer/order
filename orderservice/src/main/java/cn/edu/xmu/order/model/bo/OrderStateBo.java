@@ -5,6 +5,8 @@ import cn.edu.xmu.ooad.util.OrderStateCode;
 import cn.edu.xmu.order.model.vo.OrderStateRetVo;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author issyu 30320182200070
  * @date 2020/12/3 15:22

@@ -5,12 +5,11 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /**
-* @author 史韬韬
-* @Date 2020/12/6
-* 改动请通知我
+ * @author issyu 30320182200070
+ * @date 2020/12/14 3:29
  */
 @Data
-public class ShopVo {
+public class ShopRetVo {
     private Long id;
     private String name;
     private LocalDateTime gmtCreateTime;

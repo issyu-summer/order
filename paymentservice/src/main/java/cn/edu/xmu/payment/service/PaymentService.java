@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class PaymentService {
+
     @Autowired
     private PaymentDao paymentDao;
     /**
@@ -79,7 +80,8 @@ public class PaymentService {
         ReturnObject returnObject = paymentDao.getShopsAftersalesRefunds(shopId, id);
         return returnObject;
     }
-    /*
+
+    /**
      *管理员创建退款信息
      * @author 王薪蕾
      * @date 2020/12/11
@@ -107,5 +109,14 @@ public class PaymentService {
      */
     public ReturnObject getPaymentStateByOrderIds(List<Long> orderIds){
         return paymentDao.getPaymentStateByOrderIds(orderIds);
+    }
+
+    /**
+     * 通过userId获取订单Id(Dubbo),通过订单id获取支付方式
+     * @author issyu 30320182200070
+     * @date 2020/12/14 11:31
+     */
+    public ReturnObject getPayPatternsByOrderId(List<Long> orderIds){
+        return paymentDao.getPayPatternsByOrderId(orderIds);
     }
 }

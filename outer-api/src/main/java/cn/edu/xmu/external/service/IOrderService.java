@@ -1,6 +1,9 @@
 package cn.edu.xmu.external.service;
 
-import cn.edu.xmu.external.model.bo.*;
+import cn.edu.xmu.external.model.bo.Aftersale;
+import cn.edu.xmu.external.model.bo.Freight;
+import cn.edu.xmu.external.model.bo.OrderItem;
+import cn.edu.xmu.external.model.bo.OrderItemInfo;
 
 import java.util.List;
 
@@ -11,7 +14,7 @@ public interface IOrderService {
      * 定时任务1相关
      * @return Order对应的OrderItem列表
      */
-    public MyReturn<List<OrderItem>> getOrderItems(List<Long> orderIdList);
+    public List<OrderItem> getOrderItems(List<Long> orderIdList);
 
     /**
      * 通过skuId查找对应的OrderItemId列表
