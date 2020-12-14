@@ -1,7 +1,6 @@
 package cn.edu.xmu.order.service.impl;
 
-import cn.edu.xmu.external.model.bo.OrderItem;
-import cn.edu.xmu.external.model.bo.OrderItemInfo;
+import cn.edu.xmu.external.model.bo.*;
 import cn.edu.xmu.external.service.IOrderService;
 import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
@@ -40,7 +39,7 @@ public class OrderOuterServiceImpl implements IOrderService {
      * @return List<OrderItem> Order对应的OrderItem列表
      */
     @Override
-    public List<OrderItem> getOrderItems(List<Long> orderIdList) {
+    public MyReturn<List<OrderItem>> getOrderItems(List<Long> orderIdList) {
         List<OrderItem> returnOrderItemList=new ArrayList<>();
         OrderItem orderItem=new OrderItem();
 
@@ -59,7 +58,8 @@ public class OrderOuterServiceImpl implements IOrderService {
                  orderItem.setSkuId(po.getGoodsSkuId());
                  returnOrderItemList.add(orderItem);
              }
-             return returnOrderItemList;
+             MyReturn myReturn=new MyReturn(returnOrderItemList);
+             return myReturn;
            }catch (DataAccessException e){
                logger.error("getOrderItems:数据库查询错误！");
                return null;
@@ -71,7 +71,7 @@ public class OrderOuterServiceImpl implements IOrderService {
      * @param skuId
      */
     @Override
-    public ReturnObject<List<Long>> getOrderItemIdList(Long skuId) {
+    public List<Long> getOrderItemIdList(Long skuId) {
         List<Long> orderItemIdList=new ArrayList<>();
         try{
             OrderItemPoExample orderItemPoExample=new OrderItemPoExample();
@@ -90,23 +90,29 @@ public class OrderOuterServiceImpl implements IOrderService {
         }catch (DataAccessException e){
             logger.error("getOrderItemIdList:数据库查询错误！");
         }
-        return new ReturnObject<>(orderItemIdList);
+        return orderItemIdList;
     }
 
     @Override
-    public ReturnObject<OrderItemInfo> getOrderItemInfo(Long orderItemId) {
+    public Freight getFreightInfoById(Long freightId) {
         return null;
     }
 
     @Override
-    public ReturnObject<Boolean> aftersaleRefund(Long orderItemId) {
-        return null;
+    public boolean aftersaleRefund(Aftersale aftersale) {
+        return false;
     }
 
     @Override
-    public ReturnObject<Boolean> aftersaleSendback(Long orderItemId) {
+    public boolean aftersaleSendback(Aftersale aftersale) {
+        return false;
+    }
+
+    @Override
+    public OrderItemInfo getOrderItemInfo(Long orderItemId) {
         return null;
     }
+
 
 
 }

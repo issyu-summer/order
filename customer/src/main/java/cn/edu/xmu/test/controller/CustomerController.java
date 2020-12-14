@@ -3,6 +3,8 @@ package cn.edu.xmu.test.controller;
 import cn.edu.xmu.external.service.IOrderService;
 import cn.edu.xmu.inner.service.OrderInnerService;
 import cn.edu.xmu.ooad.util.Common;
+import cn.edu.xmu.ooad.util.ResponseCode;
+import cn.edu.xmu.ooad.util.ResponseUtil;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import io.swagger.annotations.Api;
 import org.apache.dubbo.config.annotation.DubboReference;
@@ -50,9 +52,9 @@ public class CustomerController {
         List<Long> ids=new ArrayList<>();
         ids.add(1L);
         if(iOrderService.getOrderItems(ids)==null){
-            return null;
+            return ResponseUtil.fail(ResponseCode.RESOURCE_ID_NOTEXIST,"无订单明细");
         }else{
-            return iOrderService.getOrderItems(ids);
+            return Common.decorateReturnObject(iOrderService.getOrderItems(ids));
 
         }
     }
