@@ -12,6 +12,7 @@ import cn.edu.xmu.order.model.po.OrderItemPoExample;
 import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.order.model.po.OrderPoExample;
 import cn.edu.xmu.order.model.vo.AdressVo;
+import cn.edu.xmu.order.model.vo.OrderInfoRetVo;
 import cn.edu.xmu.order.model.vo.OrderInfoVo;
 import cn.edu.xmu.order.model.vo.OrderRetVo;
 import com.github.pagehelper.PageHelper;
@@ -63,9 +64,6 @@ public class OrderDao {
                 logger.debug("order not found");
                 return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,"order not found");
             }
-
-            //List<Byte> stateList = new ArrayList<>();
-            //List<OrderStateCode> orderStateList = new ArrayList<>();
             List<OrderStateBo> bos = new ArrayList<>();
 
             for(OrderPo po:orderPos){
@@ -76,9 +74,6 @@ public class OrderDao {
                                 OrderStateCode.getOrderStateByCode(po.getState())
                         )
                 );
-
-                //orderStateList.add(OrderStateCode.getOrderStateByCode(po.getState()));
-                //stateList.add(po.getState());
             }
             return new ReturnObject<>(bos);
 
@@ -144,33 +139,39 @@ public class OrderDao {
      * 买家创建订单
      * @author issyu 30320182200070
      * @date 2020/12/4 23:37
-     * @param orderInfo
+     * @param orderInfoVo
+     * @return OrederInfoRetVo 但是信息不全
+     * 试试可不可以在dao层调用
      */
-    public ReturnObject<OrderInfo> createOrder(OrderInfo orderInfo) {
+    public OrderInfoBo createOrder(OrderInfoVo orderInfoVo) {
+        //插入orderInfo
+        //OrderPoExample orderPoExample = new OrderPoExample();
+        //插入orderItemInfo
+        //OrderItemPoExample orderItemPoExample = new OrderItemPoExample();
 
-        ReturnObject<OrderInfo> retObj = null;
+        OrderPo orderPo = orderInfoVo.getOrderPo();
 
-        OrderPoExample orderPoExample = new OrderPoExample();
-        OrderItemPoExample orderItemPoExample = new OrderItemPoExample();
-
-        OrderPo orderPo = orderInfo.getOrderPo();
+        List<OrderItemPo> orderItemPos = orderInfoVo.getOrderItemPoList();
         try {
             int retOrder = orderPoMapper.insertSelective(orderPo);
             if (retOrder == 0) {
-                retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("新增失败：" + orderPo.getConsignee()));
-            } else {
-                OrderItemPo orderItemPo = orderInfo.getOrderItemPo(orderPo.getId());
+                logger.debug("插入订单信息失败：收货人=" + orderPo.getConsignee());
+            }
+            for (OrderItemPo orderItemPo : orderItemPos) {
                 int retOrderItem = orderItemPoMapper.insertSelective(orderItemPo);
                 if (retOrderItem == 0) {
-                    retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("新增失败：" + orderPo.getConsignee()));
-                } else {
-                    retObj = new ReturnObject<>(orderInfo);
+                    logger.debug("插入订单明细失败:" + orderItemPo.getName());
                 }
             }
-        } catch (DataAccessException e) {
-            retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：" + e.getMessage()));
+
+            //返回值
+            OrderInfoBo orderInfoBo = new OrderInfoBo(orderPo);
+            //return new ReturnObject<>(orderInfoBo);
+            return orderInfoBo;
+        }catch (DataAccessException e){
+            //return new ReturnObject<>(ResponseCode.)
+            return null;
         }
-        return retObj;
     }
 
     /**

@@ -1,0 +1,11 @@
+cn\edu\xmu\freight\model\vo\WeightModelInfoRetVo.class
+cn\edu\xmu\freight\model\bo\PieceModelInfoBo.class
+cn\edu\xmu\freight\model\bo\WeightFreightModelBo.class
+cn\edu\xmu\freight\model\vo\WeightModelInfoVo.class
+cn\edu\xmu\freight\model\vo\FreightModelSimpleInfoRetVo.class
+cn\edu\xmu\freight\model\vo\PieceModelInfoVo.class
+cn\edu\xmu\freight\model\bo\PieceFreightModelBo.class
+cn\edu\xmu\freight\model\vo\PieceModelInfoRetVo.class
+cn\edu\xmu\freight\model\bo\FreightModelSimpleInfoBo.class
+cn\edu\xmu\freight\model\bo\WeightModelInfoBo.class
+cn\edu\xmu\freight\model\vo\FreightModelInfoVo.class

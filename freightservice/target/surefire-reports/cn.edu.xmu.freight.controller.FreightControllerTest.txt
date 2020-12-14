@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: cn.edu.xmu.freight.controller.FreightControllerTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 73.532 s - in cn.edu.xmu.freight.controller.FreightControllerTest

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FreightModelRetVo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">freightservice</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.freight.model.vo</a> &gt; <span class="el_source">FreightModelRetVo.java</span></div><h1>FreightModelRetVo.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.freight.model.vo;
+
+import cn.edu.xmu.freight.model.bo.FreightModelBo;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
+
+/**
+ * 运费模板返回值对象
+ * @author issyu 30320182200070
+ * @date 2020/12/5 1:34
+ */
+<span class="nc bnc" id="L12" title="All 62 branches missed.">@Data</span>
+public class FreightModelRetVo {
+<span class="nc" id="L14">    private Long id;</span>
+<span class="nc" id="L15">    private String name;</span>
+<span class="nc" id="L16">    private Byte type;</span>
+    @JsonProperty(value = &quot;default&quot;)
+<span class="nc" id="L18">    private Boolean isDefault;</span>
+<span class="nc" id="L19">    private Integer unit;</span>
+<span class="nc" id="L20">    private String gmtCreate;</span>
+<span class="nc" id="L21">    private String gmtModified;</span>
+
+    /*
+    @JsonProperty(&quot;default&quot;)
+    public String getIsDefault(){
+        return this.isDefault;
+    }
+    */
+
+    /**
+     * @author issyu 30320182200070
+     * @date 2020/12/8 1:44
+     * @param freightModelBo
+     */
+<span class="nc" id="L35">    public FreightModelRetVo(FreightModelBo freightModelBo){</span>
+<span class="nc" id="L36">        this.setGmtCreate(freightModelBo.getGmtCreate());</span>
+<span class="nc" id="L37">        this.setGmtModified(freightModelBo.getGmtModified());</span>
+<span class="nc" id="L38">        this.setId(freightModelBo.getId());</span>
+<span class="nc" id="L39">        this.setIsDefault(freightModelBo.getIsDefault());</span>
+<span class="nc" id="L40">        this.setName(freightModelBo.getName());</span>
+<span class="nc" id="L41">        this.setType(freightModelBo.getType());</span>
+<span class="nc" id="L42">        this.setUnit(freightModelBo.getUnit());</span>
+<span class="nc" id="L43">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

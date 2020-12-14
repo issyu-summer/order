@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WeightModelInfoVo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">freightservice</a> &gt; <a href="index.source.html" class="el_package">cn.edu.xmu.freight.model.vo</a> &gt; <span class="el_source">WeightModelInfoVo.java</span></div><h1>WeightModelInfoVo.java</h1><pre class="source lang-java linenums">package cn.edu.xmu.freight.model.vo;
+
+import cn.edu.xmu.freight.model.bo.WeightModelInfoBo;
+import lombok.Data;
+
+
+/**
+ * 重量运费模板传入值对象
+ * @author 王薪蕾
+ * @date 2020/12/9
+ */
+<span class="nc bnc" id="L12" title="All 70 branches missed.">@Data</span>
+public class WeightModelInfoVo {
+<span class="nc" id="L14">    private Long firstWeight;</span>
+<span class="nc" id="L15">    private Long firstWeightFreight;</span>
+<span class="nc" id="L16">    private Long tenPrice;</span>
+<span class="nc" id="L17">    private Long fiftyPrice;</span>
+<span class="nc" id="L18">    private Long hundredPrice;</span>
+<span class="nc" id="L19">    private Long trihunPrice;</span>
+<span class="nc" id="L20">    private Long abovePrice;</span>
+<span class="nc" id="L21">    private Long regionId;</span>
+<span class="nc" id="L22">    public WeightModelInfoVo(){</span>
+
+<span class="nc" id="L24">    }</span>
+<span class="nc" id="L25">    public WeightModelInfoVo(WeightModelInfoBo weightModelInfoBo){</span>
+<span class="nc" id="L26">        this.setFirstWeight(weightModelInfoBo.getFirstWeight());</span>
+<span class="nc" id="L27">        this.setFirstWeightFreight(weightModelInfoBo.getFirstWeightFreight());</span>
+<span class="nc" id="L28">        this.setTenPrice(weightModelInfoBo.getTenPrice());</span>
+<span class="nc" id="L29">        this.setFiftyPrice(weightModelInfoBo.getFiftyPrice());</span>
+<span class="nc" id="L30">        this.setTrihunPrice(weightModelInfoBo.getTrihunPrice());</span>
+<span class="nc" id="L31">        this.setAbovePrice(weightModelInfoBo.getAbovePrice());</span>
+<span class="nc" id="L32">        this.setRegionId(weightModelInfoBo.getRegionId());</span>
+<span class="nc" id="L33">    }</span>
+    public WeightModelInfoBo createWeightModelInfoBo(){
+<span class="nc" id="L35">        WeightModelInfoBo weightModelInfoBo = new WeightModelInfoBo();</span>
+<span class="nc" id="L36">        weightModelInfoBo.setFirstWeight(this.getFirstWeight());</span>
+<span class="nc" id="L37">        weightModelInfoBo.setFirstWeightFreight(this.getFirstWeightFreight());</span>
+<span class="nc" id="L38">        weightModelInfoBo.setTenPrice(this.getTenPrice());</span>
+<span class="nc" id="L39">        weightModelInfoBo.setHundredPrice(this.hundredPrice);</span>
+<span class="nc" id="L40">        weightModelInfoBo.setFiftyPrice(this.getFiftyPrice());</span>
+<span class="nc" id="L41">        weightModelInfoBo.setTrihunPrice(this.getTrihunPrice());</span>
+<span class="nc" id="L42">        weightModelInfoBo.setAbovePrice(this.getAbovePrice());</span>
+<span class="nc" id="L43">        weightModelInfoBo.setRegionId(this.getRegionId());</span>
+<span class="nc" id="L44">        return weightModelInfoBo;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

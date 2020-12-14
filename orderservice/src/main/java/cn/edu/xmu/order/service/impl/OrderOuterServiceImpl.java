@@ -3,6 +3,7 @@ package cn.edu.xmu.order.service.impl;
 import cn.edu.xmu.external.model.bo.OrderItem;
 import cn.edu.xmu.external.model.bo.OrderItemInfo;
 import cn.edu.xmu.external.service.IOrderService;
+import cn.edu.xmu.inner.service.PaymentInnerService;
 import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.order.mapper.OrderItemPoMapper;
@@ -10,6 +11,7 @@ import cn.edu.xmu.order.mapper.OrderPoMapper;
 import cn.edu.xmu.order.model.po.OrderItemPo;
 import cn.edu.xmu.order.model.po.OrderItemPoExample;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,10 +28,13 @@ public class OrderOuterServiceImpl implements IOrderService {
     private static final Logger logger = LoggerFactory.getLogger(OrderOuterServiceImpl.class);
 
     @Autowired
-    OrderPoMapper orderPoMapper;
+    private OrderPoMapper orderPoMapper;
 
     @Autowired
-    OrderItemPoMapper orderItemPoMapper;
+    private OrderItemPoMapper orderItemPoMapper;
+
+    @DubboReference
+    private PaymentInnerService paymentInnerService;
 
     /**
      * 通过OrderId获取订单详细信息
@@ -93,14 +98,46 @@ public class OrderOuterServiceImpl implements IOrderService {
         return new ReturnObject<>(orderItemIdList);
     }
 
+    /**
+     * 获得OrderItem的信息
+     * @author 陈星如
+     * @date 12/12/20 8:05 PM
+     **/
     @Override
-    public ReturnObject<OrderItemInfo> getOrderItemInfo(Long orderItemId) {
-        return null;
+    public OrderItemInfo getOrderItemInfo(Long orderItemId) {
+        OrderItemInfo orderItemInfo = null;
+        try {
+            OrderItemPo orderItemPo = orderItemPoMapper.selectByPrimaryKey(orderItemId);
+            //订单明细不存在
+            if (orderItemPo == null) {
+                logger.error("getOrderItemInfo:未找到orderItem！");
+            }
+            //操作的订单明细不是目标订单明细
+            if (!orderItemId.equals(orderItemPo.getId())) {
+                logger.error("getOrderItemInfo:操作的订单明细不是目标订单明细！");
+            }
+
+            orderItemInfo.setSkuId(orderItemPo.getGoodsSkuId());
+            orderItemInfo.setOrderId(orderItemPo.getOrderId());
+            orderItemInfo.setPrice(orderItemPo.getPrice());
+            orderItemInfo.setOrderId(orderItemPo.getOrderId());
+
+        } catch (DataAccessException e) {
+            logger.error("getOrderItemIdList:数据库查询错误！");
+        }
+        return orderItemInfo;
     }
 
     @Override
     public ReturnObject<Boolean> aftersaleRefund(Long orderItemId) {
-        return null;
+        Long orderId =null;
+        try {
+            OrderItemPo po = orderItemPoMapper.selectByPrimaryKey(orderItemId);
+            orderId = po.getOrderId();
+        }catch (DataAccessException e){
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
+        }
+        return new ReturnObject<>(paymentInnerService.updateRefundStateByOrderId(orderId));
     }
 
     @Override

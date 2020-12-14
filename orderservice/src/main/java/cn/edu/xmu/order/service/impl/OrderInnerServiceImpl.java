@@ -1,6 +1,9 @@
 package cn.edu.xmu.order.service.impl;
 
+import cn.edu.xmu.order.mapper.OrderItemPoMapper;
 import cn.edu.xmu.order.mapper.OrderPoMapper;
+import cn.edu.xmu.order.model.po.OrderItemPo;
+import cn.edu.xmu.order.model.po.OrderItemPoExample;
 import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.order.model.po.OrderPoExample;
 import cn.edu.xmu.inner.service.OrderInnerService;
@@ -13,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * provider
  * @author issyu 30320182200070
  * @date 2020/12/8 18:10
  */
@@ -22,6 +26,9 @@ public class OrderInnerServiceImpl implements OrderInnerService {
     @Autowired
     private OrderPoMapper orderPoMapper;
 
+    @Autowired
+    private OrderItemPoMapper orderItemPoMapper;
+
     @Override
     public List<Long> getOrderIdByUserId(Long userId) {
         OrderPoExample orderPoExample = new OrderPoExample();
@@ -29,14 +36,15 @@ public class OrderInnerServiceImpl implements OrderInnerService {
 
         criteria.andCustomerIdEqualTo(userId);
         List<Long> orderIds = new ArrayList<>();
-        try{
+        try {
             List<OrderPo> orderPoList = orderPoMapper.selectByExample(orderPoExample);
-            for(OrderPo orderPo:orderPoList){
+            for (OrderPo orderPo : orderPoList) {
                 orderIds.add(orderPo.getId());
             }
-        }catch (DataAccessException e){
+        } catch (DataAccessException e) {
             log.debug(e.getMessage());
         }
         return orderIds;
     }
 }
+

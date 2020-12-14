@@ -4,8 +4,9 @@ import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.order.dao.OrderDao;
 import cn.edu.xmu.order.model.bo.OrderBrief;
-import cn.edu.xmu.order.model.bo.OrderInfo;
+import cn.edu.xmu.order.model.bo.OrderInfoBo;
 import cn.edu.xmu.order.model.vo.AdressVo;
+import cn.edu.xmu.order.model.vo.OrderInfoVo;
 import cn.edu.xmu.order.model.vo.OrderRetVo;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,8 +61,8 @@ public class OrderService {
      * @date 2020/12/5 0:30
      */
 
-    public ReturnObject<OrderInfo> createOrder(OrderInfo orderInfo){
-        ReturnObject<OrderInfo> returnObject = orderDao.createOrder(orderInfo);
+    public OrderInfoBo createOrder(OrderInfoVo vo){
+        OrderInfoBo returnObject = orderDao.createOrder(vo);
         return returnObject;
     }
 
@@ -82,6 +83,8 @@ public class OrderService {
     public ReturnObject<VoObject> changeOrder(Long id, AdressVo adressVo){
         return orderDao.changeOrder(id,adressVo);
     }
+
+
     /**
      * 买家取消、逻辑删除本人名下订单
      * @author 史韬韬
@@ -100,7 +103,9 @@ public class OrderService {
     @Transactional
     public ReturnObject confirmOrders(Long id,Long userId) {
         return orderDao.confirmOrders(id,userId);
-    }    /**
+    }
+
+    /**
      * 团购订单转普通
      *
      * @author 王薪蕾
@@ -139,7 +144,8 @@ public class OrderService {
         ReturnObject<OrderBrief> returnObject = orderDao.updateOrderMessage(shopId,id,message);
         return returnObject;
     }
-    /*
+
+    /**
      * 店家查询店内订单完整信息(普通，团购，预售)
      * @author 陈星如
      * @date 2020/12/5 16:10
@@ -147,6 +153,7 @@ public class OrderService {
     public ReturnObject<VoObject>  getOrderByShopId(Long shopId, Long id) {
         System.out.println("ser");return orderDao.getOrderByShopId(shopId,id);
     }
+
     /**
      * 管理员取消本店铺订单
      * @author 陈星如
@@ -155,7 +162,9 @@ public class OrderService {
     public ReturnObject<VoObject> deleteShopOrder(Long shopId,Long id){
         return orderDao.deleteShopOrder(shopId,id);
     }
-    /* 店家对订单标记发货
+
+    /**
+     *店家对订单标记发货
      * @author 陈星如
      * @date 2020/12/5 21:16
      */

@@ -17,6 +17,7 @@ public class OrderItemInfo {
 
     private Long shopId;
 
-    private Long price;//orderItem实际支付价格
+    private Long price;
+    //orderItem实际支付价格
 
 }

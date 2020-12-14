@@ -11,6 +11,7 @@
         <module>inner-api</module>
         <module>outer-api</module>
         <module>customer</module>
+        <module>order-test</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

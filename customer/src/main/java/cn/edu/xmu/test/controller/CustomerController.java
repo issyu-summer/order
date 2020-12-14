@@ -2,6 +2,7 @@ package cn.edu.xmu.test.controller;
 
 import cn.edu.xmu.external.service.IOrderService;
 import cn.edu.xmu.inner.service.OrderInnerService;
+import cn.edu.xmu.inner.service.PaymentInnerService;
 import cn.edu.xmu.ooad.util.Common;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import io.swagger.annotations.Api;
@@ -21,6 +22,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/customer",produces = "application/json;charset=UTF-8")
 public class CustomerController {
+
     @DubboReference(check = false)
     private OrderInnerService orderInnerService;
     /**
@@ -30,6 +32,9 @@ public class CustomerController {
      */
     @DubboReference
     private IOrderService iOrderService;
+
+    @DubboReference
+    private PaymentInnerService paymentInnerService;
 
     @GetMapping("/orderid")
     public Object getOrderIdByUserId(){
@@ -41,7 +46,7 @@ public class CustomerController {
     }
 
     /**
-     * 外部接口测试示例
+     * 外部接口测试示例.通
      * @author issyu 30320182200070
      * @date 2020/12/12 21:33
      */
@@ -55,5 +60,24 @@ public class CustomerController {
             return iOrderService.getOrderItems(ids);
 
         }
+    }
+
+    /**
+     * 不通
+     * @return
+     */
+    @GetMapping("/aftersaleRefund")
+    private Object AfterSaleRefund(){
+        //return Common.getRetObject(iOrderService.aftersaleRefund(1L));
+        return iOrderService.aftersaleRefund(1L);
+    }
+
+    /**
+     * 不通
+     * @return
+     */
+    @GetMapping("/getOrderId")
+    private Object getOrderId(){
+        return paymentInnerService.updateRefundStateByOrderId(1L);
     }
 }

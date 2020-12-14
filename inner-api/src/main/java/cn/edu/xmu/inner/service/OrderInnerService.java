@@ -16,4 +16,5 @@ public interface OrderInnerService {
      * @return
      */
     List<Long> getOrderIdByUserId(Long userId);
+
 }

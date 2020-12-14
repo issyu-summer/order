@@ -1,27 +1,25 @@
 package cn.edu.xmu.external.service;
 
-import cn.edu.xmu.external.model.bo.Aftersale;
-import cn.edu.xmu.external.model.bo.Freight;
-import cn.edu.xmu.external.model.bo.OrderItem;
 import cn.edu.xmu.external.model.bo.OrderItemInfo;
+import cn.edu.xmu.ooad.util.ReturnObject;
+import cn.edu.xmu.external.model.bo.OrderItem;
 
 import java.util.List;
 
 public interface IOrderService {
-
   /**
      * 通过orderId/orderItemId(可能更改)列表获得OrderItem列表
      * 定时任务1相关
      * @return Order对应的OrderItem列表
      */
-    public List<OrderItem> getOrderItems(List<Long> orderIdList);
+  List<OrderItem> getOrderItems(List<Long> orderIdList);
 
     /**
      * 通过skuId查找对应的OrderItemId列表
      * 售后按条件进行查找时使用
      * @param skuId
      */
-    List<Long> getOrderItemIdList(Long skuId);
+   ReturnObject<List<Long>> getOrderItemIdList(Long skuId);
 
     /**
      * 获得OrderItem的信息
@@ -33,25 +31,15 @@ public interface IOrderService {
 
     /**
      * 完成退款流程
-     * @param aftersale 可以提供所有售后单中存在的信息
-     * @return
-     * payment中通过aftersaleId获得orderId,修改order表
+     * @return 
      */
-    boolean aftersaleRefund(Aftersale aftersale);//退款
+    ReturnObject<Boolean> aftersaleRefund(Long orderItemId);
 
     /**
      * 完成售后发货流程
-     * @param aftersale 可以提供所有售后单中存在的信息
      * @return
      */
-    boolean aftersaleSendback(Aftersale aftersale);//换货生成新订单
-
-    /**
-    *获取订单信息
-    * @param freightId
-    * @return
-    */
-    Freight getFreightInfoById(Long freightId);
+   ReturnObject<Boolean> aftersaleSendback(Long orderItemId);//换货生成新订单
 }
 
 /**额外:
