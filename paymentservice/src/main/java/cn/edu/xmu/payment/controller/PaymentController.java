@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import cn.edu.xmu.ooad.util.Common;
 import cn.edu.xmu.payment.service.PaymentService;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.List;
 
@@ -85,7 +86,7 @@ public class PaymentController {
             @LoginUser Long userId){
         return Common.decorateReturnObject(paymentService.getAfterSalesPayments(userId,shopId,id));
     }
-    /*
+    /**
      * @author 史韬韬
      * @date 2020/12/9
      * 买家查询自己的支付信息
@@ -104,7 +105,7 @@ public class PaymentController {
     public Object getPaymentById(@PathVariable Long id){
         return Common.decorateReturnObject(paymentService.getPaymentById(id));
     }
-    /*
+    /**
      * @author 史韬韬
      * @date 2020/12/10
      * 买家为售后单创建支付单
@@ -123,7 +124,7 @@ public class PaymentController {
     public Object createPaymentForAftersale(@PathVariable Long id,@RequestBody AfterSalePaymentVo afterSalePaymentVo){
         return Common.decorateReturnObject(paymentService.createPaymentForAftersale(id,afterSalePaymentVo));
     }
-    /*
+    /**
      * @author 史韬韬
      * @date 2020/12/10
      * 管理员查看订单支付信息
@@ -213,7 +214,7 @@ public class PaymentController {
     /**
      * @author issyu 30320182200070
      * @date 2020/12/12 18:47
-     * dao层实装DubboReference
+     * 不在dao层实装DubboReference
      */
     @ApiOperation(value = "查询所有支付状态",produces="application/json")
     @ApiImplicitParams({
@@ -227,6 +228,30 @@ public class PaymentController {
     public Object postRefunds(@LoginUser Long userId){
         List<Long> orderIds = orderInnerService.getOrderIdByUserId(userId);
         ReturnObject returnObject = paymentService.getPaymentStateByOrderIds(orderIds);
+        return Common.getListRetObject(returnObject);
+    }
+
+
+    /**
+     * 获取买家支付渠道。
+     * @author issyu 30320182200070
+     * @date 2020/12/14 11:10
+     */
+    @ApiOperation(value = "查询支付渠道",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @GetMapping("/payments/patterns")
+    public Object getPayPatternsByToken(@LoginUser @ApiIgnore Long userId){
+
+        List<Long> orderIds = orderInnerService.getOrderIdByUserId(userId);
+
+        ReturnObject returnObject = paymentService.getPayPatternsByOrderId(orderIds);
+
         return Common.getListRetObject(returnObject);
     }
 

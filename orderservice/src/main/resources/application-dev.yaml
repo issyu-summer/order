@@ -1,8 +1,8 @@
 
 spring:
   datasource:
-    #url: jdbc:mysql://localhost:3306/oomall?serverTimezone=GMT%2B8
-    url: jdbc:mysql://192.168.119.136:3306/ooad?serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/oomall?serverTimezone=GMT%2B8
+    #url: jdbc:mysql://192.168.119.136:3306/ooad?serverTimezone=GMT%2B8
     username: dbuser
     password: 123456
     druid:
