@@ -12,6 +12,11 @@
     <artifactId>customer</artifactId>
 
     <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>cn.edu.xmu.external</groupId>-->
+<!--            <artifactId>Order-External-Interface</artifactId>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>cn.edu.xmu.ooad</groupId>
             <artifactId>core</artifactId>
@@ -117,6 +122,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
+            <version>2.2.3.RELEASE</version>
         </dependency>
 
         <dependency>

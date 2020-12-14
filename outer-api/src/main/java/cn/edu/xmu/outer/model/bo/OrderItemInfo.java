@@ -1,4 +1,4 @@
-package cn.edu.xmu.external.model.bo;
+package cn.edu.xmu.outer.model.bo;
 
 
 import lombok.Data;

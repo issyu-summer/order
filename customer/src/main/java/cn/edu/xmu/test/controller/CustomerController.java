@@ -1,6 +1,7 @@
 package cn.edu.xmu.test.controller;
 
-import cn.edu.xmu.external.service.IOrderService;
+import cn.edu.xmu.outer.model.bo.MyReturn;
+import cn.edu.xmu.outer.service.IOrderService;
 import cn.edu.xmu.inner.service.OrderInnerService;
 import cn.edu.xmu.inner.service.PaymentInnerService;
 import cn.edu.xmu.ooad.util.Common;
@@ -38,6 +39,13 @@ public class CustomerController {
     @DubboReference
     private PaymentInnerService paymentInnerService;
 
+
+    /**
+     * 内部集成,通过userId获取订单id测试
+     * @author issyu 30320182200070
+     * @date 2020/12/15 0:19
+     * @return
+     */
     @GetMapping("/orderid")
     public Object getOrderIdByUserId(){
         List<Long> orderIds = orderInnerService.getOrderIdByUserId(23L);
@@ -59,7 +67,7 @@ public class CustomerController {
         if(iOrderService.getOrderItems(ids)==null){
             return ResponseUtil.fail(ResponseCode.RESOURCE_ID_NOTEXIST,"无订单明细");
         }else{
-            return Common.decorateReturnObject(iOrderService.getOrderItems(ids));
+            return iOrderService.getOrderItems(ids);
 
         }
     }
@@ -67,30 +75,13 @@ public class CustomerController {
     @GetMapping("/orderitemlist")
     private Object getOrderItemList(){
         Long id=1L;
-        if(iOrderService.getOrderItemIdList(id)==null){
-            return ResponseUtil.fail(ResponseCode.RESOURCE_ID_NOTEXIST,"无订单明细");
-        }else{
-            return Common.decorateReturnObject(iOrderService.getOrderItemIdList(id));
-
-        }
+        MyReturn myReturn = iOrderService.getOrderItemList(1L);
+        return myReturn;
     }
 
-    /**
-     * 不通
-     * @return
-     */
-    @GetMapping("/aftersaleRefund")
-    private Object AfterSaleRefund(){
-        //return Common.getRetObject(iOrderService.aftersaleRefund(1L));
-        return iOrderService.aftersaleRefund(1L);
-    }
 
-    /**
-     * 不通
-     * @return
-     */
-    @GetMapping("/getOrderId")
-    private Object getOrderId(){
+    @GetMapping("/updateOrderId")
+    private Object updateOrderId(){
         return paymentInnerService.updateRefundStateByOrderId(1L);
     }
 }

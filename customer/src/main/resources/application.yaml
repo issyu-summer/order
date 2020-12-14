@@ -11,12 +11,15 @@ server:
       max: 1000
 
 
-dubbo:
-  # 配置服务信息
-  application:
-    name: customer-service
-  registry:
-    address: nacos://127.0.0.1:8848
+#dubbo:
+#  # 配置服务信息
+#  cloud:
+#    subscribe: user-service
+#  application:
+#    name: customer-service
+#  registry:
+#    address: nacos://192.168.43.176:8848
+#    subscribe: user-service
 
 spring:
   main:
@@ -87,6 +90,14 @@ mybatis:
 pagehelper:
   helper-dialect: mysql
 
+dubbo:
+  cloud:
+    subscribed-services: user-servie
+  registry:
+    address: nacos://192.168.43.176:8848
+  protocols:
+    dubbo:
+      prot: -1
 
 
 

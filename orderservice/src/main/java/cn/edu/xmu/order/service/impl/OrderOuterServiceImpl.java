@@ -1,9 +1,7 @@
 package cn.edu.xmu.order.service.impl;
 
-import cn.edu.xmu.external.model.bo.*;
-import cn.edu.xmu.external.service.IOrderService;
-import cn.edu.xmu.ooad.util.ResponseCode;
-import cn.edu.xmu.ooad.util.ReturnObject;
+import cn.edu.xmu.outer.model.bo.*;
+import cn.edu.xmu.outer.service.IOrderService;
 import cn.edu.xmu.order.mapper.OrderItemPoMapper;
 import cn.edu.xmu.order.mapper.OrderPoMapper;
 import cn.edu.xmu.order.model.po.OrderItemPo;
@@ -25,10 +23,10 @@ public class OrderOuterServiceImpl implements IOrderService {
     private static final Logger logger = LoggerFactory.getLogger(OrderOuterServiceImpl.class);
 
     @Autowired
-    OrderPoMapper orderPoMapper;
+    private OrderPoMapper orderPoMapper;
 
     @Autowired
-    OrderItemPoMapper orderItemPoMapper;
+    private OrderItemPoMapper orderItemPoMapper;
 
     /**
      * 通过OrderId获取订单详细信息
@@ -71,7 +69,7 @@ public class OrderOuterServiceImpl implements IOrderService {
      * @param skuId
      */
     @Override
-    public List<Long> getOrderItemIdList(Long skuId) {
+    public MyReturn<List<Long>> getOrderItemList(Long skuId) {
         List<Long> orderItemIdList=new ArrayList<>();
         try{
             OrderItemPoExample orderItemPoExample=new OrderItemPoExample();
@@ -90,7 +88,7 @@ public class OrderOuterServiceImpl implements IOrderService {
         }catch (DataAccessException e){
             logger.error("getOrderItemIdList:数据库查询错误！");
         }
-        return orderItemIdList;
+        return new MyReturn<>(orderItemIdList);
     }
 
     @Override
@@ -109,7 +107,7 @@ public class OrderOuterServiceImpl implements IOrderService {
     }
 
     @Override
-    public OrderItemInfo getOrderItemInfo(Long orderItemId) {
+    public MyReturn<OrderItemInfo> getOrderItemInfo(Long orderItemId) {
         return null;
     }
 

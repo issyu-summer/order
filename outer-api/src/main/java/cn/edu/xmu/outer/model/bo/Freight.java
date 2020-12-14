@@ -1,4 +1,4 @@
-package cn.edu.xmu.external.model.bo;
+package cn.edu.xmu.outer.model.bo;
 
 /**
  * @author issyu 30320182200070
