@@ -1,5 +1,6 @@
 package cn.edu.xmu.order.service.impl;
 
+import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.outer.model.bo.*;
 import cn.edu.xmu.outer.service.IOrderService;
 import cn.edu.xmu.order.mapper.OrderItemPoMapper;
@@ -13,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,18 +93,58 @@ public class OrderOuterServiceImpl implements IOrderService {
         return new MyReturn<>(orderItemIdList);
     }
 
-    @Override
-    public Freight getFreightInfoById(Long freightId) {
-        return null;
-    }
 
     @Override
     public boolean aftersaleRefund(Aftersale aftersale) {
         return false;
     }
-
+    /**
+     * 完成售后发货流程
+     * @param aftersale 可以提供所有售后单中存在的信息
+     * @return
+     */
     @Override
     public boolean aftersaleSendback(Aftersale aftersale) {
+        //换货
+        if(aftersale.getType().equals((byte)0)){
+            Long itemId=aftersale.getOrderItemId();
+            OrderItemPo orderItemPo=orderItemPoMapper.selectByPrimaryKey(itemId);
+            //获得相应订单
+            OrderPo orderPo=orderPoMapper.selectByPrimaryKey(orderItemPo.getOrderId());
+            //新建订单
+            OrderPo orderPo1=orderPo;
+            orderPo1.setId(null);
+            //未发货
+            orderPo1.setShipmentSn(null);
+            orderPo1.setConfirmTime(null);
+            //状态：待收货，子已完成付款，
+            orderPo1.setState((byte)2);
+            orderPo1.setSubstate((byte)21);
+            //时间
+            orderPo1.setGmtCreate(LocalDateTime.now());
+            orderPo1.setGmtModified(LocalDateTime.now());
+            //插入新订单
+            orderPoMapper.insert(orderPo1);
+            OrderItemPo orderItemPo1=orderItemPo;
+            //订单明细订单id指向新订单
+            orderItemPo1.setOrderId(orderItemPo1.getId());
+            orderItemPoMapper.insert(orderItemPo1);
+        }
+        //维修
+        if(aftersale.getType().equals((byte)1)){
+            Long itemId=aftersale.getOrderItemId();
+            OrderItemPo orderItemPo=orderItemPoMapper.selectByPrimaryKey(itemId);
+            //获得相应订单
+            OrderPo orderPo=orderPoMapper.selectByPrimaryKey(orderItemPo.getOrderId());
+            //修改 修改时间
+            orderPo.setGmtModified(LocalDateTime.now());
+            //状态：待收货，子已完成付款，
+            orderPo.setState((byte)2);
+            orderPo.setSubstate((byte)21);
+            //未发货
+            orderPo.setShipmentSn(null);
+            orderPo.setConfirmTime(null);
+        }
         return false;
     }
 

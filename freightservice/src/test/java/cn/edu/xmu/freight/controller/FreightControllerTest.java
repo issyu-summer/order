@@ -30,7 +30,7 @@ public class FreightControllerTest {
         public FreightControllerTest(){
             //绑定****正在运行的服务器****
             this.webTestClient = WebTestClient.bindToServer()
-                    .baseUrl("http://localhost:8080")
+                    .baseUrl("http://localhost:8083")
                     .defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json;charset=UTF-8")
                     .build();
             //this.webTestClient = WebTestClient.bindToController(new OrderController()).build();

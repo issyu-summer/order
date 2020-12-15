@@ -43,12 +43,6 @@ public interface IOrderService {
      */
     boolean aftersaleSendback(Aftersale aftersale);//换货生成新订单
 
-    /**
-    *获取订单信息
-    * @param freightId
-    * @return
-    */
-    Freight getFreightInfoById(Long freightId);
 }
 
 /**额外:

@@ -50,6 +50,7 @@ public class PaymentDao {
             PaymentPoExample paymentPoExample=new PaymentPoExample();
             PaymentPoExample.Criteria criteria=paymentPoExample.createCriteria();
             criteria.andAftersaleIdEqualTo(id);
+            //判断是否有afterSale;
             List<PaymentPo> paymentPos=paymentPoMapper.selectByExample(paymentPoExample);
             List<PaymentVo> paymentVos = new ArrayList<PaymentVo>(paymentPos.size());
             if (criteria.isValid()){
@@ -61,7 +62,7 @@ public class PaymentDao {
                 return new ReturnObject<>(paymentVos);
             }
             else{
-                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST,String.format("操作资源不存在"));
+                return new ReturnObject<>(ResponseCode.OK);
             }
         } catch (DataAccessException e) {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
@@ -92,7 +93,7 @@ public class PaymentDao {
                 return new ReturnObject<>(paymentVos);
             }
             else{
-                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+                return new ReturnObject<>(ResponseCode.OK);
             }
         } catch (DataAccessException e) {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
@@ -259,7 +260,7 @@ public class PaymentDao {
             }
         }
         //支付未成功或退款大于付款
-        if(paymentPo.getState()!=(byte)0||paymentPo.getAmount()<amount)
+        if(paymentPo.getState()!=(byte)1||paymentPo.getAmount()<amount)
         {
             return new ReturnObject<>(ResponseCode.REFUND_MORE);
         }

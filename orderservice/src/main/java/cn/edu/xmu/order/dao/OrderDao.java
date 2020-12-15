@@ -339,16 +339,17 @@ public class OrderDao {
         //删除团购相关
         orderPo.setGrouponDiscount(null);
         orderPo.setGrouponId(null);
-        orderPo.setSubstate(null);
+        //状态：付款完成
+        orderPo.setSubstate((byte)21);
         try {
             int ret = orderPoMapper.updateByPrimaryKey(orderPo);
             if (ret == 0) {
                 // 团购转普通
-                logger.debug("confirmOrders: confirm order fail: " + orderPo.toString());
+                logger.debug("changeOrders: change order fail: " + orderPo.toString());
                 retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库更新不成功"));
             } else {
                 // 团购转普通
-                logger.debug("confirmOrders: confirm order = " + orderPo.toString());
+                logger.debug("changeOrders: confirm order = " + orderPo.toString());
                 retObj = new ReturnObject<>(ResponseCode.OK,String.format("成功"));
             }
         } catch (DataAccessException e) {

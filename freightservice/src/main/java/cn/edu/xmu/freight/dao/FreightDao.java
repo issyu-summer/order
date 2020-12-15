@@ -134,6 +134,7 @@ public class FreightDao {
                 retObj = new ReturnObject<>(ResponseCode.OK,String.format("成功"));
             }
         } catch (DataAccessException e) {
+
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
         } catch (Exception e) {
             // 其他Exception错误

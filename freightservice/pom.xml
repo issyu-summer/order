@@ -156,6 +156,18 @@
             <artifactId>nacos-client</artifactId>
             <version>1.4.0</version>
         </dependency>
+        <dependency>
+            <groupId>cn.edu.xmu</groupId>
+            <artifactId>outer-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.edu.xmu</groupId>
+            <artifactId>outer-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>

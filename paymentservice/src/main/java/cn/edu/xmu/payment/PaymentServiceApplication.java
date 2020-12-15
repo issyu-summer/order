@@ -10,10 +10,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @author issyu 30320182200070
  * @date 2020/12/2 22:44
  */
-@SpringBootApplication(scanBasePackages = {"cn.edu.xmu.ooad","cn.edu.xmu.payment","cn.edu.xmu.innerservice","cn.edu.xmu.order"})
+@SpringBootApplication(scanBasePackages = {"cn.edu.xmu.ooad","cn.edu.xmu.payment"})
 @MapperScan("cn.edu.xmu.payment.mapper")
-@EnableDubbo(scanBasePackages = {"cn.edu.xmu.payment.service.impl"})
-@EnableDiscoveryClient
 public class PaymentServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(PaymentServiceApplication.class, args);

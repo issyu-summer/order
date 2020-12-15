@@ -3,6 +3,9 @@ import cn.edu.xmu.inner.service.OrderInnerService;
 import cn.edu.xmu.ooad.annotation.Audit;
 import cn.edu.xmu.ooad.annotation.LoginUser;
 import cn.edu.xmu.ooad.util.ReturnObject;
+import cn.edu.xmu.outer.model.bo.Freight;
+import cn.edu.xmu.outer.service.IFreightService;
+import cn.edu.xmu.outer.service.IOrderService;
 import cn.edu.xmu.payment.model.vo.AfterSalePaymentVo;
 import io.swagger.annotations.*;
 import org.apache.dubbo.config.annotation.DubboReference;
@@ -30,6 +33,9 @@ public class PaymentController {
 
     @DubboReference(check = false)
     private OrderInnerService orderInnerService;
+
+    @DubboReference(check = false)
+    private IFreightService iFreightService;
     /**
      * 根据用户id获取订单id
      * @author issyu 30320182200070
@@ -43,6 +49,13 @@ public class PaymentController {
         }
         return Common.getListRetObject(new ReturnObject<>(orderIds));
     }
+
+    @GetMapping("/freight/{id}")
+    public Object getFreightInfoById(@PathVariable("id") Long id){
+        Freight freight = iFreightService.getFreightById(id);
+        return Common.getRetObject(new ReturnObject(freight));
+    }
+
 
     /**
      * 买家查询自己售后单的支付信息
