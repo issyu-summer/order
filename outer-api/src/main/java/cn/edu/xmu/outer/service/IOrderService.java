@@ -41,7 +41,7 @@ public interface IOrderService {
      * @param aftersale 可以提供所有售后单中存在的信息
      * @return
      */
-    boolean aftersaleSendback(Aftersale aftersale);//换货生成新订单
+    MyReturn<Long> aftersaleSendback(Aftersale aftersale);//换货生成新订单
 
 }
 

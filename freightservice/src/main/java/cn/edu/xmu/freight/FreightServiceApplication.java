@@ -12,6 +12,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @SpringBootApplication(scanBasePackages = {"cn.edu.xmu.ooad","cn.edu.xmu.freight"})
 @MapperScan("cn.edu.xmu.freight.mapper")
+@EnableDubbo(scanBasePackages = {"cn.edu.xmu.freight.service.impl"})
+@EnableDiscoveryClient
 public class FreightServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(FreightServiceApplication.class, args);

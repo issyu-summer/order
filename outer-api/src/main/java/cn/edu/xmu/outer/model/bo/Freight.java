@@ -2,6 +2,7 @@ package cn.edu.xmu.outer.model.bo;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -9,7 +10,7 @@ import java.time.LocalDateTime;
  * @date 2020/12/12 23:37
  */
 @Data
-public class Freight {
+public class Freight implements Serializable {
     private Long id;
     private String name;
     private Byte type;
