@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class PaymentStateBo implements VoObject, Serializable {
 
     private Byte code;
-    private String message;
+    private String name;
 
     public PaymentStateBo(){
 
@@ -25,7 +25,7 @@ public class PaymentStateBo implements VoObject, Serializable {
         //this.code= paymentPo.getState();
         //this.message = PaymentStateCode.getMessageByCode(paymentPo.getState());
         this.setCode(paymentPo.getState());
-        this.setMessage(PaymentStateCode.getMessageByCode(paymentPo.getState()));
+        this.setName(PaymentStateCode.getMessageByCode(paymentPo.getState()));
     }
     @Override
     public Object createVo() {

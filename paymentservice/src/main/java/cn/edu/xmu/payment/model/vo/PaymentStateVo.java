@@ -11,7 +11,7 @@ import lombok.Data;
 public class PaymentStateVo {
 
     private Byte code;
-    private String message;
+    private String name;
 
     public PaymentStateVo(){
 
@@ -20,7 +20,7 @@ public class PaymentStateVo {
         //this.code= paymentStateBo.getCode();
         //this.message= paymentStateBo.getMessage();
         this.setCode(paymentStateBo.getCode());
-        this.setMessage(paymentStateBo.getMessage());
+        this.setName(paymentStateBo.getName());
     }
 
 }

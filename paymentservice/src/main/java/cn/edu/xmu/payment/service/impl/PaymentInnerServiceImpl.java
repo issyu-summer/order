@@ -1,7 +1,6 @@
 package cn.edu.xmu.payment.service.impl;
 
 import cn.edu.xmu.inner.service.PaymentInnerService;
-import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.payment.mapper.RefundPoMapper;
 import cn.edu.xmu.payment.model.po.RefundPo;
 import cn.edu.xmu.payment.model.po.RefundPoExample;
@@ -10,7 +9,6 @@ import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 
-import java.sql.Ref;
 import java.util.List;
 
 /**
