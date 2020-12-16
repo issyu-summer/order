@@ -1,6 +1,7 @@
 package cn.edu.xmu.payment.controller;
 import cn.edu.xmu.inner.service.OrderInnerService;
 import cn.edu.xmu.ooad.annotation.Audit;
+import cn.edu.xmu.ooad.annotation.Depart;
 import cn.edu.xmu.ooad.annotation.LoginUser;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.payment.model.vo.AfterSalePaymentVo;
@@ -225,9 +226,11 @@ public class PaymentController {
     })
     @Audit
     @GetMapping("/payments/states")
-    public Object postRefunds(@LoginUser Long userId){
-        List<Long> orderIds = orderInnerService.getOrderIdByUserId(userId);
-        ReturnObject returnObject = paymentService.getPaymentStateByOrderIds(orderIds);
+    public Object postRefunds(@LoginUser @ApiIgnore Long userId,
+                              @Depart @ApiIgnore Long departId){
+        //List<Long> orderIds = orderInnerService.getOrderIdByUserId(userId);
+
+        ReturnObject returnObject = paymentService.getPaymentStateByOrderIds(userId,departId);
         return Common.getListRetObject(returnObject);
     }
 

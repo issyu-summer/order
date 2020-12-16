@@ -17,4 +17,20 @@ public interface OrderInnerService {
      */
     List<Long> getOrderIdByUserId(Long userId);
 
+    /**
+     * 通过店铺Id获取订单Id
+     * @author issyu 30320182200070
+     * @date 2020/12/16 12:59
+     */
+    List<Long> getOrderIdByShopId(Long shopId);
+    /**
+     * 通过订单Id获取用户Id
+     * @author issyu 30320182200070
+     * @date 2020/12/16 12:28
+    */
+    Long getCustomerIdByOrderId(Long orderId);
+
+
+
+
 }

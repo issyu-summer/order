@@ -46,5 +46,36 @@ public class OrderInnerServiceImpl implements OrderInnerService {
         }
         return orderIds;
     }
+
+    @Override
+    public List<Long> getOrderIdByShopId(Long shopId) {
+        OrderPoExample orderPoExample = new OrderPoExample();
+        OrderPoExample.Criteria criteria = orderPoExample.createCriteria();
+
+        criteria.andShopIdEqualTo(shopId);
+        List<Long> orderIds = new ArrayList<>();
+        try {
+            List<OrderPo> orderPoList = orderPoMapper.selectByExample(orderPoExample);
+            for (OrderPo orderPo : orderPoList) {
+                orderIds.add(orderPo.getId());
+            }
+        } catch (DataAccessException e) {
+            log.debug(e.getMessage());
+        }
+        return orderIds;
+    }
+
+    /**
+     * orderservice提供给其他微服务使用
+     * @author issyu 30320182200070
+     * @date 2020/12/16 12:32
+     * @param orderId
+     * @return
+     */
+    @Override
+    public Long getCustomerIdByOrderId(Long orderId) {
+        Long userId = orderPoMapper.selectByPrimaryKey(orderId).getCustomerId();
+        return userId;
+    }
 }
 

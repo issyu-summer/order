@@ -1,7 +1,7 @@
 package cn.edu.xmu.payment.dao;
 
 import cn.edu.xmu.inner.service.OrderInnerService;
-import cn.edu.xmu.ooad.model.VoObject;
+import cn.edu.xmu.ooad.util.AuthVerify;
 import cn.edu.xmu.ooad.util.PaymentStateCode;
 import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
@@ -26,8 +26,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
+/**
+ * @author 3-7
+ */
 @Repository
 public class PaymentDao {
 
@@ -51,7 +53,7 @@ public class PaymentDao {
             PaymentPoExample.Criteria criteria=paymentPoExample.createCriteria();
             criteria.andAftersaleIdEqualTo(id);
             List<PaymentPo> paymentPos=paymentPoMapper.selectByExample(paymentPoExample);
-            List<PaymentVo> paymentVos = new ArrayList<PaymentVo>(paymentPos.size());
+            List<PaymentVo> paymentVos = new ArrayList<>(paymentPos.size());
             if (criteria.isValid()){
                 for (PaymentPo po : paymentPos) {
                     //需通过收货单售后单Id找到售后验证是否是本人的售后单
@@ -82,7 +84,7 @@ public class PaymentDao {
             PaymentPoExample.Criteria criteria=paymentPoExample.createCriteria();
             criteria.andAftersaleIdEqualTo(id);
             List<PaymentPo> paymentPos=paymentPoMapper.selectByExample(paymentPoExample);
-            List<PaymentVo> paymentVos = new ArrayList<PaymentVo>(paymentPos.size());
+            List<PaymentVo> paymentVos = new ArrayList<>(paymentPos.size());
             if (criteria.isValid()){
                 for (PaymentPo po : paymentPos) {
                     //需通过售后单Id找到售后单，确定是否是shopId的订单
@@ -102,7 +104,7 @@ public class PaymentDao {
         }
     }
 
-    /*
+    /**
      * @author 史韬韬
      * @date 2020/12/9
      * 买家查询自己的支付信息
@@ -116,7 +118,7 @@ public class PaymentDao {
             PaymentPo paymentPo=paymentPoList.get(0);
             PaymentBo paymentBo=new PaymentBo(paymentPo);
             PaymentRetVo paymentRetVo=paymentBo.createRetVo();
-            return new ReturnObject<PaymentRetVo>(paymentRetVo);
+            return new ReturnObject<>(paymentRetVo);
 
         }catch(DataAccessException e){
 
@@ -124,7 +126,7 @@ public class PaymentDao {
         }
     }
 
-    /*
+    /**
      * @author 史韬韬
      * @date 2020/12/10
      * 买家为售后单创建支付单
@@ -136,14 +138,14 @@ public class PaymentDao {
             PaymentPo paymentPo=paymentBo.createAftersalePaymentPo(id,afterSalePaymentVo,refundPo.getOrderId());
             paymentPoMapper.insertSelective(paymentPo);
             PaymentRetVo paymentRetVo=paymentBo.createRetVo();
-            return new ReturnObject<PaymentRetVo>(paymentRetVo);
+            return new ReturnObject<>(paymentRetVo);
 
         }catch(DataAccessException e){
 
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误："+e.getMessage()));
         }
     }
-    /*
+    /**
      * @author 史韬韬
      * @date 2020/12/10
      * 管理员查看订单支付信息
@@ -273,25 +275,44 @@ public class PaymentDao {
         return new ReturnObject<>(refundBo);
     }
 
+    @DubboReference
+    private OrderInnerService orderInnerService;
+
     /**
-     * 通过userId获取订单Id(Dubbo),通过订单id获取支付状态
+     * if(管理员) select *
+     * if(店家)  select * where shopId
+     * if(买家)  select * where userId
+     * 通过userId获取订单Ids(Dubbo),通过订单id获取支付状态
      * @author issyu 30320182200070
      * @date 2020/12/12 18:45
      * 不在dao层实装DubboReference
      */
-    public ReturnObject getPaymentStateByOrderIds(List<Long> orderIds){
-
+    public ReturnObject getPaymentStateByOrderIds(Long userId,Long departId){
         PaymentPoExample paymentPoExample = new PaymentPoExample();
         PaymentPoExample.Criteria criteria = paymentPoExample.createCriteria();
-
-        criteria.andOrderIdIn(orderIds);
         List<PaymentStateBo> paymentStateBos = new ArrayList<>();
+        //没有店铺的店家
+        if(AuthVerify.noShopAdminAuth(departId)){
+            return new ReturnObject(ResponseCode.AUTH_NOT_ALLOW,String.format("没有店铺的店家，id=")+departId);
+        }
+        //管理员查询所有支付单
+        if(AuthVerify.adminAuth(departId)){}
+        //买家查询本人名下的支付单
+        if(AuthVerify.customerAuth(departId)){
+            List<Long> orderIds = orderInnerService.getOrderIdByUserId(userId);
+            criteria.andOrderIdIn(orderIds);
+        }
+        //店家查询本店铺的所有支付单
+        if(AuthVerify.shopAdminAuth(departId)){
+            List<Long> orderIds = orderInnerService.getOrderIdByShopId(departId);
+            criteria.andOrderIdIn(orderIds);
+        }
         try{
             List<PaymentPo> paymentPos = paymentPoMapper.selectByExample(paymentPoExample);
             for(PaymentPo paymentPo:paymentPos){
                 PaymentStateBo paymentStateBo = new PaymentStateBo();
                 paymentStateBo.setCode(paymentPo.getState());
-                paymentStateBo.setMessage(PaymentStateCode.getMessageByCode(paymentPo.getState()));
+                paymentStateBo.setName(PaymentStateCode.getMessageByCode(paymentPo.getState()));
                 paymentStateBos.add(paymentStateBo);
             }
         }catch (DataAccessException e){

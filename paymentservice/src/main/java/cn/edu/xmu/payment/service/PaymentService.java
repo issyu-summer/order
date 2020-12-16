@@ -105,10 +105,10 @@ public class PaymentService {
     /**
      * @author issyu 30320182200070
      * @date 2020/12/12 18:47
-     * 不在dao层实装DubboReference
+     * 在dao层实装DubboReference
      */
-    public ReturnObject getPaymentStateByOrderIds(List<Long> orderIds){
-        return paymentDao.getPaymentStateByOrderIds(orderIds);
+    public ReturnObject getPaymentStateByOrderIds(Long userId,Long departId){
+        return paymentDao.getPaymentStateByOrderIds(userId,departId);
     }
 
     /**
