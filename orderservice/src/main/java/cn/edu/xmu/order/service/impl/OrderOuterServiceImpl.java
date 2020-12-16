@@ -81,16 +81,16 @@ public class OrderOuterServiceImpl implements IOrderService {
     public MyReturn<Boolean> aftersaleRefund(Long orderItemId) {
         return null;
     }
+
     /**
      * 完成售后发货流程
-     * @param aftersale 可以提供所有售后单中存在的信息
+     * @param
      * @return
      */
     @Override
-    public Long aftersaleSendback(Aftersale aftersale) {
+    public MyReturn<Long> aftersaleSendback(Long orderItemId) {
         //换货
-            Long itemId=aftersale.getOrderItemId();
-            OrderItemPo orderItemPo=orderItemPoMapper.selectByPrimaryKey(itemId);
+            OrderItemPo orderItemPo=orderItemPoMapper.selectByPrimaryKey(orderItemId);
             //获得相应订单
             OrderPo orderPo=orderPoMapper.selectByPrimaryKey(orderItemPo.getOrderId());
             //新建订单
@@ -112,13 +112,9 @@ public class OrderOuterServiceImpl implements IOrderService {
             //订单明细订单id指向新订单
             orderItemPo1.setOrderId(orderItemPo1.getId());
             orderItemPoMapper.insert(orderItemPo1);
-            return orderPo1.getId();
+            return new MyReturn(orderPo1.getId());
     }
 
-    @Override
-    public MyReturn<OrderItemInfo> getOrderItemInfo(Long orderItemId) {
-        return null;
-    }
 
 
 

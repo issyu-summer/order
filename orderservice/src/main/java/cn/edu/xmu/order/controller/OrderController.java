@@ -390,16 +390,4 @@ public class OrderController {
     public Object shipOrder(@PathVariable(name="shopId") Long shopId, @PathVariable(name="id")  Long id,@Validated @RequestBody String shipmentSn){
         return Common.decorateReturnObject(orderService.shipOrder(shopId,id,shipmentSn));
     }
-
-
-    /**
-     * test NOT_IN_FOUND
-     * @author issyu 30320182200070
-     * @return
-     */
-    @GetMapping("/test")
-    public Object getTest(){
-        return Common.decorateReturnObject(new ReturnObject(ResponseCode.NOT_IN_SHOP));
-    }
-
 }
