@@ -278,6 +278,7 @@ public class OrderDao {
         }
         //收货
         orderPo.setState((byte)OrderStateCode.ORDER_STATE_COMPLETED.getCode());
+        orderPo.setGmtModified(LocalDateTime.now());
         try {
             int ret = orderPoMapper.updateByPrimaryKey(orderPo);
             if (ret == 0) {

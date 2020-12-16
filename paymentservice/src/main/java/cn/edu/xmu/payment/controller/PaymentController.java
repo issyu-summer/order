@@ -3,6 +3,7 @@ import cn.edu.xmu.inner.service.OrderInnerService;
 import cn.edu.xmu.ooad.annotation.Audit;
 import cn.edu.xmu.ooad.annotation.Depart;
 import cn.edu.xmu.ooad.annotation.LoginUser;
+import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.payment.model.vo.AfterSalePaymentVo;
 import io.swagger.annotations.*;
@@ -84,8 +85,11 @@ public class PaymentController {
     public Object getAfterSalesPayments(
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id,
-            @LoginUser Long userId){
-        return Common.decorateReturnObject(paymentService.getAfterSalesPayments(userId,shopId,id));
+            @Depart Long departId){
+        if(shopId!=departId||departId!=0){
+            return Common.decorateReturnObject(new ReturnObject(ResponseCode.RESOURCE_ID_OUTSCOPE));
+        }
+        return Common.decorateReturnObject(paymentService.getShopAfterSalesPayments(shopId,id));
     }
     /**
      * @author 史韬韬
@@ -204,10 +208,13 @@ public class PaymentController {
     @Audit
     @PostMapping("/shops/{shopId}/payments/{id}/refunds")
     public Object postRefunds(
-            @LoginUser Long userId,
+            @Depart Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id")  Long id,
             @RequestBody String amount){
+        if(shopId!=departId||departId!=0){
+            return Common.decorateReturnObject(new ReturnObject(ResponseCode.RESOURCE_ID_OUTSCOPE));
+        }
             Long amout=Long.valueOf(amount);
             return Common.decorateReturnObject(paymentService.postRefunds(shopId,id,amout));
     }

@@ -106,12 +106,12 @@ public class FreightControllerTest {
      **/
     @Test
     public void postFreightModelsToShop(){
-        String token = createTestToken(1L,0L,100);
+        String token = createTestToken(1L,1L,100);
         try{
             byte [] responseString = webTestClient.post().uri("/freight/shops/2/freight_models/1/default")
                     .header("authorization",token)
                     .exchange()
-                    .expectStatus().isOk()
+                    .expectStatus().is4xxClientError()
                     .expectHeader().contentType("application/json;charset=UTF-8")
                     .expectBody()
                     .returnResult().getResponseBodyContent();

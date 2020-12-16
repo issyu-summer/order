@@ -8,9 +8,11 @@ import cn.edu.xmu.ooad.annotation.Depart;
 import cn.edu.xmu.ooad.annotation.LoginUser;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.Common;
+import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.*;
+import org.apache.http.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -118,9 +120,13 @@ public class FreightController {
     @PostMapping("/shops/{shopId}/freight_models/{id}/default")
     public Object postFreightModelToShop(
             @LoginUser Long userId,
+            @Depart Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id){
-        return Common.getRetObject(freightService.postFreightModelToShop(userId,shopId,id));
+        if(shopId!=departId||departId!=0){
+            return Common.decorateReturnObject(new ReturnObject(ResponseCode.RESOURCE_ID_OUTSCOPE));
+        }
+        return Common.decorateReturnObject(freightService.postFreightModelToShop(shopId,id));
     }
     /**
      * 管理员定义重量模板明细
@@ -142,11 +148,13 @@ public class FreightController {
     @Audit
     @PostMapping("/shops/{shopId}/freight_models/{id}/weightItems")
     public Object postWeightItems(
-            @LoginUser Long userId,
+            @Depart Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id,
-            @RequestBody WeightModelInfoVo vo
-    ){
+            @RequestBody WeightModelInfoVo vo){
+        if(shopId!=departId||departId!=0){
+            return Common.decorateReturnObject(new ReturnObject(ResponseCode.RESOURCE_ID_OUTSCOPE));
+        }
         return Common.decorateReturnObject(freightService.postWeightItems(vo,shopId,id));
     }
     /**
@@ -169,10 +177,13 @@ public class FreightController {
     @Audit
     @DeleteMapping("/shops/{shopId}/freightmodels/{id}")
     public Object deleteFreightModel(
-            @LoginUser Long userId,
+            @Depart Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id
     ){
+        if(shopId!=departId||departId!=0){
+            return Common.decorateReturnObject(new ReturnObject(ResponseCode.RESOURCE_ID_OUTSCOPE));
+        }
         return Common.decorateReturnObject(freightService.deleteFreightModel(shopId,id));
     }
     /*

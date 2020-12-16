@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class ShopsPaymentsInfoRetVo {
     private Long id;
     private Long paymentId;
-    private Long amout;
+    private Long amount;
     private Byte state;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
@@ -19,7 +19,7 @@ public class ShopsPaymentsInfoRetVo {
     public ShopsPaymentsInfoRetVo(RefundPo po){
         this.id=po.getId();
         this.paymentId=po.getPaymentId();
-        //this.amout=po.getAmout();
+        this.amount=po.getAmount();
         this.state=po.getState();
         this.gmtCreate=po.getGmtCreate();
         this.gmtModified=po.getGmtModified();

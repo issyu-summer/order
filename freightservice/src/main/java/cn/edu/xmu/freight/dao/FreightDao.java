@@ -107,13 +107,12 @@ public class FreightDao {
      * @date 2020/12/7
      */
 
-    public ReturnObject<Object> postFreightModelToShop(Long userId,Long shopId,Long id){
-
+    public ReturnObject<Object> postFreightModelToShop(Long shopId,Long id){
         FreightModelPo freightModelPo = freightModelPoMapper.selectByPrimaryKey(id);
         ReturnObject<Object> retObj = null;
         //资源不存在
         if (freightModelPo == null) {
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在：id=" + id));
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
             return retObj;
         }
         //不是本店铺模板
@@ -121,20 +120,25 @@ public class FreightDao {
             retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + id));
             return retObj;
         }
-        //用户无权限，暂无
+        //已经是默认
+        if(freightModelPo.getDefaultModel().equals((byte)1)){
+            retObj = new ReturnObject<>(ResponseCode.OK,String.format("已定义成默认"));
+            return retObj;
+        }
         //设为默认
         freightModelPo.setDefaultModel((byte)1);
+        freightModelPo.setGmtModified(LocalDateTime.now());
         try {
             int ret = freightModelPoMapper.updateByPrimaryKey(freightModelPo);
             if (ret == 0) {
                 //设置失败
-                retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库更新不成功"));
+                retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
             } else {
                 //设置成功
-                retObj = new ReturnObject<>(ResponseCode.OK,String.format("成功"));
+                retObj = new ReturnObject<>(ResponseCode.OK);
             }
         } catch (DataAccessException e) {
-            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
         } catch (Exception e) {
             // 其他Exception错误
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
@@ -167,7 +171,7 @@ public class FreightDao {
             }
             //运费模板模式不是重量运费模板
             if(freightModelPo.getType()!=(byte)0){
-                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("运费模板模式不是重量运费模板"));
+                return new ReturnObject<>(ResponseCode.FIELD_NOTVALID, String.format("运费模板模式不是重量运费模板"));
             }
             //获得数据库中此运费模板的所有明细
             WeightFreightModelPoExample weightFreightModelPoExample=new WeightFreightModelPoExample();

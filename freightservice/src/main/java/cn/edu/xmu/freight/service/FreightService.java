@@ -33,9 +33,9 @@ public class FreightService {
      * @date 2020/12/7
      */
 
-    public ReturnObject postFreightModelToShop(Long userId,Long shopId,Long id) {
+    public ReturnObject postFreightModelToShop(Long shopId,Long id) {
 
-        ReturnObject returnObject = freightDao.postFreightModelToShop(userId,shopId,id);
+        ReturnObject returnObject = freightDao.postFreightModelToShop(shopId,id);
         return returnObject;
     }
 

@@ -1,9 +1,11 @@
 package cn.edu.xmu.order.controller;
 
 import cn.edu.xmu.ooad.annotation.Audit;
+import cn.edu.xmu.ooad.annotation.Depart;
 import cn.edu.xmu.ooad.annotation.LoginUser;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.Common;
+import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.ooad.util.TimeFormat;
 import cn.edu.xmu.order.model.vo.AdressVo;
@@ -211,8 +213,13 @@ public class OrderController {
     @PutMapping("/orders/{id}/confirm")
     public Object confirmOrders(
             @PathVariable("id") Long id,
-            @LoginUser Long userId) {
+            @LoginUser Long userId,
+            @Depart Long departId
+    ) {
+        if(departId.equals(-2))
         return Common.getRetObject(orderService.confirmOrders(id,userId));
+        ReturnObject returnObject=new ReturnObject(ResponseCode.AUTH_NOT_ALLOW);
+        return Common.decorateReturnObject(returnObject);
         //return Common.getNullRetObj()
     }
 

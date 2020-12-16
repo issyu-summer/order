@@ -27,8 +27,8 @@ public class PaymentService {
      * @author 王薪蕾
      * @date 2020/12/9
      */
-    public ReturnObject getAfterSalesPayments(Long userId,Long shopId, Long id) {
-        ReturnObject returnObject = paymentDao.getAfterSalesPayments(userId,shopId,id);
+    public ReturnObject getShopAfterSalesPayments(Long shopId, Long id) {
+        ReturnObject returnObject = paymentDao.getShopAfterSalesPayments(shopId,id);
         return returnObject;
     }
 

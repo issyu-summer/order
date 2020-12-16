@@ -204,6 +204,17 @@ public class Common {
                 } else {
                     return ResponseUtil.ok();
                 }
+            case RESOURCE_ID_OUTSCOPE:
+                // 403: 无权限访问
+                return new ResponseEntity(
+                    ResponseUtil.fail(returnObject.getCode(), returnObject.getErrmsg()),
+                    HttpStatus.FORBIDDEN);
+            case FIELD_NOTVALID:
+                // 400: 参数的错误
+                return new ResponseEntity(
+                        ResponseUtil.fail(returnObject.getCode(), returnObject.getErrmsg()),
+                        HttpStatus.BAD_REQUEST);
+
             default:
                 return ResponseUtil.fail(returnObject.getCode(), returnObject.getErrmsg());
         }

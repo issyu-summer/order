@@ -72,17 +72,19 @@ public class PaymentDao {
             // 其他Exception错误
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
         }
-    } /**
-     * 管理员查询自己售后单的支付信息
+    }
+    /**
+     * 管理员查询自己店铺售后单的支付信息
      * @author 王薪蕾
      * @date 2020/12/9
      */
 
-    public ReturnObject getAfterSalesPayments(Long userId,Long shopId, Long id) {
+    public ReturnObject getShopAfterSalesPayments(Long shopId, Long id) {
 
         try {
             PaymentPoExample paymentPoExample=new PaymentPoExample();
             PaymentPoExample.Criteria criteria=paymentPoExample.createCriteria();
+            //获得AfterSaleId符合的支付
             criteria.andAftersaleIdEqualTo(id);
             List<PaymentPo> paymentPos=paymentPoMapper.selectByExample(paymentPoExample);
             List<PaymentVo> paymentVos = new ArrayList<>(paymentPos.size());

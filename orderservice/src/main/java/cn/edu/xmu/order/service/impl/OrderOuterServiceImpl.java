@@ -1,5 +1,6 @@
 package cn.edu.xmu.order.service.impl;
 
+import cn.edu.xmu.ooad.util.Common;
 import cn.edu.xmu.ooad.util.OrderStateCode;
 import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.outer.model.bo.*;
@@ -114,6 +115,7 @@ public class OrderOuterServiceImpl implements IOrderService {
             //新建订单
             OrderPo orderPo1=orderPo;
             orderPo1.setId(null);
+            orderPo1.setOrderSn(Common.genSeqNum());
             //未发货
             orderPo1.setShipmentSn(null);
             orderPo1.setConfirmTime(null);
