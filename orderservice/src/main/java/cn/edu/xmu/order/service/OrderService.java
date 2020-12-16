@@ -33,8 +33,8 @@ public class OrderService {
      * @author issyu 30320182200070
      * @date 2020/12/3 16:46
      */
-    public ReturnObject getOrderStates(Long userId) {
-        ReturnObject returnObject = orderDao.getOrderStates(userId);
+    public ReturnObject getOrderStates(Long userId,Long departId) {
+        ReturnObject returnObject = orderDao.getOrderStates(userId,departId);
         return returnObject;
     }
 
@@ -48,9 +48,9 @@ public class OrderService {
      * @author issyu 30320182200070
      * @date 2020/12/3 16:46
      */
-    public ReturnObject<PageInfo<VoObject>> getOrderSimpleInfo(Long userId,String orderSn, Byte state, Integer page, Integer pageSize) {
+    public ReturnObject<PageInfo<VoObject>> getOrderSimpleInfo(Long userId,Long departId,String orderSn, Byte state, Integer page, Integer pageSize) {
 
-        ReturnObject<PageInfo<VoObject>> returnObject = orderDao.getOrderSimpleInfo(userId,orderSn, state, page, pageSize);
+        ReturnObject<PageInfo<VoObject>> returnObject = orderDao.getOrderSimpleInfo(userId,departId,orderSn, state, page, pageSize);
         return returnObject;
     }
 

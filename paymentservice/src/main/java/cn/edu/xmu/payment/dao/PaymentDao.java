@@ -20,6 +20,7 @@ import cn.edu.xmu.payment.model.vo.PaymentRetVo;
 import cn.edu.xmu.payment.model.vo.PaymentVo;
 import cn.edu.xmu.payment.model.vo.ShopsPaymentsInfoRetVo;
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -329,11 +330,25 @@ public class PaymentDao {
      * @author issyu 30320182200070
      * @date 2020/12/14 11:31
      */
-    public ReturnObject getPayPatternsByOrderId(List<Long> orderIds){
+    public ReturnObject getPayPatternsByOrderId(Long userId,Long departId){
 
         PaymentPoExample paymentPoExample = new PaymentPoExample();
         PaymentPoExample.Criteria criteria =paymentPoExample.createCriteria();
-        criteria.andOrderIdIn(orderIds);
+        //买家获取名下支付状态
+        if(AuthVerify.customerAuth(departId)){
+            List<Long> orderIds = orderInnerService.getOrderIdByUserId(userId);
+            criteria.andOrderIdIn(orderIds);
+        }
+        if(AuthVerify.noShopAdminAuth(departId)){
+            return new ReturnObject(ResponseCode.AUTH_NOT_ALLOW,"无店铺的店家管理员"+departId);
+        }
+        if(AuthVerify.adminAuth(departId)){
+
+        }
+        if (AuthVerify.shopAdminAuth(departId)){
+            List<Long> orderIds = orderInnerService.getOrderIdByShopId(departId);
+            criteria.andOrderIdIn(orderIds);
+         }
         List<PaymentPatternBo> paymentPatternBos = new ArrayList<>();
 
         try{

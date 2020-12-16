@@ -7,42 +7,33 @@ import java.util.List;
 public interface IOrderService {
 
   /**
-     * 通过orderId/orderItemId(可能更改)列表获得OrderItem列表
-     * 定时任务1相关
-     * @return Order对应的OrderItem列表
-     */
-    MyReturn<List<OrderItem>> getOrderItems(List<Long> orderIdList);
+   * 通过orderId/orderItemId(可能更改)列表获得OrderItem列表
+   * 定时任务1相关
+   * @return Order对应的OrderItem列表
+   */
+  MyReturn<List<OrderItem>> getOrderItems(List<Long> orderIdList);
 
-    /**
-     * 通过skuId查找对应的OrderItemId列表
-     * 售后按条件进行查找时使用
-     * @param skuId
-     */
-    MyReturn<List<Long>> getOrderItemList(Long skuId);
+  /**
+   * 获得OrderItem的信息
+   * 填充售后单返回对象
+   * @param orderItemId
+   * @return
+   */
+  MyReturn<OrderItemInfo> getOrderItemInfo(Long orderItemId);
 
-    /**
-     * 获得OrderItem的信息
-     * 填充售后单返回对象
-     * @param orderItemId
-     * @return
-     */
-    MyReturn<OrderItemInfo> getOrderItemInfo(Long orderItemId);
+  /**
+   * 完成退款流程
+   * @return
+   */
+  MyReturn<Boolean> aftersaleRefund(Long orderItemId);
 
-    /**
-     * 完成退款流程
-     * @param aftersale 可以提供所有售后单中存在的信息
-     * @return
-     * payment中通过aftersaleId获得orderId,修改order表
-     */
-    boolean aftersaleRefund(Aftersale aftersale);//退款
-
-    /**
-     * 完成售后发货流程
-     * @param aftersale 可以提供所有售后单中存在的信息
-     * @return
-     */
-    Long aftersaleSendback(Aftersale aftersale);//换货生成新订单
-
+  /**
+   * 完成售后换货发货流程
+   * 传入orderItemId用以订单模块生成新订单
+   * 需要返回生成的新订单orderId
+   * @return
+   */
+  MyReturn<Long> aftersaleSendback(Long orderItemId);
 }
 
 /**额外:

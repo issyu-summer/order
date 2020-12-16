@@ -12,7 +12,7 @@ import org.springframework.dao.DataAccessException;
 import java.util.List;
 
 /**
- * provider
+ * payment provider
  * @author issyu 30320182200070
  * @date 2020/12/14 1:07
  */
@@ -24,13 +24,17 @@ public class PaymentInnerServiceImpl implements PaymentInnerService {
     private RefundPoMapper refundPoMapper;
 
     /**
-     * 根据订单id更新退款状态
+     * 根据售后单id创建退款单
      * @param orderId
      * @return
      */
     @Override
     public Boolean updateRefundStateByOrderId(Long orderId) {
 
+        //RefundPo refundPo = new RefundPo();
+        //退款状态、金额该放啥？
+        //refundPo.setState();
+        //refundPo.setAmount();
         RefundPoExample refundPoExample = new RefundPoExample();
         RefundPoExample.Criteria criteria = refundPoExample.createCriteria();
         criteria.andOrderIdEqualTo(orderId);

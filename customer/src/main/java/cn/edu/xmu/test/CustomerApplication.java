@@ -9,7 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @date 2020/12/12 21:14
  */
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "cn.edu.xmu.external.service")
 @EnableDiscoveryClient
 public class CustomerApplication {
     public static void main(String[] args) {

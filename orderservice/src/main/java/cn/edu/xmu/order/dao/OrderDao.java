@@ -1,5 +1,6 @@
 package cn.edu.xmu.order.dao;
 import cn.edu.xmu.ooad.model.VoObject;
+import cn.edu.xmu.ooad.util.AuthVerify;
 import cn.edu.xmu.ooad.util.OrderStateCode;
 import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
@@ -44,17 +45,29 @@ public class OrderDao {
     private OrderItemPoMapper orderItemPoMapper;
 
     /**
+     * @author issyu 30320182200070
      * 获取订单的所有状态
      * @param userId
      * @return
      */
-    public ReturnObject getOrderStates(Long userId){
+    public ReturnObject getOrderStates(Long userId,Long departId){
 
         OrderPoExample orderPoExample = new OrderPoExample();
         OrderPoExample.Criteria criteria = orderPoExample.createCriteria();
 
-        criteria.andCustomerIdEqualTo(userId);
+        if(AuthVerify.customerAuth(departId)){
+            criteria.andCustomerIdEqualTo(userId);
+            criteria.andBeDeletedEqualTo((byte)0);
+        }
+        if(AuthVerify.noShopAdminAuth(departId)){
+            return new ReturnObject(ResponseCode.AUTH_NOT_ALLOW,"无店铺的店家管理员"+departId);
+        }
+        if(AuthVerify.adminAuth(departId)){
 
+        }
+        if (AuthVerify.shopAdminAuth(departId)){
+            criteria.andShopIdEqualTo(departId);
+        }
         try{
             logger.debug("getOrderStatesByUserId:"+userId);
             List<OrderPo> orderPos = orderPoMapper.selectByExample(orderPoExample);
@@ -91,47 +104,51 @@ public class OrderDao {
      * @param page
      * @param pageSize
      */
-    public ReturnObject<PageInfo<VoObject>> getOrderSimpleInfo(Long userId,String orderSn, Byte state, Integer page, Integer pageSize){
+    public ReturnObject<PageInfo<VoObject>> getOrderSimpleInfo(Long userId,Long departId,
+                                                               String orderSn, Byte state, Integer page, Integer pageSize){
 
-        OrderPoExample orderPoExample = new OrderPoExample();
-        OrderPoExample.Criteria criteria = orderPoExample.createCriteria();
-
-        criteria.andCustomerIdEqualTo(userId);
-
-        if(orderSn!=null){
-            criteria.andOrderSnEqualTo(orderSn);
+        if(!AuthVerify.customerAuth(departId)){
+            return new ReturnObject<>(ResponseCode.AUTH_NOT_ALLOW,"仅买家可以调用此api,departId="+departId);
         }
+        else {
+            OrderPoExample orderPoExample = new OrderPoExample();
+            OrderPoExample.Criteria criteria = orderPoExample.createCriteria();
 
-        if(state!=null){
-            criteria.andStateEqualTo(state);
+            criteria.andCustomerIdEqualTo(userId);
+
+            if (orderSn != null) {
+                criteria.andOrderSnEqualTo(orderSn);
+            }
+
+            if (state != null) {
+                criteria.andStateEqualTo(state);
+            }
+
+            //不会返回逻辑删除的订单
+            criteria.andBeDeletedEqualTo((byte) 0);
+
+            try {
+                PageHelper.startPage(page, pageSize);
+                List<OrderPo> orderPos = orderPoMapper.selectByExample(orderPoExample);
+
+                PageInfo<OrderPo> orderPagePos = new PageInfo<>(orderPos);
+                List<VoObject> operationOrders = orderPagePos.getList()
+                        .stream()
+                        .map(OrderSimpleInfoBo::new)
+                        //this Bo implements VoObject
+                        .collect(Collectors.toList());
+
+                PageInfo<VoObject> returnObject = new PageInfo<>(operationOrders);
+                returnObject.setPages(orderPagePos.getPages());
+                returnObject.setPageNum(orderPagePos.getPageNum());
+                returnObject.setPageSize(orderPagePos.getPageSize());
+                returnObject.setTotal(orderPagePos.getTotal());
+
+                return new ReturnObject<>(returnObject);
+            } catch (DataAccessException e) {
+                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：" + e.getMessage()));
+            }
         }
-
-        //不会返回逻辑删除的订单
-        criteria.andBeDeletedEqualTo((byte) 0);
-
-        try{
-            PageHelper.startPage(page,pageSize);
-            List<OrderPo> orderPos = orderPoMapper.selectByExample(orderPoExample);
-
-            PageInfo<OrderPo> orderPagePos = new PageInfo<>(orderPos);
-            List<VoObject> operationOrders = orderPagePos.getList()
-                                                .stream()
-                                                .map(OrderSimpleInfoBo::new)
-                                                //this Bo implements VoObject
-                                                .collect(Collectors.toList());
-
-            PageInfo<VoObject> returnObject = new PageInfo<>(operationOrders);
-            returnObject.setPages(orderPagePos.getPages());
-            returnObject.setPageNum(orderPagePos.getPageNum());
-            returnObject.setPageSize(orderPagePos.getPageSize());
-            returnObject.setTotal(orderPagePos.getTotal());
-
-            return new ReturnObject<>(returnObject);
-        }catch(DataAccessException e){
-
-            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误："+e.getMessage()));
-        }
-
     }
 
     /**

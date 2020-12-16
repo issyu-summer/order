@@ -38,17 +38,13 @@ public class GenerateAuthorizationToken {
      */
     @Test
     public void getTestToken(){
-        //店家管理员
         String token = createTestToken(1L,1L,10000000);
         System.out.println(token);
-        //管理员
         String token1 = createTestToken(2L,0L,10000000);
         System.out.println(token1);
-        //普通用户
         String token2 = createTestToken(3L,-2L,10000000);
         System.out.println(token2);
-        //无店铺的店家
-        String token3 = createTestToken(3L,-1L,10000000);
+        String token3 = createTestToken(2356L,-2L,10000000);
         System.out.println(token3);
     }
 }

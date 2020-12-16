@@ -15,4 +15,10 @@ public class TimeFormat {
         LocalDateTime ldt = LocalDateTime.parse(s,df);
         return  ldt;
     }
+
+    public static String localDateTimeToString(LocalDateTime localDateTime){
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String localTime = df.format(localDateTime);
+        return localTime;
+    }
 }
