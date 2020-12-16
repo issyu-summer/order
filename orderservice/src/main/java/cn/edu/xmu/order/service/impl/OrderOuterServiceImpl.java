@@ -104,8 +104,9 @@ public class OrderOuterServiceImpl implements IOrderService {
      * @return
      */
     @Override
-    public MyReturn<Long> aftersaleSendback(Aftersale aftersale) {
+    public Long aftersaleSendback(Aftersale aftersale) {
         //换货
+        System.out.println("ok");
             Long itemId=aftersale.getOrderItemId();
             OrderItemPo orderItemPo=orderItemPoMapper.selectByPrimaryKey(itemId);
             //获得相应订单
@@ -128,7 +129,7 @@ public class OrderOuterServiceImpl implements IOrderService {
             //订单明细订单id指向新订单
             orderItemPo1.setOrderId(orderItemPo1.getId());
             orderItemPoMapper.insert(orderItemPo1);
-            return new MyReturn<>(orderPo1.getId());
+            return orderPo1.getId();
     }
 
     @Override

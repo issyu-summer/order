@@ -2,12 +2,14 @@ package cn.edu.xmu.outer.model.bo;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @author issyu 30320182200070
  * @date 2020/12/14 23:43
  */
 @Data
-public class Aftersale {
+public class Aftersale implements Serializable {
     Long id;
     Long orderItemId;
     Long customerId;

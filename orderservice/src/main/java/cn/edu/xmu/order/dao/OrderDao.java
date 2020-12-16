@@ -330,7 +330,7 @@ public class OrderDao {
             return retObj;
         }
         //子状态不是未成团就无法转成普通订单
-        if (!orderPo.getSubstate().equals((byte) 9)) {
+        if (!orderPo.getSubstate().equals((byte) 23)) {
             retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单子状态禁止：id=" + id));
             return retObj;
         }

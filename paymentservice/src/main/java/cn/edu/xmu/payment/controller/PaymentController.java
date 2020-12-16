@@ -4,9 +4,6 @@ import cn.edu.xmu.ooad.annotation.Audit;
 import cn.edu.xmu.ooad.annotation.Depart;
 import cn.edu.xmu.ooad.annotation.LoginUser;
 import cn.edu.xmu.ooad.util.ReturnObject;
-import cn.edu.xmu.outer.model.bo.Freight;
-import cn.edu.xmu.outer.model.bo.MyReturn;
-import cn.edu.xmu.outer.service.IFreightService;
 import cn.edu.xmu.payment.model.vo.AfterSalePaymentVo;
 import io.swagger.annotations.*;
 import org.apache.dubbo.config.annotation.DubboReference;
@@ -34,15 +31,12 @@ public class PaymentController {
 
     @DubboReference(check = false)
     private OrderInnerService orderInnerService;
-
-    @DubboReference(check = false)
-    private IFreightService iFreightService;
     /**
      * 根据用户id获取订单id
      * @author issyu 30320182200070
      * @date 2020/12/10 17:02
      */
-    @GetMapping("/{orderid}")
+    @GetMapping("/orderid")
     public Object getOrderIdByUserId(){
         List<Long> orderIds = orderInnerService.getOrderIdByUserId(23L);
         for(Long id:orderIds){
@@ -50,14 +44,6 @@ public class PaymentController {
         }
         return Common.getListRetObject(new ReturnObject<>(orderIds));
     }
-
-    @GetMapping("/freight/{id}")
-    public Object getFreightInfoById(@PathVariable("id") Long id){
-            Freight freight = iFreightService.getFreightById(id);
-            System.out.println(freight.toString());
-            return Common.decorateReturnObject(new ReturnObject(freight));
-    }
-
 
     /**
      * 买家查询自己售后单的支付信息
@@ -77,7 +63,6 @@ public class PaymentController {
     public Object getAfterSalesPayments(
             @PathVariable("id") Long id,
             @LoginUser Long userId){
-        System.out.println("begin:Control");
         return Common.decorateReturnObject(paymentService.getAfterSalesPayments(userId,id));
     }
     /**
