@@ -1,5 +1,6 @@
 package cn.edu.xmu.order.service.impl;
 
+import cn.edu.xmu.ooad.util.OrderStateCode;
 import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.outer.model.bo.*;
 import cn.edu.xmu.outer.service.IOrderService;
@@ -106,7 +107,6 @@ public class OrderOuterServiceImpl implements IOrderService {
     @Override
     public Long aftersaleSendback(Aftersale aftersale) {
         //换货
-        System.out.println("ok");
             Long itemId=aftersale.getOrderItemId();
             OrderItemPo orderItemPo=orderItemPoMapper.selectByPrimaryKey(itemId);
             //获得相应订单
@@ -118,8 +118,8 @@ public class OrderOuterServiceImpl implements IOrderService {
             orderPo1.setShipmentSn(null);
             orderPo1.setConfirmTime(null);
             //状态：待收货，子已完成付款，
-            orderPo1.setState((byte)2);
-            orderPo1.setSubstate((byte)21);
+            orderPo1.setState((byte)OrderStateCode.ORDER_STATE_UNCONFIRMED.getCode());
+            orderPo1.setSubstate((byte)OrderStateCode.ORDER_STATE_PAID.getCode());
             //时间
             orderPo1.setGmtCreate(LocalDateTime.now());
             orderPo1.setGmtModified(LocalDateTime.now());

@@ -1,5 +1,4 @@
 package cn.edu.xmu.order.dao;
-
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.OrderStateCode;
 import cn.edu.xmu.ooad.util.ResponseCode;
@@ -263,39 +262,40 @@ public class OrderDao {
         ReturnObject<Object> retObj = null;
         //订单不存在
         if (orderPo == null){
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单不存在：id=" + id));
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
             return retObj;
         }
         //该订单不是此用户订单
         if (orderPo.getCustomerId()!=userId) {
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("订单不是自己的对象：id=" + id));
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE);
             return retObj;
         }
         //状态不是到货的无法收货
-        if (!orderPo.getState().equals((byte) 17)) {
-            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止：id=" + id));
+        if (orderPo.getState()!=OrderStateCode.ORDER_STATE_UNCONFIRMED.getCode()
+        ||orderPo.getSubstate()!=OrderStateCode.ORDER_STATE_SHIP.getCode()){
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW);
             return retObj;
         }
         //收货
-        orderPo.setState((byte) 18);
+        orderPo.setState((byte)OrderStateCode.ORDER_STATE_COMPLETED.getCode());
         try {
             int ret = orderPoMapper.updateByPrimaryKey(orderPo);
             if (ret == 0) {
                 //确认收货失败
                 logger.debug("confirmOrders: confirm order fail: " + orderPo.toString());
-                retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库更新不成功"));
+                retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
             } else {
                 //确认收货成功
                 logger.debug("confirmOrders: confirm order = " + orderPo.toString());
-                retObj = new ReturnObject<>(ResponseCode.OK,String.format("成功"));
+                retObj = new ReturnObject<>(ResponseCode.OK);
             }
         } catch (DataAccessException e) {
             logger.error("database exception: " + e.getMessage());
-            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
         } catch (Exception e) {
             // 其他Exception错误
             logger.error("other exception : " + e.getMessage());
-            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
         }
         return retObj;
     }
@@ -311,27 +311,27 @@ public class OrderDao {
         ReturnObject<Object> retObj = null;
         //订单不存在
         if (orderPo == null){
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单不存在：id=" + id));
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
             return retObj;
         }
         //该订单不是此用户订单
         if (orderPo.getCustomerId()!=userId) {
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("订单不是自己的对象：id=" + id));
+            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE);
             return retObj;
         }
         //订单不是团购订单
         if (orderPo.getOrderType()!=(byte)1){
-            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单不是团购订单：id=" + id));
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW);
             return retObj;
         }
-        //状态不是已支付
-        if (orderPo.getState() != (byte) 11){
-            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止：id=" + id));
+        //状态不是待收货
+        if (orderPo.getState() != OrderStateCode.ORDER_STATE_UNCONFIRMED.getCode()){
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW);
             return retObj;
         }
         //子状态不是未成团就无法转成普通订单
-        if (!orderPo.getSubstate().equals((byte) 23)) {
-            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单子状态禁止：id=" + id));
+        if (orderPo.getSubstate()!= OrderStateCode.ORDER_STATE_GROUP_NOT_COMPLETED.getCode()) {
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW);
             return retObj;
         }
         //改订单类型
@@ -339,18 +339,20 @@ public class OrderDao {
         //删除团购相关
         orderPo.setGrouponDiscount(null);
         orderPo.setGrouponId(null);
+        //改变修改时间
+        orderPo.setGmtModified(LocalDateTime.now());
         //状态：付款完成
-        orderPo.setSubstate((byte)21);
+        orderPo.setSubstate((byte)OrderStateCode.ORDER_STATE_PAID.getCode());
         try {
             int ret = orderPoMapper.updateByPrimaryKey(orderPo);
             if (ret == 0) {
-                // 团购转普通
+                //数据库失败
                 logger.debug("changeOrders: change order fail: " + orderPo.toString());
-                retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库更新不成功"));
+                retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
             } else {
-                // 团购转普通
+                // 团购转普通成功
                 logger.debug("changeOrders: confirm order = " + orderPo.toString());
-                retObj = new ReturnObject<>(ResponseCode.OK,String.format("成功"));
+                retObj = new ReturnObject<>(ResponseCode.OK);
             }
         } catch (DataAccessException e) {
             logger.error("database exception: " + e.getMessage());
