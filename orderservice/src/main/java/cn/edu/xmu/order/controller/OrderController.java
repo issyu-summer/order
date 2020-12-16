@@ -1,9 +1,11 @@
 package cn.edu.xmu.order.controller;
 
 import cn.edu.xmu.ooad.annotation.Audit;
+import cn.edu.xmu.ooad.annotation.Depart;
 import cn.edu.xmu.ooad.annotation.LoginUser;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.Common;
+import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.ooad.util.TimeFormat;
 import cn.edu.xmu.order.model.vo.AdressVo;
@@ -42,7 +44,6 @@ public class OrderController {
     private HttpServletResponse httpServletResponse;
 
     /**
-     * V
      * 获得订单的所有状态
      * @author issyu 30320182200070
      * @date 2020/12/2 23:16
@@ -56,13 +57,12 @@ public class OrderController {
     })
     @Audit
     @GetMapping("/orders/states")
-    public Object getOrderStates(@LoginUser @ApiIgnore Long userId){
-        ReturnObject<List> returnObject = orderService.getOrderStates(userId);
+    public Object getOrderStates(@LoginUser @ApiIgnore Long userId, @Depart @ApiIgnore Long departId){
+        ReturnObject<List> returnObject = orderService.getOrderStates(userId,departId);
         return Common.getListRetObject(returnObject);
     }
 
     /**
-     * V
      * 买家查询名下所有订单概要
      * @author issyu 30320182200070
      * @date 2020/12/3 16:55
@@ -82,12 +82,13 @@ public class OrderController {
     @GetMapping("/orders")
     public Object getOrderSimpleInfo(
             @LoginUser  @ApiIgnore Long userId,
+            @Depart @ApiIgnore Long departId,
             @RequestParam(required = false) String orderSn,
             @RequestParam(required = false) Byte state,
             @RequestParam(required = false, defaultValue = "1") Integer page,
             @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
 
-        ReturnObject<PageInfo<VoObject>> returnObject = orderService.getOrderSimpleInfo(userId,orderSn,state,page,pageSize);
+        ReturnObject<PageInfo<VoObject>> returnObject = orderService.getOrderSimpleInfo(userId,departId,orderSn,state,page,pageSize);
         return  Common.getPageRetObject(returnObject);
 
     }
@@ -383,6 +384,17 @@ public class OrderController {
 
     public Object shipOrder(@PathVariable(name="shopId") Long shopId, @PathVariable(name="id")  Long id,@Validated @RequestBody String shipmentSn){
         return Common.decorateReturnObject(orderService.shipOrder(shopId,id,shipmentSn));
+    }
+
+
+    /**
+     * test NOT_IN_FOUND
+     * @author issyu 30320182200070
+     * @return
+     */
+    @GetMapping("/test")
+    public Object getTest(){
+        return Common.decorateReturnObject(new ReturnObject(ResponseCode.NOT_IN_SHOP));
     }
 
 }

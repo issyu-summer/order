@@ -21,23 +21,29 @@ public class OrderSimpleInfoBo implements VoObject {
     private Byte orderType;
     private Byte state;
     private Byte subState;
-    private LocalDateTime gmtCreateTime;
+    private LocalDateTime gmtCreate;
     private Long originPrice;
     private Long discountPrice;
     private Long freightPrice;
+    private Long grouponId;
+    private Long presaleId;
+    private String shipmentSn;
 
     public OrderSimpleInfoBo(OrderPo po){
         this.setId(po.getId());
         this.setCustomerId(po.getCustomerId());
         this.setFreightPrice(po.getFreightPrice());
         this.setDiscountPrice(po.getDiscountPrice());
-        this.setGmtCreateTime(po.getGmtCreate());
+        this.setGmtCreate(po.getGmtCreate());
         this.setOrderType(po.getOrderType());
         this.setOriginPrice(po.getOriginPrice());
         this.setState(po.getState());
         this.setPid(po.getPid());
         this.setShopId(po.getShopId());
         this.setSubState(po.getSubstate());
+        this.setGrouponId(po.getGrouponId());
+        this.setPresaleId(po.getPresaleId());
+        this.setShipmentSn(po.getShipmentSn());
     }
 
     @Override

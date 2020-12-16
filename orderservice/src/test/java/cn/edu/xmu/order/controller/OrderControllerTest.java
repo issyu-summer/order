@@ -1,4 +1,4 @@
-package cn.xmu.edu.order.controller;
+package cn.edu.xmu.order.controller;
 
 import cn.edu.xmu.ooad.util.JacksonUtil;
 import cn.edu.xmu.ooad.util.JwtHelper;

@@ -116,7 +116,7 @@ public class PaymentService {
      * @author issyu 30320182200070
      * @date 2020/12/14 11:31
      */
-    public ReturnObject getPayPatternsByOrderId(List<Long> orderIds){
-        return paymentDao.getPayPatternsByOrderId(orderIds);
+    public ReturnObject getPayPatternsByOrderId(Long userId,Long departId){
+        return paymentDao.getPayPatternsByOrderId(userId,departId);
     }
 }

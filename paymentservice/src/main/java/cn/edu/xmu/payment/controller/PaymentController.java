@@ -249,11 +249,11 @@ public class PaymentController {
     })
     @Audit
     @GetMapping("/payments/patterns")
-    public Object getPayPatternsByToken(@LoginUser @ApiIgnore Long userId){
+    public Object getPayPatternsByToken(@LoginUser @ApiIgnore Long userId,@Depart @ApiIgnore Long departId){
 
-        List<Long> orderIds = orderInnerService.getOrderIdByUserId(userId);
+        //List<Long> orderIds = orderInnerService.getOrderIdByUserId(userId);
 
-        ReturnObject returnObject = paymentService.getPayPatternsByOrderId(orderIds);
+        ReturnObject returnObject = paymentService.getPayPatternsByOrderId(userId,departId);
 
         return Common.getListRetObject(returnObject);
     }
