@@ -127,11 +127,12 @@ public class OrderService {
      * @param endTime 从结束时间开始查询
      * @param page  页码
      * @param pageSize 每页数目
+     * @param departId 部门Id
      * @return ReturnObject<PageInfo < VoObject>> 分页返回订单信息
      * createdBy 王子扬 2020/12/04 16:17
      */
-    public ReturnObject<PageInfo<VoObject>> selectOrders(Long shopId, Long customerId, String orderSn, LocalDateTime beginTime, LocalDateTime endTime, Integer page, Integer pageSize){
-        ReturnObject<PageInfo<VoObject>> returnObject = orderDao.findAllOrders(shopId, customerId, orderSn, beginTime, endTime, page, pageSize);
+    public ReturnObject<PageInfo<VoObject>> selectOrders(Long shopId, Long customerId, String orderSn, String beginTime, String endTime, Integer page, Integer pageSize,Long departId){
+        ReturnObject<PageInfo<VoObject>> returnObject = orderDao.findAllOrders(shopId, customerId, orderSn, beginTime, endTime, page, pageSize,departId);
         return returnObject;
     }
 

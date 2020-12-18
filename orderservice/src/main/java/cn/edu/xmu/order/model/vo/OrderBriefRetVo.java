@@ -18,8 +18,11 @@ public class OrderBriefRetVo {
     private Byte orderType;
     private Byte state;
     private Byte subState;
-    private LocalDateTime gmtCreate;
+    private String gmtCreate;
     private Long originPrice;
     private Long discountPrice;
     private Long freightPrice;
+    private Long grouponId;
+    private Long presaleId;
+    private String shipmentSn;
 }

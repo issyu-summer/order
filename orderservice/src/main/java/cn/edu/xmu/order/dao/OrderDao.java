@@ -1,9 +1,6 @@
 package cn.edu.xmu.order.dao;
 import cn.edu.xmu.ooad.model.VoObject;
-import cn.edu.xmu.ooad.util.AuthVerify;
-import cn.edu.xmu.ooad.util.OrderStateCode;
-import cn.edu.xmu.ooad.util.ResponseCode;
-import cn.edu.xmu.ooad.util.ReturnObject;
+import cn.edu.xmu.ooad.util.*;
 import cn.edu.xmu.order.mapper.OrderItemPoMapper;
 import cn.edu.xmu.order.mapper.OrderPoMapper;
 import cn.edu.xmu.order.model.bo.*;
@@ -387,33 +384,50 @@ public class OrderDao {
      * @author 王子扬 30320182200071
      * @date  2020/12/5 16:09
      */
-    public ReturnObject<PageInfo<VoObject>> findAllOrders(Long shopId, Long customerId, String orderSn, LocalDateTime beginTime,
-                                                          LocalDateTime endTime, Integer page, Integer pageSize){
-        OrderPoExample example = new OrderPoExample();
-        OrderPoExample.Criteria criteria = example.createCriteria();
-        criteria.andShopIdEqualTo(shopId);
-        criteria.andBeDeletedEqualTo((byte)0);//已经删除订单即被删除状态不为0的订单就不再显示
-        if(customerId != null){
-            criteria.andCustomerIdEqualTo(customerId);
-        }
-        if(orderSn != null){
-            criteria.andOrderSnEqualTo(orderSn);
-        }
-        if(beginTime != null && endTime != null){
-            criteria.andConfirmTimeBetween(beginTime,endTime);
-        }else{
-            if(endTime != null){
-                criteria.andConfirmTimeLessThanOrEqualTo(endTime);
-            }
-            if(beginTime != null){
-                criteria.andConfirmTimeGreaterThanOrEqualTo(beginTime);
-            }
-        }
-
-        PageHelper.startPage(page,pageSize);
-        List<OrderPo> orderPos = null;
-        logger.debug("page = " + page + "pageSize = " + pageSize);
+    public ReturnObject<PageInfo<VoObject>> findAllOrders(Long shopId, Long customerId, String orderSn, String beginTime,
+                                                          String endTime, Integer page, Integer pageSize,Long departId){
         try{
+            LocalDateTime localBeginTime = null;
+            LocalDateTime localEndTime = null;
+            if(beginTime!=null){
+                localBeginTime= TimeFormat.stringToDateTime(beginTime);
+            }
+            if(endTime!=null){
+                localEndTime=TimeFormat.stringToDateTime(endTime);
+            }
+            page = (page == null)?1:page;
+            pageSize = (pageSize == null)?10:pageSize;
+
+            if(departId<=0){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("登陆的用户不是已经注册店铺的卖家用户"));
+            }
+            if(!departId.equals(shopId)){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("请求店铺Id和登陆的店铺Id不一致"));
+            }
+            OrderPoExample example = new OrderPoExample();
+            OrderPoExample.Criteria criteria = example.createCriteria();
+            criteria.andShopIdEqualTo(shopId);
+            if(customerId != null){
+                criteria.andCustomerIdEqualTo(customerId);
+            }
+            if(orderSn != null){
+                criteria.andOrderSnEqualTo(orderSn);
+            }
+            if(localBeginTime != null && localEndTime != null){
+                criteria.andGmtCreateBetween(localBeginTime,localEndTime);
+            }else{
+                if(localEndTime != null){
+                    criteria.andGmtCreateLessThanOrEqualTo(localEndTime);
+                }
+                if(localBeginTime != null){
+                    criteria.andGmtCreateGreaterThanOrEqualTo(localBeginTime);
+                }
+            }
+
+            PageHelper.startPage(page,pageSize);
+            List<OrderPo> orderPos = null;
+            logger.debug("page = " + page + "pageSize = " + pageSize);
+
             orderPos = orderPoMapper.selectByExample(example);
             List<VoObject> ret = new ArrayList<>(orderPos.size());
             for(OrderPo po : orderPos){

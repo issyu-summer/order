@@ -248,7 +248,6 @@ public class OrderController {
     }
 
     /**
-     * V
      * 店家查询商户所有订单 (概要)
      * @author 王子扬 30320182200071
      * @date 2020/12/5 23:04
@@ -275,20 +274,12 @@ public class OrderController {
                                @RequestParam(required = false) String beginTime,
                                @RequestParam(required = false) String endTime,
                                @RequestParam(required = false) Integer page,
-                               @RequestParam(required = false) Integer pageSize){
+                               @RequestParam(required = false) Integer pageSize,
+                               @Depart @ApiIgnore Long departId){
+        System.out.println(departId);
         logger.debug("getAllOrders: page = "+ page +"  pageSize ="+pageSize);
-        page = (page == null)?1:page;
-        pageSize = (pageSize == null)?10:pageSize;
-        LocalDateTime localBeginTime = null;
-        LocalDateTime localEndTime = null;
-        if(beginTime!=null){
-            localBeginTime= TimeFormat.stringToDateTime(beginTime);
-        }
-        if(endTime!=null){
-            localEndTime=TimeFormat.stringToDateTime(endTime);
-        }
 
-        ReturnObject<PageInfo<VoObject>> returnObject = orderService.selectOrders(shopId,customerId,orderSn,localBeginTime,localEndTime,page,pageSize);
+        ReturnObject<PageInfo<VoObject>> returnObject = orderService.selectOrders(shopId,customerId,orderSn,beginTime,endTime,page,pageSize,departId);
         return Common.getPageRetObject(returnObject);
     }
 
