@@ -1,5 +1,6 @@
 package cn.edu.xmu.payment.model.vo;
 
+import cn.edu.xmu.ooad.util.TimeFormat;
 import cn.edu.xmu.payment.model.po.RefundPo;
 import lombok.Data;
 
@@ -17,8 +18,8 @@ public class UsersPaymentsInfoRetVo {
     private Long paymentId;
     private Long amount;
     private Byte state;
-    private LocalDateTime gmtCreate;
-    private LocalDateTime gmtModified;
+    private String gmtCreate;
+    private String gmtModified;
     private Long orderId;
     private Long aftersaleId;
     public UsersPaymentsInfoRetVo(RefundPo po){
@@ -26,8 +27,8 @@ public class UsersPaymentsInfoRetVo {
         this.paymentId=po.getPaymentId();
         this.amount=po.getAmount();
         this.state=po.getState();
-        this.gmtCreate=po.getGmtCreate();
-        this.gmtModified=po.getGmtModified();
+        this.gmtCreate= TimeFormat.localDateTimeToString(po.getGmtCreate());
+        this.gmtModified=TimeFormat.localDateTimeToString(po.getGmtModified());
         this.orderId=po.getOrderId();
         this.aftersaleId=po.getAftersaleId();
     }

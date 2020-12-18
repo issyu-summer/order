@@ -161,8 +161,8 @@ public class OrderService {
      * @author 陈星如
      * @date 2020/12/5 15:15
      **/
-    public ReturnObject<VoObject> deleteShopOrder(Long shopId,Long id){
-        return orderDao.deleteShopOrder(shopId,id);
+    public ReturnObject<VoObject> deleteShopOrder(Long shopId,Long id,Long departId){
+        return orderDao.deleteShopOrder(shopId,id,departId);
     }
 
     /**
@@ -170,6 +170,7 @@ public class OrderService {
      * @author 陈星如
      * @date 2020/12/5 21:16
      */
-    public ReturnObject<VoObject> shipOrder(Long shopId, Long id, String shipmentSn) {return orderDao.shipOrder(shopId,id,shipmentSn);
+    public ReturnObject<VoObject> shipOrder(Long shopId, Long id, String shipmentSn,Long departId) {
+        return orderDao.shipOrder(shopId,id,shipmentSn,departId);
     }
 }

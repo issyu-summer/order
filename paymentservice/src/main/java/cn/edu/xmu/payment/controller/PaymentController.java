@@ -306,8 +306,7 @@ public class PaymentController {
             @Depart @ApiIgnore Long departId,
             @LoginUser @ApiIgnore Long userId,
             @PathVariable("id")  Long id){
-        Long userId1=orderInnerService.getUserIdByOrderId(1L);
         System.out.println(userId);
-        return Common.decorateReturnObject(paymentService.getUsersAftersalesRefunds(userId,id,departId,orderInnerService));
+        return Common.decorateReturnObject(paymentService.getUsersAftersalesRefunds(userId,id,departId));
     }
 }

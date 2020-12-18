@@ -35,7 +35,8 @@ public class PaymentDao {
     private PaymentPoMapper paymentPoMapper;
     @Autowired
     private RefundPoMapper refundPoMapper;
-
+    @DubboReference(check = false)
+    private OrderInnerService orderInnerService;
     /**
      * 买家查询自己售后单的支付信息
      * @author 王薪蕾
@@ -276,9 +277,6 @@ public class PaymentDao {
         return new ReturnObject<>(refundBo);
     }
 
-    @DubboReference
-    private OrderInnerService orderInnerService;
-
     /**
      * if(管理员) select *
      * if(店家)  select * where shopId
@@ -369,7 +367,7 @@ public class PaymentDao {
     public ReturnObject getUsersOrdersRefunds(Long userId, Long id,Long departId,Long actualUserId) {
         try{
             if(actualUserId==null){
-                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("所提供的订单号无法获取到对应用户"));
+                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("所提供的订单号无效或者无法获取到对应用户"));
             }
             if(departId!=-2){
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("登陆的不是普通用户"));
@@ -379,7 +377,7 @@ public class PaymentDao {
             }
             RefundPoExample refundPoExample=new RefundPoExample();
             RefundPoExample.Criteria criteria=refundPoExample.createCriteria();
-            if(id == null || userId == null){
+            if(id == null){
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
             }
             criteria.andOrderIdEqualTo(id);
@@ -407,13 +405,21 @@ public class PaymentDao {
      * @author 王子扬 30320182200071
      * @date 2020/12/11
      */
-    public ReturnObject getUsersAftersalesRefunds(Long userId, Long id,Long departId,OrderInnerService orderInnerService) {
+    public ReturnObject getUsersAftersalesRefunds(Long userId, Long id,Long departId) {
         try{
+            if(userId==null){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST,String.format("传入userId为空"));
+            }
+            if(departId!=-2){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("登陆用户不是普通买家"));
+            }
             RefundPo refundPo = refundPoMapper.selectByPrimaryKey(id);
             if(refundPo == null){
-                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST,String.format("退款订单不存在"));
             }
-
+            if(!userId.equals(orderInnerService.getUserIdByOrderId(refundPo.getOrderId()))){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("登陆用户和所查询的退款订单对应用户不同"));
+            }
 
             UsersPaymentsInfoRetVo usersPaymentsInfoRetVo = new UsersPaymentsInfoRetVo(refundPo);
             return new ReturnObject<>(usersPaymentsInfoRetVo);

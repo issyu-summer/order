@@ -135,8 +135,8 @@ public class PaymentService {
      * @author 王子扬 30320182200071
      * @date 2020/12/11
      **/
-    public ReturnObject getUsersAftersalesRefunds(Long userId, Long id, Long departId, OrderInnerService orderInnerService) {
-        ReturnObject returnObject = paymentDao.getUsersAftersalesRefunds(userId, id,departId,orderInnerService);
+    public ReturnObject getUsersAftersalesRefunds(Long userId, Long id, Long departId) {
+        ReturnObject returnObject = paymentDao.getUsersAftersalesRefunds(userId, id,departId);
         return returnObject;
     }
 }

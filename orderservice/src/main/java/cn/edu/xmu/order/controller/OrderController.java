@@ -348,8 +348,8 @@ public class OrderController {
     })
     @Audit
     @RequestMapping(value="/shops/{shopId}/orders/{id}",method = RequestMethod.DELETE)
-    public Object deleteShopOrder(@PathVariable Long shopId,@PathVariable Long id){
-        return Common.getRetObject(orderService.deleteShopOrder(shopId,id));
+    public Object deleteShopOrder(@PathVariable Long shopId,@PathVariable Long id,@Depart @ApiIgnore Long departId){
+        return Common.getRetObject(orderService.deleteShopOrder(shopId,id,departId));
     }
     /**
      *店家对订单标记发货
@@ -370,7 +370,8 @@ public class OrderController {
     @Audit
     @PutMapping("/shops/{shopId}/orders/{id}/deliver")
 
-    public Object shipOrder(@PathVariable(name="shopId") Long shopId, @PathVariable(name="id")  Long id,@Validated @RequestBody String shipmentSn){
-        return Common.decorateReturnObject(orderService.shipOrder(shopId,id,shipmentSn));
+    public Object shipOrder(@PathVariable(name="shopId") Long shopId, @PathVariable(name="id")  Long id,@Validated @RequestBody String shipmentSn,
+                            @Depart @ApiIgnore Long departId){
+        return Common.decorateReturnObject(orderService.shipOrder(shopId,id,shipmentSn,departId));
     }
 }
