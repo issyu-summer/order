@@ -112,13 +112,13 @@ public class FreightService {
         return returnObject;
     }
 
-    /*
+    /**
      * 管理员修改重量模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
-    public ReturnObject putWeightItems(WeightModelInfoVo vo, Long shopId, Long id) {
-        ReturnObject returnObject = freightDao.putWeightItems(vo,shopId,id);
+    public ReturnObject putWeightItems(WeightModelInfoVo vo, Long shopId, Long id,Long departId) {
+        ReturnObject returnObject = freightDao.putWeightItems(vo,shopId,id,departId);
         return returnObject;
     }
 
@@ -132,13 +132,13 @@ public class FreightService {
         return returnObject;
     }
 
-    /*
+    /**
      * 管理员删除重量模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
-    public ReturnObject deleteWeightItems(Long shopId, Long id) {
-        ReturnObject returnObject = freightDao.deleteWeightItems(shopId,id);
+    public ReturnObject deleteWeightItems(Long shopId, Long id, Long departId) {
+        ReturnObject returnObject = freightDao.deleteWeightItems(shopId,id,departId);
         return returnObject;
     }
     /**

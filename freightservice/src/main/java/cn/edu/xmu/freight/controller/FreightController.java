@@ -308,7 +308,7 @@ public class FreightController {
         return Common.decorateReturnObject(freightService.putPieceItems(vo,shopId,id));
     }
 
-    /*
+    /**
      * 管理员修改重量模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
@@ -326,12 +326,12 @@ public class FreightController {
     @Audit
     @PutMapping("/shops/{shopId}/weightItems/{id}")
     public Object putWeightItems(
-            @LoginUser Long userId,
+            @Depart @ApiIgnore Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id,
             @RequestBody WeightModelInfoVo vo
     ){
-        return Common.decorateReturnObject(freightService.putWeightItems(vo,shopId,id));
+        return Common.decorateReturnObject(freightService.putWeightItems(vo,shopId,id,departId));
     }
 
     /*
@@ -358,7 +358,7 @@ public class FreightController {
     }
 
 
-    /*
+    /**
      * 管理员删除重量模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
@@ -374,11 +374,11 @@ public class FreightController {
     @Audit
     @DeleteMapping("/shops/{shopId}/weightItems/{id}")
     public Object deleteWeightItems(
-            @LoginUser Long userId,
+            @Depart @ApiIgnore Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id
     ){
-        return Common.decorateReturnObject(freightService.deleteWeightItems(shopId,id));
+        return Common.decorateReturnObject(freightService.deleteWeightItems(shopId,id,departId));
     }
     /*
      * 店家或管理员查询重量运费模板明细
