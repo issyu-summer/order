@@ -10,6 +10,7 @@ import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.ooad.util.TimeFormat;
 import cn.edu.xmu.order.model.vo.AdressVo;
 import cn.edu.xmu.order.model.vo.OrderInfoVo;
+import cn.edu.xmu.order.model.vo.OrderMessageVo;
 import cn.edu.xmu.order.service.OrderService;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.*;
@@ -302,18 +303,9 @@ public class OrderController {
     @PutMapping("/shops/{shopId}/orders/{id}")
     public Object getAllOrders(@PathVariable("shopId") Long shopId,
                                @PathVariable("id") Long id,
-                               @RequestParam(required = true) String message){
-        ReturnObject retObject = orderService.updateOrderMessage(shopId,id,message);
-
-        if (retObject.getData() != null) {
-            httpServletResponse.setStatus(HttpStatus.CREATED.value());
-            return Common.getRetObject(retObject);
-            /*
-            此处返回值错误。
-             */
-        } else {
-            return Common.getNullRetObj(new ReturnObject<>(retObject.getCode(), retObject.getErrmsg()), httpServletResponse);
-        }
+                               @Validated @RequestBody OrderMessageVo orderMessageVo,
+                               @Depart @ApiIgnore Long departId){
+        return Common.decorateReturnObject(orderService.updateOrderMessage(shopId,id,orderMessageVo,departId));
     }
     /**
      * 店家查询店内订单完整信息(普通，团购，预售)

@@ -8,10 +8,7 @@ import cn.edu.xmu.order.model.po.OrderItemPo;
 import cn.edu.xmu.order.model.po.OrderItemPoExample;
 import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.order.model.po.OrderPoExample;
-import cn.edu.xmu.order.model.vo.AdressVo;
-import cn.edu.xmu.order.model.vo.OrderInfoRetVo;
-import cn.edu.xmu.order.model.vo.OrderInfoVo;
-import cn.edu.xmu.order.model.vo.OrderRetVo;
+import cn.edu.xmu.order.model.vo.*;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mysql.cj.x.protobuf.MysqlxCrud;
@@ -450,19 +447,27 @@ public class OrderDao {
      * @author 王子扬 30320182200071
      * @date  2020/12/5 23:38
      */
-    public ReturnObject<OrderBrief> updateOrderMessage(Long shopId, Long id, String message) {
+    public ReturnObject<OrderBrief> updateOrderMessage(Long shopId, Long id, OrderMessageVo orderMessageVo, Long departId) {
         ReturnObject<OrderBrief> retObj = null;
         try{
+            if(departId<=0){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("登陆的用户不是已经注册店铺的卖家用户"));
+            }
+            if(!departId.equals(shopId)){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("请求店铺Id和登陆的店铺Id不一致"));
+            }
+            String message=orderMessageVo.getMessage();
             OrderPo orderPo=orderPoMapper.selectByPrimaryKey(id);
             if(orderPo==null || orderPo.getBeDeleted()!=(byte)0){//订单已经逻辑删除视为订单不存在
                 retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单id不存在：" + id));
                 return retObj;
             }
-            if(orderPo.getShopId()!=shopId){
+            if(orderPo.getShopId()==null || !orderPo.getShopId().equals(shopId)){
                 retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("店铺不存在该订单：" + shopId));
                 return retObj;
             }
             orderPo.setMessage(message);
+            orderPo.setGmtModified(LocalDateTime.now());
             orderPoMapper.updateByPrimaryKey(orderPo);
             return new ReturnObject<>();
         }catch (DataAccessException e){

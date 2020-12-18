@@ -7,6 +7,7 @@ import cn.edu.xmu.order.model.bo.OrderBrief;
 import cn.edu.xmu.order.model.bo.OrderInfoBo;
 import cn.edu.xmu.order.model.vo.AdressVo;
 import cn.edu.xmu.order.model.vo.OrderInfoVo;
+import cn.edu.xmu.order.model.vo.OrderMessageVo;
 import cn.edu.xmu.order.model.vo.OrderRetVo;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -141,8 +142,8 @@ public class OrderService {
      * @author 王子扬 30320182200071
      * @date  2020/12/5 23:38
      */
-    public ReturnObject<OrderBrief> updateOrderMessage(Long shopId, Long id, String message) {
-        ReturnObject<OrderBrief> returnObject = orderDao.updateOrderMessage(shopId,id,message);
+    public ReturnObject<OrderBrief> updateOrderMessage(Long shopId, Long id, OrderMessageVo orderMessageVo, Long departId) {
+        ReturnObject<OrderBrief> returnObject = orderDao.updateOrderMessage(shopId,id,orderMessageVo,departId);
         return returnObject;
     }
 
