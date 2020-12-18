@@ -27,7 +27,6 @@ public class OrderService {
 
     /**
      * 获取订单的所有状态
-     *
      * @param userId
      * @return
      * @author issyu 30320182200070
@@ -40,7 +39,6 @@ public class OrderService {
 
     /**
      * 查询所有订单概要
-     *
      * @param orderSn
      * @param state
      * @param page
@@ -61,9 +59,8 @@ public class OrderService {
      * @date 2020/12/5 0:30
      */
 
-    public OrderInfoBo createOrder(OrderInfoVo vo){
-        OrderInfoBo returnObject = orderDao.createOrder(vo);
-        return returnObject;
+    public ReturnObject createOrder(OrderInfoVo vo,Long userId,Long departId){
+        return orderDao.createOrder(vo,userId,departId);
     }
 
     /**

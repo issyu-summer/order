@@ -1,11 +1,17 @@
 package cn.edu.xmu.outer.model.bo;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 
 @Data
-public class OrderItemInfo {
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrderItemInfo implements Serializable {
 
     private Long orderId;
 
@@ -19,5 +25,6 @@ public class OrderItemInfo {
 
     private Long price;
     //orderItem实际支付价格
+
 
 }

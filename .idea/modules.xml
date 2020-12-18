@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Other-External-Interface/Other-External-Interface.iml" filepath="$PROJECT_DIR$/Other-External-Interface/Other-External-Interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/customer/customer.iml" filepath="$PROJECT_DIR$/customer/customer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/customertest/customertest.iml" filepath="$PROJECT_DIR$/customertest/customertest.iml" />
       <module fileurl="file://$PROJECT_DIR$/freightservice/freightservice.iml" filepath="$PROJECT_DIR$/freightservice/freightservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/inner-api/inner-api.iml" filepath="$PROJECT_DIR$/inner-api/inner-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/order.iml" filepath="$PROJECT_DIR$/order.iml" />
-      <module fileurl="file://$PROJECT_DIR$/order-test/order-test.iml" filepath="$PROJECT_DIR$/order-test/order-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/orderservice/orderservice.iml" filepath="$PROJECT_DIR$/orderservice/orderservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/outer-api/outer-api.iml" filepath="$PROJECT_DIR$/outer-api/outer-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/paymentservice/paymentservice.iml" filepath="$PROJECT_DIR$/paymentservice/paymentservice.iml" />

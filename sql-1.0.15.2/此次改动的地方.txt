@@ -1,1 +1,0 @@
-1 商品中flash_sale增加了state栏位

@@ -1,4 +1,5 @@
 package cn.edu.xmu.order.dao;
+
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.AuthVerify;
 import cn.edu.xmu.ooad.util.OrderStateCode;
@@ -8,17 +9,13 @@ import cn.edu.xmu.order.mapper.OrderItemPoMapper;
 import cn.edu.xmu.order.mapper.OrderPoMapper;
 import cn.edu.xmu.order.model.bo.*;
 import cn.edu.xmu.order.model.po.OrderItemPo;
-import cn.edu.xmu.order.model.po.OrderItemPoExample;
 import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.order.model.po.OrderPoExample;
 import cn.edu.xmu.order.model.vo.AdressVo;
-import cn.edu.xmu.order.model.vo.OrderInfoRetVo;
 import cn.edu.xmu.order.model.vo.OrderInfoVo;
 import cn.edu.xmu.order.model.vo.OrderRetVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.mysql.cj.x.protobuf.MysqlxCrud;
-import org.aspectj.weaver.ast.Or;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,7 +69,7 @@ public class OrderDao {
             logger.debug("getOrderStatesByUserId:"+userId);
             List<OrderPo> orderPos = orderPoMapper.selectByExample(orderPoExample);
 
-            if(orderPos==null){
+            if(orderPos.isEmpty()){
                 logger.debug("order not found");
                 return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,"order not found");
             }
@@ -130,7 +127,10 @@ public class OrderDao {
             try {
                 PageHelper.startPage(page, pageSize);
                 List<OrderPo> orderPos = orderPoMapper.selectByExample(orderPoExample);
-
+                if(orderPos.isEmpty()){
+                    logger.debug("order not found");
+                    return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,"order not found");
+                }
                 PageInfo<OrderPo> orderPagePos = new PageInfo<>(orderPos);
                 List<VoObject> operationOrders = orderPagePos.getList()
                         .stream()
@@ -159,14 +159,22 @@ public class OrderDao {
      * @return OrederInfoRetVo 但是信息不全
      * 试试可不可以在dao层调用
      */
-    public OrderInfoBo createOrder(OrderInfoVo orderInfoVo) {
+    public ReturnObject createOrder(OrderInfoVo orderInfoVo,Long userId,Long departId) {
         //插入orderInfo
         //OrderPoExample orderPoExample = new OrderPoExample();
         //插入orderItemInfo
         //OrderItemPoExample orderItemPoExample = new OrderItemPoExample();
+        if(!AuthVerify.customerAuth(departId)){
+            return new ReturnObject(ResponseCode.AUTH_NOT_ALLOW,"不是买家用户，departId="+departId);
+        }
 
         OrderPo orderPo = orderInfoVo.getOrderPo();
-
+        /**
+         * 计算运费,计算原来的总价,运费,折扣加个,
+         */
+//        Long freightPrice;
+//        Long price;
+//        //orderPo
         List<OrderItemPo> orderItemPos = orderInfoVo.getOrderItemPoList();
         try {
             int retOrder = orderPoMapper.insertSelective(orderPo);
@@ -182,8 +190,8 @@ public class OrderDao {
 
             //返回值
             OrderInfoBo orderInfoBo = new OrderInfoBo(orderPo);
-            //return new ReturnObject<>(orderInfoBo);
-            return orderInfoBo;
+            return new ReturnObject<>(orderInfoBo);
+            //return orderInfoBo;
         }catch (DataAccessException e){
             //return new ReturnObject<>(ResponseCode.)
             return null;

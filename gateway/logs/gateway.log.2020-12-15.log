@@ -1,0 +1,475 @@
+2020-12-15 14:46:32.711 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-15 14:46:44.763 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 13.332 seconds (JVM running for 13.833)
+2020-12-15 14:53:39.569 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = null
+2020-12-15 14:53:48.245 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 14:53:48.316 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 14:53:48.317 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users
+2020-12-15 14:54:16.674 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 14:54:16.675 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 14:54:16.676 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/states
+2020-12-15 15:00:28.713 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = null
+2020-12-15 15:00:35.550 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = 1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:00:35.581 [reactor-http-nio-4] ERROR o.s.b.a.w.r.error.AbstractErrorWebExceptionHandler - [541dc9b7-5]  500 Server Error for HTTP GET "/users"
+java.lang.IllegalArgumentException: Last encoded character (before the paddings if any) is a valid base 64 alphabet but not a possible value. Expected the discarded bits to be zero.
+	at org.apache.commons.codec.binary.Base64.validateCharacter(Base64.java:803)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
+	|_ checkpoint ⇢ HTTP GET "/users" [ExceptionHandlingWebHandler]
+Stack trace:
+		at org.apache.commons.codec.binary.Base64.validateCharacter(Base64.java:803)
+		at org.apache.commons.codec.binary.Base64.decode(Base64.java:482)
+		at org.apache.commons.codec.binary.BaseNCodec.decode(BaseNCodec.java:482)
+		at org.apache.commons.codec.binary.BaseNCodec.decode(BaseNCodec.java:465)
+		at org.apache.commons.codec.binary.Base64.decodeBase64(Base64.java:699)
+		at com.auth0.jwt.JWTDecoder.<init>(JWTDecoder.java:38)
+		at com.auth0.jwt.JWTVerifier.verify(JWTVerifier.java:260)
+		at cn.edu.xmu.gateway.util.JwtHelper.verifyTokenAndGetClaims(JwtHelper.java:119)
+		at cn.edu.xmu.gateway.localfilter.AuthFilter.filter(AuthFilter.java:69)
+		at org.springframework.cloud.gateway.handler.FilteringWebHandler$DefaultGatewayFilterChain.lambda$filter$0(FilteringWebHandler.java:118)
+		at reactor.core.publisher.MonoDefer.subscribe(MonoDefer.java:44)
+		at reactor.core.publisher.InternalMonoOperator.subscribe(InternalMonoOperator.java:64)
+		at reactor.core.publisher.MonoDefer.subscribe(MonoDefer.java:52)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4213)
+		at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.drain(MonoIgnoreThen.java:172)
+		at reactor.core.publisher.MonoIgnoreThen.subscribe(MonoIgnoreThen.java:56)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:150)
+		at reactor.core.publisher.FluxSwitchIfEmpty$SwitchIfEmptySubscriber.onNext(FluxSwitchIfEmpty.java:67)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onNext(MonoNext.java:76)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.innerNext(FluxConcatMap.java:274)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapInner.onNext(FluxConcatMap.java:851)
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:114)
+		at reactor.core.publisher.FluxSwitchIfEmpty$SwitchIfEmptySubscriber.onNext(FluxSwitchIfEmpty.java:67)
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1782)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:144)
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:114)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onNext(MonoNext.java:76)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.innerNext(FluxConcatMap.java:274)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapInner.onNext(FluxConcatMap.java:851)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onNext(FluxOnErrorResume.java:73)
+		at reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onNext(MonoPeekTerminal.java:173)
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1782)
+		at reactor.core.publisher.MonoFilterWhen$MonoFilterWhenMain.onNext(MonoFilterWhen.java:140)
+		at reactor.core.publisher.Operators$ScalarSubscription.request(Operators.java:2344)
+		at reactor.core.publisher.MonoFilterWhen$MonoFilterWhenMain.onSubscribe(MonoFilterWhen.java:103)
+		at reactor.core.publisher.MonoJust.subscribe(MonoJust.java:54)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4213)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:441)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:243)
+		at reactor.core.publisher.FluxDematerialize$DematerializeSubscriber.onNext(FluxDematerialize.java:91)
+		at reactor.core.publisher.FluxDematerialize$DematerializeSubscriber.onNext(FluxDematerialize.java:38)
+		at reactor.core.publisher.FluxIterable$IterableSubscription.slowPath(FluxIterable.java:267)
+		at reactor.core.publisher.FluxIterable$IterableSubscription.request(FluxIterable.java:225)
+		at reactor.core.publisher.FluxDematerialize$DematerializeSubscriber.request(FluxDematerialize.java:120)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onSubscribe(FluxConcatMap.java:228)
+		at reactor.core.publisher.FluxDematerialize$DematerializeSubscriber.onSubscribe(FluxDematerialize.java:70)
+		at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:161)
+		at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:86)
+		at reactor.core.publisher.InternalFluxOperator.subscribe(InternalFluxOperator.java:62)
+		at reactor.core.publisher.FluxDefer.subscribe(FluxDefer.java:54)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4213)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:441)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onSubscribe(FluxConcatMap.java:211)
+		at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:161)
+		at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:86)
+		at reactor.core.publisher.InternalMonoOperator.subscribe(InternalMonoOperator.java:64)
+		at reactor.core.publisher.MonoDefer.subscribe(MonoDefer.java:52)
+		at reactor.core.publisher.InternalMonoOperator.subscribe(InternalMonoOperator.java:64)
+		at reactor.core.publisher.MonoDefer.subscribe(MonoDefer.java:52)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4213)
+		at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.drain(MonoIgnoreThen.java:172)
+		at reactor.core.publisher.MonoIgnoreThen.subscribe(MonoIgnoreThen.java:56)
+		at reactor.core.publisher.InternalMonoOperator.subscribe(InternalMonoOperator.java:64)
+		at reactor.netty.http.server.HttpServerHandle.onStateChange(HttpServerHandle.java:65)
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onStateChange(ReactorNetty.java:518)
+		at reactor.netty.tcp.TcpServerBind$ChildObserver.onStateChange(TcpServerBind.java:272)
+		at reactor.netty.http.server.HttpServerOperations.onInboundNext(HttpServerOperations.java:462)
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:96)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+		at reactor.netty.http.server.HttpTrafficHandler.channelRead(HttpTrafficHandler.java:172)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:834)
+2020-12-15 15:00:46.050 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = 1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:00:46.052 [reactor-http-nio-4] ERROR o.s.b.a.w.r.error.AbstractErrorWebExceptionHandler - [541dc9b7-6]  500 Server Error for HTTP POST "/users"
+java.lang.IllegalArgumentException: Last encoded character (before the paddings if any) is a valid base 64 alphabet but not a possible value. Expected the discarded bits to be zero.
+	at org.apache.commons.codec.binary.Base64.validateCharacter(Base64.java:803)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
+	|_ checkpoint ⇢ HTTP POST "/users" [ExceptionHandlingWebHandler]
+Stack trace:
+		at org.apache.commons.codec.binary.Base64.validateCharacter(Base64.java:803)
+		at org.apache.commons.codec.binary.Base64.decode(Base64.java:482)
+		at org.apache.commons.codec.binary.BaseNCodec.decode(BaseNCodec.java:482)
+		at org.apache.commons.codec.binary.BaseNCodec.decode(BaseNCodec.java:465)
+		at org.apache.commons.codec.binary.Base64.decodeBase64(Base64.java:699)
+		at com.auth0.jwt.JWTDecoder.<init>(JWTDecoder.java:38)
+		at com.auth0.jwt.JWTVerifier.verify(JWTVerifier.java:260)
+		at cn.edu.xmu.gateway.util.JwtHelper.verifyTokenAndGetClaims(JwtHelper.java:119)
+		at cn.edu.xmu.gateway.localfilter.AuthFilter.filter(AuthFilter.java:69)
+		at org.springframework.cloud.gateway.handler.FilteringWebHandler$DefaultGatewayFilterChain.lambda$filter$0(FilteringWebHandler.java:118)
+		at reactor.core.publisher.MonoDefer.subscribe(MonoDefer.java:44)
+		at reactor.core.publisher.InternalMonoOperator.subscribe(InternalMonoOperator.java:64)
+		at reactor.core.publisher.MonoDefer.subscribe(MonoDefer.java:52)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4213)
+		at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.drain(MonoIgnoreThen.java:172)
+		at reactor.core.publisher.MonoIgnoreThen.subscribe(MonoIgnoreThen.java:56)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:150)
+		at reactor.core.publisher.FluxSwitchIfEmpty$SwitchIfEmptySubscriber.onNext(FluxSwitchIfEmpty.java:67)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onNext(MonoNext.java:76)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.innerNext(FluxConcatMap.java:274)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapInner.onNext(FluxConcatMap.java:851)
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:114)
+		at reactor.core.publisher.FluxSwitchIfEmpty$SwitchIfEmptySubscriber.onNext(FluxSwitchIfEmpty.java:67)
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1782)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:144)
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:114)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onNext(MonoNext.java:76)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.innerNext(FluxConcatMap.java:274)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapInner.onNext(FluxConcatMap.java:851)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onNext(FluxOnErrorResume.java:73)
+		at reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onNext(MonoPeekTerminal.java:173)
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1782)
+		at reactor.core.publisher.MonoFilterWhen$MonoFilterWhenMain.onNext(MonoFilterWhen.java:140)
+		at reactor.core.publisher.Operators$ScalarSubscription.request(Operators.java:2344)
+		at reactor.core.publisher.MonoFilterWhen$MonoFilterWhenMain.onSubscribe(MonoFilterWhen.java:103)
+		at reactor.core.publisher.MonoJust.subscribe(MonoJust.java:54)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4213)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:441)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:243)
+		at reactor.core.publisher.FluxDematerialize$DematerializeSubscriber.onNext(FluxDematerialize.java:91)
+		at reactor.core.publisher.FluxDematerialize$DematerializeSubscriber.onNext(FluxDematerialize.java:38)
+		at reactor.core.publisher.FluxIterable$IterableSubscription.slowPath(FluxIterable.java:267)
+		at reactor.core.publisher.FluxIterable$IterableSubscription.request(FluxIterable.java:225)
+		at reactor.core.publisher.FluxDematerialize$DematerializeSubscriber.request(FluxDematerialize.java:120)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onSubscribe(FluxConcatMap.java:228)
+		at reactor.core.publisher.FluxDematerialize$DematerializeSubscriber.onSubscribe(FluxDematerialize.java:70)
+		at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:161)
+		at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:86)
+		at reactor.core.publisher.InternalFluxOperator.subscribe(InternalFluxOperator.java:62)
+		at reactor.core.publisher.FluxDefer.subscribe(FluxDefer.java:54)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4213)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:441)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onSubscribe(FluxConcatMap.java:211)
+		at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:161)
+		at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:86)
+		at reactor.core.publisher.InternalMonoOperator.subscribe(InternalMonoOperator.java:64)
+		at reactor.core.publisher.MonoDefer.subscribe(MonoDefer.java:52)
+		at reactor.core.publisher.InternalMonoOperator.subscribe(InternalMonoOperator.java:64)
+		at reactor.core.publisher.MonoDefer.subscribe(MonoDefer.java:52)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4213)
+		at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.drain(MonoIgnoreThen.java:172)
+		at reactor.core.publisher.MonoIgnoreThen.subscribe(MonoIgnoreThen.java:56)
+		at reactor.core.publisher.InternalMonoOperator.subscribe(InternalMonoOperator.java:64)
+		at reactor.netty.http.server.HttpServerHandle.onStateChange(HttpServerHandle.java:65)
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onStateChange(ReactorNetty.java:518)
+		at reactor.netty.tcp.TcpServerBind$ChildObserver.onStateChange(TcpServerBind.java:272)
+		at reactor.netty.http.server.HttpServerOperations.onInboundNext(HttpServerOperations.java:462)
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:96)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+		at reactor.netty.http.server.HttpTrafficHandler.channelRead(HttpTrafficHandler.java:172)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:834)
+2020-12-15 15:00:53.305 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = 1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:00:53.307 [reactor-http-nio-4] ERROR o.s.b.a.w.r.error.AbstractErrorWebExceptionHandler - [541dc9b7-7]  500 Server Error for HTTP PUT "/users"
+java.lang.IllegalArgumentException: Last encoded character (before the paddings if any) is a valid base 64 alphabet but not a possible value. Expected the discarded bits to be zero.
+	at org.apache.commons.codec.binary.Base64.validateCharacter(Base64.java:803)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
+	|_ checkpoint ⇢ HTTP PUT "/users" [ExceptionHandlingWebHandler]
+Stack trace:
+		at org.apache.commons.codec.binary.Base64.validateCharacter(Base64.java:803)
+		at org.apache.commons.codec.binary.Base64.decode(Base64.java:482)
+		at org.apache.commons.codec.binary.BaseNCodec.decode(BaseNCodec.java:482)
+		at org.apache.commons.codec.binary.BaseNCodec.decode(BaseNCodec.java:465)
+		at org.apache.commons.codec.binary.Base64.decodeBase64(Base64.java:699)
+		at com.auth0.jwt.JWTDecoder.<init>(JWTDecoder.java:38)
+		at com.auth0.jwt.JWTVerifier.verify(JWTVerifier.java:260)
+		at cn.edu.xmu.gateway.util.JwtHelper.verifyTokenAndGetClaims(JwtHelper.java:119)
+		at cn.edu.xmu.gateway.localfilter.AuthFilter.filter(AuthFilter.java:69)
+		at org.springframework.cloud.gateway.handler.FilteringWebHandler$DefaultGatewayFilterChain.lambda$filter$0(FilteringWebHandler.java:118)
+		at reactor.core.publisher.MonoDefer.subscribe(MonoDefer.java:44)
+		at reactor.core.publisher.InternalMonoOperator.subscribe(InternalMonoOperator.java:64)
+		at reactor.core.publisher.MonoDefer.subscribe(MonoDefer.java:52)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4213)
+		at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.drain(MonoIgnoreThen.java:172)
+		at reactor.core.publisher.MonoIgnoreThen.subscribe(MonoIgnoreThen.java:56)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:150)
+		at reactor.core.publisher.FluxSwitchIfEmpty$SwitchIfEmptySubscriber.onNext(FluxSwitchIfEmpty.java:67)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onNext(MonoNext.java:76)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.innerNext(FluxConcatMap.java:274)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapInner.onNext(FluxConcatMap.java:851)
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:114)
+		at reactor.core.publisher.FluxSwitchIfEmpty$SwitchIfEmptySubscriber.onNext(FluxSwitchIfEmpty.java:67)
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1782)
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:144)
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:114)
+		at reactor.core.publisher.MonoNext$NextSubscriber.onNext(MonoNext.java:76)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.innerNext(FluxConcatMap.java:274)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapInner.onNext(FluxConcatMap.java:851)
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onNext(FluxOnErrorResume.java:73)
+		at reactor.core.publisher.MonoPeekTerminal$MonoTerminalPeekSubscriber.onNext(MonoPeekTerminal.java:173)
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1782)
+		at reactor.core.publisher.MonoFilterWhen$MonoFilterWhenMain.onNext(MonoFilterWhen.java:140)
+		at reactor.core.publisher.Operators$ScalarSubscription.request(Operators.java:2344)
+		at reactor.core.publisher.MonoFilterWhen$MonoFilterWhenMain.onSubscribe(MonoFilterWhen.java:103)
+		at reactor.core.publisher.MonoJust.subscribe(MonoJust.java:54)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4213)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:441)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onNext(FluxConcatMap.java:243)
+		at reactor.core.publisher.FluxDematerialize$DematerializeSubscriber.onNext(FluxDematerialize.java:91)
+		at reactor.core.publisher.FluxDematerialize$DematerializeSubscriber.onNext(FluxDematerialize.java:38)
+		at reactor.core.publisher.FluxIterable$IterableSubscription.slowPath(FluxIterable.java:267)
+		at reactor.core.publisher.FluxIterable$IterableSubscription.request(FluxIterable.java:225)
+		at reactor.core.publisher.FluxDematerialize$DematerializeSubscriber.request(FluxDematerialize.java:120)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onSubscribe(FluxConcatMap.java:228)
+		at reactor.core.publisher.FluxDematerialize$DematerializeSubscriber.onSubscribe(FluxDematerialize.java:70)
+		at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:161)
+		at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:86)
+		at reactor.core.publisher.InternalFluxOperator.subscribe(InternalFluxOperator.java:62)
+		at reactor.core.publisher.FluxDefer.subscribe(FluxDefer.java:54)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4213)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.drain(FluxConcatMap.java:441)
+		at reactor.core.publisher.FluxConcatMap$ConcatMapImmediate.onSubscribe(FluxConcatMap.java:211)
+		at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:161)
+		at reactor.core.publisher.FluxIterable.subscribe(FluxIterable.java:86)
+		at reactor.core.publisher.InternalMonoOperator.subscribe(InternalMonoOperator.java:64)
+		at reactor.core.publisher.MonoDefer.subscribe(MonoDefer.java:52)
+		at reactor.core.publisher.InternalMonoOperator.subscribe(InternalMonoOperator.java:64)
+		at reactor.core.publisher.MonoDefer.subscribe(MonoDefer.java:52)
+		at reactor.core.publisher.Mono.subscribe(Mono.java:4213)
+		at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.drain(MonoIgnoreThen.java:172)
+		at reactor.core.publisher.MonoIgnoreThen.subscribe(MonoIgnoreThen.java:56)
+		at reactor.core.publisher.InternalMonoOperator.subscribe(InternalMonoOperator.java:64)
+		at reactor.netty.http.server.HttpServerHandle.onStateChange(HttpServerHandle.java:65)
+		at reactor.netty.ReactorNetty$CompositeConnectionObserver.onStateChange(ReactorNetty.java:518)
+		at reactor.netty.tcp.TcpServerBind$ChildObserver.onStateChange(TcpServerBind.java:272)
+		at reactor.netty.http.server.HttpServerOperations.onInboundNext(HttpServerOperations.java:462)
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:96)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+		at reactor.netty.http.server.HttpTrafficHandler.channelRead(HttpTrafficHandler.java:172)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296)
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:834)
+2020-12-15 15:01:13.043 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:01:13.045 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:01:13.045 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users
+2020-12-15 15:01:18.279 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:01:18.280 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:01:18.281 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users
+2020-12-15 15:01:23.309 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:01:23.311 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:01:23.311 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users
+2020-12-15 15:01:36.471 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:01:36.473 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:01:36.474 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/password
+2020-12-15 15:01:44.367 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:01:44.368 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:01:44.368 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/password/reset
+2020-12-15 15:01:45.568 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:01:45.569 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:01:45.569 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/password/reset
+2020-12-15 15:02:01.640 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:02:01.641 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:02:01.642 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/all
+2020-12-15 15:02:17.072 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:02:17.073 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:02:17.074 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/login
+2020-12-15 15:02:37.924 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:02:37.925 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:02:37.925 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/login
+2020-12-15 15:03:06.150 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:03:06.151 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:03:06.152 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/logout
+2020-12-15 15:03:13.411 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:03:13.412 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:03:13.412 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/{id}
+2020-12-15 15:03:22.119 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:03:22.120 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:03:22.120 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/{id}/ban
+2020-12-15 15:03:29.640 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:03:29.641 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:03:29.642 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/{id}/ban
+2020-12-15 15:03:39.106 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:03:39.107 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:03:39.108 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/{id}/release
+2020-12-15 15:07:09.280 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-15 15:07:21.476 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 13.605 seconds (JVM running for 14.171)
+2020-12-15 15:07:34.869 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:07:34.963 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:07:34.964 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/password/reset
+2020-12-15 15:08:00.931 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:08:00.932 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:08:00.933 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/password/reset/asd
+2020-12-15 15:08:01.817 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:08:01.818 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:08:01.819 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/password/reset/asd
+2020-12-15 15:08:05.659 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:08:05.660 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:08:05.660 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/password/reset
+2020-12-15 15:08:06.661 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:08:06.663 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:08:06.663 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/password/reset
+2020-12-15 15:08:18.871 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:08:18.872 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:08:18.873 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/password/reset
+2020-12-15 15:15:08.381 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-15 15:15:19.980 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 12.654 seconds (JVM running for 13.103)
+2020-12-15 15:15:59.131 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:15:59.247 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:15:59.249 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/{id}/ban
+2020-12-15 15:17:34.761 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-15 15:17:46.857 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 13.23 seconds (JVM running for 13.778)
+2020-12-15 15:34:08.135 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to load property source from 'file:/D:/Codes/Java/OtherModule/gateway/target/classes/application.yaml' (classpath:/application.yaml)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:553)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.loadForFileExtension(ConfigFileApplicationListener.java:498)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:468)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$null$7(ConfigFileApplicationListener.java:447)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$load$8(ConfigFileApplicationListener.java:447)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:444)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$load$0(ConfigFileApplicationListener.java:347)
+	at org.springframework.boot.context.config.FilteredPropertySource.apply(FilteredPropertySource.java:54)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:335)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.addPropertySources(ConfigFileApplicationListener.java:226)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.postProcessEnvironment(ConfigFileApplicationListener.java:210)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.onApplicationEnvironmentPreparedEvent(ConfigFileApplicationListener.java:200)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.onApplicationEvent(ConfigFileApplicationListener.java:188)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:80)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:345)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at cn.edu.xmu.gateway.Application.main(Application.java:12)
+Caused by: org.yaml.snakeyaml.scanner.ScannerException: mapping values are not allowed here
+ in 'reader', line 49, column 16:
+                uri: http://localhost:8080/
+                   ^
+
+	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchValue(ScannerImpl.java:870)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchMoreTokens(ScannerImpl.java:358)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.checkToken(ScannerImpl.java:227)
+	at org.yaml.snakeyaml.parser.ParserImpl$ParseBlockMappingKey.produce(ParserImpl.java:558)
+	at org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:158)
+	at org.yaml.snakeyaml.parser.ParserImpl.checkEvent(ParserImpl.java:148)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:235)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.composeSequenceNode(Composer.java:209)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:160)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.getNode(Composer.java:95)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getData(BaseConstructor.java:134)
+	at org.yaml.snakeyaml.Yaml$1.next(Yaml.java:494)
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:200)
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:164)
+	at org.springframework.boot.env.OriginTrackedYamlLoader.load(OriginTrackedYamlLoader.java:82)
+	at org.springframework.boot.env.YamlPropertySourceLoader.load(YamlPropertySourceLoader.java:50)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.loadDocuments(ConfigFileApplicationListener.java:607)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:523)
+	... 25 common frames omitted
+2020-12-15 15:35:58.835 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-15 15:36:10.656 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 13.052 seconds (JVM running for 13.501)
+2020-12-15 15:36:32.143 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:37:11.078 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:37:12.573 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:37:13.238 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTQzNTQ3OUhKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDE3NzQ3LCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNDE0N30.dex2KZ6e9nwkE_85l_Lyth1gH93m_p9UxGBxwdeoz_c
+2020-12-15 15:37:44.860 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE1MTUzNzMyMUI5IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MDIxNDUyLCJ1c2VySWQiOjIsImlhdCI6MTYwODAxNzg1Mn0.MfLe0d8VRY98lqaaX6v8RVcVaAAwH9E7riD9qKQfZPU
+2020-12-15 15:37:44.863 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-15 15:37:44.864 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/users/{id}
+2020-12-15 15:38:38.171 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-15 15:38:50.389 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 13.623 seconds (JVM running for 14.183)
+2020-12-15 15:43:03.597 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-15 15:43:07.209 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 4.876 seconds (JVM running for 5.306)
+2020-12-15 15:47:38.190 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-15 15:47:41.012 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 3.615 seconds (JVM running for 4.071)

@@ -1,15 +1,13 @@
 package cn.edu.xmu.freight.service;
 
 import cn.edu.xmu.freight.dao.FreightDao;
-import cn.edu.xmu.freight.model.bo.FreightModelBo;
 import cn.edu.xmu.freight.model.vo.*;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.ReturnObject;
-import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.awt.*;
+import java.util.*;
 
 /**
  * @author issyu 30320182200070
@@ -65,7 +63,7 @@ public class FreightService {
     public ReturnObject deleteFreightModel(Long shopId, Long id) {
         return freightDao.deleteFreightModel(shopId,id);
     }
-    /*
+    /**
      * 管理员克隆店铺的运费模板
      * @author 史韬韬
      * @parameter shopId 店铺id
@@ -75,7 +73,7 @@ public class FreightService {
         return freightDao.cloneFreightModel(id,shopId);
     }
 
-    /*
+    /**
      * 获得运费模板概要
      * @author 史韬韬
      * @parameter id 运费模板id
@@ -83,7 +81,7 @@ public class FreightService {
     public ReturnObject<FreightModelSimpleInfoRetVo> getFreightModelSimpleInfo(Long id){
         return  freightDao.getFreightModelSimpleInfo(id);
     }
-    /*
+    /**
      * 管理员修改店铺运费模板
      * @author 史韬韬
      * created in 2020/12/7
@@ -92,7 +90,7 @@ public class FreightService {
         return freightDao.chanegFreightModel(id,shopId,freightModelInfoVo);
     }
 
-    /*
+    /**
      * 管理员定义件数模板明细
      * @author 陈星如
      * @date 2020/12/9 9:13
@@ -102,7 +100,7 @@ public class FreightService {
         return returnObject;
     }
 
-    /*
+    /**
      * 管理员修改件数模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
@@ -112,7 +110,7 @@ public class FreightService {
         return returnObject;
     }
 
-    /*
+    /**
      * 管理员修改重量模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
@@ -122,7 +120,7 @@ public class FreightService {
         return returnObject;
     }
 
-    /*
+    /**
      * 管理员删除件数模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
@@ -132,7 +130,7 @@ public class FreightService {
         return returnObject;
     }
 
-    /*
+    /**
      * 管理员删除重量模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
@@ -150,13 +148,29 @@ public class FreightService {
         ReturnObject returnObject = freightDao.getFreightModelsWeightItems(shopId,id);
         return returnObject;
     }
-    /*
-     * 店家或管理员查询件数运费模板的明细
-     * @author 陈星如
-     * @date 2020/12/8 14:13
+    /**
+     *店家或管理员查询件数运费模板的明细
+     *@author 陈星如
+     *@date 2020/12/8 14:13
      */
     public ReturnObject<List> getFreightModelsPieceItems(Long shopId, Long id) {
         ReturnObject returnObject = freightDao.getFreightModelsPieceItems(shopId,id);
         return returnObject;
+    }
+
+    /**
+     * @author issyu 30320182200070
+     * @date 2020/12/18 15:58
+     * 买家使用运费模板计算一批运费
+     * @param userId
+     * @param departId
+     * @param rid
+     * @param itemInfoVoList
+     * @return
+     */
+    public ReturnObject calculateFreightPrice(
+            Long userId, Long departId,
+            Long rid, List<ItemInfoVo> itemInfoVoList) {
+        return freightDao.calculateFreightPrice(userId,departId,rid,itemInfoVoList);
     }
 }

@@ -1,4 +1,5 @@
 package cn.edu.xmu.payment.controller;
+import cn.edu.xmu.external.service.IAfterSaleService;
 import cn.edu.xmu.inner.service.OrderInnerService;
 import cn.edu.xmu.ooad.annotation.Audit;
 import cn.edu.xmu.ooad.annotation.Depart;
@@ -263,6 +264,14 @@ public class PaymentController {
         ReturnObject returnObject = paymentService.getPayPatternsByOrderId(userId,departId);
 
         return Common.getListRetObject(returnObject);
+    }
+
+    @DubboReference(version = "0.0.1",check = false)
+    private IAfterSaleService iAfterSaleService;
+
+    @GetMapping("/test2")
+    public Object test2(){
+        return iAfterSaleService.verifyAfterSaleId(2L);
     }
 
 }

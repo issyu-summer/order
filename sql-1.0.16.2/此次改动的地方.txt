@@ -1,0 +1,2 @@
+1 order的data.sql中所有的shop_id都为1。
+2 所有订单的state已修正为状态码1.0.7中的状态码
