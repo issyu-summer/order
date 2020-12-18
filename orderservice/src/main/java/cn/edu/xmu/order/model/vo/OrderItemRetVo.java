@@ -1,5 +1,6 @@
 package cn.edu.xmu.order.model.vo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
