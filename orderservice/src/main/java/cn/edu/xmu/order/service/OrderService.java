@@ -5,10 +5,7 @@ import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.order.dao.OrderDao;
 import cn.edu.xmu.order.model.bo.OrderBrief;
 import cn.edu.xmu.order.model.bo.OrderInfoBo;
-import cn.edu.xmu.order.model.vo.AdressVo;
-import cn.edu.xmu.order.model.vo.OrderInfoVo;
-import cn.edu.xmu.order.model.vo.OrderMessageVo;
-import cn.edu.xmu.order.model.vo.OrderRetVo;
+import cn.edu.xmu.order.model.vo.*;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -170,7 +167,7 @@ public class OrderService {
      * @author 陈星如
      * @date 2020/12/5 21:16
      */
-    public ReturnObject<VoObject> shipOrder(Long shopId, Long id, String shipmentSn,Long departId) {
-        return orderDao.shipOrder(shopId,id,shipmentSn,departId);
+    public ReturnObject<VoObject> shipOrder(Long shopId, Long id, OrderShipmentSnVo orderShipmentSnVo, Long departId) {
+        return orderDao.shipOrder(shopId,id,orderShipmentSnVo,departId);
     }
 }

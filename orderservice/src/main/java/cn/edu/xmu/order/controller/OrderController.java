@@ -11,6 +11,7 @@ import cn.edu.xmu.ooad.util.TimeFormat;
 import cn.edu.xmu.order.model.vo.AdressVo;
 import cn.edu.xmu.order.model.vo.OrderInfoVo;
 import cn.edu.xmu.order.model.vo.OrderMessageVo;
+import cn.edu.xmu.order.model.vo.OrderShipmentSnVo;
 import cn.edu.xmu.order.service.OrderService;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.*;
@@ -370,8 +371,8 @@ public class OrderController {
     @Audit
     @PutMapping("/shops/{shopId}/orders/{id}/deliver")
 
-    public Object shipOrder(@PathVariable(name="shopId") Long shopId, @PathVariable(name="id")  Long id,@Validated @RequestBody String shipmentSn,
+    public Object shipOrder(@PathVariable(name="shopId") Long shopId, @PathVariable(name="id")  Long id, @Validated @RequestBody OrderShipmentSnVo orderShipmentSnVo,
                             @Depart @ApiIgnore Long departId){
-        return Common.decorateReturnObject(orderService.shipOrder(shopId,id,shipmentSn,departId));
+        return Common.decorateReturnObject(orderService.shipOrder(shopId,id,orderShipmentSnVo,departId));
     }
 }

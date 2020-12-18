@@ -5,15 +5,11 @@ import cn.edu.xmu.order.mapper.OrderItemPoMapper;
 import cn.edu.xmu.order.mapper.OrderPoMapper;
 import cn.edu.xmu.order.model.bo.*;
 import cn.edu.xmu.order.model.po.OrderItemPo;
-import cn.edu.xmu.order.model.po.OrderItemPoExample;
 import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.order.model.po.OrderPoExample;
 import cn.edu.xmu.order.model.vo.*;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.mysql.cj.x.protobuf.MysqlxCrud;
-import io.lettuce.core.StrAlgoArgs;
-import org.aspectj.weaver.ast.Or;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -514,8 +510,9 @@ public class OrderDao {
      * @author 陈星如
      * @date 2020/12/5 15:16
      */
-    public ReturnObject<VoObject> shipOrder(Long shopId, Long id, String shipmentSn,Long departId) {
+    public ReturnObject<VoObject> shipOrder(Long shopId, Long id, OrderShipmentSnVo orderShipmentSnVo,Long departId) {
         try {
+            String shipmentSn=orderShipmentSnVo.getFreightSn();
             OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
             ReturnObject<VoObject> retObj = null;
             //订单不存在
