@@ -102,18 +102,18 @@ public class FreightService {
         return returnObject;
     }
 
-    /*
-     * 管理员修改件数模板明细
+    /**
+     * 店家或管理员修改件数模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
-    public ReturnObject putPieceItems(PieceModelInfoVo vo, Long shopId, Long id) {
-        ReturnObject returnObject = freightDao.putPieceItems(vo,shopId,id);
+    public ReturnObject putPieceItems(PieceModelInfoVo vo, Long shopId, Long id, Long departId) {
+        ReturnObject returnObject = freightDao.putPieceItems(vo,shopId,id,departId);
         return returnObject;
     }
 
     /**
-     * 管理员修改重量模板明细
+     * 店家或管理员修改重量模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
@@ -122,18 +122,18 @@ public class FreightService {
         return returnObject;
     }
 
-    /*
-     * 管理员删除件数模板明细
+    /**
+     * 店家或管理员删除件数模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
-    public ReturnObject deletePieceItems(Long shopId, Long id) {
-        ReturnObject returnObject = freightDao.deletePieceItems(shopId,id);
+    public ReturnObject deletePieceItems(Long shopId, Long id,Long departId) {
+        ReturnObject returnObject = freightDao.deletePieceItems(shopId,id,departId);
         return returnObject;
     }
 
     /**
-     * 管理员删除重量模板明细
+     * 店家或管理员删除重量模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */

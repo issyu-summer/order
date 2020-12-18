@@ -282,8 +282,8 @@ public class FreightController {
         return Common.decorateReturnObject(freightService.postPieceItems(vo,shopId,id));
     }
 
-    /*
-     * 管理员修改件数模板明细
+    /**
+     * 店家或管理员修改件数模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
@@ -300,16 +300,16 @@ public class FreightController {
     @Audit
     @PutMapping("/shops/{shopId}/pieceItems/{id}")
     public Object putPieceItems(
-            @LoginUser Long userId,
+            @Depart @ApiIgnore Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id,
             @RequestBody PieceModelInfoVo vo
     ){
-        return Common.decorateReturnObject(freightService.putPieceItems(vo,shopId,id));
+        return Common.decorateReturnObject(freightService.putPieceItems(vo,shopId,id,departId));
     }
 
     /**
-     * 管理员修改重量模板明细
+     * 店家或管理员修改重量模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
@@ -334,8 +334,8 @@ public class FreightController {
         return Common.decorateReturnObject(freightService.putWeightItems(vo,shopId,id,departId));
     }
 
-    /*
-     * 管理员删除件数模板明细
+    /**
+     * 店家或管理员删除件数模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
@@ -350,11 +350,11 @@ public class FreightController {
     @Audit
     @DeleteMapping("/shops/{shopId}/pieceItems/{id}")
     public Object deletePieceItems(
-            @LoginUser Long userId,
+            @Depart @ApiIgnore Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id
     ){
-        return Common.decorateReturnObject(freightService.deletePieceItems(shopId,id));
+        return Common.decorateReturnObject(freightService.deletePieceItems(shopId,id,departId));
     }
 
 

@@ -11,8 +11,8 @@ import lombok.Data;
 @Data
 public class PieceModelInfoVo {
     private Long regionId;
-    private Integer firstItems;
-    private Long firstItemsPrice;
+    private Integer firstItem;
+    private Long firstItemPrice;
     private Integer additionalItems;
     private Long additionalItemsPrice;
     public PieceModelInfoVo(){
@@ -20,16 +20,16 @@ public class PieceModelInfoVo {
     }
     public PieceModelInfoVo(PieceModelInfoBo pieceModelInfoBo){
         this.setRegionId(pieceModelInfoBo.getRegionId());
-        this.setFirstItems(pieceModelInfoBo.getFirstItems());
-        this.setFirstItemsPrice(pieceModelInfoBo.getFirstItemsPrice());
+        this.setFirstItem(pieceModelInfoBo.getFirstItems());
+        this.setFirstItemPrice(pieceModelInfoBo.getFirstItemsPrice());
         this.setAdditionalItems(pieceModelInfoBo.getAdditionalItems());
         this.setAdditionalItemsPrice(pieceModelInfoBo.getAdditionalItemsPrice());
     }
     public PieceModelInfoBo createPieceModelInfoBo(){
         PieceModelInfoBo pieceModelInfoBo = new PieceModelInfoBo();
         pieceModelInfoBo.setRegionId(this.getRegionId());
-        pieceModelInfoBo.setFirstItems(this.getFirstItems());
-        pieceModelInfoBo.setFirstItemsPrice(this.getFirstItemsPrice());
+        pieceModelInfoBo.setFirstItems(this.getFirstItem());
+        pieceModelInfoBo.setFirstItemsPrice(this.getFirstItemPrice());
         pieceModelInfoBo.setAdditionalItems(this.getAdditionalItems());
         pieceModelInfoBo.setAdditionalItemsPrice(this.getAdditionalItemsPrice());
         return pieceModelInfoBo;

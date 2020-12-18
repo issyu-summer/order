@@ -395,60 +395,116 @@ public class FreightDao {
         return retObj;
     }
 
-    /*
-     * 管理员修改件数模板明细(未校验regionId是否合法、未校验Vo中负数数据是否合法)
+    /**
+     * 店家或管理员修改件数模板明细(未校验regionId是否合法、未校验Vo中负数数据是否合法)
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
-    public ReturnObject<Object> putPieceItems(PieceModelInfoVo vo, Long shopId, Long id){
+    public ReturnObject<Object> putPieceItems(PieceModelInfoVo vo, Long shopId, Long id,Long departId){
         try {
-            //获得运费模板
-            PieceFreightModelPo pieceFreightModelPo=pieceFreightModelPoMapper.selectByPrimaryKey(id);
-            if(pieceFreightModelPo==null){
-                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("件数运费模板不存在"));
-            }
+            if(departId==0){//管理员
+                //获得运费模板
+                PieceFreightModelPo pieceFreightModelPo=pieceFreightModelPoMapper.selectByPrimaryKey(id);
+                if(pieceFreightModelPo==null){
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("件数运费模板不存在"));
+                }
 
-            FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(pieceFreightModelPo.getFreightModelId());
-            if(freightModelPo==null){
-                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
-            }
-            if(!freightModelPo.getShopId().equals(shopId)){//运费模板不是本店铺的
-                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
-            }
-            if(freightModelPo.getType()!=(byte)1){//运费模板模式不是件数运费模板
-                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("运费模板模式不是件数运费模板"));
-            }
-            PieceModelInfoBo pieceModelInfoBo=vo.createPieceModelInfoBo();
-            pieceModelInfoBo.setId(id);
-            pieceModelInfoBo.setGmtCreate(pieceFreightModelPo.getGmtCreate());
-            pieceModelInfoBo.setGmtModified(LocalDateTime.now());
+                FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(pieceFreightModelPo.getFreightModelId());
+                if(freightModelPo==null){
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
+                }
+                if(!freightModelPo.getShopId().equals(shopId)){//运费模板不是本店铺的
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
+                }
+                if(freightModelPo.getType()!=(byte)1){//运费模板模式不是件数运费模板
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板模式不是件数运费模板"));
+                }
+                PieceModelInfoBo pieceModelInfoBo=vo.createPieceModelInfoBo();
+                pieceModelInfoBo.setId(id);
+                pieceModelInfoBo.setGmtCreate(pieceFreightModelPo.getGmtCreate());
+                pieceModelInfoBo.setGmtModified(LocalDateTime.now());
 
-            //校验重复地区
-            PieceFreightModelPoExample pieceFreightModelPoExample=new PieceFreightModelPoExample();
-            PieceFreightModelPoExample.Criteria criteria=pieceFreightModelPoExample.createCriteria();
-            criteria.andFreightModelIdEqualTo(id);
-            List<PieceFreightModelPo> pieceFreightPos = pieceFreightModelPoMapper.selectByExample(pieceFreightModelPoExample);
-            if (!pieceFreightPos.isEmpty()) {
-                for (PieceFreightModelPo po : pieceFreightPos) {
-                    //如果找到一样的地区定义，则返回错误
-                    if (po.getRegionId()!=null && po.getRegionId().equals(pieceModelInfoBo.getRegionId())) {
-                        return new ReturnObject<>(ResponseCode.REGION_SAME, String.format("运费模板中该地区已定义"));
-                    }
-                    if(po.getRegionId()==null){
-                        if(pieceModelInfoBo.getRegionId()==null){
+                //校验重复地区
+                PieceFreightModelPoExample pieceFreightModelPoExample=new PieceFreightModelPoExample();
+                PieceFreightModelPoExample.Criteria criteria=pieceFreightModelPoExample.createCriteria();
+                criteria.andFreightModelIdEqualTo(id);
+                List<PieceFreightModelPo> pieceFreightPos = pieceFreightModelPoMapper.selectByExample(pieceFreightModelPoExample);
+                if (!pieceFreightPos.isEmpty()) {
+                    for (PieceFreightModelPo po : pieceFreightPos) {
+                        //如果找到一样的地区定义，则返回错误
+                        if (po.getRegionId()!=null && po.getRegionId().equals(pieceModelInfoBo.getRegionId())) {
                             return new ReturnObject<>(ResponseCode.REGION_SAME, String.format("运费模板中该地区已定义"));
+                        }
+                        if(po.getRegionId()==null){
+                            if(pieceModelInfoBo.getRegionId()==null){
+                                return new ReturnObject<>(ResponseCode.REGION_SAME, String.format("运费模板中该地区已定义"));
+                            }
                         }
                     }
                 }
-            }
 
-            PieceFreightModelPo pieceFreightModelPoUpdate=pieceModelInfoBo.getpieceFreightModelPo();
-            pieceFreightModelPoUpdate.setFreightModelId(freightModelPo.getId());
-            int ret=pieceFreightModelPoMapper.updateByPrimaryKey(pieceFreightModelPoUpdate);
-            if(ret == 0){
-                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：修改失败"));
+                PieceFreightModelPo pieceFreightModelPoUpdate=pieceModelInfoBo.getpieceFreightModelPo();
+                pieceFreightModelPoUpdate.setFreightModelId(freightModelPo.getId());
+                int ret=pieceFreightModelPoMapper.updateByPrimaryKey(pieceFreightModelPoUpdate);
+                if(ret == 0){
+                    return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：修改失败"));
+                }else{
+                    return new ReturnObject<>();
+                }
+            }else if(departId>0){//店家
+                if(!departId.equals(shopId)){
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("请求的店铺和登陆的店铺不符"));
+                }
+                //获得运费模板
+                PieceFreightModelPo pieceFreightModelPo=pieceFreightModelPoMapper.selectByPrimaryKey(id);
+                if(pieceFreightModelPo==null){
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("件数运费模板不存在"));
+                }
+
+                FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(pieceFreightModelPo.getFreightModelId());
+                if(freightModelPo==null){
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
+                }
+                if(!freightModelPo.getShopId().equals(shopId)){//运费模板不是本店铺的
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
+                }
+                if(freightModelPo.getType()!=(byte)1){//运费模板模式不是件数运费模板
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板模式不是件数运费模板"));
+                }
+                PieceModelInfoBo pieceModelInfoBo=vo.createPieceModelInfoBo();
+                pieceModelInfoBo.setId(id);
+                pieceModelInfoBo.setGmtCreate(pieceFreightModelPo.getGmtCreate());
+                pieceModelInfoBo.setGmtModified(LocalDateTime.now());
+
+                //校验重复地区
+                PieceFreightModelPoExample pieceFreightModelPoExample=new PieceFreightModelPoExample();
+                PieceFreightModelPoExample.Criteria criteria=pieceFreightModelPoExample.createCriteria();
+                criteria.andFreightModelIdEqualTo(id);
+                List<PieceFreightModelPo> pieceFreightPos = pieceFreightModelPoMapper.selectByExample(pieceFreightModelPoExample);
+                if (!pieceFreightPos.isEmpty()) {
+                    for (PieceFreightModelPo po : pieceFreightPos) {
+                        //如果找到一样的地区定义，则返回错误
+                        if (po.getRegionId()!=null && po.getRegionId().equals(pieceModelInfoBo.getRegionId())) {
+                            return new ReturnObject<>(ResponseCode.REGION_SAME, String.format("运费模板中该地区已定义"));
+                        }
+                        if(po.getRegionId()==null){
+                            if(pieceModelInfoBo.getRegionId()==null){
+                                return new ReturnObject<>(ResponseCode.REGION_SAME, String.format("运费模板中该地区已定义"));
+                            }
+                        }
+                    }
+                }
+
+                PieceFreightModelPo pieceFreightModelPoUpdate=pieceModelInfoBo.getpieceFreightModelPo();
+                pieceFreightModelPoUpdate.setFreightModelId(freightModelPo.getId());
+                int ret=pieceFreightModelPoMapper.updateByPrimaryKey(pieceFreightModelPoUpdate);
+                if(ret == 0){
+                    return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：修改失败"));
+                }else{
+                    return new ReturnObject<>();
+                }
             }else{
-                return new ReturnObject<>();
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("请求的用户不是店家或者管理员"));
             }
         }catch (DataAccessException e){
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误"));
@@ -458,7 +514,7 @@ public class FreightDao {
     }
 
     /**
-     * 管理员修改重量模板明细(未校验regionId是否合法、未校验Vo中负数数据是否合法)
+     * 店家或管理员修改重量模板明细(未校验regionId是否合法、未校验Vo中负数数据是否合法)
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
@@ -579,36 +635,68 @@ public class FreightDao {
         }
     }
 
-    /*
-     * 管理员删除件数模板明细
+    /**
+     * 店家或管理员删除件数模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
-    public ReturnObject<Object> deletePieceItems(Long shopId, Long id){
+    public ReturnObject<Object> deletePieceItems(Long shopId, Long id,Long departId){
         try {
-            //获得运费模板
-            PieceFreightModelPo pieceFreightModelPo=pieceFreightModelPoMapper.selectByPrimaryKey(id);
-            if(pieceFreightModelPo==null){
-                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("件数运费模板不存在"));
-            }
+            if(departId==0){//管理员
+                //获得运费模板
+                PieceFreightModelPo pieceFreightModelPo=pieceFreightModelPoMapper.selectByPrimaryKey(id);
+                if(pieceFreightModelPo==null){
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("件数运费模板不存在"));
+                }
 
-            FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(pieceFreightModelPo.getFreightModelId());
-            if(freightModelPo==null){
-                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
-            }
-            if(!freightModelPo.getShopId().equals(shopId)){//运费模板不是本店铺的
-                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
-            }
-            if(freightModelPo.getType()!=(byte)1){//运费模板模式不是件数运费模板
-                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("运费模板模式不是件数运费模板"));
-            }
+                FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(pieceFreightModelPo.getFreightModelId());
+                if(freightModelPo==null){
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
+                }
+                if(!freightModelPo.getShopId().equals(shopId)){//运费模板不是本店铺的
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
+                }
+                if(freightModelPo.getType()!=(byte)1){//运费模板模式不是件数运费模板
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板模式不是件数运费模板"));
+                }
 
-            int ret=pieceFreightModelPoMapper.deleteByPrimaryKey(id);
-            if(ret == 0){
-                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：删除失败"));
+                int ret=pieceFreightModelPoMapper.deleteByPrimaryKey(id);
+                if(ret == 0){
+                    return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：删除失败"));
+                }else{
+                    return new ReturnObject<>();
+                }
+            }else if(departId>0){//店家
+                if(!departId.equals(shopId)){
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("请求的店铺和登陆的店铺不符"));
+                }
+                //获得运费模板
+                PieceFreightModelPo pieceFreightModelPo=pieceFreightModelPoMapper.selectByPrimaryKey(id);
+                if(pieceFreightModelPo==null){
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("件数运费模板不存在"));
+                }
+
+                FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(pieceFreightModelPo.getFreightModelId());
+                if(freightModelPo==null){
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
+                }
+                if(!freightModelPo.getShopId().equals(shopId)){//运费模板不是本店铺的
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
+                }
+                if(freightModelPo.getType()!=(byte)1){//运费模板模式不是件数运费模板
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板模式不是件数运费模板"));
+                }
+
+                int ret=pieceFreightModelPoMapper.deleteByPrimaryKey(id);
+                if(ret == 0){
+                    return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：删除失败"));
+                }else{
+                    return new ReturnObject<>();
+                }
             }else{
-                return new ReturnObject<>();
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("请求的用户不是店家或者管理员"));
             }
+
         }catch (DataAccessException e){
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误"));
         }catch (Exception e){
@@ -617,7 +705,7 @@ public class FreightDao {
     }
 
     /**
-     * 管理员删除重量模板明细
+     * 店家或管理员删除重量模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
