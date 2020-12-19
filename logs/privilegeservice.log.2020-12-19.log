@@ -1,0 +1,713 @@
+2020-12-19 10:55:22.096 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.5.Final
+2020-12-19 10:55:26.735 [main] INFO  o.a.d.s.b.c.event.WelcomeLogoApplicationListener - 
+
+ :: Dubbo Spring Boot (v2.7.8) : https://github.com/apache/dubbo-spring-boot-project
+ :: Dubbo (v2.7.8) : https://github.com/apache/dubbo
+ :: Discuss group : dev@dubbo.apache.org
+
+2020-12-19 10:55:26.738 [main] INFO  o.a.d.s.b.c.e.OverrideDubboConfigApplicationListener - Dubbo Config was overridden by externalized configuration {dubbo.application.qos-enable=false, dubbo.config.multiple=true}
+2020-12-19 10:55:27.273 [pool-1-thread-1] INFO  o.a.d.s.b.c.e.AwaitingNonWebApplicationListener -  [Dubbo] Current Spring Boot Application is await...
+2020-12-19 10:55:30.970 [main] INFO  o.a.d.s.b.c.e.OverrideDubboConfigApplicationListener - Dubbo Config was overridden by externalized configuration {dubbo.application.name=privilege-service, dubbo.application.qos-accept-foreign-ip=false, dubbo.application.qos-enable=false, dubbo.config.multiple=true, dubbo.consumer.check=false, dubbo.consumer.timeout=4000, dubbo.protocol.name=dubbo, dubbo.protocol.port=20880, dubbo.registry.address=nacos://47.113.100.78:8848}
+2020-12-19 10:55:30.986 [main] INFO  cn.edu.xmu.privilege.PrivilegeServiceApplication - The following profiles are active: dev
+2020-12-19 10:55:32.688 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [referenceAnnotationBeanPostProcessor] has been registered.
+2020-12-19 10:55:32.688 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigAliasPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [dubboConfigAliasPostProcessor] has been registered.
+2020-12-19 10:55:32.689 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.context.DubboLifecycleComponentApplicationListener]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [dubboLifecycleComponentApplicationListener] has been registered.
+2020-12-19 10:55:32.690 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.context.DubboBootstrapApplicationListener]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [dubboBootstrapApplicationListener] has been registered.
+2020-12-19 10:55:32.691 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.beans.factory.config.DubboConfigDefaultPropertyValueBeanPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [dubboConfigDefaultPropertyValueBeanPostProcessor] has been registered.
+2020-12-19 10:55:32.829 [main] WARN  o.springframework.boot.actuate.endpoint.EndpointId - Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2020-12-19 10:55:33.165 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-19 10:55:33.167 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-19 10:55:33.219 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 35ms. Found 0 Redis repository interfaces.
+2020-12-19 10:55:33.298 [main] WARN  o.springframework.boot.actuate.endpoint.EndpointId - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-12-19 10:55:33.358 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingRegistrar - The configuration bean definition [name : org.apache.dubbo.config.ApplicationConfig#0, content : Root bean: class [org.apache.dubbo.config.ApplicationConfig]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] has been registered.
+2020-12-19 10:55:33.358 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [com.alibaba.spring.beans.factory.annotation.ConfigurationBeanBindingPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [configurationBeanBindingPostProcessor] has been registered.
+2020-12-19 10:55:33.358 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingRegistrar - The configuration bean definition [name : org.apache.dubbo.config.RegistryConfig#0, content : Root bean: class [org.apache.dubbo.config.RegistryConfig]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] has been registered.
+2020-12-19 10:55:33.358 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingRegistrar - The configuration bean definition [name : org.apache.dubbo.config.ProtocolConfig#0, content : Root bean: class [org.apache.dubbo.config.ProtocolConfig]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] has been registered.
+2020-12-19 10:55:33.359 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingRegistrar - The configuration bean definition [name : org.apache.dubbo.config.ConsumerConfig#0, content : Root bean: class [org.apache.dubbo.config.ConsumerConfig]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] has been registered.
+2020-12-19 10:55:33.476 [main] INFO  o.s.c.annotation.ConfigurationClassPostProcessor - Cannot enhance @Configuration bean definition 'org.apache.dubbo.spring.boot.autoconfigure.DubboAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2020-12-19 10:55:33.552 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=04e27ba0-c819-3474-b309-749f9b9f3ca9
+2020-12-19 10:55:34.872 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2020-12-19 10:55:34.884 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2020-12-19 10:55:34.884 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-19 10:55:34.884 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-12-19 10:55:35.325 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-12-19 10:55:35.325 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4316 ms
+2020-12-19 10:55:36.279 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-12-19 10:55:36.867 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-12-19 10:56:19.045 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/adminusers/{id}-0 p = Privilege(id=2, name=查看任意用户信息, url=/shops/{id}/adminusers/{id}, requestType=GET, signature=07fc539235716e80dc4405464750eaadfcbe05cb086cd3b47adbf9915385c42e, gmtCreate=2020-11-01T09:52:20, gmtModified=2020-11-02T21:51:45, key=/shops/{id}/adminusers/{id}-0, cacuSignature=07fc539235716e80dc4405464750eaadfcbe05cb086cd3b47adbf9915385c42e)
+2020-12-19 10:56:23.024 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/adminusers/{id}-2 p = Privilege(id=3, name=修改任意用户信息, url=/shops/{id}/adminusers/{id}, requestType=PUT, signature=95c5a76b55d51deb0be50401bb15bd3cb9c56a6a4df189886c1233e8dd540d8c, gmtCreate=2020-11-01T09:53:03, gmtModified=2020-11-02T21:51:45, key=/shops/{id}/adminusers/{id}-2, cacuSignature=95c5a76b55d51deb0be50401bb15bd3cb9c56a6a4df189886c1233e8dd540d8c)
+2020-12-19 10:56:23.416 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/adminusers/{id}-3 p = Privilege(id=4, name=删除用户, url=/shops/{id}/adminusers/{id}, requestType=DELETE, signature=451a3e273031eddc37d612882eb81f54f5a919ed2212ac2a019a915506794538, gmtCreate=2020-11-01T09:53:36, gmtModified=2020-11-02T21:51:45, key=/shops/{id}/adminusers/{id}-3, cacuSignature=451a3e273031eddc37d612882eb81f54f5a919ed2212ac2a019a915506794538)
+2020-12-19 10:56:23.838 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/adminusers/{id}/release-2 p = Privilege(id=5, name=恢复用户, url=/shops/{id}/adminusers/{id}/release, requestType=PUT, signature=f48de8b17105f78f10e6197e9ddda857f60a056d57d0567123035d8d45be8355, gmtCreate=2020-11-01T09:59:24, gmtModified=2020-11-02T21:51:45, key=/shops/{id}/adminusers/{id}/release-2, cacuSignature=f48de8b17105f78f10e6197e9ddda857f60a056d57d0567123035d8d45be8355)
+2020-12-19 10:56:24.246 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/adminusers/{id}/forbid-2 p = Privilege(id=6, name=禁止用户登录, url=/shops/{id}/adminusers/{id}/forbid, requestType=PUT, signature=e8f62f17c65501a70002608cbde2c3f8a727974e67ad589928b33a7139a25815, gmtCreate=2020-11-01T10:02:32, gmtModified=2020-11-02T21:51:45, key=/shops/{id}/adminusers/{id}/forbid-2, cacuSignature=e8f62f17c65501a70002608cbde2c3f8a727974e67ad589928b33a7139a25815)
+2020-12-19 10:56:24.640 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/adminusers/{id}/roles/{id}-1 p = Privilege(id=7, name=赋予用户角色, url=/shops/{id}/adminusers/{id}/roles/{id}, requestType=POST, signature=457b0d2fe400b23c693f7db0ae9738791b2979b476ebb9e483d414dcd31c0119, gmtCreate=2020-11-01T10:02:35, gmtModified=2020-11-02T21:51:45, key=/shops/{id}/adminusers/{id}/roles/{id}-1, cacuSignature=457b0d2fe400b23c693f7db0ae9738791b2979b476ebb9e483d414dcd31c0119)
+2020-12-19 10:56:25.039 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/adminusers/{id}/roles/{id}-3 p = Privilege(id=8, name=取消用户角色, url=/shops/{id}/adminusers/{id}/roles/{id}, requestType=DELETE, signature=af7b69ed09932d09da4f14e8771f5fece8c00b1e9c9208705501a0660e8cf589, gmtCreate=2020-11-01T10:03:16, gmtModified=2020-11-02T21:51:45, key=/shops/{id}/adminusers/{id}/roles/{id}-3, cacuSignature=af7b69ed09932d09da4f14e8771f5fece8c00b1e9c9208705501a0660e8cf589)
+2020-12-19 10:56:25.494 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/roles-1 p = Privilege(id=9, name=新增角色, url=/shops/{id}/roles, requestType=POST, signature=95b0aa079fd9a210d563ce34bc4f44c3493c2df4eff2a0aacf5a92cb6fefffd1, gmtCreate=2020-11-01T10:04:09, gmtModified=2020-11-02T21:51:45, key=/shops/{id}/roles-1, cacuSignature=95b0aa079fd9a210d563ce34bc4f44c3493c2df4eff2a0aacf5a92cb6fefffd1)
+2020-12-19 10:56:25.915 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/roles/{id}-3 p = Privilege(id=10, name=删除角色, url=/shops/{id}/roles/{id}, requestType=DELETE, signature=913f1d0d85d052ecd1494bff991a98c6ab73ef43036eb5b8c043b17a60a0678c, gmtCreate=2020-11-01T10:04:42, gmtModified=2020-11-02T21:51:45, key=/shops/{id}/roles/{id}-3, cacuSignature=913f1d0d85d052ecd1494bff991a98c6ab73ef43036eb5b8c043b17a60a0678c)
+2020-12-19 10:56:26.331 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/roles/{id}-2 p = Privilege(id=11, name=修改角色信息, url=/shops/{id}/roles/{id}, requestType=PUT, signature=f92a7930afdd8dae935471b689930efcb29b17396115c0a17a39c4064e129121, gmtCreate=2020-11-01T10:05:20, gmtModified=2020-11-02T21:51:45, key=/shops/{id}/roles/{id}-2, cacuSignature=f92a7930afdd8dae935471b689930efcb29b17396115c0a17a39c4064e129121)
+2020-12-19 10:56:26.734 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/roles/{id}/privileges/{id}-1 p = Privilege(id=12, name=给角色增加权限, url=/shops/{id}/roles/{id}/privileges/{id}, requestType=POST, signature=4be1f710179eb5530b8e453e88d0aab8cb5e22114f3c113867c494e22c04ed8e, gmtCreate=2020-11-01T10:06:03, gmtModified=2020-11-02T21:51:46, key=/shops/{id}/roles/{id}/privileges/{id}-1, cacuSignature=4be1f710179eb5530b8e453e88d0aab8cb5e22114f3c113867c494e22c04ed8e)
+2020-12-19 10:56:27.130 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/roleprivileges/{id}-3 p = Privilege(id=13, name=取消角色权限, url=/shops/{id}/roleprivileges/{id}, requestType=DELETE, signature=cb4329d73e422f37a521e9ba75aacbbe1360477f5422cee4160d3ada0bbbaaa4, gmtCreate=2020-11-01T10:06:43, gmtModified=2020-11-03T21:30:31, key=/shops/{id}/roleprivileges/{id}-3, cacuSignature=cb4329d73e422f37a521e9ba75aacbbe1360477f5422cee4160d3ada0bbbaaa4)
+2020-12-19 10:56:27.526 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /privileges/{id}-2 p = Privilege(id=14, name=修改权限信息, url=/privileges/{id}, requestType=PUT, signature=291c2f3703a762ee80553c00ab3d303a889b1d969b1638b1cc392e6ff161ccbd, gmtCreate=2020-11-01T10:08:18, gmtModified=2020-11-02T21:51:46, key=/privileges/{id}-2, cacuSignature=291c2f3703a762ee80553c00ab3d303a889b1d969b1638b1cc392e6ff161ccbd)
+2020-12-19 10:56:27.920 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/proxies/{id}-3 p = Privilege(id=17, name=禁止代理关系, url=/shops/{id}/proxies/{id}, requestType=DELETE, signature=e630155e6fd2743ae17e1c2db316ffa4a8bd8cbc583e6b40d1a43d21f920fdf4, gmtCreate=2020-11-03T17:57:45, gmtModified=2020-11-03T19:48:47, key=/shops/{id}/proxies/{id}-3, cacuSignature=e630155e6fd2743ae17e1c2db316ffa4a8bd8cbc583e6b40d1a43d21f920fdf4)
+2020-12-19 10:56:28.307 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/adminuserroles/{id}-3 p = Privilege(id=18, name=取消任意用户角色, url=/shops/{id}/adminuserroles/{id}, requestType=DELETE, signature=3815913d393b7296771e00eee5dc94e82709cf1452c5897c6093a6eb860befeb, gmtCreate=2020-11-03T19:52:04, gmtModified=2020-11-03T19:56:43, key=/shops/{id}/adminuserroles/{id}-3, cacuSignature=3815913d393b7296771e00eee5dc94e82709cf1452c5897c6093a6eb860befeb)
+2020-12-19 10:56:28.707 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/ausers/{id}/busers/{id}-1 p = Privilege(id=19, name=管理员设置用户代理关系, url=/shops/{id}/ausers/{id}/busers/{id}, requestType=POST, signature=1ac9387a4f42405fe47de2450ac4bd5abed7b7ebc312159b088f17b3d4062fca, gmtCreate=2020-11-04T13:10:02, gmtModified=null, key=/shops/{id}/ausers/{id}/busers/{id}-1, cacuSignature=1ac9387a4f42405fe47de2450ac4bd5abed7b7ebc312159b088f17b3d4062fca)
+2020-12-19 10:56:29.126 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/roles-0 p = Privilege(id=20, name=查询角色, url=/shops/{id}/roles, requestType=GET, signature=372271986bb77c582fc0f707ad6a64eadbaf54949360cacd614953ac26697d82, gmtCreate=2020-11-04T13:10:02, gmtModified=null, key=/shops/{id}/roles-0, cacuSignature=372271986bb77c582fc0f707ad6a64eadbaf54949360cacd614953ac26697d82)
+2020-12-19 10:56:29.513 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/groupons/{id}-2 p = Privilege(id=21, name=管理员对SPU修改团购活动, url=/shops/{id}/groupons/{id}, requestType=PUT, signature=37796de7850b4e6357d24b1f52c0595cc9ff1d0036595b27f818ecada6c1d721, gmtCreate=2020-12-12T14:28:52, gmtModified=null, key=/shops/{id}/groupons/{id}-2, cacuSignature=37796de7850b4e6357d24b1f52c0595cc9ff1d0036595b27f818ecada6c1d721)
+2020-12-19 10:56:29.944 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/groupons/{id}-3 p = Privilege(id=22, name=管理员删除SPU团购活动, url=/shops/{id}/groupons/{id}, requestType=DELETE, signature=fc8ea9af63d040c962d94cf386ef115a410d1376e9835804c51c0dc4050abccd, gmtCreate=2020-12-12T14:28:55, gmtModified=null, key=/shops/{id}/groupons/{id}-3, cacuSignature=fc8ea9af63d040c962d94cf386ef115a410d1376e9835804c51c0dc4050abccd)
+2020-12-19 10:56:30.332 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/newshops/{id}/audit-2 p = Privilege(id=28, name=管理员审核店铺, url=/shops/{id}/newshops/{id}/audit, requestType=PUT, signature=ae602f442ad47491529685b218405985d44fcd5ae4c71a0fd2c182eb04538125, gmtCreate=2020-12-12T14:29:01, gmtModified=null, key=/shops/{id}/newshops/{id}/audit-2, cacuSignature=ae602f442ad47491529685b218405985d44fcd5ae4c71a0fd2c182eb04538125)
+2020-12-19 10:56:30.737 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/onshelves-2 p = Privilege(id=29, name=店家上线店铺, url=/shops/{id}/onshelves, requestType=PUT, signature=3602da654e02c539e7e0a3b09deb8427620cdc599474c571526285d1a85e78fb, gmtCreate=2020-12-12T14:29:02, gmtModified=null, key=/shops/{id}/onshelves-2, cacuSignature=3602da654e02c539e7e0a3b09deb8427620cdc599474c571526285d1a85e78fb)
+2020-12-19 10:56:31.136 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/offshelves-2 p = Privilege(id=30, name=店家下线店铺, url=/shops/{id}/offshelves, requestType=PUT, signature=b4a47a01c42e67c4d06db5a814239f23d7dc87e63c46b91fa5a4a361ef9a9bb7, gmtCreate=2020-12-12T14:29:03, gmtModified=null, key=/shops/{id}/offshelves-2, cacuSignature=b4a47a01c42e67c4d06db5a814239f23d7dc87e63c46b91fa5a4a361ef9a9bb7)
+2020-12-19 10:56:31.524 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/adminusers/{id}/approve-2 p = Privilege(id=31, name=管理员审核用户, url=/shops/{id}/adminusers/{id}/approve, requestType=PUT, signature=90d0a1c5253b97802c8bb14cd1220715d8a9c217a7117a4c0893d55920efab76, gmtCreate=2020-12-13T17:46:39, gmtModified=null, key=/shops/{id}/adminusers/{id}/approve-2, cacuSignature=90d0a1c5253b97802c8bb14cd1220715d8a9c217a7117a4c0893d55920efab76)
+2020-12-19 10:56:31.922 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/footprints-0 p = Privilege(id=32, name=管理员查看浏览记录, url=/shops/{id}/footprints, requestType=GET, signature=4473dadee195c791ed10d95601a0e75156101d1b5d1d79f34e157c7b17941557, gmtCreate=2020-12-13T17:53:29, gmtModified=null, key=/shops/{id}/footprints-0, cacuSignature=4473dadee195c791ed10d95601a0e75156101d1b5d1d79f34e157c7b17941557)
+2020-12-19 10:56:32.336 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/advertisement/{id}/default-2 p = Privilege(id=33, name=管理员设置默认广告, url=/shops/{id}/advertisement/{id}/default, requestType=PUT, signature=178f8a140e85a0ca000672bd6b6363a5e6083e7a9ce27b5935152d01b81a6d89, gmtCreate=2020-05-13T17:54:19, gmtModified=null, key=/shops/{id}/advertisement/{id}/default-2, cacuSignature=178f8a140e85a0ca000672bd6b6363a5e6083e7a9ce27b5935152d01b81a6d89)
+2020-12-19 10:56:32.727 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/advertisement/timesegments-1 p = Privilege(id=34, name=平台管理员新增广告时间段, url=/shops/{id}/advertisement/timesegments, requestType=POST, signature=d5aaa27f6c5d59aae46c6e4c56202fed07b78285d774ea9984aad40166d60382, gmtCreate=2020-12-13T23:57:29, gmtModified=null, key=/shops/{id}/advertisement/timesegments-1, cacuSignature=d5aaa27f6c5d59aae46c6e4c56202fed07b78285d774ea9984aad40166d60382)
+2020-12-19 10:56:33.139 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/advertisement/timesegments-0 p = Privilege(id=35, name=管理员获取广告时间段列表, url=/shops/{id}/advertisement/timesegments, requestType=GET, signature=b1d9e26ea2df00d6d58b97b47f3661f00d7a292ca6445a23d98593217ddcb125, gmtCreate=2020-12-13T23:58:09, gmtModified=null, key=/shops/{id}/advertisement/timesegments-0, cacuSignature=b1d9e26ea2df00d6d58b97b47f3661f00d7a292ca6445a23d98593217ddcb125)
+2020-12-19 10:56:33.529 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/flashsale/timesegments-1 p = Privilege(id=36, name=平台管理员新增秒杀时间段, url=/shops/{id}/flashsale/timesegments, requestType=POST, signature=3fdfd7206383b16a5790ba53f262578f32bbe13754b4477ba70074bd61b20e21, gmtCreate=2020-12-13T23:59:13, gmtModified=null, key=/shops/{id}/flashsale/timesegments-1, cacuSignature=3fdfd7206383b16a5790ba53f262578f32bbe13754b4477ba70074bd61b20e21)
+2020-12-19 10:56:33.921 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/flashsale/timesegments-0 p = Privilege(id=37, name=管理员获取秒杀时间段列表, url=/shops/{id}/flashsale/timesegments, requestType=GET, signature=7bbdc0cd5b1a98522edc0858de5f60e3c5c31338893c216d5f2a55e9c8ff967d, gmtCreate=2020-12-13T23:59:40, gmtModified=null, key=/shops/{id}/flashsale/timesegments-0, cacuSignature=7bbdc0cd5b1a98522edc0858de5f60e3c5c31338893c216d5f2a55e9c8ff967d)
+2020-12-19 10:56:34.326 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/advertisement/timesegments/{id}-3 p = Privilege(id=38, name=平台管理员删除广告时间段, url=/shops/{id}/advertisement/timesegments/{id}, requestType=DELETE, signature=7f6d8a2f79fea1eb9afa2831b7d6b29c42a690ca0fd9f4a6c907d178d7c4cdbb, gmtCreate=2020-12-14T00:00:29, gmtModified=null, key=/shops/{id}/advertisement/timesegments/{id}-3, cacuSignature=7f6d8a2f79fea1eb9afa2831b7d6b29c42a690ca0fd9f4a6c907d178d7c4cdbb)
+2020-12-19 10:56:34.732 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/flashsale/timesegments/{id}-3 p = Privilege(id=39, name=平台管理员删除秒杀时间段, url=/shops/{id}/flashsale/timesegments/{id}, requestType=DELETE, signature=2db9b58a0009ac786d5fc16c805439dc2aca85fb89af0b5f1d3446b8dfdd3781, gmtCreate=2020-12-14T00:01:33, gmtModified=null, key=/shops/{id}/flashsale/timesegments/{id}-3, cacuSignature=2db9b58a0009ac786d5fc16c805439dc2aca85fb89af0b5f1d3446b8dfdd3781)
+2020-12-19 10:56:35.133 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/advertisement/{id}-2 p = Privilege(id=40, name=管理员修改广告内容, url=/shops/{id}/advertisement/{id}, requestType=PUT, signature=65d017164d65b4e4e088d063c638908ed37c78d78b196ffe090297fa74a47370, gmtCreate=2020-12-14T00:02:37, gmtModified=null, key=/shops/{id}/advertisement/{id}-2, cacuSignature=65d017164d65b4e4e088d063c638908ed37c78d78b196ffe090297fa74a47370)
+2020-12-19 10:56:35.522 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/advertisement/{id}-3 p = Privilege(id=41, name=管理员删除某一个广告, url=/shops/{id}/advertisement/{id}, requestType=DELETE, signature=08aaf5d0da8db0732c65b64ec29a3d464b84428d4f2a50c4101fdbd67570175f, gmtCreate=2020-12-14T00:04:25, gmtModified=null, key=/shops/{id}/advertisement/{id}-3, cacuSignature=08aaf5d0da8db0732c65b64ec29a3d464b84428d4f2a50c4101fdbd67570175f)
+2020-12-19 10:56:35.933 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/advertisement/{id}/uploadImg-1 p = Privilege(id=42, name=管理员上传广告图片, url=/shops/{id}/advertisement/{id}/uploadImg, requestType=POST, signature=e5ba0892ed212f527f73cbaac6c1d7284e78352d74e339d987d19c0fdc648a8b, gmtCreate=2020-12-14T00:04:27, gmtModified=null, key=/shops/{id}/advertisement/{id}/uploadImg-1, cacuSignature=e5ba0892ed212f527f73cbaac6c1d7284e78352d74e339d987d19c0fdc648a8b)
+2020-12-19 10:56:36.324 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/advertisement/{id}/onshelves-2 p = Privilege(id=43, name=管理员上架广告, url=/shops/{id}/advertisement/{id}/onshelves, requestType=PUT, signature=aa1dce608b75c430b94dc9ad46a18ed014d552f35a534bce9c868d6a9948cb5b, gmtCreate=2020-12-14T00:04:28, gmtModified=null, key=/shops/{id}/advertisement/{id}/onshelves-2, cacuSignature=aa1dce608b75c430b94dc9ad46a18ed014d552f35a534bce9c868d6a9948cb5b)
+2020-12-19 10:56:36.730 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/advertisement/{id}/offshelves-2 p = Privilege(id=44, name=管理员下架广告, url=/shops/{id}/advertisement/{id}/offshelves, requestType=PUT, signature=171658899c2f5ca5c6864e74953cec80bccdf3aac0631c169718d5958d26d780, gmtCreate=2020-12-14T00:09:11, gmtModified=null, key=/shops/{id}/advertisement/{id}/offshelves-2, cacuSignature=171658899c2f5ca5c6864e74953cec80bccdf3aac0631c169718d5958d26d780)
+2020-12-19 10:56:37.131 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/advertisement/{id}/audit-2 p = Privilege(id=45, name=管理员审核广告, url=/shops/{id}/advertisement/{id}/audit, requestType=PUT, signature=bd3f49ae30ee8b27e90f9acc83c0ed3e402a99ad46b7fe56f876b373fb4f1e6d, gmtCreate=2020-12-14T00:09:13, gmtModified=null, key=/shops/{id}/advertisement/{id}/audit-2, cacuSignature=bd3f49ae30ee8b27e90f9acc83c0ed3e402a99ad46b7fe56f876b373fb4f1e6d)
+2020-12-19 10:56:37.533 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/timesegments/{id}/advertisement-1 p = Privilege(id=46, name=管理员在广告时段下新建广告, url=/shops/{id}/timesegments/{id}/advertisement, requestType=POST, signature=8a4eca902ade806e747c0b55781cf77b258c455202b92694a91260734b91ceaa, gmtCreate=2020-12-14T00:09:15, gmtModified=null, key=/shops/{id}/timesegments/{id}/advertisement-1, cacuSignature=8a4eca902ade806e747c0b55781cf77b258c455202b92694a91260734b91ceaa)
+2020-12-19 10:56:37.953 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/timesegments/{tid}/advertisement/{id}-1 p = Privilege(id=47, name=管理员在广告时段下增加广告, url=/shops/{id}/timesegments/{tid}/advertisement/{id}, requestType=POST, signature=5123b18747400769d0071bfad2cdac6997a35f772074dff9ec92577ff7bd6559, gmtCreate=2020-12-14T00:09:16, gmtModified=null, key=/shops/{id}/timesegments/{tid}/advertisement/{id}-1, cacuSignature=5123b18747400769d0071bfad2cdac6997a35f772074dff9ec92577ff7bd6559)
+2020-12-19 10:56:38.343 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/skus/{id}/shareactivities-1 p = Privilege(id=48, name=平台或店家创建新的分享活动, url=/shops/{id}/skus/{id}/shareactivities, requestType=POST, signature=d2b062e496dc4cfb6f776a10c5839f1db616f5644f328f04fc6c9a14846b745d, gmtCreate=2020-12-14T00:09:17, gmtModified=null, key=/shops/{id}/skus/{id}/shareactivities-1, cacuSignature=d2b062e496dc4cfb6f776a10c5839f1db616f5644f328f04fc6c9a14846b745d)
+2020-12-19 10:56:38.734 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/shareactivities/{id}-2 p = Privilege(id=49, name=管理员修改平台分享活动的内容, url=/shops/{id}/shareactivities/{id}, requestType=PUT, signature=7e2b4b56fc05b4f01ca4a42f7cd0cb0d54215be84d30db30d7dfece6939c0f12, gmtCreate=2020-12-14T00:09:18, gmtModified=null, key=/shops/{id}/shareactivities/{id}-2, cacuSignature=7e2b4b56fc05b4f01ca4a42f7cd0cb0d54215be84d30db30d7dfece6939c0f12)
+2020-12-19 10:56:39.134 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/shareactivities/{id}-3 p = Privilege(id=50, name=管理员下线指定商品的分享活动, url=/shops/{id}/shareactivities/{id}, requestType=DELETE, signature=63644627888d24719905e6b61a1448416d3e181bb039adef7ab9132defc38c1c, gmtCreate=2020-12-14T00:23:37, gmtModified=null, key=/shops/{id}/shareactivities/{id}-3, cacuSignature=63644627888d24719905e6b61a1448416d3e181bb039adef7ab9132defc38c1c)
+2020-12-19 10:56:39.530 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/shareactivities/{id}/online-2 p = Privilege(id=51, name=管理员上线分享活动, url=/shops/{id}/shareactivities/{id}/online, requestType=PUT, signature=14210ac9a74b8d8a1b9998e5564516f05e7adad3b65a2cf2c35aeffbd46077e6, gmtCreate=2020-12-14T00:23:39, gmtModified=null, key=/shops/{id}/shareactivities/{id}/online-2, cacuSignature=14210ac9a74b8d8a1b9998e5564516f05e7adad3b65a2cf2c35aeffbd46077e6)
+2020-12-19 10:56:39.951 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/aftersales/{id}/confirm-2 p = Privilege(id=52, name=管理员同意/不同意（退款，换货，维修）, url=/shops/{id}/aftersales/{id}/confirm, requestType=PUT, signature=7ac3aa048c155144bc61b26b1f69c6a8d3f7b12704936f15d5c7190742960a12, gmtCreate=2020-12-14T00:23:40, gmtModified=null, key=/shops/{id}/aftersales/{id}/confirm-2, cacuSignature=7ac3aa048c155144bc61b26b1f69c6a8d3f7b12704936f15d5c7190742960a12)
+2020-12-19 10:56:40.649 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/aftersales/{id}/receive-2 p = Privilege(id=53, name=店家确认收到买家的退（换）货, url=/shops/{id}/aftersales/{id}/receive, requestType=PUT, signature=4777a4e03ae7ad46d87398a31f44796ff2df15a163bf9cae6f95e61a2b45c144, gmtCreate=2020-12-14T00:23:41, gmtModified=null, key=/shops/{id}/aftersales/{id}/receive-2, cacuSignature=4777a4e03ae7ad46d87398a31f44796ff2df15a163bf9cae6f95e61a2b45c144)
+2020-12-19 10:56:41.080 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/aftersales/{id}/deliver-2 p = Privilege(id=54, name=店家寄出维修好的货物, url=/shops/{id}/aftersales/{id}/deliver, requestType=PUT, signature=408068b13c80a490ee29fc54fbdc84e45adfcecdf83436b4ca06a80e046a0b52, gmtCreate=2020-12-14T00:23:42, gmtModified=null, key=/shops/{id}/aftersales/{id}/deliver-2, cacuSignature=408068b13c80a490ee29fc54fbdc84e45adfcecdf83436b4ca06a80e046a0b52)
+2020-12-19 10:56:41.478 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/orders/{id}-2 p = Privilege(id=55, name=店家修改订单 (留言), url=/shops/{id}/orders/{id}, requestType=PUT, signature=24d4d813ce7596005ca4a7954bbe5963c1fda4eb8ae7a6bcd74de7d66eae9532, gmtCreate=2020-12-14T00:23:43, gmtModified=null, key=/shops/{id}/orders/{id}-2, cacuSignature=24d4d813ce7596005ca4a7954bbe5963c1fda4eb8ae7a6bcd74de7d66eae9532)
+2020-12-19 10:56:41.874 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/orders/{id}-3 p = Privilege(id=56, name=管理员取消本店铺订单, url=/shops/{id}/orders/{id}, requestType=DELETE, signature=a0126904778673a164b37d017e3de43768ed2b1cc390d9fa89b1490501a8ac61, gmtCreate=2020-12-14T00:23:43, gmtModified=null, key=/shops/{id}/orders/{id}-3, cacuSignature=a0126904778673a164b37d017e3de43768ed2b1cc390d9fa89b1490501a8ac61)
+2020-12-19 10:56:42.262 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/orders/{id}/deliver-2 p = Privilege(id=57, name=店家对订单标记发货, url=/shops/{id}/orders/{id}/deliver, requestType=PUT, signature=4a36b518442a54163bdc4ed2d55941131aa66768f58e2da73c23982b945ec6d2, gmtCreate=2020-12-14T00:23:45, gmtModified=null, key=/shops/{id}/orders/{id}/deliver-2, cacuSignature=4a36b518442a54163bdc4ed2d55941131aa66768f58e2da73c23982b945ec6d2)
+2020-12-19 10:56:42.658 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/freightmodels-1 p = Privilege(id=58, name=管理员定义店铺的运费模板, url=/shops/{id}/freightmodels, requestType=POST, signature=02a4a0e2a07613b6efb01ba64937263320a1400d5cc5d09a4fbdc239480d055f, gmtCreate=2020-12-14T00:23:45, gmtModified=null, key=/shops/{id}/freightmodels-1, cacuSignature=02a4a0e2a07613b6efb01ba64937263320a1400d5cc5d09a4fbdc239480d055f)
+2020-12-19 10:56:43.050 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/freightmodels/{id}/clone-1 p = Privilege(id=59, name=管理员克隆店铺的运费模板, url=/shops/{id}/freightmodels/{id}/clone, requestType=POST, signature=6ce5b4a1a8adb0b1c0accc672ed394812877ee815c210796aca13eb3f6e5ec4e, gmtCreate=2020-12-14T00:23:46, gmtModified=null, key=/shops/{id}/freightmodels/{id}/clone-1, cacuSignature=6ce5b4a1a8adb0b1c0accc672ed394812877ee815c210796aca13eb3f6e5ec4e)
+2020-12-19 10:56:43.439 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/freightmodels/{id}-2 p = Privilege(id=60, name=管理员修改店铺的运费模板, url=/shops/{id}/freightmodels/{id}, requestType=PUT, signature=e452fe87dc244f5a939db04213ebf82899ed93955ac7624ba440a4fb88fbb2cc, gmtCreate=2020-12-14T00:23:47, gmtModified=null, key=/shops/{id}/freightmodels/{id}-2, cacuSignature=e452fe87dc244f5a939db04213ebf82899ed93955ac7624ba440a4fb88fbb2cc)
+2020-12-19 10:56:43.842 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/freightmodels/{id}-3 p = Privilege(id=61, name=删除运费模板, url=/shops/{id}/freightmodels/{id}, requestType=DELETE, signature=1f2aaa8808cbbac725e39224890a1ebbffe47d9bec73d15b075eed5435f86c94, gmtCreate=2020-12-14T00:23:48, gmtModified=null, key=/shops/{id}/freightmodels/{id}-3, cacuSignature=1f2aaa8808cbbac725e39224890a1ebbffe47d9bec73d15b075eed5435f86c94)
+2020-12-19 10:56:44.245 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/freight_models/{id}/default-1 p = Privilege(id=62, name=店家或管理员为商铺定义默认运费模板, url=/shops/{id}/freight_models/{id}/default, requestType=POST, signature=458353c3512251e9541cd7056639b51b291e206613cb384009f16fc106a13a79, gmtCreate=2020-12-14T00:23:49, gmtModified=null, key=/shops/{id}/freight_models/{id}/default-1, cacuSignature=458353c3512251e9541cd7056639b51b291e206613cb384009f16fc106a13a79)
+2020-12-19 10:56:44.654 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/freightmodels/{id}/weightItems-1 p = Privilege(id=63, name=管理员定义重量模板明细, url=/shops/{id}/freightmodels/{id}/weightItems, requestType=POST, signature=6bbedf6cf2264d61c02d1e62e64c8733df34435dcee9923d2f90721c54fe2516, gmtCreate=2020-12-14T00:23:50, gmtModified=null, key=/shops/{id}/freightmodels/{id}/weightItems-1, cacuSignature=6bbedf6cf2264d61c02d1e62e64c8733df34435dcee9923d2f90721c54fe2516)
+2020-12-19 10:56:45.053 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/freightmodels/{id}/pieceItems-1 p = Privilege(id=64, name=管理员定义件数模板明细, url=/shops/{id}/freightmodels/{id}/pieceItems, requestType=POST, signature=6ccb37fea8a2adf529fab109d8185421c0af4b3e556fd84568d275033f425d19, gmtCreate=2020-12-14T00:23:51, gmtModified=null, key=/shops/{id}/freightmodels/{id}/pieceItems-1, cacuSignature=6ccb37fea8a2adf529fab109d8185421c0af4b3e556fd84568d275033f425d19)
+2020-12-19 10:56:45.442 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/weightItems/{id}-2 p = Privilege(id=65, name=店家或管理员修改重量运费模板明细, url=/shops/{id}/weightItems/{id}, requestType=PUT, signature=227c08f37a6b1233681fcfeac6438f8c49d03822579cbe03a8043b7f6f011f27, gmtCreate=2020-12-14T00:23:52, gmtModified=null, key=/shops/{id}/weightItems/{id}-2, cacuSignature=227c08f37a6b1233681fcfeac6438f8c49d03822579cbe03a8043b7f6f011f27)
+2020-12-19 10:56:46.145 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/weightItems/{id}-3 p = Privilege(id=66, name=店家或管理员删掉重量运费模板明细, url=/shops/{id}/weightItems/{id}, requestType=DELETE, signature=7fa0005afb83eb8d2bc766665a3b5a706f2968f9095f4b369624c97795106d1c, gmtCreate=2020-12-14T00:23:53, gmtModified=null, key=/shops/{id}/weightItems/{id}-3, cacuSignature=7fa0005afb83eb8d2bc766665a3b5a706f2968f9095f4b369624c97795106d1c)
+2020-12-19 10:56:46.559 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/pieceItems/{id}-2 p = Privilege(id=67, name=店家或管理员修改件数运费模板明细, url=/shops/{id}/pieceItems/{id}, requestType=PUT, signature=1535f7115366cfa51ef3e43f979f580fa7496efb34ab32e1a28f6abbf2a67509, gmtCreate=2020-12-14T00:23:54, gmtModified=null, key=/shops/{id}/pieceItems/{id}-2, cacuSignature=1535f7115366cfa51ef3e43f979f580fa7496efb34ab32e1a28f6abbf2a67509)
+2020-12-19 10:56:46.958 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/pieceItems/{id}-3 p = Privilege(id=68, name=店家或管理员删掉件数运费模板明细, url=/shops/{id}/pieceItems/{id}, requestType=DELETE, signature=5fb6222c20468d3192c2e2eb568dbdce8397067a5dacb8f45f4b11c7b247a50d, gmtCreate=2020-12-14T00:23:55, gmtModified=null, key=/shops/{id}/pieceItems/{id}-3, cacuSignature=5fb6222c20468d3192c2e2eb568dbdce8397067a5dacb8f45f4b11c7b247a50d)
+2020-12-19 10:56:47.349 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/payments/{id}/refunds-1 p = Privilege(id=69, name=管理员创建退款信息, url=/shops/{id}/payments/{id}/refunds, requestType=POST, signature=ad04272031027b47b08748b77a168f70c17e279a33964ca04139d8739e530b1d, gmtCreate=2020-12-14T00:23:57, gmtModified=null, key=/shops/{id}/payments/{id}/refunds-1, cacuSignature=ad04272031027b47b08748b77a168f70c17e279a33964ca04139d8739e530b1d)
+2020-12-19 10:56:47.749 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{Id}/spus/{id}/skus-1 p = Privilege(id=70, name=管理员添加新的SKU到SPU里, url=/shops/{Id}/spus/{id}/skus, requestType=POST, signature=2c03a7576296dfe99e4b86222fb61047c9ef3487b1793a3924246f89a31472a6, gmtCreate=2020-12-14T00:23:58, gmtModified=null, key=/shops/{Id}/spus/{id}/skus-1, cacuSignature=2c03a7576296dfe99e4b86222fb61047c9ef3487b1793a3924246f89a31472a6)
+2020-12-19 10:56:48.139 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/skus/{id}/uploadImg-1 p = Privilege(id=71, name=sku上传图片, url=/shops/{id}/skus/{id}/uploadImg, requestType=POST, signature=874df4d5a4db2c0c322c8f11ee75396df20eedb25832f121f3e03c478723671f, gmtCreate=2020-12-14T00:23:59, gmtModified=null, key=/shops/{id}/skus/{id}/uploadImg-1, cacuSignature=874df4d5a4db2c0c322c8f11ee75396df20eedb25832f121f3e03c478723671f)
+2020-12-19 10:56:48.543 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/skus/{id}-3 p = Privilege(id=72, name=管理员或店家逻辑删除SKU, url=/shops/{id}/skus/{id}, requestType=DELETE, signature=1de708ebc55b68c22375137ab3d4fcb998e1385070aac8bbd0d5d649514c92fd, gmtCreate=2020-12-14T00:35:27, gmtModified=null, key=/shops/{id}/skus/{id}-3, cacuSignature=1de708ebc55b68c22375137ab3d4fcb998e1385070aac8bbd0d5d649514c92fd)
+2020-12-19 10:56:48.970 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/skus/{id}-2 p = Privilege(id=73, name=管理员或店家修改SKU信息, url=/shops/{id}/skus/{id}, requestType=PUT, signature=cf90688ee0d98c0b35c6c1ee948c9cd4d11ea1fa6535838d17b444b8cb186299, gmtCreate=2020-12-14T00:35:26, gmtModified=null, key=/shops/{id}/skus/{id}-2, cacuSignature=cf90688ee0d98c0b35c6c1ee948c9cd4d11ea1fa6535838d17b444b8cb186299)
+2020-12-19 10:56:49.362 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/categories/{id}/subcategories-1 p = Privilege(id=74, name=管理员新增商品类目, url=/shops/{id}/categories/{id}/subcategories, requestType=POST, signature=991b77f02766c9f731a56d2fbbbae8048cd6f6044f5c197fe4c646d8fb96baa9, gmtCreate=2020-12-14T00:35:28, gmtModified=null, key=/shops/{id}/categories/{id}/subcategories-1, cacuSignature=991b77f02766c9f731a56d2fbbbae8048cd6f6044f5c197fe4c646d8fb96baa9)
+2020-12-19 10:56:49.750 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/categories/{id}-2 p = Privilege(id=75, name=管理员修改商品类目信息, url=/shops/{id}/categories/{id}, requestType=PUT, signature=df66d80b2857a65334791ddc45e5cd9bba843d1d2b608e4b09b85bb815f4e4e5, gmtCreate=2020-12-14T00:35:29, gmtModified=null, key=/shops/{id}/categories/{id}-2, cacuSignature=df66d80b2857a65334791ddc45e5cd9bba843d1d2b608e4b09b85bb815f4e4e5)
+2020-12-19 10:56:50.154 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/categories/{id}-3 p = Privilege(id=76, name=管理员删除商品类目信息, url=/shops/{id}/categories/{id}, requestType=DELETE, signature=ee6daae48fbd75e9bbba56276b283959c301aaba008995ae058d8ec7f755bfe1, gmtCreate=2020-12-14T00:35:30, gmtModified=null, key=/shops/{id}/categories/{id}-3, cacuSignature=ee6daae48fbd75e9bbba56276b283959c301aaba008995ae058d8ec7f755bfe1)
+2020-12-19 10:56:50.562 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/spus-1 p = Privilege(id=77, name=店家新建商品SPU, url=/shops/{id}/spus, requestType=POST, signature=d7d22ba18b182fbf857113d4b741a248ed136ff5096593e4a9a6b3cac07e5fea, gmtCreate=2020-12-14T00:35:31, gmtModified=null, key=/shops/{id}/spus-1, cacuSignature=d7d22ba18b182fbf857113d4b741a248ed136ff5096593e4a9a6b3cac07e5fea)
+2020-12-19 10:56:50.960 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/spus/{id}-2 p = Privilege(id=78, name=店家修改商品SPU, url=/shops/{id}/spus/{id}, requestType=PUT, signature=ff9d25c09b088fbf53772b236375bbe2b04f7f01fb735f4e41839de272ea5211, gmtCreate=2020-12-14T00:35:31, gmtModified=null, key=/shops/{id}/spus/{id}-2, cacuSignature=ff9d25c09b088fbf53772b236375bbe2b04f7f01fb735f4e41839de272ea5211)
+2020-12-19 10:56:51.348 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/spus/{id}-3 p = Privilege(id=79, name=店家逻辑删除商品SPU, url=/shops/{id}/spus/{id}, requestType=DELETE, signature=3462ea79755859cf9bbba20876e3e3af12fbca1c2225b2945ca6047672f72491, gmtCreate=2020-12-14T00:35:32, gmtModified=null, key=/shops/{id}/spus/{id}-3, cacuSignature=3462ea79755859cf9bbba20876e3e3af12fbca1c2225b2945ca6047672f72491)
+2020-12-19 10:56:51.757 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/skus/{id}/onshelves-2 p = Privilege(id=80, name=店家商品上架, url=/shops/{id}/skus/{id}/onshelves, requestType=PUT, signature=62c2bfb7e3ef4129d7b5d3b27427e98fcf91d911f479a95242e852e05c7dbe31, gmtCreate=2020-12-14T00:35:33, gmtModified=null, key=/shops/{id}/skus/{id}/onshelves-2, cacuSignature=62c2bfb7e3ef4129d7b5d3b27427e98fcf91d911f479a95242e852e05c7dbe31)
+2020-12-19 10:56:52.144 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/skus/{id}/offshelves-2 p = Privilege(id=81, name=店家商品下架, url=/shops/{id}/skus/{id}/offshelves, requestType=PUT, signature=1dd656ed9bf051a248bef7a9344116d4afc63946f1fc68b3081d13d2114384b8, gmtCreate=2020-12-14T00:35:34, gmtModified=null, key=/shops/{id}/skus/{id}/offshelves-2, cacuSignature=1dd656ed9bf051a248bef7a9344116d4afc63946f1fc68b3081d13d2114384b8)
+2020-12-19 10:56:52.666 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/skus/{id}/floatPrices-1 p = Privilege(id=82, name=管理员新增商品价格浮动, url=/shops/{id}/skus/{id}/floatPrices, requestType=POST, signature=41c7765551a3513e91c54d0a35b069c50025eaecdc274c67a57044538d378ee6, gmtCreate=2020-12-14T00:35:35, gmtModified=null, key=/shops/{id}/skus/{id}/floatPrices-1, cacuSignature=41c7765551a3513e91c54d0a35b069c50025eaecdc274c67a57044538d378ee6)
+2020-12-19 10:56:53.068 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/floatPrices/{id}-3 p = Privilege(id=83, name=管理员失效商品价格浮动, url=/shops/{id}/floatPrices/{id}, requestType=DELETE, signature=8e3ba1256d8c287dc5ad5075abcc9f0b89ee647da7753b0d8e9441bbf8a528c8, gmtCreate=2020-12-14T00:35:36, gmtModified=null, key=/shops/{id}/floatPrices/{id}-3, cacuSignature=8e3ba1256d8c287dc5ad5075abcc9f0b89ee647da7753b0d8e9441bbf8a528c8)
+2020-12-19 10:56:53.458 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/brands-1 p = Privilege(id=84, name=管理员新增品牌, url=/shops/{id}/brands, requestType=POST, signature=c103aa207ebd3f09f2bdf1e364d2cdeffdecc53ed075ef46848f56d906abe1b6, gmtCreate=2020-12-14T00:35:37, gmtModified=null, key=/shops/{id}/brands-1, cacuSignature=c103aa207ebd3f09f2bdf1e364d2cdeffdecc53ed075ef46848f56d906abe1b6)
+2020-12-19 10:56:53.866 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/brands/{id}/uploadImg-1 p = Privilege(id=85, name=上传品牌图片, url=/shops/{id}/brands/{id}/uploadImg, requestType=POST, signature=f2b946d16dbaae57dc010296826a387e25ba2909a9801e43e5550828c166a9d5, gmtCreate=2020-12-14T00:35:38, gmtModified=null, key=/shops/{id}/brands/{id}/uploadImg-1, cacuSignature=f2b946d16dbaae57dc010296826a387e25ba2909a9801e43e5550828c166a9d5)
+2020-12-19 10:56:54.252 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/brands/{id}-2 p = Privilege(id=86, name=管理员修改品牌, url=/shops/{id}/brands/{id}, requestType=PUT, signature=1414ed76602429cf528667c1ccdaebfe015035ce1beaa89a7b4f91a62f5811da, gmtCreate=2020-12-14T00:35:38, gmtModified=null, key=/shops/{id}/brands/{id}-2, cacuSignature=1414ed76602429cf528667c1ccdaebfe015035ce1beaa89a7b4f91a62f5811da)
+2020-12-19 10:56:54.684 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/brands/{id}-3 p = Privilege(id=87, name=管理员删除品牌, url=/shops/{id}/brands/{id}, requestType=DELETE, signature=9b737e034b66e7b7bc0555e3425c859eaf71b4a3a35a05a6ee648204501a0bc0, gmtCreate=2020-12-14T00:35:39, gmtModified=null, key=/shops/{id}/brands/{id}-3, cacuSignature=9b737e034b66e7b7bc0555e3425c859eaf71b4a3a35a05a6ee648204501a0bc0)
+2020-12-19 10:56:55.078 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/spus/{id}/categories/{id}-1 p = Privilege(id=88, name=将SPU加入分类, url=/shops/{id}/spus/{id}/categories/{id}, requestType=POST, signature=53c69c378115a6ecda4594aaafc061b82a8700163016cc74d8df771cc635530c, gmtCreate=2020-12-14T00:35:40, gmtModified=null, key=/shops/{id}/spus/{id}/categories/{id}-1, cacuSignature=53c69c378115a6ecda4594aaafc061b82a8700163016cc74d8df771cc635530c)
+2020-12-19 10:56:55.470 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/spus/{id}/categories/{id}-3 p = Privilege(id=89, name=将SPU移出分类, url=/shops/{id}/spus/{id}/categories/{id}, requestType=DELETE, signature=3e4bafb67fedc6ee25f60e4af8cf510308393ce904e5bc480165398499c1f261, gmtCreate=2020-12-14T00:35:41, gmtModified=null, key=/shops/{id}/spus/{id}/categories/{id}-3, cacuSignature=3e4bafb67fedc6ee25f60e4af8cf510308393ce904e5bc480165398499c1f261)
+2020-12-19 10:56:55.867 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/spus/{id}/brands/{id}-1 p = Privilege(id=90, name=将SPU加入品牌, url=/shops/{id}/spus/{id}/brands/{id}, requestType=POST, signature=267e4aca8aa85c21691db5436f26c1d038f5d9b072956f3925e64cc34706b878, gmtCreate=2020-12-14T00:35:42, gmtModified=null, key=/shops/{id}/spus/{id}/brands/{id}-1, cacuSignature=267e4aca8aa85c21691db5436f26c1d038f5d9b072956f3925e64cc34706b878)
+2020-12-19 10:56:56.254 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/spus/{id}/brands/{id}-3 p = Privilege(id=91, name=将SPU移出品牌, url=/shops/{id}/spus/{id}/brands/{id}, requestType=DELETE, signature=02330250e845ff8c9c2b90d82550bea266000395ff2ec138a98105c41531dbd3, gmtCreate=2020-12-14T00:35:43, gmtModified=null, key=/shops/{id}/spus/{id}/brands/{id}-3, cacuSignature=02330250e845ff8c9c2b90d82550bea266000395ff2ec138a98105c41531dbd3)
+2020-12-19 10:56:56.665 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/timesegments/{id}/flashsales-1 p = Privilege(id=92, name=平台管理员在某个时段下新建秒杀, url=/shops/{id}/timesegments/{id}/flashsales, requestType=POST, signature=e7ffa988e3827695d7b6084333d7885d969cf3f3f6aab356186e8d4736efa23b, gmtCreate=2020-12-14T00:36:41, gmtModified=null, key=/shops/{id}/timesegments/{id}/flashsales-1, cacuSignature=e7ffa988e3827695d7b6084333d7885d969cf3f3f6aab356186e8d4736efa23b)
+2020-12-19 10:56:57.060 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/flashsales/{id}-3 p = Privilege(id=93, name=平台管理员删除某个时段秒杀, url=/shops/{id}/flashsales/{id}, requestType=DELETE, signature=715f47ae259c962b035af325a8d40ffc8f1836bab52fcc53b888658829b33196, gmtCreate=2020-12-14T00:47:50, gmtModified=null, key=/shops/{id}/flashsales/{id}-3, cacuSignature=715f47ae259c962b035af325a8d40ffc8f1836bab52fcc53b888658829b33196)
+2020-12-19 10:56:57.466 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/flashsales/{id}-2 p = Privilege(id=94, name=管理员修改秒杀活动, url=/shops/{id}/flashsales/{id}, requestType=PUT, signature=7997026789cb7628d7683edd7d1ca8eeb4d28beb943d0ff07b701cb1d16b535c, gmtCreate=2020-12-14T00:47:49, gmtModified=null, key=/shops/{id}/flashsales/{id}-2, cacuSignature=7997026789cb7628d7683edd7d1ca8eeb4d28beb943d0ff07b701cb1d16b535c)
+2020-12-19 10:56:57.875 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/flashsales/{id}/flashitems-1 p = Privilege(id=95, name=平台管理员向秒杀活动添加商品SKU, url=/shops/{id}/flashsales/{id}/flashitems, requestType=POST, signature=dd29db968043a1cb21e3b277f1c730389d0d8fbc2e54946e38b1b9c7f586bae2, gmtCreate=2020-12-14T00:47:48, gmtModified=null, key=/shops/{id}/flashsales/{id}/flashitems-1, cacuSignature=dd29db968043a1cb21e3b277f1c730389d0d8fbc2e54946e38b1b9c7f586bae2)
+2020-12-19 10:56:58.263 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/flashsales/{id}/flashitems/{id}-3 p = Privilege(id=96, name=平台管理员在秒杀活动删除商品SKU, url=/shops/{id}/flashsales/{id}/flashitems/{id}, requestType=DELETE, signature=f4b3430aba0b22381cc07a073ba80641755d721e0ef377dc202da0ba0c0f2e5b, gmtCreate=2020-12-14T00:47:47, gmtModified=null, key=/shops/{id}/flashsales/{id}/flashitems/{id}-3, cacuSignature=f4b3430aba0b22381cc07a073ba80641755d721e0ef377dc202da0ba0c0f2e5b)
+2020-12-19 10:56:58.982 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/comments/{id}/confirm-2 p = Privilege(id=97, name=管理员审核评论, url=/shops/{id}/comments/{id}/confirm, requestType=PUT, signature=711f696e22075e9c7510fb18316c28502da049714717c66293a5923761583ff0, gmtCreate=2020-12-14T00:47:46, gmtModified=null, key=/shops/{id}/comments/{id}/confirm-2, cacuSignature=711f696e22075e9c7510fb18316c28502da049714717c66293a5923761583ff0)
+2020-12-19 10:56:59.369 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/couponactivities-1 p = Privilege(id=98, name=管理员新建己方优惠活动, url=/shops/{id}/couponactivities, requestType=POST, signature=ad2bd3423dfb0c4ff7cb9243c75182781fcb08fb9a81a1b57ff618e8267c5a58, gmtCreate=2020-12-14T00:47:45, gmtModified=null, key=/shops/{id}/couponactivities-1, cacuSignature=ad2bd3423dfb0c4ff7cb9243c75182781fcb08fb9a81a1b57ff618e8267c5a58)
+2020-12-19 10:57:00.065 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/couponactivities/{id}/uploadImg-1 p = Privilege(id=99, name=上传优惠活动图片, url=/shops/{id}/couponactivities/{id}/uploadImg, requestType=POST, signature=7b9823d80aca9101c193ad1314e5374ce11c31b490ea0b025fcaab947d18efc8, gmtCreate=2020-12-14T00:47:44, gmtModified=null, key=/shops/{id}/couponactivities/{id}/uploadImg-1, cacuSignature=7b9823d80aca9101c193ad1314e5374ce11c31b490ea0b025fcaab947d18efc8)
+2020-12-19 10:57:00.492 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/couponactivities/invalid-0 p = Privilege(id=100, name=查看本店下线的优惠活动列表, url=/shops/{id}/couponactivities/invalid, requestType=GET, signature=8827e5b8f410f3e31fa9804d53eaf4be21968440a2e5b1625d5602889c9ca5f4, gmtCreate=2020-12-14T00:47:43, gmtModified=null, key=/shops/{id}/couponactivities/invalid-0, cacuSignature=8827e5b8f410f3e31fa9804d53eaf4be21968440a2e5b1625d5602889c9ca5f4)
+2020-12-19 10:57:00.897 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/couponactivities/{id}-2 p = Privilege(id=101, name=管理员修改己方某优惠活动, url=/shops/{id}/couponactivities/{id}, requestType=PUT, signature=45e5313f6648496e2ea47901b0f21c0d58e66e1e96899ffbd7a35ff96589faa1, gmtCreate=2020-12-14T00:47:42, gmtModified=null, key=/shops/{id}/couponactivities/{id}-2, cacuSignature=45e5313f6648496e2ea47901b0f21c0d58e66e1e96899ffbd7a35ff96589faa1)
+2020-12-19 10:57:01.288 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/couponactivities/{id}-3 p = Privilege(id=102, name=管理员删除己方某优惠活动, url=/shops/{id}/couponactivities/{id}, requestType=DELETE, signature=ceb8a0fe1b62528fa6af160d4be954777555d338524b80af39683d4dd46669f5, gmtCreate=2020-12-14T00:47:42, gmtModified=null, key=/shops/{id}/couponactivities/{id}-3, cacuSignature=ceb8a0fe1b62528fa6af160d4be954777555d338524b80af39683d4dd46669f5)
+2020-12-19 10:57:01.697 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/couponactivities/{id}/skus-1 p = Privilege(id=103, name=管理员为己方某优惠券活动新增限定范围, url=/shops/{id}/couponactivities/{id}/skus, requestType=POST, signature=ab8087a12b43f8e5a16bdebd2484d417dac198574db997038705b1e011b14f99, gmtCreate=2020-12-14T00:47:40, gmtModified=null, key=/shops/{id}/couponactivities/{id}/skus-1, cacuSignature=ab8087a12b43f8e5a16bdebd2484d417dac198574db997038705b1e011b14f99)
+2020-12-19 10:57:02.108 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/couponskus/{id}-3 p = Privilege(id=104, name=店家删除己方某优惠券活动的某限定范围, url=/shops/{id}/couponskus/{id}, requestType=DELETE, signature=947aac1fc629c4e93daf290c641bf90a8d315ebba3c269a98315754cb5870a26, gmtCreate=2020-12-14T00:47:39, gmtModified=null, key=/shops/{id}/couponskus/{id}-3, cacuSignature=947aac1fc629c4e93daf290c641bf90a8d315ebba3c269a98315754cb5870a26)
+2020-12-19 10:57:02.496 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/couponactivities/{id}/onshelves-2 p = Privilege(id=105, name=上线优惠活动, url=/shops/{id}/couponactivities/{id}/onshelves, requestType=PUT, signature=21b202888aeb2b01df0b8eb49c342067be024a7055a052e28e6de3aafcf1e9c4, gmtCreate=2020-12-14T00:47:38, gmtModified=null, key=/shops/{id}/couponactivities/{id}/onshelves-2, cacuSignature=21b202888aeb2b01df0b8eb49c342067be024a7055a052e28e6de3aafcf1e9c4)
+2020-12-19 10:57:02.911 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/couponactivities/{id}/offshelves-2 p = Privilege(id=106, name=下线优惠活动, url=/shops/{id}/couponactivities/{id}/offshelves, requestType=PUT, signature=43201e678a95319b3bf16cda1d7b7219140d6c4a4492ddfdbdff1928aea23f31, gmtCreate=2020-12-14T00:47:38, gmtModified=null, key=/shops/{id}/couponactivities/{id}/offshelves-2, cacuSignature=43201e678a95319b3bf16cda1d7b7219140d6c4a4492ddfdbdff1928aea23f31)
+2020-12-19 10:57:03.298 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/skus/{id}/presales-1 p = Privilege(id=107, name=管理员新增SKU预售活动, url=/shops/{id}/skus/{id}/presales, requestType=POST, signature=e9aefb502f8d854ec49c94f793363dff2ff92b3d563b5c39b4cda4bf97b23382, gmtCreate=2020-12-14T00:47:37, gmtModified=null, key=/shops/{id}/skus/{id}/presales-1, cacuSignature=e9aefb502f8d854ec49c94f793363dff2ff92b3d563b5c39b4cda4bf97b23382)
+2020-12-19 10:57:03.697 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/presales/{id}-2 p = Privilege(id=108, name=管理员修改SKU预售活动, url=/shops/{id}/presales/{id}, requestType=PUT, signature=1a473802e4769792df6b535d2ecc0aadcf8c462f09abd7bffa784a49a68d4240, gmtCreate=2020-12-14T00:47:36, gmtModified=null, key=/shops/{id}/presales/{id}-2, cacuSignature=1a473802e4769792df6b535d2ecc0aadcf8c462f09abd7bffa784a49a68d4240)
+2020-12-19 10:57:04.084 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/presales/{id}-3 p = Privilege(id=109, name=管理员逻辑删除SKU预售活动, url=/shops/{id}/presales/{id}, requestType=DELETE, signature=6dccb58a475582b7c673ecd7f1a32089183c5c3f4332e03c19b07d1f76d4cdd7, gmtCreate=2020-12-14T00:47:35, gmtModified=null, key=/shops/{id}/presales/{id}-3, cacuSignature=6dccb58a475582b7c673ecd7f1a32089183c5c3f4332e03c19b07d1f76d4cdd7)
+2020-12-19 10:57:04.497 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/presales/{id}/onshelves-2 p = Privilege(id=110, name=管理员上线预售活动, url=/shops/{id}/presales/{id}/onshelves, requestType=PUT, signature=494f20fe6e93151dd66c71e626b8590fcfd3ac0083e612d596b8f8637f8faaac, gmtCreate=2020-12-14T00:47:34, gmtModified=null, key=/shops/{id}/presales/{id}/onshelves-2, cacuSignature=494f20fe6e93151dd66c71e626b8590fcfd3ac0083e612d596b8f8637f8faaac)
+2020-12-19 10:57:04.887 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/presales/{id}/offshelves-2 p = Privilege(id=111, name=管理员下线预售活动, url=/shops/{id}/presales/{id}/offshelves, requestType=PUT, signature=dfa865aa32783586380f60c9c36b60f161fbfb9d31fe609b12d6e8938f6c59ff, gmtCreate=2020-12-14T00:47:33, gmtModified=null, key=/shops/{id}/presales/{id}/offshelves-2, cacuSignature=dfa865aa32783586380f60c9c36b60f161fbfb9d31fe609b12d6e8938f6c59ff)
+2020-12-19 10:57:05.275 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/spus/{id}/groupons-1 p = Privilege(id=112, name=管理员对SPU新增团购活动, url=/shops/{id}/spus/{id}/groupons, requestType=POST, signature=a71d52bcc3c1a0959864a3130ccc84bd759c84ca69f7ecf398a396445a3477c8, gmtCreate=2020-12-14T00:47:31, gmtModified=null, key=/shops/{id}/spus/{id}/groupons-1, cacuSignature=a71d52bcc3c1a0959864a3130ccc84bd759c84ca69f7ecf398a396445a3477c8)
+2020-12-19 10:57:05.699 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/groupons/{id}/onshelves-2 p = Privilege(id=116, name=管理员上线SPU团购活动, url=/shops/{id}/groupons/{id}/onshelves, requestType=PUT, signature=0e40cecfa2467c7cd15d06149fb928da565944885581aa2afa3d405d177c94c7, gmtCreate=2020-12-14T00:54:58, gmtModified=null, key=/shops/{id}/groupons/{id}/onshelves-2, cacuSignature=0e40cecfa2467c7cd15d06149fb928da565944885581aa2afa3d405d177c94c7)
+2020-12-19 10:57:06.100 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/groupons/{id}/offshelves-2 p = Privilege(id=117, name=管理员下线SPU团购活动, url=/shops/{id}/groupons/{id}/offshelves, requestType=PUT, signature=e0096ab8ef309191280d991ae5b3ba03c307413f9a5028a497e0d45c74b3273b, gmtCreate=2020-12-14T00:55, gmtModified=null, key=/shops/{id}/groupons/{id}/offshelves-2, cacuSignature=e0096ab8ef309191280d991ae5b3ba03c307413f9a5028a497e0d45c74b3273b)
+2020-12-19 10:57:06.504 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/users/{id}/ban-2 p = Privilege(id=118, name=平台管理员封禁买家, url=/shops/{id}/users/{id}/ban, requestType=PUT, signature=7a7fec0417c82e44c606eb124817189ab2520504a904eef6a126a45ee65ad203, gmtCreate=2020-12-14T00:55:03, gmtModified=null, key=/shops/{id}/users/{id}/ban-2, cacuSignature=7a7fec0417c82e44c606eb124817189ab2520504a904eef6a126a45ee65ad203)
+2020-12-19 10:57:06.896 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/users/{id}/release-2 p = Privilege(id=119, name=平台管理员解禁买家, url=/shops/{id}/users/{id}/release, requestType=PUT, signature=1c7b2a2cb4ae449b1b7f5ed2c8b080888240feb9d8cac51db7950186ea643fc6, gmtCreate=2020-12-14T00:55:04, gmtModified=null, key=/shops/{id}/users/{id}/release-2, cacuSignature=1c7b2a2cb4ae449b1b7f5ed2c8b080888240feb9d8cac51db7950186ea643fc6)
+2020-12-19 10:57:07.305 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/regions/{id}-2 p = Privilege(id=120, name=管理员修改某个地区, url=/shops/{id}/regions/{id}, requestType=PUT, signature=431da6535b81427eb5a03d0257cc8113e776f6b0ffb669959cd6b2180fd8ba01, gmtCreate=2020-12-15T11:28:18, gmtModified=null, key=/shops/{id}/regions/{id}-2, cacuSignature=431da6535b81427eb5a03d0257cc8113e776f6b0ffb669959cd6b2180fd8ba01)
+2020-12-19 10:57:07.725 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/regions/{id}-3 p = Privilege(id=121, name=管理员让某个地区无效, url=/shops/{id}/regions/{id}, requestType=DELETE, signature=0dfd7bcff58b136115f3edb888e1aa3d8d2ec7eee7e235bf2b99bfb2d52cf08b, gmtCreate=2020-12-15T11:28:20, gmtModified=null, key=/shops/{id}/regions/{id}-3, cacuSignature=0dfd7bcff58b136115f3edb888e1aa3d8d2ec7eee7e235bf2b99bfb2d52cf08b)
+2020-12-19 10:57:08.113 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/regions/{id}/subregions-1 p = Privilege(id=122, name=管理员在地区下新增子地区, url=/shops/{id}/regions/{id}/subregions, requestType=POST, signature=9a114ed175a1833ffb175f21186c1d13c20c8fd4ef2a9998c9bee3cabc272913, gmtCreate=2020-12-15T11:28:20, gmtModified=null, key=/shops/{id}/regions/{id}/subregions-1, cacuSignature=9a114ed175a1833ffb175f21186c1d13c20c8fd4ef2a9998c9bee3cabc272913)
+2020-12-19 10:57:08.512 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/flashsales/{id}/onshelves-2 p = Privilege(id=123, name=管理员上线秒杀活动, url=/shops/{id}/flashsales/{id}/onshelves, requestType=PUT, signature=39554d52c4a7aad94d9baa85e69ebde304917cef20e8af1ae1255f2783fcc701, gmtCreate=2020-12-15T12:30:22, gmtModified=null, key=/shops/{id}/flashsales/{id}/onshelves-2, cacuSignature=39554d52c4a7aad94d9baa85e69ebde304917cef20e8af1ae1255f2783fcc701)
+2020-12-19 10:57:08.901 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/flashsales/{id}/offshelves-2 p = Privilege(id=124, name=管理员下线秒杀活动, url=/shops/{id}/flashsales/{id}/offshelves, requestType=PUT, signature=ba087f6d10bef2c20913e074a90773da782c7bc06c090e5898e4e04f52c596aa, gmtCreate=2020-12-15T12:30:24, gmtModified=null, key=/shops/{id}/flashsales/{id}/offshelves-2, cacuSignature=ba087f6d10bef2c20913e074a90773da782c7bc06c090e5898e4e04f52c596aa)
+2020-12-19 10:57:09.291 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /adminusers/{id}/test-0 p = Privilege(id=1000, name=测试, url=/adminusers/{id}/test, requestType=GET, signature=94bc6833b4a2ea7bcf665ef1597e8ce103cf7525de7b315da482e85491d3423f, gmtCreate=2020-12-14T16:44:51, gmtModified=2020-12-14T16:46:47, key=/adminusers/{id}/test-0, cacuSignature=94bc6833b4a2ea7bcf665ef1597e8ce103cf7525de7b315da482e85491d3423f)
+2020-12-19 10:57:13.745 [main] INFO  o.s.b.actuate.endpoint.web.EndpointLinksResolver - Exposing 18 endpoint(s) beneath base path '/actuator'
+2020-12-19 10:57:13.910 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-12-19 10:57:13.943 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2020-12-19 10:57:13.943 [main] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-12-19 10:57:13.948 [main] WARN  com.netflix.config.sources.URLConfigurationSource - No URLs will be polled as dynamic configuration sources.
+2020-12-19 10:57:13.948 [main] INFO  com.netflix.config.sources.URLConfigurationSource - To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2020-12-19 10:57:14.190 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-19 10:57:14.340 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskScheduler - Initializing ExecutorService 'Nacos-Watch-Task-Scheduler'
+2020-12-19 10:57:16.656 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingPostProcessor - The configuration bean [<dubbo:application name="privilege-service" qosEnable="false" qosAcceptForeignIp="false" hostname="PC-201903062204" />] have been binding by the configuration properties [{name=privilege-service, qos-enable=false, qos-accept-foreign-ip=false}]
+2020-12-19 10:57:16.664 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingPostProcessor - The configuration bean [<dubbo:registry address="nacos://47.113.100.78:8848" port="8848" protocol="nacos" />] have been binding by the configuration properties [{address=nacos://47.113.100.78:8848}]
+2020-12-19 10:57:16.671 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingPostProcessor - The configuration bean [<dubbo:protocol name="dubbo" port="20880" />] have been binding by the configuration properties [{name=dubbo, port=20880}]
+2020-12-19 10:57:16.698 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingPostProcessor - The configuration bean [<dubbo:consumer />] have been binding by the configuration properties [{timeout=4000, check=false}]
+2020-12-19 10:57:17.086 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2020-12-19 10:57:17.102 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2020-12-19 10:57:17.146 [main] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - nacos registry, DEFAULT_GROUP privilege-service 192.168.119.1:8081 register finished
+2020-12-19 10:57:18.958 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2020-12-19 10:57:18.972 [main] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-12-19 10:57:19.021 [main] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2020-12-19 10:57:22.272 [main] INFO  cn.edu.xmu.privilege.PrivilegeServiceApplication - Started PrivilegeServiceApplication in 123.319 seconds (JVM running for 126.584)
+2020-12-19 10:57:25.186 [RMI TCP Connection(5)-192.168.119.1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-19 10:57:25.188 [RMI TCP Connection(5)-192.168.119.1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-12-19 10:57:25.220 [RMI TCP Connection(5)-192.168.119.1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 32 ms
+2020-12-19 10:57:26.089 [RMI TCP Connection(6)-192.168.119.1] WARN  o.s.boot.actuate.mail.MailHealthIndicator - Mail health check failed
+javax.mail.AuthenticationFailedException: 535 Login Fail. Please enter your authorization code to login. More information in http://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=1001256
+
+	at com.sun.mail.smtp.SMTPTransport$Authenticator.authenticate(SMTPTransport.java:947)
+	at com.sun.mail.smtp.SMTPTransport.authenticate(SMTPTransport.java:858)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:762)
+	at javax.mail.Service.connect(Service.java:342)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.connectTransport(JavaMailSenderImpl.java:518)
+	at org.springframework.mail.javamail.JavaMailSenderImpl.testConnection(JavaMailSenderImpl.java:398)
+	at org.springframework.boot.actuate.mail.MailHealthIndicator.doHealthCheck(MailHealthIndicator.java:42)
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82)
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:71)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:39)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:99)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateHealth(HealthEndpointSupport.java:110)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:96)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:74)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:61)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:65)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282)
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:77)
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:121)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:96)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1399)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827)
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor136.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2020-12-19 12:34:22.686 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.UserDao - loadUserPriv: loading user. id = 1
+2020-12-19 12:34:22.723 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1roleNum = 1
+2020-12-19 12:34:22.724 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1 roleId = 23
+2020-12-19 12:34:23.134 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 2
+2020-12-19 12:34:23.134 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 3
+2020-12-19 12:34:23.134 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 4
+2020-12-19 12:34:23.134 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 5
+2020-12-19 12:34:23.134 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 6
+2020-12-19 12:34:23.134 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 7
+2020-12-19 12:34:23.134 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 8
+2020-12-19 12:34:23.134 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 9
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 10
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 11
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 12
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 13
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 14
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 15
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 16
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 17
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 20
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 21
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 22
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 28
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 29
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 30
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 31
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 32
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 33
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 34
+2020-12-19 12:34:23.135 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 35
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 36
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 37
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 38
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 39
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 40
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 41
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 42
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 43
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 44
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 45
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 46
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 48
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 49
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 50
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 51
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 52
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 53
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 54
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 55
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 56
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 57
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 58
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 59
+2020-12-19 12:34:23.136 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 60
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 61
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 62
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 63
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 64
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 65
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 66
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 67
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 68
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 69
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 70
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 71
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 72
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 73
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 74
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 75
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 76
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 77
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 78
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 79
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 80
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 81
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 82
+2020-12-19 12:34:23.137 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 83
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 84
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 85
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 86
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 87
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 88
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 89
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 90
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 91
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 92
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 93
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 94
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 95
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 96
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 97
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 98
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 99
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 100
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 101
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 102
+2020-12-19 12:34:23.138 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 107
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 108
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 106
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 109
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 110
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 111
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 112
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 113
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 114
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 115
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 116
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 117
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 118
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 119
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 120
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 121
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 122
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 103
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 104
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 105
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 123
+2020-12-19 12:34:23.139 [DubboServerHandler-192.168.119.1:20880-thread-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 124
+2020-12-19 12:34:26.439 [DubboServerHandler-192.168.119.1:20880-thread-3] DEBUG cn.edu.xmu.privilege.dao.UserDao - loadUserPriv: loading user. id = 1
+2020-12-19 12:34:26.443 [DubboServerHandler-192.168.119.1:20880-thread-3] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1roleNum = 1
+2020-12-19 12:34:26.443 [DubboServerHandler-192.168.119.1:20880-thread-3] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1 roleId = 23
+2020-12-19 12:47:38.963 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.UserDao - loadUserPriv: loading user. id = 1
+2020-12-19 12:47:38.965 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1roleNum = 1
+2020-12-19 12:47:38.965 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1 roleId = 23
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 2
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 3
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 4
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 5
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 6
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 7
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 8
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 9
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 10
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 11
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 12
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 13
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 14
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 15
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 16
+2020-12-19 12:47:39.432 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 17
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 20
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 21
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 22
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 28
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 29
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 30
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 31
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 32
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 33
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 34
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 35
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 36
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 37
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 38
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 39
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 40
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 41
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 42
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 43
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 44
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 45
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 46
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 48
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 49
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 50
+2020-12-19 12:47:39.433 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 51
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 52
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 53
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 54
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 55
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 56
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 57
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 58
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 59
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 60
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 61
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 62
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 63
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 64
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 65
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 66
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 67
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 68
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 69
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 70
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 71
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 72
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 73
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 74
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 75
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 76
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 77
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 78
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 79
+2020-12-19 12:47:39.434 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 80
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 81
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 82
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 83
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 84
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 85
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 86
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 87
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 88
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 89
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 90
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 91
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 92
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 93
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 94
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 95
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 96
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 97
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 98
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 99
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 100
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 101
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 102
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 107
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 108
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 106
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 109
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 110
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 111
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 112
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 113
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 114
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 115
+2020-12-19 12:47:39.435 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 116
+2020-12-19 12:47:39.436 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 117
+2020-12-19 12:47:39.436 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 118
+2020-12-19 12:47:39.436 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 119
+2020-12-19 12:47:39.436 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 120
+2020-12-19 12:47:39.436 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 121
+2020-12-19 12:47:39.436 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 122
+2020-12-19 12:47:39.436 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 103
+2020-12-19 12:47:39.436 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 104
+2020-12-19 12:47:39.436 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 105
+2020-12-19 12:47:39.436 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 123
+2020-12-19 12:47:39.436 [http-nio-8081-exec-7] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 124
+2020-12-19 12:48:20.342 [http-nio-8081-exec-10] DEBUG cn.edu.xmu.privilege.dao.UserDao - loadUserPriv: loading user. id = 1
+2020-12-19 12:48:20.344 [http-nio-8081-exec-10] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1roleNum = 1
+2020-12-19 12:48:20.344 [http-nio-8081-exec-10] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1 roleId = 23
+2020-12-19 12:58:46.960 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.UserDao - loadUserPriv: loading user. id = 1
+2020-12-19 12:58:46.963 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1roleNum = 1
+2020-12-19 12:58:46.963 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1 roleId = 23
+2020-12-19 12:58:47.461 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 2
+2020-12-19 12:58:47.461 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 3
+2020-12-19 12:58:47.461 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 4
+2020-12-19 12:58:47.461 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 5
+2020-12-19 12:58:47.461 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 6
+2020-12-19 12:58:47.461 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 7
+2020-12-19 12:58:47.461 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 8
+2020-12-19 12:58:47.461 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 9
+2020-12-19 12:58:47.461 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 10
+2020-12-19 12:58:47.461 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 11
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 12
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 13
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 14
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 15
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 16
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 17
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 20
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 21
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 22
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 28
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 29
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 30
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 31
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 32
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 33
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 34
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 35
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 36
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 37
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 38
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 39
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 40
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 41
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 42
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 43
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 44
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 45
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 46
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 48
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 49
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 50
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 51
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 52
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 53
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 54
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 55
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 56
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 57
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 58
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 59
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 60
+2020-12-19 12:58:47.462 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 61
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 62
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 63
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 64
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 65
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 66
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 67
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 68
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 69
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 70
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 71
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 72
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 73
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 74
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 75
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 76
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 77
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 78
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 79
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 80
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 81
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 82
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 83
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 84
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 85
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 86
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 87
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 88
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 89
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 90
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 91
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 92
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 93
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 94
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 95
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 96
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 97
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 98
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 99
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 100
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 101
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 102
+2020-12-19 12:58:47.463 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 107
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 108
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 106
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 109
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 110
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 111
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 112
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 113
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 114
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 115
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 116
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 117
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 118
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 119
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 120
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 121
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 122
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 103
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 104
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 105
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 123
+2020-12-19 12:58:47.464 [http-nio-8081-exec-3] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 124
+2020-12-19 12:59:21.939 [http-nio-8081-exec-4] DEBUG cn.edu.xmu.privilege.dao.UserDao - loadUserPriv: loading user. id = 1
+2020-12-19 12:59:21.941 [http-nio-8081-exec-4] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1roleNum = 1
+2020-12-19 12:59:21.941 [http-nio-8081-exec-4] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1 roleId = 23
+2020-12-19 13:08:32.010 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.UserDao - loadUserPriv: loading user. id = 59
+2020-12-19 13:08:32.011 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 59roleNum = 1
+2020-12-19 13:08:32.011 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 59 roleId = 85
+2020-12-19 13:08:32.486 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 85 privId = 9
+2020-12-19 13:08:32.486 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 85 privId = 10
+2020-12-19 13:08:32.486 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 85 privId = 11
+2020-12-19 13:08:32.487 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 85 privId = 12
+2020-12-19 13:08:32.487 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 85 privId = 13
+2020-12-19 13:10:02.154 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.UserDao - loadUserPriv: loading user. id = 1
+2020-12-19 13:10:02.156 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1roleNum = 1
+2020-12-19 13:10:02.156 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.UserDao - getRoleIdByUserId: userId = 1 roleId = 23
+2020-12-19 13:10:02.690 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 2
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 3
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 4
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 5
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 6
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 7
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 8
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 9
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 10
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 11
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 12
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 13
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 14
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 15
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 16
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 17
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 20
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 21
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 22
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 28
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 29
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 30
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 31
+2020-12-19 13:10:02.691 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 32
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 33
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 34
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 35
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 36
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 37
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 38
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 39
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 40
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 41
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 42
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 43
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 44
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 45
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 46
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 48
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 49
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 50
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 51
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 52
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 53
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 54
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 55
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 56
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 57
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 58
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 59
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 60
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 61
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 62
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 63
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 64
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 65
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 66
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 67
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 68
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 69
+2020-12-19 13:10:02.692 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 70
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 71
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 72
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 73
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 74
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 75
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 76
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 77
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 78
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 79
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 80
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 81
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 82
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 83
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 84
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 85
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 86
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 87
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 88
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 89
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 90
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 91
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 92
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 93
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 94
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 95
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 96
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 97
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 98
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 99
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 100
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 101
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 102
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 107
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 108
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 106
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 109
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 110
+2020-12-19 13:10:02.693 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 111
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 112
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 113
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 114
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 115
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 116
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 117
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 118
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 119
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 120
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 121
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 122
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 103
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 104
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 105
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 123
+2020-12-19 13:10:02.694 [http-nio-8081-exec-2] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 23 privId = 124

@@ -1,0 +1,641 @@
+2020-12-19 11:06:59.934 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:00.486 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:00.550 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:00.613 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:00.665 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:00.731 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:01.255 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:01.705 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:01.752 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:01.792 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:02.248 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:02.300 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:02.368 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:02.479 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:02.770 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:03.171 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:03.227 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:07:03.268 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:09:12.816 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:31:28.371 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:10.922 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:11.050 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:11.104 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:11.170 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:11.222 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:11.292 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:11.597 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:11.712 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:11.773 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:11.835 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:11.900 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:11.942 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:12.049 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:12.144 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:12.276 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:12.323 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:12.362 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:32:12.408 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:34:56.609 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:34:56.743 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:34:56.786 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:34:56.843 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:34:56.902 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:34:56.950 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:34:57.200 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:34:58.063 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:34:58.128 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:34:58.195 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:34:58.275 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:03.316 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:08.387 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:13.421 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:18.454 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:18.495 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:18.531 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:18.571 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:48.330 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:48.464 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:48.533 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:48.592 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:48.638 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:48.686 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:49.012 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:54.056 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:35:59.136 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:36:04.170 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:36:09.201 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:36:09.238 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:36:09.276 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:36:09.313 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:29.072 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:29.205 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:29.253 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:29.299 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:29.346 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:29.397 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:29.619 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:32.996 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:33.104 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:33.148 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:33.188 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:33.232 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:33.275 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:33.530 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:34.671 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:38.586 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:39.740 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:43.667 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:44.772 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:44.805 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:44.841 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:44.890 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:44.941 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:48.715 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:48.757 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:48.800 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:48.853 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:37:48.914 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:04.757 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:04.876 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:04.918 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:04.972 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:05.019 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:05.065 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:05.311 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:05.788 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:06.223 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:06.324 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:06.602 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:06.650 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:06.689 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:40:06.725 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:13.634 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:56.731 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:56.847 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:56.884 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:56.923 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:56.964 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:57.002 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:57.252 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:57.297 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:57.427 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:57.489 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:57.552 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:57.593 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:57.656 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:57.745 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:57.860 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:57.899 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:57.934 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:45:57.967 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:18.169 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:18.289 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:18.333 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:18.381 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:18.420 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:18.461 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:18.717 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:19.057 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:19.117 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:19.180 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:19.240 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:19.282 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:19.351 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:19.433 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:19.546 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:19.588 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:19.625 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:47:19.661 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:49:40.152 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:51:05.734 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:52:29.118 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:53:44.821 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:55:06.087 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:55:42.801 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 11:57:11.778 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:00:45.570 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:01:31.110 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:01:55.181 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:02:30.402 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:10:02.715 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:10:30.615 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:10:59.690 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:00.187 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:00.247 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:00.291 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:00.335 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:00.378 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:00.620 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:01.008 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:01.078 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:01.144 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:01.217 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:01.276 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:01.373 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:01.468 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:02.050 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:02.407 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:02.450 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:11:02.485 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:14:14.417 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:15:01.935 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:15:23.571 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:16:54.315 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:20:34.532 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:22:15.655 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:22:49.924 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:25:47.970 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:26:29.617 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:27:19.851 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:31:01.068 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:28.884 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:56.523 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:56.703 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:56.759 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:56.801 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:56.844 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:56.886 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:57.412 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:57.588 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:57.645 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:57.702 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:57.763 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:57.805 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:57.869 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:57.948 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:58.059 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:58.159 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:58.192 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 12:32:58.227 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:05.667 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:05.852 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:05.904 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:05.951 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:06.016 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:06.070 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:06.121 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:06.208 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:06.256 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:23.631 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:23.664 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:48.042 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:48.130 [http-nio-8082-exec-5] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at cn.edu.xmu.ooad.util.JwtHelper.createToken(JwtHelper.java:66)
+	at cn.edu.xmu.user.service.UserService.login(UserService.java:187)
+	at cn.edu.xmu.user.controller.UserController.login(UserController.java:240)
+	at cn.edu.xmu.user.controller.UserController$$FastClassBySpringCGLIB$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at cn.edu.xmu.user.controller.UserController$$EnhancerBySpringCGLIB$$1.login(<generated>)
+	at jdk.internal.reflect.GeneratedMethodAccessor90.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.__invoke(StandardContextValve.java:96)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:41002)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2020-12-19 13:07:48.187 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:48.202 [http-nio-8082-exec-6] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at cn.edu.xmu.ooad.util.JwtHelper.createToken(JwtHelper.java:66)
+	at cn.edu.xmu.user.service.UserService.login(UserService.java:187)
+	at cn.edu.xmu.user.controller.UserController.login(UserController.java:240)
+	at cn.edu.xmu.user.controller.UserController$$FastClassBySpringCGLIB$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at cn.edu.xmu.user.controller.UserController$$EnhancerBySpringCGLIB$$1.login(<generated>)
+	at jdk.internal.reflect.GeneratedMethodAccessor90.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.__invoke(StandardContextValve.java:96)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:41002)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2020-12-19 13:07:48.219 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:48.237 [http-nio-8082-exec-10] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at cn.edu.xmu.ooad.util.JwtHelper.createToken(JwtHelper.java:66)
+	at cn.edu.xmu.user.service.UserService.login(UserService.java:187)
+	at cn.edu.xmu.user.controller.UserController.login(UserController.java:240)
+	at cn.edu.xmu.user.controller.UserController$$FastClassBySpringCGLIB$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at cn.edu.xmu.user.controller.UserController$$EnhancerBySpringCGLIB$$1.login(<generated>)
+	at jdk.internal.reflect.GeneratedMethodAccessor90.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.__invoke(StandardContextValve.java:96)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:41002)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2020-12-19 13:07:48.253 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:48.272 [http-nio-8082-exec-9] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at cn.edu.xmu.ooad.util.JwtHelper.createToken(JwtHelper.java:66)
+	at cn.edu.xmu.user.service.UserService.login(UserService.java:187)
+	at cn.edu.xmu.user.controller.UserController.login(UserController.java:240)
+	at cn.edu.xmu.user.controller.UserController$$FastClassBySpringCGLIB$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at cn.edu.xmu.user.controller.UserController$$EnhancerBySpringCGLIB$$1.login(<generated>)
+	at jdk.internal.reflect.GeneratedMethodAccessor90.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.__invoke(StandardContextValve.java:96)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:41002)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2020-12-19 13:07:48.324 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:48.349 [http-nio-8082-exec-8] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at cn.edu.xmu.ooad.util.JwtHelper.createToken(JwtHelper.java:66)
+	at cn.edu.xmu.user.service.UserService.login(UserService.java:187)
+	at cn.edu.xmu.user.controller.UserController.login(UserController.java:240)
+	at cn.edu.xmu.user.controller.UserController$$FastClassBySpringCGLIB$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at cn.edu.xmu.user.controller.UserController$$EnhancerBySpringCGLIB$$1.login(<generated>)
+	at jdk.internal.reflect.GeneratedMethodAccessor90.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.__invoke(StandardContextValve.java:96)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:41002)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2020-12-19 13:07:51.391 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 13:07:51.408 [http-nio-8082-exec-7] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at cn.edu.xmu.ooad.util.JwtHelper.createToken(JwtHelper.java:66)
+	at cn.edu.xmu.user.service.UserService.login(UserService.java:187)
+	at cn.edu.xmu.user.controller.UserController.login(UserController.java:240)
+	at cn.edu.xmu.user.controller.UserController$$FastClassBySpringCGLIB$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at cn.edu.xmu.user.controller.UserController$$EnhancerBySpringCGLIB$$1.login(<generated>)
+	at jdk.internal.reflect.GeneratedMethodAccessor90.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.__invoke(StandardContextValve.java:96)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:41002)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)

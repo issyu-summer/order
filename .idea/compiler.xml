@@ -7,13 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="customertest" />
+        <module name="privilegeservice-client" />
+        <module name="userService" />
         <module name="core" />
+        <module name="otherinterface" />
         <module name="freightservice" />
         <module name="inner-api" />
         <module name="outer-api" />
-        <module name="customertest" />
         <module name="Other-External-Interface" />
+        <module name="privilegeservice" />
         <module name="paymentservice" />
+        <module name="privilegegateway" />
         <module name="gateway" />
         <module name="orderservice" />
         <module name="customer" />
@@ -31,8 +36,13 @@
       <module name="ordercustomer" target="11" />
       <module name="orderservice" target="11" />
       <module name="Other-External-Interface" target="11" />
+      <module name="otherinterface" target="11" />
       <module name="outer-api" target="11" />
       <module name="paymentservice" target="11" />
+      <module name="privilegegateway" target="11" />
+      <module name="privilegeservice" target="11" />
+      <module name="privilegeservice-client" target="11" />
+      <module name="userService" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -48,8 +58,13 @@
       <module name="order-test" options="-parameters" />
       <module name="ordercustomer" options="-parameters" />
       <module name="orderservice" options="-parameters" />
+      <module name="otherinterface" options="-parameters" />
       <module name="outer-api" options="-parameters" />
       <module name="paymentservice" options="-parameters" />
+      <module name="privilegegateway" options="-parameters" />
+      <module name="privilegeservice" options="-parameters" />
+      <module name="privilegeservice-client" options="-parameters" />
+      <module name="userService" options="-parameters" />
     </option>
   </component>
 </project>

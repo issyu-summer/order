@@ -8,6 +8,11 @@
         <option value="$PROJECT_DIR$/paymentservice/pom.xml" />
         <option value="$PROJECT_DIR$/Other-External-Interface/pom.xml" />
         <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/otherinterface/pom.xml" />
+        <option value="$PROJECT_DIR$/privilegeservice-client/pom.xml" />
+        <option value="$PROJECT_DIR$/privilegegateway/pom.xml" />
+        <option value="$PROJECT_DIR$/privilegeservice/pom.xml" />
+        <option value="$PROJECT_DIR$/userModule/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

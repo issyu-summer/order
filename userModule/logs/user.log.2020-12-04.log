@@ -1,0 +1,16 @@
+2020-12-04 10:19:29.826 [http-nio-8080-exec-7] DEBUG cn.edu.xmu.user.dao.UserDao - is checking email in user table
+2020-12-04 10:19:29.838 [http-nio-8080-exec-7] DEBUG cn.edu.xmu.user.dao.UserDao - is checking mobile in user table
+2020-12-04 10:19:29.849 [http-nio-8080-exec-7] DEBUG cn.edu.xmu.user.dao.UserDao - is checking userName in user table
+2020-12-04 10:19:29.871 [http-nio-8080-exec-7] DEBUG cn.edu.xmu.user.dao.UserDao - insertUser: insert success
+2020-12-04 10:19:31.481 [http-nio-8080-exec-3] DEBUG cn.edu.xmu.user.dao.UserDao - is checking email in user table
+2020-12-04 10:19:33.566 [http-nio-8080-exec-6] DEBUG cn.edu.xmu.user.dao.UserDao - is checking email in user table
+2020-12-04 10:19:48.002 [http-nio-8080-exec-5] DEBUG cn.edu.xmu.user.dao.UserDao - is checking email in user table
+2020-12-04 10:19:48.013 [http-nio-8080-exec-5] DEBUG cn.edu.xmu.user.dao.UserDao - is checking mobile in user table
+2020-12-04 10:19:59.547 [http-nio-8080-exec-8] DEBUG cn.edu.xmu.user.dao.UserDao - is checking email in user table
+2020-12-04 10:19:59.557 [http-nio-8080-exec-8] DEBUG cn.edu.xmu.user.dao.UserDao - is checking mobile in user table
+2020-12-04 10:19:59.568 [http-nio-8080-exec-8] DEBUG cn.edu.xmu.user.dao.UserDao - is checking userName in user table
+2020-12-04 10:20:06.963 [http-nio-8080-exec-10] DEBUG cn.edu.xmu.user.dao.UserDao - is checking email in user table
+2020-12-04 10:20:06.973 [http-nio-8080-exec-10] DEBUG cn.edu.xmu.user.dao.UserDao - is checking mobile in user table
+2020-12-04 10:20:06.983 [http-nio-8080-exec-10] DEBUG cn.edu.xmu.user.dao.UserDao - is checking userName in user table
+2020-12-04 10:20:07.001 [http-nio-8080-exec-10] DEBUG cn.edu.xmu.user.dao.UserDao - insertUser: insert success
+2020-12-04 10:20:11.332 [http-nio-8080-exec-9] DEBUG cn.edu.xmu.user.dao.UserDao - is checking email in user table
