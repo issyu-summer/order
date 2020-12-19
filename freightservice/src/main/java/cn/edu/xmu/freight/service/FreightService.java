@@ -90,8 +90,8 @@ public class FreightService {
      * @author 史韬韬
      * created in 2020/12/7
      */
-    public ReturnObject<VoObject> changeFreightModel(Long id, Long shopId, FreightModelInfoVo freightModelInfoVo){
-        return freightDao.chanegFreightModel(id,shopId,freightModelInfoVo);
+    public ReturnObject<VoObject> changeFreightModel(Long id, Long shopId, FreightModelInfoVo freightModelInfoVo,Long departId){
+        return freightDao.chanegFreightModel(id,shopId,freightModelInfoVo,departId);
     }
 
     /**

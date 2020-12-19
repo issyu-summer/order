@@ -13,14 +13,18 @@ import java.time.LocalDateTime;
 @Data
 public class OrderItemVo {
     private Long skuId;
+    private Long orderId;
+    private String name;
     private Integer quantity;
-    private Long couponAciId;
+    private Long price;
+    private Long discount;
+    private Long couponActId;
+    private Long beSharedId;
 
     public OrderItemPo getOrderItemPo() {
         OrderItemPo orderItemPo = new OrderItemPo();
         orderItemPo.setGoodsSkuId(this.getSkuId());
         orderItemPo.setQuantity(this.getQuantity());
-        orderItemPo.setCouponActivityId(this.couponAciId);
         orderItemPo.setGmtCreate(LocalDateTime.now());
         orderItemPo.setGmtModified(LocalDateTime.now());
         return orderItemPo;

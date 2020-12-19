@@ -44,9 +44,13 @@ public class OrderService {
      * @author issyu 30320182200070
      * @date 2020/12/3 16:46
      */
-    public ReturnObject<PageInfo<VoObject>> getOrderSimpleInfo(Long userId,Long departId,String orderSn, Byte state, Integer page, Integer pageSize) {
+    public ReturnObject<PageInfo<VoObject>> getOrderSimpleInfo(
+            Long userId,Long departId,String orderSn,
+            Byte state, Integer page, Integer pageSize,
+            String beginTime,String endTime) {
 
-        ReturnObject<PageInfo<VoObject>> returnObject = orderDao.getOrderSimpleInfo(userId,departId,orderSn, state, page, pageSize);
+        ReturnObject<PageInfo<VoObject>> returnObject = orderDao.getOrderSimpleInfo(
+                userId,departId,orderSn, state, page, pageSize,beginTime,endTime);
         return returnObject;
     }
 
@@ -75,8 +79,8 @@ public class OrderService {
      * @parameter id 订单id
      * @author 史韬韬
      */
-    public ReturnObject<VoObject> changeOrder(Long id, AdressVo adressVo){
-        return orderDao.changeOrder(id,adressVo);
+    public ReturnObject<VoObject> changeOrder(Long userId,Long id, AdressVo adressVo){
+        return orderDao.changeOrder(userId,id,adressVo);
     }
 
 
@@ -85,8 +89,8 @@ public class OrderService {
      * @author 史韬韬
      * created in 2020/12/3
      */
-    public ReturnObject<VoObject> deleteOrder(Long id){
-        return orderDao.deleteOrder(id);
+    public ReturnObject<VoObject> deleteOrder(Long userId,Long id){
+        return orderDao.deleteOrder(userId,id);
     }
 
     /**

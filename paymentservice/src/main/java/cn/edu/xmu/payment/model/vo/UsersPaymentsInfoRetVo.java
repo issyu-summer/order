@@ -27,8 +27,12 @@ public class UsersPaymentsInfoRetVo {
         this.paymentId=po.getPaymentId();
         this.amount=po.getAmount();
         this.state=po.getState();
-        this.gmtCreate= TimeFormat.localDateTimeToString(po.getGmtCreate());
+        if(po.getGmtCreate()!=null){
+            this.gmtCreate= TimeFormat.localDateTimeToString(po.getGmtCreate());
+        }
+        if(po.getGmtModified()!=null){
         this.gmtModified=TimeFormat.localDateTimeToString(po.getGmtModified());
+        }
         this.orderId=po.getOrderId();
         this.aftersaleId=po.getAftersaleId();
     }

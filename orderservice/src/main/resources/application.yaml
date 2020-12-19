@@ -20,19 +20,17 @@ dubbo:
     qos-accept-foreign-ip: false
   # 配置注册中心
   registry:
-    #address: nacos://192.168.43.123:8848
     address: nacos://47.113.100.78:8848
-    #address: nacos://127.0.0.1:8848
+    #address: nacos://192.168.43.123:8848
+    #address: nacos://127.0.0.1:8848\
   # 设置协议-协议由提供方指定消费方被动接受
-  coprotol:
+  protocol:
     name: dubbo
     port: -1
-    host: 10.30.160.1
     # 设置超时时间
   consumer:
     timeout: 4000
     check: false
-
 spring:
   main:
     # 解决Bean重复定义问题

@@ -1,5 +1,6 @@
 package cn.edu.xmu.order.dao;
 
+import cn.edu.xmu.external.service.IAddressService;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.*;
 import cn.edu.xmu.order.mapper.OrderItemPoMapper;
@@ -14,6 +15,7 @@ import cn.edu.xmu.order.model.vo.OrderInfoVo;
 import cn.edu.xmu.order.model.vo.OrderRetVo;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,6 +84,7 @@ public class OrderDao {
                         )
                 );
             }
+
             return new ReturnObject<>(bos);
 
         }catch (DataAccessException e){
@@ -99,8 +102,15 @@ public class OrderDao {
      * @param page
      * @param pageSize
      */
-    public ReturnObject<PageInfo<VoObject>> getOrderSimpleInfo(Long userId,Long departId,
-                                                               String orderSn, Byte state, Integer page, Integer pageSize){
+    public ReturnObject<PageInfo<VoObject>> getOrderSimpleInfo(
+            Long userId,Long departId,
+            String orderSn, Byte state,
+            Integer page, Integer pageSize,
+            String beginTime,String endTime){
+
+        LocalDateTime begin=null;
+        LocalDateTime end=null;
+
 
         if(!AuthVerify.customerAuth(departId)){
             return new ReturnObject<>(ResponseCode.AUTH_NOT_ALLOW,"仅买家可以调用此api,departId="+departId);
@@ -121,7 +131,33 @@ public class OrderDao {
 
             //不会返回逻辑删除的订单
             criteria.andBeDeletedEqualTo((byte) 0);
+           if(beginTime!=null){
+               try {
+                   begin = TimeFormat.stringToDateTime(beginTime);
+               }catch (Exception e) {
+                   return new ReturnObject<>(ResponseCode.FIELD_NOTVALID);
+               }
+           }
+           if(endTime!=null){
 
+               try {
+                   end = TimeFormat.stringToDateTime(endTime);
+               }catch (Exception e) {
+                   return new ReturnObject<>(ResponseCode.FIELD_NOTVALID);
+               }
+           }
+
+            if(beginTime!=null&&endTime==null){
+                criteria.andGmtCreateGreaterThan(begin);
+            }else if(beginTime==null&&endTime!=null) {
+                criteria.andGmtCreateLessThan(end);
+            }else if(beginTime!=null&&endTime!=null)
+            {
+                if(begin.compareTo(end)>0){
+                    return new ReturnObject<>(ResponseCode.FIELD_NOTVALID);
+                }
+                criteria.andGmtCreateBetween(begin,end);
+            }
             try {
                 PageHelper.startPage(page, pageSize);
                 List<OrderPo> orderPos = orderPoMapper.selectByExample(orderPoExample);
@@ -220,18 +256,39 @@ public class OrderDao {
      * @parameter id 订单id
      * @author 史韬韬
      */
-    public ReturnObject<VoObject> changeOrder(Long id, AdressVo adressVo){
+    @DubboReference(version = "0.0.1")
+    private IAddressService iAddressService;
+    public ReturnObject<VoObject> changeOrder(Long userId,Long id, AdressVo adressVo){
         logger.debug("changeOrder: ID =" + id);
         try {
             OrderPo newPo = orderPoMapper.selectByPrimaryKey(id);
+            if(newPo==null){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST,"订单不存在");
+            }
             Byte state=newPo.getState();
-            //订单状态为创建订单、待支付或已支付时可以修改地址
-            if(state.equals((byte)2)||state.equals((byte)6)||state.equals((byte)11)){
+            Byte substate=newPo.getSubstate();
+            if(!userId.equals(newPo.getCustomerId())){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,"不是本人名下订单");
+            }
+//            if(newPo.getBeDeleted().equals((byte) 1)){
+//                return new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW,"订单已删除");
+//            }
+            if(!iAddressService.verifyRegionId(newPo.getRegionId()).getData()){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST,"regionid不存在");
+            }
+            //需要集成，判断regionid
+            //订单状态为待支付则可以修改地址
+            if(state.equals(OrderStateCode.ORDER_STATE_UNPAID.getCode())
+                    ||(state.equals(OrderStateCode.ORDER_STATE_UNCONFIRMED.getCode())&&!substate.equals(OrderStateCode.ORDER_STATE_SHIP.getCode()))){
                 newPo.setAddress(adressVo.getAddress());
                 newPo.setConsignee(adressVo.getConsignee());
                 newPo.setRegionId(adressVo.getRegionId());
                 newPo.setMobile(adressVo.getMobile());
-                orderPoMapper.updateByPrimaryKeySelective(newPo);
+                newPo.setGmtModified(LocalDateTime.now());
+                int ret=orderPoMapper.updateByPrimaryKeySelective(newPo);
+                if(ret==0){
+                    return new ReturnObject<VoObject>(ResponseCode.INTERNAL_SERVER_ERR,"数据库错误，修改失败");
+                }
                 return new ReturnObject<VoObject>();
 
             }else {
@@ -250,18 +307,41 @@ public class OrderDao {
      * @parameter id 订单id
      * created in 2020/12/3
      */
-    public ReturnObject<VoObject> deleteOrder(Long id) {
+    public ReturnObject<VoObject> deleteOrder(Long userId,Long id) {
         logger.debug("deleteOrder: ID =" + id);
         try {
             OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
-            Byte state = orderPo.getState();
-            //发货前，订单处于待支付和创建订单状态时可以取消订单
-            if (state.equals((byte) 6) || state.equals((byte) 2)) {
-                orderPo.setState((byte) 0);
+            if(orderPo==null){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST,"订单不存在");
             }
-            //已完成，订单处于取消0、已退款13、已签收18、订单中止14状态时可以逻辑删除订单
-            else if (state.equals((byte) 0) || state.equals((byte) 13) || state.equals((byte)18)||state.equals((byte)14)) {
+            Byte state=orderPo.getState();
+            Byte substate=orderPo.getSubstate();
+            if(!userId.equals(orderPo.getCustomerId())){
+                return new ReturnObject<>(ResponseCode.AUTH_NOT_ALLOW,"不是本人名下订单");
+            }
+            if(orderPo.getBeDeleted().equals((byte) 1)){
+                return new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW,"订单已删除");
+            }
+
+            //发货前，订单处于待支付时可以取消订单
+            if (state.equals((byte)(OrderStateCode.ORDER_STATE_UNPAID.getCode()))
+                    ||state.equals((byte)OrderStateCode.ORDER_STATE_UNCONFIRMED.getCode())) {
+                orderPo.setState((byte) OrderStateCode.ORDER_STATE_CANCEL.getCode());
+                orderPo.setGmtModified(LocalDateTime.now());
+                int ret=orderPoMapper.updateByPrimaryKeySelective(orderPo);
+                if(ret==0){
+                    return new ReturnObject<VoObject>(ResponseCode.INTERNAL_SERVER_ERR,"数据库错误，修改失败");
+                }
+            }
+            //已完成，订单处于已取消或已完成状态时可以逻辑删除订单
+            else if (state.equals((byte)OrderStateCode.ORDER_STATE_COMPLETED.getCode()) ||
+                    state.equals((byte)(OrderStateCode.ORDER_STATE_CANCEL.getCode()))) {
                 orderPo.setBeDeleted((byte) 1);
+                orderPo.setGmtModified(LocalDateTime.now());
+                int ret=orderPoMapper.updateByPrimaryKeySelective(orderPo);
+                if(ret==0){
+                    return new ReturnObject<VoObject>(ResponseCode.INTERNAL_SERVER_ERR,"数据库错误，修改失败");
+                }
             }
             else{
                 return new ReturnObject<VoObject>(ResponseCode.ORDER_STATENOTALLOW,"不能取消或删除此状态的订单");
@@ -272,7 +352,6 @@ public class OrderDao {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
         }
     }
-
     /**
      * 确认收货
      * createby 王薪蕾 2020/12/6
@@ -289,7 +368,7 @@ public class OrderDao {
             return retObj;
         }
         //该订单不是此用户订单
-        if (orderPo.getCustomerId()!=userId) {
+        if (!orderPo.getCustomerId().equals(userId)) {
             retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE);
             return retObj;
         }
@@ -346,7 +425,7 @@ public class OrderDao {
             return retObj;
         }
         //该订单不是此用户订单
-        if (orderPo.getCustomerId()!=userId) {
+        if (!orderPo.getCustomerId().equals(userId)) {
             retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE);
             return retObj;
         }
@@ -588,14 +667,21 @@ public class OrderDao {
         try {
             logger.debug("confirmOrder: ID =" + id);
             OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
+
             ReturnObject<VoObject> retObj = null;
             //订单不存在
             if (orderPo == null){
                 retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单不存在：id=" + id));
                 return retObj;
             }
+//            if(AuthVerify.shopAdminAuth(departId)){
+//                return new ReturnObject<>(ResponseCode.AUTH_NOT_ALLOW);
+//            }
+            if(!departId.equals(shopId)){
+                return new ReturnObject<>(ResponseCode.AUTH_NOT_ALLOW);
+            }
             //该订单不是此店铺订单
-            if (!shopId.equals(orderPo.getShopId())) {
+            if (!departId.equals(orderPo.getShopId())) {
                 retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("操作的店铺id不是自己的对象：id=" + id));
                 return retObj;
             }

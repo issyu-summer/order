@@ -410,7 +410,7 @@ public class PaymentDao {
     public ReturnObject getUsersOrdersRefunds(Long userId, Long id,Long departId,Long actualUserId) {
         try{
             if(actualUserId==null){
-                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("所提供的订单号无效或者无法获取到对应用户"));
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST,String.format("所提供的订单号无效或者无法获取到对应用户"));
             }
             if(departId!=-2){
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("登陆的不是普通用户"));
@@ -456,15 +456,23 @@ public class PaymentDao {
             if(departId!=-2){
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("登陆用户不是普通买家"));
             }
-            RefundPo refundPo = refundPoMapper.selectByPrimaryKey(id);
-            if(refundPo == null){
+//            RefundPo refundPo = refundPoMapper.selectByPrimaryKey(id);
+            RefundPoExample refundPoExample=new RefundPoExample();
+            RefundPoExample.Criteria criteria=refundPoExample.createCriteria();
+            criteria.andAftersaleIdEqualTo(id);
+            List<RefundPo> refundPo = refundPoMapper.selectByExample(refundPoExample);
+            if(refundPo.isEmpty()){
+                return new ReturnObject(ResponseCode.RESOURCE_ID_NOTEXIST);
+            }
+            RefundPo refundPo1 = refundPo.get(0);
+            if(refundPo1 == null){
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST,String.format("退款订单不存在"));
             }
-            if(!userId.equals(orderInnerService.getUserIdByOrderId(refundPo.getOrderId()))){
-                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("登陆用户和所查询的退款订单对应用户不同"));
+            if(!userId.equals(orderInnerService.getUserIdByOrderId(refundPo1.getOrderId()))){
+                return new ReturnObject<>(ResponseCode.AUTH_NOT_ALLOW,String.format("登陆用户和所查询的退款订单对应用户不同"));
             }
 
-            UsersPaymentsInfoRetVo usersPaymentsInfoRetVo = new UsersPaymentsInfoRetVo(refundPo);
+            UsersPaymentsInfoRetVo usersPaymentsInfoRetVo = new UsersPaymentsInfoRetVo(refundPo1);
             return new ReturnObject<>(usersPaymentsInfoRetVo);
         }catch (DataAccessException e) {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));

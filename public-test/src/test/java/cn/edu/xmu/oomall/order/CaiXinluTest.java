@@ -115,6 +115,7 @@ public class CaiXinluTest {
 
     /**
      * 通过aftersaleId查找refund  orderId不属于Token解析出来的userId
+     * 数据库中没有数据 295
      */
     @Test
     public void getRefundTest3() throws Exception{
@@ -352,6 +353,7 @@ public class CaiXinluTest {
 
     /**
      * 修改件数运费模板 运费模板中该地区已经定义  region已存在
+     * 数据问题， id= 55555 region_id =null
      * @throws Exception
      */
     @Test
@@ -504,6 +506,7 @@ public class CaiXinluTest {
 
     /**
      * 查找订单的所有状态
+     * 已经没有6这个状态了。
      */
     @Test
     public void getOrderState() throws Exception{
@@ -679,6 +682,7 @@ public class CaiXinluTest {
 
     /**
      * 查找支付单的所有状态
+     * 去不去重，数据库对不上
      */
     @Test
     public void getPaymentState() throws Exception{

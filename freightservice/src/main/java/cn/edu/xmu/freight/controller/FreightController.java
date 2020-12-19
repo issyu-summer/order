@@ -214,8 +214,12 @@ public class FreightController {
             @ApiResponse(code = 0,message = "成功")
     })
     @Audit
-    @GetMapping("/freightmodels/{id}")
-    public Object getFreightModelSimpleInfo(@PathVariable Long id){
+    @GetMapping("shops/{shopId}/freightmodels/{id}")
+    public Object getFreightModelSimpleInfo(
+            @LoginUser @ApiIgnore Long userId,
+            @Depart @ApiIgnore Long departId,
+            @PathVariable Long id
+            ){
         return Common.decorateReturnObject(freightService.getFreightModelSimpleInfo(id));
     }
 
@@ -239,9 +243,9 @@ public class FreightController {
     })
     @Audit
     @PutMapping("/shops/{shopId}/freightmodels/{id}")
-    public Object changeFreightModel(@PathVariable Long id, @PathVariable Long shopId, @RequestBody FreightModelInfoVo freightModelInfoVo){
+    public Object changeFreightModel(@PathVariable Long id, @PathVariable Long shopId, @RequestBody FreightModelInfoVo freightModelInfoVo,@Depart Long departId){
 
-        return Common.decorateReturnObject(freightService.changeFreightModel(id,shopId,freightModelInfoVo));
+        return Common.decorateReturnObject(freightService.changeFreightModel(id,shopId,freightModelInfoVo,departId));
     }
     /**
      * 管理员定义件数模板明细

@@ -312,10 +312,10 @@ public class FreightDao {
 
     }
 
-    /*
-     * 获得运费模板概要
-     * @author 史韬韬
-     * @parameter id 运费模板id
+    /**
+     *获得运费模板概要
+     *@author 史韬韬
+     *@parameter id 运费模板id
      */
     public ReturnObject<FreightModelSimpleInfoRetVo> getFreightModelSimpleInfo(Long id){
         try {
@@ -328,20 +328,39 @@ public class FreightDao {
             return  new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误："+ e.getMessage()));
         }
     }
-
     /*
      * 管理员修改店铺运费模板
      * @author 史韬韬
      * created in 2020/12/7
      */
-    public ReturnObject<VoObject> chanegFreightModel(Long id, Long shopId, FreightModelInfoVo freightModelInfoVo){
-        try {
-            FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(id);
-            freightModelPo.setName(freightModelInfoVo.getName());
-            freightModelPo.setUnit(freightModelInfoVo.getUnit());
-            freightModelPo.setShopId(shopId);
-            freightModelPoMapper.updateByPrimaryKeySelective(freightModelPo);
-            return new ReturnObject<VoObject>();
+    public ReturnObject<VoObject> chanegFreightModel(Long id, Long shopId, FreightModelInfoVo freightModelInfoVo,Long departId){
+        if(!departId.equals(0L)){
+            return new ReturnObject<>(ResponseCode.AUTH_NOT_ALLOW,"无管理员权限");
+        }
+        FreightModelPoExample freightModelPoExample = new FreightModelPoExample();
+        FreightModelPoExample.Criteria criteria = freightModelPoExample.createCriteria();
+
+        if(freightModelInfoVo.getName()!=null) {
+            criteria.andNameEqualTo(freightModelInfoVo.getName());
+        }
+        try{
+            List<FreightModelPo> freightModelPos = freightModelPoMapper.selectByExample(freightModelPoExample);
+            if(freightModelPos.isEmpty()) {
+                FreightModelPo freightModelPo = freightModelPoMapper.selectByPrimaryKey(id);
+                if (freightModelPo == null) {
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
+                }
+                if (!shopId.equals(freightModelPo.getShopId())) {
+                    return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, "shopid与运费模板所对应的shopid不同");
+                }
+                freightModelPo.setName(freightModelInfoVo.getName());
+                freightModelPo.setUnit(freightModelInfoVo.getUnit());
+                freightModelPo.setShopId(shopId);
+                freightModelPoMapper.updateByPrimaryKeySelective(freightModelPo);
+                return new ReturnObject<VoObject>();
+            }else{
+                return  new ReturnObject<>(ResponseCode.FREIGHTNAME_SAME);
+            }
         }
         catch (DataAccessException e){
             return  new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误："+ e.getMessage()));
@@ -423,7 +442,9 @@ public class FreightDao {
      */
     public ReturnObject<Object> putPieceItems(PieceModelInfoVo vo, Long shopId, Long id,Long departId){
         try {
-            if(departId==0){//管理员
+            if(departId==0){
+                //管理员
+
                 //获得运费模板
                 PieceFreightModelPo pieceFreightModelPo=pieceFreightModelPoMapper.selectByPrimaryKey(id);
                 if(pieceFreightModelPo==null){
@@ -448,7 +469,7 @@ public class FreightDao {
                 //校验重复地区
                 PieceFreightModelPoExample pieceFreightModelPoExample=new PieceFreightModelPoExample();
                 PieceFreightModelPoExample.Criteria criteria=pieceFreightModelPoExample.createCriteria();
-                criteria.andFreightModelIdEqualTo(id);
+                criteria.andIdEqualTo(id);
                 List<PieceFreightModelPo> pieceFreightPos = pieceFreightModelPoMapper.selectByExample(pieceFreightModelPoExample);
                 if (!pieceFreightPos.isEmpty()) {
                     for (PieceFreightModelPo po : pieceFreightPos) {
@@ -500,7 +521,7 @@ public class FreightDao {
                 //校验重复地区
                 PieceFreightModelPoExample pieceFreightModelPoExample=new PieceFreightModelPoExample();
                 PieceFreightModelPoExample.Criteria criteria=pieceFreightModelPoExample.createCriteria();
-                criteria.andFreightModelIdEqualTo(id);
+                criteria.andIdEqualTo(id);
                 List<PieceFreightModelPo> pieceFreightPos = pieceFreightModelPoMapper.selectByExample(pieceFreightModelPoExample);
                 if (!pieceFreightPos.isEmpty()) {
                     for (PieceFreightModelPo po : pieceFreightPos) {
@@ -567,7 +588,7 @@ public class FreightDao {
                 //校验重复地区
                 WeightFreightModelPoExample weightFreightModelPoExample=new WeightFreightModelPoExample();
                 WeightFreightModelPoExample.Criteria criteria=weightFreightModelPoExample.createCriteria();
-                criteria.andFreightModelIdEqualTo(id);
+                criteria.andIdEqualTo(id);
                 List<WeightFreightModelPo> weightFreightPos = weightFreightModelPoMapper.selectByExample(weightFreightModelPoExample);
                 if (!weightFreightPos.isEmpty()){
                     for (WeightFreightModelPo po : weightFreightPos) {
@@ -621,7 +642,7 @@ public class FreightDao {
                 //校验重复地区
                 WeightFreightModelPoExample weightFreightModelPoExample=new WeightFreightModelPoExample();
                 WeightFreightModelPoExample.Criteria criteria=weightFreightModelPoExample.createCriteria();
-                criteria.andFreightModelIdEqualTo(id);
+                criteria.andIdEqualTo(id);
                 List<WeightFreightModelPo> weightFreightPos = weightFreightModelPoMapper.selectByExample(weightFreightModelPoExample);
                 if (!weightFreightPos.isEmpty()){
                     for (WeightFreightModelPo po : weightFreightPos) {

@@ -88,9 +88,12 @@ public class OrderController {
             @RequestParam(required = false) String orderSn,
             @RequestParam(required = false) Byte state,
             @RequestParam(required = false, defaultValue = "1") Integer page,
-            @RequestParam(required = false, defaultValue = "10") Integer pageSize) {
+            @RequestParam(required = false, defaultValue = "10") Integer pageSize,
+            @RequestParam(required = false)String beginTime,
+            @RequestParam(required = false)String endTime) {
 
-        ReturnObject<PageInfo<VoObject>> returnObject = orderService.getOrderSimpleInfo(userId,departId,orderSn,state,page,pageSize);
+        ReturnObject<PageInfo<VoObject>> returnObject = orderService.getOrderSimpleInfo(
+                userId,departId,orderSn,state,page,pageSize,beginTime,endTime);
         return  Common.getPageRetObject(returnObject);
 
     }
@@ -154,7 +157,6 @@ public class OrderController {
         return Common.decorateReturnObject(orderService.getOrderById(id));
 
     }
-
     /**
      * 买家修改本人名下订单
      * @author 史韬韬
@@ -169,12 +171,14 @@ public class OrderController {
             @ApiResponse(code = 0, message = "成功")
     })
     @Audit
-    @RequestMapping(value="/orders/{id}",method = RequestMethod.PUT)
-    public Object changeOrder(@PathVariable Long id, @RequestBody AdressVo adressVo){
-        return Common.decorateReturnObject(orderService.changeOrder(id,adressVo));
+    @PutMapping("/orders/{id}")
+    public Object changeOrder(@LoginUser @ApiIgnore Long userId,@PathVariable Long id, @RequestBody AdressVo adressVo){
+        return Common.decorateReturnObject(orderService.changeOrder(userId,id,adressVo));
     }
+
     /**
      * 买家取消、逻辑删除本人名下订单
+     * @param id 订单id
      * @author 史韬韬
      * created in 2020/12/3
      */
@@ -188,13 +192,12 @@ public class OrderController {
     })
     @Audit
     @RequestMapping(value="/orders/{id}",method = RequestMethod.DELETE)
-    public Object deleteOrder(@PathVariable Long id){
-        return Common.decorateReturnObject(orderService.deleteOrder(id));
+    public Object deleteOrder(@LoginUser @ApiIgnore Long userId,@PathVariable Long id){
+        return Common.decorateReturnObject(orderService.deleteOrder(userId,id));
     }
 
     /**
      * 买家标记确认收货
-     *
      * @param id 订单ID
      * @return Object 确认后结果
      * createdBy 王薪蕾 2020/11/30
@@ -215,9 +218,10 @@ public class OrderController {
             @LoginUser Long userId,
             @Depart Long departId
     ) {
-        System.out.println("controller");
-        if(departId.equals(-2L))
-        return Common.decorateReturnObject(orderService.confirmOrders(id,userId));
+
+        if (departId.equals(-2L)){
+            return Common.decorateReturnObject(orderService.confirmOrders(id,userId));
+        }
         ReturnObject returnObject=new ReturnObject(ResponseCode.AUTH_NOT_ALLOW);
         return Common.decorateReturnObject(returnObject);
         //return Common.getNullRetObj()
@@ -245,8 +249,9 @@ public class OrderController {
             @PathVariable("id") Long id,
             @Depart Long departId,
             @LoginUser Long userId) {
-        if(departId.equals(-2L))
-        return Common.getRetObject(orderService.grouponToNormalOrders(id,userId));;
+        if(departId.equals(-2L)) {
+            return Common.getRetObject(orderService.grouponToNormalOrders(id,userId));
+        }
         ReturnObject returnObject=new ReturnObject(ResponseCode.AUTH_NOT_ALLOW);
         return Common.decorateReturnObject(returnObject);
 
@@ -351,8 +356,10 @@ public class OrderController {
             @ApiResponse(code = 800, message = "订单状态禁止")
     })
     @Audit
-    @RequestMapping(value="/shops/{shopId}/orders/{id}",method = RequestMethod.DELETE)
-    public Object deleteShopOrder(@PathVariable Long shopId,@PathVariable Long id,@Depart @ApiIgnore Long departId){
+    @DeleteMapping(value="/shops/{shopId}/orders/{id}")
+    public Object deleteShopOrder(
+            @LoginUser @ApiIgnore Long userId,
+            @PathVariable Long shopId,@PathVariable Long id,@Depart @ApiIgnore Long departId){
         return Common.getRetObject(orderService.deleteShopOrder(shopId,id,departId));
     }
     /**

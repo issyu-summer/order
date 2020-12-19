@@ -1,16 +1,19 @@
 package cn.edu.xmu.order.model.bo;
 
 
+import cn.edu.xmu.external.model.CustomerInfo;
+import cn.edu.xmu.order.model.po.OrderItemPo;
 import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.order.model.vo.OrderRetVo;
 
+import cn.edu.xmu.otherinterface.bo.ShopInfo;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
 /*
-* @author 史韬韬
-* created in 2020/12/3
+ * @author 史韬韬
+ * created in 2020/12/3
  */
 @Data
 public class Order {
@@ -100,22 +103,73 @@ public class Order {
         this.setGmtModified(po.getGmtModified());
         this.setGrouponId(po.getGrouponId());
     }
-
     public OrderRetVo createOrderRetVo(){
         OrderRetVo orderRetVo=new OrderRetVo();
         orderRetVo.setId(id);
-        orderRetVo.setConsignee(consignee);
-        orderRetVo.setCouponActivityId(couponActivityId);
+        orderRetVo.setOrderSn(orderSn);
+        orderRetVo.setPid(pid);
+        orderRetVo.setOrderType(orderType);
+        orderRetVo.setState(state);
+        orderRetVo.setSubstate(substate);
+        orderRetVo.setGmtCreate(gmtCreate);
+        orderRetVo.setGmtModified(gmtModified);
+        orderRetVo.setConfirmTime(confirmTime);
+        orderRetVo.setOriginPrice(originPrice);
         orderRetVo.setDiscountPrice(discountPrice);
         orderRetVo.setFreightPrice(freightPrice);
-        orderRetVo.setGmtCreateTime(gmtCreate);
+        orderRetVo.setRebateNum(rebateNum);
         orderRetVo.setMessage(message);
+        orderRetVo.setRegionId(regionId);
+        orderRetVo.setAddress(address);
+        orderRetVo.setMobile(mobile);
+        orderRetVo.setConsignee(consignee);
         orderRetVo.setCouponId(couponId);
-        orderRetVo.setPid(pid);
-        orderRetVo.setState(state);
-        orderRetVo.setOrderType(orderType);
         orderRetVo.setGrouponId(grouponId);
-        orderRetVo.setSubState(substate);
+        orderRetVo.setPresaleId(presaleId);
+        orderRetVo.setShipmentSn(shipmentSn);
+
+        return  orderRetVo;
+    }
+    public OrderRetVo createOrderRetVo(CustomerInfo customerInfo, ShopInfo shopInfo,OrderItemPo orderItemPo){
+        OrderRetVo orderRetVo=new OrderRetVo();
+        orderRetVo.getCustomer().setId(customerId);
+        orderRetVo.getCustomer().setName(customerInfo.realName);
+        orderRetVo.getCustomer().setUserName(customerInfo.userName);
+        orderRetVo.getShop().setId(shopId);
+        orderRetVo.getShop().setName(shopInfo.getName());
+        orderRetVo.getShop().setState(shopInfo.getState());
+        orderRetVo.getShop().setGmtCreateTime(shopInfo.getGmtCreate());
+        orderRetVo.getShop().setGmtModiTime(shopInfo.getGmtModified());
+        orderRetVo.getOrderItem().setBeSharedId(orderItemPo.getBeShareId());
+        orderRetVo.getOrderItem().setCouponActId(orderItemPo.getCouponActivityId());
+        orderRetVo.getOrderItem().setDiscount(orderItemPo.getDiscount());
+        orderRetVo.getOrderItem().setName(orderItemPo.getName());
+        orderRetVo.getOrderItem().setOrderId(orderItemPo.getOrderId());
+        orderRetVo.getOrderItem().setPrice(orderItemPo.getPrice());
+        orderRetVo.getOrderItem().setQuantity(orderItemPo.getQuantity());
+        orderRetVo.getOrderItem().setSkuId(orderItemPo.getGoodsSkuId());
+        orderRetVo.setId(id);
+        orderRetVo.setOrderSn(orderSn);
+        orderRetVo.setPid(pid);
+        orderRetVo.setOrderType(orderType);
+        orderRetVo.setState(state);
+        orderRetVo.setSubstate(substate);
+        orderRetVo.setGmtCreate(gmtCreate);
+        orderRetVo.setGmtModified(gmtModified);
+        orderRetVo.setConfirmTime(confirmTime);
+        orderRetVo.setOriginPrice(originPrice);
+        orderRetVo.setDiscountPrice(discountPrice);
+        orderRetVo.setFreightPrice(freightPrice);
+        orderRetVo.setRebateNum(rebateNum);
+        orderRetVo.setMessage(message);
+        orderRetVo.setRegionId(regionId);
+        orderRetVo.setAddress(address);
+        orderRetVo.setMobile(mobile);
+        orderRetVo.setConsignee(consignee);
+        orderRetVo.setCouponId(couponId);
+        orderRetVo.setGrouponId(grouponId);
+        orderRetVo.setPresaleId(presaleId);
+        orderRetVo.setShipmentSn(shipmentSn);
 
         return  orderRetVo;
     }

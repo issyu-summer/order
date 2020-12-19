@@ -14,21 +14,28 @@ import java.time.LocalDateTime;
 @Data
 public class OrderRetVo {
     private Long id;
+    private String orderSn;
     public CustomerVo customer=new CustomerVo();
     public ShopVo shop=new ShopVo();
     private Long pid;
     private Byte orderType;
     private Byte state;
-    private Byte subState;
-    private LocalDateTime gmtCreateTime;
+    private Byte substate;
+    private LocalDateTime gmtCreate;
+    private LocalDateTime gmtModified;
+    private LocalDateTime confirmTime;
     private Long originPrice;
     private Long discountPrice;
     private Long freightPrice;
+    private Integer rebateNum;
     private String message;
+    private Long regionId;
+    private String address;
+    private String mobile;
     private String consignee;
     private Long couponId;
-    private Long couponActivityId;
     private Long grouponId;
-
+    private Long presaleId;
+    private String shipmentSn;
     public OrderItemVo orderItem=new OrderItemVo();
 }
