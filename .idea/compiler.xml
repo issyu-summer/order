@@ -7,16 +7,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="core" />
         <module name="freightservice" />
-        <module name="inner-api" />
-        <module name="outer-api" />
-        <module name="customertest" />
-        <module name="Other-External-Interface" />
-        <module name="paymentservice" />
         <module name="gateway" />
         <module name="orderservice" />
-        <module name="customer" />
+        <module name="outer-api" />
+        <module name="inner-api" />
+        <module name="core" />
+        <module name="Other-External-Interface" />
+        <module name="customertest" />
+        <module name="paymentservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
