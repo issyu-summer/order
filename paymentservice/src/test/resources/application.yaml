@@ -14,17 +14,20 @@ server:
 dubbo:
   # 配置服务信息
   application:
-    name: order-service
+    name: payment-service
     # 禁用QOS同一台机器可能会有端口冲突现象
     qos-enable: false
     qos-accept-foreign-ip: false
   # 配置注册中心
   registry:
-    address: nacos://127.0.0.1:8848
+    #address: nacos://192.168.43.123:8848
+    address: nacos://47.113.100.78:8848
+    #address: nacos://127.0.0.1:8848
   # 设置协议-协议由提供方指定消费方被动接受
-  protocol:
+  coprotol:
     name: dubbo
     port: -1
+#    host: 10.30.162.203
     # 设置超时时间
   consumer:
     timeout: 4000
@@ -35,7 +38,7 @@ spring:
     # 解决Bean重复定义问题
     allow-bean-definition-overriding: true
   application:
-    name: order-service
+    name: payment-service
   profiles:
     active: dev
   servlet:
@@ -81,7 +84,7 @@ spring:
         #连接池最大阻塞等待时间（使用负值表示没有限制）
         max-wait: -1
     # 连接超时时间（毫秒）
-    timeout: 5000
+    timeout: 5000000
 
 mybatis:
   #po对象的包
@@ -99,8 +102,16 @@ mybatis:
 pagehelper:
   helper-dialect: mysql
 
-
-
-
-
-
+# 配置rocketmq
+rocketmq:
+  # 指定namesrv地址
+  name-server: localhost:9876
+  producer:
+    #生产者group名称
+    group: producer_group
+    #一次发送多少数量消息
+    max-message-size: 4096
+    #发送消息超时时间,默认3000
+    send-message-timeout: 3000
+    #发送消息失败重试次数，默认2
+    retry-times-when-send-async-failed: 2

@@ -28,8 +28,8 @@ public class PaymentService {
      * @author 王薪蕾
      * @date 2020/12/9
      */
-    public ReturnObject getShopAfterSalesPayments(Long shopId, Long id) {
-        ReturnObject returnObject = paymentDao.getShopAfterSalesPayments(shopId,id);
+    public ReturnObject getShopAfterSalesPayments(Long shopId, Long id,Long depart) {
+        ReturnObject returnObject = paymentDao.getShopAfterSalesPayments(shopId,id,depart);
         return returnObject;
     }
 
@@ -87,8 +87,8 @@ public class PaymentService {
      * @author 王薪蕾
      * @date 2020/12/11
      */
-    public ReturnObject postRefunds(Long shopId, Long id,Long amount) {
-        ReturnObject returnObject = paymentDao.postRefunds(shopId,id,amount);
+    public ReturnObject postRefunds(Long shopId, Long id,String amount,Long departId) {
+        ReturnObject returnObject = paymentDao.postRefunds(shopId,id,amount,departId);
         return returnObject;
     }
 

@@ -147,7 +147,7 @@ public class OrderService {
      * @date 2020/12/5 16:10
      */
     public ReturnObject<VoObject>  getOrderByShopId(Long shopId, Long id) {
-        System.out.println("ser");return orderDao.getOrderByShopId(shopId,id);
+        return orderDao.getOrderByShopId(shopId,id);
     }
 
     /**

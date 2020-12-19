@@ -41,178 +41,169 @@ public class PaymentControllerTest {
     }
 
 
-    /**
-     * 买家查询自己售后单的支付信息
-     * @author 王薪蕾
-     * @date 2020/12/9
-     */
-    @Test
-    public void getAfterSalesPayments(){
-        //根据数据库aftersaleId不存在返回售后单
-        String token = createTestToken(2L,0L,100);
-        try{
-            byte [] responseString = webTestClient.get().uri("/payment/aftersales/2/payments")
-                    .header("authorization",token)
-                    .exchange()
-                    .expectStatus().isOk()
-                    .expectHeader().contentType("application/json;charset=UTF-8")
-                    .expectBody()
-                    .returnResult().getResponseBodyContent();
-            String responseStr = new String(responseString,"UTF-8");
-            System.out.println(responseStr);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    /**
-     * 管理员查询售后单的支付信息
-     * @author 王薪蕾
-     * @date 2020/12/9
-     */
-    @Test
-    public void getShopAfterSalesPayments(){
-        String token = createTestToken(23L,0L,100);
-        try{
-            byte [] responseString = webTestClient.get().uri("/payment/shops/2/aftersales/2/payments")
-                    .header("authorization",token)
-                    .exchange()
-                    .expectStatus().isOk()
-                    .expectHeader().contentType("application/json;charset=UTF-8")
-                    .expectBody()
-                    .returnResult().getResponseBodyContent();
-            String responseStr = new String(responseString,"UTF-8");
-            System.out.println(responseStr);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    /*
-     * @author 史韬韬
-     * @date 2020/12/9
-     * 买家查询自己的支付信息
-     */
-    @Test
-    public void getPaymentById(){
-        String token = createTestToken(23L,0L,100);
-        String expectedResponse ="{\"errno\":0,\"data\":{\"id\":1,\"orderId\":1"+
-                ",\"aftersaleId\":null,\"amount\":0,\"actualAmount\":0,\"payTime\":\"2020-12-01T17:04:55\","+
-                "\"paymentPattern\":0,\"state\":0,\"beginTime\":\"2020-12-01T17:04:55\",\"endTime\":"+
-                "\"2020-12-01T17:04:55\",\"gmtCreate\":\"2020-12-01T17:04:55\",\"gmtModified\":"+
-                "\"2020-12-01T17:04:55\"},\"errmsg\":\"成功\"}";
-        try{
-            byte [] responseString = webTestClient.get().uri("/payment/orders/{id}/payment",1)
-                    .header("authorization",token)
-                    .exchange()
-                    .expectStatus().isOk()
-                    .expectHeader().contentType("application/json;charset=UTF-8")
-                    .expectBody()
-                    .returnResult().getResponseBodyContent();
-            String responseStr = new String(responseString,"UTF-8");
-            System.out.println(responseStr);
-            JSONAssert.assertEquals(expectedResponse,responseStr,true);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    /*
-     * @author 史韬韬
-     * @date 2020/12/10
-     * 买家为售后单创建支付单
-     */
-    @Test
-    public void createPaymentForAftersale(){
-        String token = createTestToken(23L,0L,100);
-        String paymentJson="{\"price\":100,\"paymentPattern\":1}";
-        try{
-            byte [] responseString = webTestClient.post().uri("/payment/aftersales/{id}/payments",1)
-                    .header("authorization",token)
-                    .bodyValue(paymentJson)
-                    .exchange()
-                    .expectStatus().isOk()
-                    .expectHeader().contentType("application/json;charset=UTF-8")
-                    .expectBody()
-                    .returnResult().getResponseBodyContent();
-            String responseStr = new String(responseString,"UTF-8");
-            System.out.println(responseStr);
-            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    /*
-     * @author 史韬韬
-     * @date 2020/12/10
-     * 管理员查看订单支付信息
-     */
-    @Test
-    public void getPaymentByOrderIdAndShopId(){
-        String token = createTestToken(23L,0L,100);
-        try{
-            byte [] responseString = webTestClient.get().uri("/payment/shops/{shopId}/orders/{id}/payments",1,1)
-                    .header("authorization",token)
-                    .exchange()
-                    .expectStatus().isOk()
-                    .expectHeader().contentType("application/json;charset=UTF-8")
-                    .expectBody()
-                    .returnResult().getResponseBodyContent();
-            String responseStr = new String(responseString,"UTF-8");
-            System.out.println(responseStr);
-            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    /*
-     *管理员查询订单的退款信息
-     * @author 陈星如
-     * @date 2020/12/9 18:13
-     */
-    @Test
-    public void getShopsOrdersRefunds(){
-        String token = createTestToken(1L,0L,100);
-        try{
-            byte [] responseString = webTestClient.get().uri("/payment/shops/{shopId}/orders/1/refunds",1)
-                    .header("authorization",token)
-                    .exchange()
-                    .expectStatus().isOk()
-                    .expectHeader().contentType("application/json;charset=UTF-8")
-                    .expectBody()
-                    .returnResult().getResponseBodyContent();
-            String responseStr = new String(responseString,"UTF-8");
-            System.out.println(responseStr);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    /*
-     *管理员查询售后订单的退款信息
-     * @author 陈星如
-     * @date 2020/12/9 18:10
-     */
-    @Test
-    public void getShopsAftersalesRefunds(){
-        String token = createTestToken(1L,0L,100);
-        try{
-            byte [] responseString = webTestClient.get().uri("/payment/shops/1/aftersales/1/refunds")
-                    .header("authorization",token)
-                    .exchange()
-                    .expectStatus().isOk()
-                    .expectHeader().contentType("application/json;charset=UTF-8")
-                    .expectBody()
-                    .returnResult().getResponseBodyContent();
-            String responseStr = new String(responseString,"UTF-8");
-            System.out.println(responseStr);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+//    /**
+//     * 买家查询自己售后单的支付信息
+//     * @author 王薪蕾
+//     * @date 2020/12/9
+//     */
+//    //id不存在 需集成
+//    //售后单不是自己的 需集成
+//    //
+//    @Test
+//    public void getAfterSalesPayments(){
+//        //根据数据库aftersaleId不存在返回售后单
+//        String token = createTestToken(2L,0L,100);
+//        try{
+//            byte [] responseString = webTestClient.get().uri("/payment/aftersales/2/payments")
+//                    .header("authorization",token)
+//                    .exchange()
+//                    .expectStatus().isOk()
+//                    .expectHeader().contentType("application/json;charset=UTF-8")
+//                    .expectBody()
+//                    .returnResult().getResponseBodyContent();
+//            String responseStr = new String(responseString,"UTF-8");
+//            System.out.println(responseStr);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
+//    /**
+//     * 管理员查询售后单的支付信息
+//     * @author 王薪蕾
+//     * @date 2020/12/9
+//     */
+//    //id不存在 需集成
+//    //管理员无权限  无权限 -1
+//    //售后单不是自己的 需集成
+//    //  -2
+//    @Test
+//    public void getShopAfterSalesPayments1(){
+//        String token = createTestToken(23L,3L,100);
+//        try{
+//            byte [] responseString = webTestClient.get().uri("/payment/shops/2/aftersales/2/payments")
+//                    .header("authorization",token)
+//                    .exchange()
+//                    .expectStatus().is4xxClientError()
+//                    .expectHeader().contentType("application/json;charset=UTF-8")
+//                    .expectBody()
+//                    .returnResult().getResponseBodyContent();
+//            String responseStr = new String(responseString,"UTF-8");
+//            System.out.println(responseStr);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
+//    @Test
+//    public void getShopAfterSalesPayments2(){
+//        String token = createTestToken(23L,2L,100);
+//        try{
+//            byte [] responseString = webTestClient.get().uri("/payment/shops/2/aftersales/2/payments")
+//                    .header("authorization",token)
+//                    .exchange()
+//                    .expectStatus().isOk()
+//                    .expectHeader().contentType("application/json;charset=UTF-8")
+//                    .expectBody()
+//                    .returnResult().getResponseBodyContent();
+//            String responseStr = new String(responseString,"UTF-8");
+//            System.out.println(responseStr);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
     /*
      *管理员创建退款信息
      * @author 王薪蕾
      * @date 2020/12/11
      */
+
+    //id不存在 -1
+    //管理员无权限  无权限 已测
+    //支付不是自己的 order可以，aftersale需集成  -2
+    //字段不正确 -3
+    //金额不对 -4
+    //  -5
     @Test
-    public void postRefunds(){
+    public void postRefunds1(){
+        String token = createTestToken(23L,0L,100);
+        String amount = "10";
+        try{
+            byte [] responseString = webTestClient.post().uri("/payment/shops/1/payments/-1/refunds",1)
+                    .header("authorization",token)
+                    .bodyValue(amount)
+                    .exchange()
+                    .expectStatus().is4xxClientError()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void postRefunds2(){
+        String token = createTestToken(23L,-1L,100);
+        String amount = "10";
+        try{
+            byte [] responseString = webTestClient.post().uri("/payment/shops/1/payments/1/refunds",1)
+                    .header("authorization",token)
+                    .bodyValue(amount)
+                    .exchange()
+                    .expectStatus().is4xxClientError()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void postRefunds3(){
+        String token = createTestToken(23L,0L,100);
+        String amount = "1fef";
+        try{
+            byte [] responseString = webTestClient.post().uri("/payment/shops/1/payments/1/refunds",1)
+                    .header("authorization",token)
+                    .bodyValue(amount)
+                    .exchange()
+                    .expectStatus().is4xxClientError()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void postRefunds4(){
+        String token = createTestToken(23L,0L,10000);
+        String amount = "1000";
+        try{
+            byte [] responseString = webTestClient.post().uri("/payment/shops/1/payments/1/refunds",1)
+                    .header("authorization",token)
+                    .bodyValue(amount)
+                    .exchange()
+                    .expectStatus().isOk()
+                    .expectHeader().contentType("application/json;charset=UTF-8")
+                    .expectBody()
+                    .returnResult().getResponseBodyContent();
+            String responseStr = new String(responseString,"UTF-8");
+            System.out.println(responseStr);
+            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void postRefunds5(){
         String token = createTestToken(23L,0L,100);
         String amount = "10";
         try{
@@ -231,4 +222,125 @@ public class PaymentControllerTest {
             e.printStackTrace();
         }
     }
+//    /*
+//     * @author 史韬韬
+//     * @date 2020/12/9
+//     * 买家查询自己的支付信息
+//     */
+//    @Test
+//    public void getPaymentById(){
+//        String token = createTestToken(23L,0L,100);
+//        String expectedResponse ="{\"errno\":0,\"data\":{\"id\":1,\"orderId\":1"+
+//                ",\"aftersaleId\":null,\"amount\":0,\"actualAmount\":0,\"payTime\":\"2020-12-01T17:04:55\","+
+//                "\"paymentPattern\":0,\"state\":0,\"beginTime\":\"2020-12-01T17:04:55\",\"endTime\":"+
+//                "\"2020-12-01T17:04:55\",\"gmtCreate\":\"2020-12-01T17:04:55\",\"gmtModified\":"+
+//                "\"2020-12-01T17:04:55\"},\"errmsg\":\"成功\"}";
+//        try{
+//            byte [] responseString = webTestClient.get().uri("/payment/orders/{id}/payment",1)
+//                    .header("authorization",token)
+//                    .exchange()
+//                    .expectStatus().isOk()
+//                    .expectHeader().contentType("application/json;charset=UTF-8")
+//                    .expectBody()
+//                    .returnResult().getResponseBodyContent();
+//            String responseStr = new String(responseString,"UTF-8");
+//            System.out.println(responseStr);
+//            JSONAssert.assertEquals(expectedResponse,responseStr,true);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
+//    /*
+//     * @author 史韬韬
+//     * @date 2020/12/10
+//     * 买家为售后单创建支付单
+//     */
+//    @Test
+//    public void createPaymentForAftersale(){
+//        String token = createTestToken(23L,0L,100);
+//        String paymentJson="{\"price\":100,\"paymentPattern\":1}";
+//        try{
+//            byte [] responseString = webTestClient.post().uri("/payment/aftersales/{id}/payments",1)
+//                    .header("authorization",token)
+//                    .bodyValue(paymentJson)
+//                    .exchange()
+//                    .expectStatus().isOk()
+//                    .expectHeader().contentType("application/json;charset=UTF-8")
+//                    .expectBody()
+//                    .returnResult().getResponseBodyContent();
+//            String responseStr = new String(responseString,"UTF-8");
+//            System.out.println(responseStr);
+//            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
+//    /*
+//     * @author 史韬韬
+//     * @date 2020/12/10
+//     * 管理员查看订单支付信息
+//     */
+//    @Test
+//    public void getPaymentByOrderIdAndShopId(){
+//        String token = createTestToken(23L,0L,100);
+//        try{
+//            byte [] responseString = webTestClient.get().uri("/payment/shops/{shopId}/orders/{id}/payments",1,1)
+//                    .header("authorization",token)
+//                    .exchange()
+//                    .expectStatus().isOk()
+//                    .expectHeader().contentType("application/json;charset=UTF-8")
+//                    .expectBody()
+//                    .returnResult().getResponseBodyContent();
+//            String responseStr = new String(responseString,"UTF-8");
+//            System.out.println(responseStr);
+//            //JSONAssert.assertEquals(expectedResponse,responseStr,true);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
+//    /*
+//     *管理员查询订单的退款信息
+//     * @author 陈星如
+//     * @date 2020/12/9 18:13
+//     */
+//    @Test
+//    public void getShopsOrdersRefunds(){
+//        String token = createTestToken(1L,0L,100);
+//        try{
+//            byte [] responseString = webTestClient.get().uri("/payment/shops/{shopId}/orders/1/refunds",1)
+//                    .header("authorization",token)
+//                    .exchange()
+//                    .expectStatus().isOk()
+//                    .expectHeader().contentType("application/json;charset=UTF-8")
+//                    .expectBody()
+//                    .returnResult().getResponseBodyContent();
+//            String responseStr = new String(responseString,"UTF-8");
+//            System.out.println(responseStr);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
+//    /*
+//     *管理员查询售后订单的退款信息
+//     * @author 陈星如
+//     * @date 2020/12/9 18:10
+//     */
+//    @Test
+//    public void getShopsAftersalesRefunds(){
+//        String token = createTestToken(1L,0L,100);
+//        try{
+//            byte [] responseString = webTestClient.get().uri("/payment/shops/1/aftersales/1/refunds")
+//                    .header("authorization",token)
+//                    .exchange()
+//                    .expectStatus().isOk()
+//                    .expectHeader().contentType("application/json;charset=UTF-8")
+//                    .expectBody()
+//                    .returnResult().getResponseBodyContent();
+//            String responseStr = new String(responseString,"UTF-8");
+//            System.out.println(responseStr);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
+
 }

@@ -283,7 +283,8 @@ public class OrderDao {
         OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
         ReturnObject<Object> retObj = null;
         //订单不存在
-        if (orderPo == null){
+        if (orderPo==null){
+            System.out.println("order");
             retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
             return retObj;
         }
@@ -301,6 +302,7 @@ public class OrderDao {
         //收货
         orderPo.setState((byte)OrderStateCode.ORDER_STATE_COMPLETED.getCode());
         orderPo.setGmtModified(LocalDateTime.now());
+        orderPo.setConfirmTime(LocalDateTime.now());
         try {
             int ret = orderPoMapper.updateByPrimaryKey(orderPo);
             if (ret == 0) {
@@ -332,9 +334,15 @@ public class OrderDao {
         logger.debug("confirmOrder: ID =" + id);
         OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
         ReturnObject<Object> retObj = null;
+        System.out.println("dao");
         //订单不存在
         if (orderPo == null){
             retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+            return retObj;
+        }
+        //订单已删除
+        if (orderPo.getBeDeleted()==(byte)1) {
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW);
             return retObj;
         }
         //该订单不是此用户订单
@@ -343,7 +351,7 @@ public class OrderDao {
             return retObj;
         }
         //订单不是团购订单
-        if (orderPo.getOrderType()!=(byte)1){
+        if (orderPo.getOrderType()!=(byte)1) {
             retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW);
             return retObj;
         }
