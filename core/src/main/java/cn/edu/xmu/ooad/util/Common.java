@@ -205,6 +205,7 @@ public class Common {
                     return ResponseUtil.ok();
                 }
             case RESOURCE_ID_OUTSCOPE:
+            case AUTH_NOT_ALLOW:
                 // 403: 无权限访问
                 return new ResponseEntity(
                     ResponseUtil.fail(returnObject.getCode(), returnObject.getErrmsg()),
@@ -214,7 +215,6 @@ public class Common {
                 return new ResponseEntity(
                         ResponseUtil.fail(returnObject.getCode(), returnObject.getErrmsg()),
                         HttpStatus.BAD_REQUEST);
-
             default:
                 return ResponseUtil.fail(returnObject.getCode(), returnObject.getErrmsg());
         }

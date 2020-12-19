@@ -17,6 +17,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.io.UnsupportedEncodingException;
+import java.time.LocalDateTime;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -114,15 +115,19 @@ public class OrderControllerTest {
      * @author 王薪蕾
      * @date 2020/12/6
      */
+    //order的cosumer不是userid
+    //order不存在
+    //order夫状态不对
+    //order子状态不对
+    //正确
     @Test
     public void confirmOrderTest(){
-        String token = createTestToken(1L, 0L, 100);
-        String expectStr = "{\"errno\":0,\"errmsg\":\"成功\"}";
+        String token = createTestToken(1L, -2L, 100);
         try {
-            byte [] responseString = webTestClient.put().uri("/order/orders/29/confirm")
+            byte [] responseString = webTestClient.put().uri("/order/orders/38051/confirm")
                     .header("authorization",token)
                     .exchange()
-                    .expectStatus().isOk()
+                    .expectStatus().is4xxClientError()
                     .expectHeader().contentType("application/json;charset=UTF-8")
                     .expectBody()
                     .returnResult().getResponseBodyContent();
@@ -138,12 +143,17 @@ public class OrderControllerTest {
      * @author 王薪蕾
      * @date 2020/12/6
      */
+    //order的cosumer不是userid
+    //order不存在
+    //order夫状态不对
+    //order子状态不对
+    //正确
     @Test
     public void grouponToNormalOrderTest(){
-        String token = createTestToken(2L, 0L, 100);
+        String token = createTestToken(1L, -2L, 100);
         String expectStr = "{\"errno\":0,\"errmsg\":\"成功\"}";
         try {
-            byte [] responseString = webTestClient.post().uri("/order/orders/29/groupon-normal")
+            byte [] responseString = webTestClient.post().uri("/order/orders/1/groupon-normal")
                     .header("authorization",token)
                     .exchange()
                     .expectStatus().isOk()
@@ -187,7 +197,8 @@ public class OrderControllerTest {
      */
     @Test
     public void changeOrder(){
-        String token = createTestToken(23L,0L,100);
+        String token = createTestToken(1L,0L,10000);
+        System.out.println(token);
         String adressJson="{\"consignee\":\"张伟\","+
                 "\"regionId\": 123456,\"address\":\"深圳\", \"mobile\":\"112233445566\"}";
         try{
@@ -261,7 +272,7 @@ public class OrderControllerTest {
      **/
     @Test
     public void deleteShopOrder(){
-        String token = createTestToken(1L,0L,100);
+        String token = "test";
         String expectStr = "{\"errno\":0,\"errmsg\":\"成功\"}";
         try{
             byte [] responseString = webTestClient.delete().uri("/order/shops/1/orders/1")

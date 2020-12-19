@@ -35,9 +35,9 @@ public class FreightService {
      * @date 2020/12/7
      */
 
-    public ReturnObject postFreightModelToShop(Long shopId,Long id) {
+    public ReturnObject postFreightModelToShop(Long shopId,Long id,Long departId) {
 
-        ReturnObject returnObject = freightDao.postFreightModelToShop(shopId,id);
+        ReturnObject returnObject = freightDao.postFreightModelToShop(shopId,id,departId);
         return returnObject;
     }
 
@@ -54,8 +54,8 @@ public class FreightService {
      * @author 王薪蕾
      * @date 2020/12/8
      */
-    public ReturnObject postWeightItems(WeightModelInfoVo vo, Long shopId, Long id) {
-        ReturnObject returnObject = freightDao.postWeightItems(vo,shopId,id);
+    public ReturnObject postWeightItems(WeightModelInfoVo vo, Long shopId, Long id,Long departId) {
+        ReturnObject returnObject = freightDao.postWeightItems(vo,shopId,id,departId);
         return returnObject;
     }
     /**
@@ -64,8 +64,8 @@ public class FreightService {
      * @date 2020/12/9
      */
 
-    public ReturnObject deleteFreightModel(Long shopId, Long id) {
-        return freightDao.deleteFreightModel(shopId,id);
+    public ReturnObject deleteFreightModel(Long shopId, Long id,Long departId) {
+        return freightDao.deleteFreightModel(shopId,id,departId);
     }
     /**
      * 管理员克隆店铺的运费模板

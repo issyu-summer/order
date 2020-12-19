@@ -37,4 +37,6 @@ public interface OrderInnerService {
      * @return
      */
     Long getUserIdByOrderId(Long orderId);
+
+    Long getShopIdByOrderId(Long orderId);
 }

@@ -215,8 +215,9 @@ public class OrderController {
             @LoginUser Long userId,
             @Depart Long departId
     ) {
-        if(departId.equals(-2))
-        return Common.getRetObject(orderService.confirmOrders(id,userId));
+        System.out.println("controller");
+        if(departId.equals(-2L))
+        return Common.decorateReturnObject(orderService.confirmOrders(id,userId));
         ReturnObject returnObject=new ReturnObject(ResponseCode.AUTH_NOT_ALLOW);
         return Common.decorateReturnObject(returnObject);
         //return Common.getNullRetObj()
@@ -242,8 +243,12 @@ public class OrderController {
     @PostMapping("/orders/{id}/groupon-normal")
     public Object grouponToNormalOrders(
             @PathVariable("id") Long id,
+            @Depart Long departId,
             @LoginUser Long userId) {
-        return Common.getRetObject(orderService.grouponToNormalOrders(id,userId));
+        if(departId.equals(-2L))
+        return Common.getRetObject(orderService.grouponToNormalOrders(id,userId));;
+        ReturnObject returnObject=new ReturnObject(ResponseCode.AUTH_NOT_ALLOW);
+        return Common.decorateReturnObject(returnObject);
 
     }
 
