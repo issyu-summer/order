@@ -60,14 +60,14 @@ spring:
 
               #包含不需要token的路径
         - id: users-nonAuth
-          uri: http://localhost:8080/
+          uri: http://localhost:8082/
           predicates:
             - Path=/users, /users/login, /users/password/**
           filters:
             - PrefixPath=/user
         #包含需要token的路径
         - id: users
-          uri: http://localhost:8080/
+          uri: http://localhost:8082/
           predicates:
             - Path=/users/states, /users/all, users/logout, /users/{id}/**
           filters:

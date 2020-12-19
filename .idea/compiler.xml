@@ -10,6 +10,7 @@
         <module name="orderservice" />
         <module name="inner-api" />
         <module name="userService" />
+        <module name="public-test" />
         <module name="gateway" />
         <module name="customertest" />
         <module name="Other-External-Interface" />
@@ -42,6 +43,7 @@
       <module name="privilegegateway" target="11" />
       <module name="privilegeservice" target="11" />
       <module name="privilegeservice-client" target="11" />
+      <module name="public-test" target="11" />
       <module name="userService" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -64,6 +66,7 @@
       <module name="privilegegateway" options="-parameters" />
       <module name="privilegeservice" options="-parameters" />
       <module name="privilegeservice-client" options="-parameters" />
+      <module name="public-test" options="-parameters" />
       <module name="userService" options="-parameters" />
     </option>
   </component>
