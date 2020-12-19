@@ -1635,3 +1635,5 @@
 2020-12-19 16:34:16.632 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE2NjYxIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjozNzU1ODUwNTAzLCJ1c2VySWQiOjc3NjgsImlhdCI6MTYwODM2Njg1Nn0.xSGIGoXdEzSbndW2cr4pmTCFrDIg1Q_V6RciIY8-4uU
 2020-12-19 16:34:16.632 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
 2020-12-19 16:34:16.632 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/payments
+2020-12-19 17:01:54.759 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-19 17:02:08.705 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 18.02 seconds (JVM running for 20.782)
