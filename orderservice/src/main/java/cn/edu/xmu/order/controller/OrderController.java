@@ -10,6 +10,8 @@ import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.ooad.util.TimeFormat;
 import cn.edu.xmu.order.model.vo.AdressVo;
 import cn.edu.xmu.order.model.vo.OrderInfoVo;
+import cn.edu.xmu.order.model.vo.OrderMessageVo;
+import cn.edu.xmu.order.model.vo.OrderShipmentSnVo;
 import cn.edu.xmu.order.service.OrderService;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.*;
@@ -246,7 +248,6 @@ public class OrderController {
     }
 
     /**
-     * V
      * 店家查询商户所有订单 (概要)
      * @author 王子扬 30320182200071
      * @date 2020/12/5 23:04
@@ -273,20 +274,12 @@ public class OrderController {
                                @RequestParam(required = false) String beginTime,
                                @RequestParam(required = false) String endTime,
                                @RequestParam(required = false) Integer page,
-                               @RequestParam(required = false) Integer pageSize){
+                               @RequestParam(required = false) Integer pageSize,
+                               @Depart @ApiIgnore Long departId){
+        System.out.println(departId);
         logger.debug("getAllOrders: page = "+ page +"  pageSize ="+pageSize);
-        page = (page == null)?1:page;
-        pageSize = (pageSize == null)?10:pageSize;
-        LocalDateTime localBeginTime = null;
-        LocalDateTime localEndTime = null;
-        if(beginTime!=null){
-            localBeginTime= TimeFormat.stringToDateTime(beginTime);
-        }
-        if(endTime!=null){
-            localEndTime=TimeFormat.stringToDateTime(endTime);
-        }
 
-        ReturnObject<PageInfo<VoObject>> returnObject = orderService.selectOrders(shopId,customerId,orderSn,localBeginTime,localEndTime,page,pageSize);
+        ReturnObject<PageInfo<VoObject>> returnObject = orderService.selectOrders(shopId,customerId,orderSn,beginTime,endTime,page,pageSize,departId);
         return Common.getPageRetObject(returnObject);
     }
 
@@ -309,18 +302,9 @@ public class OrderController {
     @PutMapping("/shops/{shopId}/orders/{id}")
     public Object getAllOrders(@PathVariable("shopId") Long shopId,
                                @PathVariable("id") Long id,
-                               @RequestParam(required = true) String message){
-        ReturnObject retObject = orderService.updateOrderMessage(shopId,id,message);
-
-        if (retObject.getData() != null) {
-            httpServletResponse.setStatus(HttpStatus.CREATED.value());
-            return Common.getRetObject(retObject);
-            /*
-            此处返回值错误。
-             */
-        } else {
-            return Common.getNullRetObj(new ReturnObject<>(retObject.getCode(), retObject.getErrmsg()), httpServletResponse);
-        }
+                               @Validated @RequestBody OrderMessageVo orderMessageVo,
+                               @Depart @ApiIgnore Long departId){
+        return Common.decorateReturnObject(orderService.updateOrderMessage(shopId,id,orderMessageVo,departId));
     }
     /**
      * 店家查询店内订单完整信息(普通，团购，预售)
@@ -363,8 +347,8 @@ public class OrderController {
     })
     @Audit
     @RequestMapping(value="/shops/{shopId}/orders/{id}",method = RequestMethod.DELETE)
-    public Object deleteShopOrder(@PathVariable Long shopId,@PathVariable Long id){
-        return Common.getRetObject(orderService.deleteShopOrder(shopId,id));
+    public Object deleteShopOrder(@PathVariable Long shopId,@PathVariable Long id,@Depart @ApiIgnore Long departId){
+        return Common.getRetObject(orderService.deleteShopOrder(shopId,id,departId));
     }
     /**
      *店家对订单标记发货
@@ -385,7 +369,8 @@ public class OrderController {
     @Audit
     @PutMapping("/shops/{shopId}/orders/{id}/deliver")
 
-    public Object shipOrder(@PathVariable(name="shopId") Long shopId, @PathVariable(name="id")  Long id,@Validated @RequestBody String shipmentSn){
-        return Common.decorateReturnObject(orderService.shipOrder(shopId,id,shipmentSn));
+    public Object shipOrder(@PathVariable(name="shopId") Long shopId, @PathVariable(name="id")  Long id, @Validated @RequestBody OrderShipmentSnVo orderShipmentSnVo,
+                            @Depart @ApiIgnore Long departId){
+        return Common.decorateReturnObject(orderService.shipOrder(shopId,id,orderShipmentSnVo,departId));
     }
 }

@@ -1,5 +1,6 @@
 package cn.edu.xmu.freight.controller;
 
+import cn.edu.xmu.freight.model.bo.FreightModelBo;
 import cn.edu.xmu.freight.model.vo.*;
 import cn.edu.xmu.freight.service.FreightService;
 import cn.edu.xmu.ooad.annotation.Audit;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 import java.util.*;
 
 /**
@@ -258,6 +260,8 @@ public class FreightController {
      * @author 陈星如
      * @date 2020/12/9 9:13
      */
+
+
     @ApiOperation(value = "管理员定义件数模板明细",produces="application/json")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺Id", required = true),
@@ -280,7 +284,7 @@ public class FreightController {
     }
 
     /**
-     * 管理员修改件数模板明细
+     * 店家或管理员修改件数模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
@@ -297,16 +301,15 @@ public class FreightController {
     @Audit
     @PutMapping("/shops/{shopId}/pieceItems/{id}")
     public Object putPieceItems(
-            @LoginUser Long userId,
+            @Depart @ApiIgnore Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id,
             @RequestBody PieceModelInfoVo vo
     ){
-        return Common.decorateReturnObject(freightService.putPieceItems(vo,shopId,id));
+        return Common.decorateReturnObject(freightService.putPieceItems(vo,shopId,id,departId));
     }
-
     /**
-     * 管理员修改重量模板明细
+     * 店家或管理员修改重量模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
@@ -323,16 +326,16 @@ public class FreightController {
     @Audit
     @PutMapping("/shops/{shopId}/weightItems/{id}")
     public Object putWeightItems(
-            @LoginUser Long userId,
+            @Depart @ApiIgnore Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id,
             @RequestBody WeightModelInfoVo vo
     ){
-        return Common.decorateReturnObject(freightService.putWeightItems(vo,shopId,id));
+        return Common.decorateReturnObject(freightService.putWeightItems(vo,shopId,id,departId));
     }
 
     /**
-     * 管理员删除件数模板明细
+     * 店家或管理员删除件数模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
@@ -347,13 +350,12 @@ public class FreightController {
     @Audit
     @DeleteMapping("/shops/{shopId}/pieceItems/{id}")
     public Object deletePieceItems(
-            @LoginUser Long userId,
+            @Depart @ApiIgnore Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id
     ){
-        return Common.decorateReturnObject(freightService.deletePieceItems(shopId,id));
+        return Common.decorateReturnObject(freightService.deletePieceItems(shopId,id,departId));
     }
-
 
     /**
      * 管理员删除重量模板明细
@@ -371,11 +373,11 @@ public class FreightController {
     @Audit
     @DeleteMapping("/shops/{shopId}/weightItems/{id}")
     public Object deleteWeightItems(
-            @LoginUser Long userId,
+            @Depart @ApiIgnore Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id
     ){
-        return Common.decorateReturnObject(freightService.deleteWeightItems(shopId,id));
+        return Common.decorateReturnObject(freightService.deleteWeightItems(shopId,id,departId));
     }
     /**
      * 店家或管理员查询重量运费模板明细
@@ -402,9 +404,9 @@ public class FreightController {
     }
 
     /**
-     *店家或管理员查询件数运费模板的明细
-     *@author 陈星如
-     *@date 2020/12/8 14:13
+     * 店家或管理员查询件数运费模板的明细
+     * @author 陈星如
+     * @date 2020/12/8 14:13
      */
     @ApiOperation(value = "店家或管理员查询件数运费模板的明细",produces="application/json")
     @ApiImplicitParams({
@@ -415,13 +417,12 @@ public class FreightController {
             @ApiResponse(code = 0,message = "成功")
     })
     @Audit
-    @PostMapping("/shops/{shopId}/freightmodels/{id}/pieceItems")
+    @GetMapping("/shops/{shopId}/freightmodels/{id}/pieceItems")
     public Object getFreightModelsPieceItems(
             @PathVariable("shopId") Long shopId,
             @PathVariable("id")  Long id){
         return Common.decorateReturnObject(freightService.getFreightModelsPieceItems(shopId,id));
     }
-
     /**
      * 买家使用运费模板计算运费
      * @author issyu 30320182200070

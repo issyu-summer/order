@@ -77,5 +77,17 @@ public class OrderInnerServiceImpl implements OrderInnerService {
         Long userId = orderPoMapper.selectByPrimaryKey(orderId).getCustomerId();
         return userId;
     }
+
+    @Override
+    public Long getUserIdByOrderId(Long orderId){
+        try{
+            OrderPo orderPo = orderPoMapper.selectByPrimaryKey(orderId);
+            return orderPo.getCustomerId();
+        }catch (Exception e){
+            log.debug(e.getMessage());
+            return null;
+        }
+    }
+
 }
 

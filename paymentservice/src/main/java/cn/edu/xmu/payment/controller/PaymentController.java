@@ -273,5 +273,49 @@ public class PaymentController {
     public Object test2(){
         return iAfterSaleService.verifyAfterSaleId(2L);
     }
+    /**
+     *买家查询自己的退款信息(订单)
+     * @author 王子扬 30320182200071
+     * @date 2020/12/11
+     */
+    @ApiOperation(value = "买家查询自己的退款信息",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "Long",name = "id", value = "订单id", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @GetMapping("/orders/{id}/refunds")
+    public Object getUsersOrdersRefunds(
+            @Depart @ApiIgnore Long departId,
+            @LoginUser @ApiIgnore Long userId,
+            @PathVariable("id")  Long id){
+        Long actualUserId=orderInnerService.getUserIdByOrderId(id);
+        return Common.decorateReturnObject(paymentService.getUsersOrdersRefunds(userId,id,departId,actualUserId));
+    }
 
+    /**
+     *买家查询自己的退款信息(售后订单)
+     * @author 王子扬 30320182200071
+     * @date 2020/12/9 18:10
+     */
+    @ApiOperation(value = "买家查询自己的退款信息",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "Long",name = "id", value = "售后单id", required = true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @GetMapping("/aftersales/{id}/refunds")
+    public Object getUsersAftersalesRefunds(
+            @Depart @ApiIgnore Long departId,
+            @LoginUser @ApiIgnore Long userId,
+            @PathVariable("id")  Long id){
+        System.out.println(userId);
+        return Common.decorateReturnObject(paymentService.getUsersAftersalesRefunds(userId,id,departId));
+    }
 }

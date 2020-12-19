@@ -29,8 +29,12 @@ public interface OrderInnerService {
      * @date 2020/12/16 12:28
     */
     Long getCustomerIdByOrderId(Long orderId);
-
-
-
-
+    /**
+     * 通过订单Id获得用户Id
+     * @author 王子扬 30320182200071
+     * @date 2020/12/11 17:44
+     * @param orderId
+     * @return
+     */
+    Long getUserIdByOrderId(Long orderId);
 }

@@ -1,13 +1,17 @@
 package cn.edu.xmu.freight.service;
 
 import cn.edu.xmu.freight.dao.FreightDao;
+import cn.edu.xmu.freight.model.bo.FreightModelBo;
 import cn.edu.xmu.freight.model.vo.*;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.ReturnObject;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.awt.*;
+import java.util.List;
 
 /**
  * @author issyu 30320182200070
@@ -101,42 +105,42 @@ public class FreightService {
     }
 
     /**
-     * 管理员修改件数模板明细
+     * 店家或管理员修改件数模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
-    public ReturnObject putPieceItems(PieceModelInfoVo vo, Long shopId, Long id) {
-        ReturnObject returnObject = freightDao.putPieceItems(vo,shopId,id);
+    public ReturnObject putPieceItems(PieceModelInfoVo vo, Long shopId, Long id, Long departId) {
+        ReturnObject returnObject = freightDao.putPieceItems(vo,shopId,id,departId);
         return returnObject;
     }
 
     /**
-     * 管理员修改重量模板明细
+     * 店家或管理员修改重量模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
-    public ReturnObject putWeightItems(WeightModelInfoVo vo, Long shopId, Long id) {
-        ReturnObject returnObject = freightDao.putWeightItems(vo,shopId,id);
+    public ReturnObject putWeightItems(WeightModelInfoVo vo, Long shopId, Long id,Long departId) {
+        ReturnObject returnObject = freightDao.putWeightItems(vo,shopId,id,departId);
         return returnObject;
     }
 
     /**
-     * 管理员删除件数模板明细
+     * 店家或管理员删除件数模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
-    public ReturnObject deletePieceItems(Long shopId, Long id) {
-        ReturnObject returnObject = freightDao.deletePieceItems(shopId,id);
+    public ReturnObject deletePieceItems(Long shopId, Long id,Long departId) {
+        ReturnObject returnObject = freightDao.deletePieceItems(shopId,id,departId);
         return returnObject;
     }
 
     /**
-     * 管理员删除重量模板明细
+     * 店家或管理员删除重量模板明细
      * @author 王子扬
      * @date 2020/12/10 9:13
      */
-    public ReturnObject deleteWeightItems(Long shopId, Long id) {
-        ReturnObject returnObject = freightDao.deleteWeightItems(shopId,id);
+    public ReturnObject deleteWeightItems(Long shopId, Long id, Long departId) {
+        ReturnObject returnObject = freightDao.deleteWeightItems(shopId,id,departId);
         return returnObject;
     }
     /**

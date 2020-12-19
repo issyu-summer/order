@@ -15,10 +15,7 @@ import cn.edu.xmu.payment.model.po.PaymentPo;
 import cn.edu.xmu.payment.model.po.PaymentPoExample;
 import cn.edu.xmu.payment.model.po.RefundPo;
 import cn.edu.xmu.payment.model.po.RefundPoExample;
-import cn.edu.xmu.payment.model.vo.AfterSalePaymentVo;
-import cn.edu.xmu.payment.model.vo.PaymentRetVo;
-import cn.edu.xmu.payment.model.vo.PaymentVo;
-import cn.edu.xmu.payment.model.vo.ShopsPaymentsInfoRetVo;
+import cn.edu.xmu.payment.model.vo.*;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +35,8 @@ public class PaymentDao {
     private PaymentPoMapper paymentPoMapper;
     @Autowired
     private RefundPoMapper refundPoMapper;
-
+    @DubboReference(check = false)
+    private OrderInnerService orderInnerService;
     /**
      * 买家查询自己售后单的支付信息
      * @author 王薪蕾
@@ -279,9 +277,6 @@ public class PaymentDao {
         return new ReturnObject<>(refundBo);
     }
 
-    @DubboReference
-    private OrderInnerService orderInnerService;
-
     /**
      * if(管理员) select *
      * if(店家)  select * where shopId
@@ -363,4 +358,75 @@ public class PaymentDao {
         return new ReturnObject<>(paymentPatternBos);
     }
 
+    /**
+     *买家查询自己的退款信息(订单)
+     * 需要修复:需要Order模块获取用户ID进行校验
+     * @author 王子扬 30320182200071
+     * @date 2020/12/11
+     */
+    public ReturnObject getUsersOrdersRefunds(Long userId, Long id,Long departId,Long actualUserId) {
+        try{
+            if(actualUserId==null){
+                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("所提供的订单号无效或者无法获取到对应用户"));
+            }
+            if(departId!=-2){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("登陆的不是普通用户"));
+            }
+            if(!actualUserId.equals(userId)){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("订单对应的UserId和登陆的不一致"));
+            }
+            RefundPoExample refundPoExample=new RefundPoExample();
+            RefundPoExample.Criteria criteria=refundPoExample.createCriteria();
+            if(id == null){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+            }
+            criteria.andOrderIdEqualTo(id);
+
+            List<RefundPo> refundPos=refundPoMapper.selectByExample(refundPoExample);
+            if(refundPos.size() > 1){
+                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("同一订单Id不能对拥有多个退款"));
+            }
+            for (RefundPo po : refundPos) {
+                UsersPaymentsInfoRetVo usersPaymentsInfoRetVo = new UsersPaymentsInfoRetVo(po);
+                return new ReturnObject<>(usersPaymentsInfoRetVo);
+            }
+
+            return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+        }catch (DataAccessException e) {
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
+        } catch (Exception e) {
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
+    }
+
+    /**
+     *买家查询自己的退款信息(售后订单)
+     * 需要修复:需要Order模块获取用户ID进行校验
+     * @author 王子扬 30320182200071
+     * @date 2020/12/11
+     */
+    public ReturnObject getUsersAftersalesRefunds(Long userId, Long id,Long departId) {
+        try{
+            if(userId==null){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST,String.format("传入userId为空"));
+            }
+            if(departId!=-2){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("登陆用户不是普通买家"));
+            }
+            RefundPo refundPo = refundPoMapper.selectByPrimaryKey(id);
+            if(refundPo == null){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST,String.format("退款订单不存在"));
+            }
+            if(!userId.equals(orderInnerService.getUserIdByOrderId(refundPo.getOrderId()))){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("登陆用户和所查询的退款订单对应用户不同"));
+            }
+
+            UsersPaymentsInfoRetVo usersPaymentsInfoRetVo = new UsersPaymentsInfoRetVo(refundPo);
+            return new ReturnObject<>(usersPaymentsInfoRetVo);
+        }catch (DataAccessException e) {
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
+        } catch (Exception e) {
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
+    }
 }

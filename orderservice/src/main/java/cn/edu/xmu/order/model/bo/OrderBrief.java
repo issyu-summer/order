@@ -1,5 +1,6 @@
 package cn.edu.xmu.order.model.bo;
 import cn.edu.xmu.ooad.model.VoObject;
+import cn.edu.xmu.ooad.util.TimeFormat;
 import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.order.model.vo.OrderBriefRetVo;
 import lombok.Data;
@@ -24,6 +25,10 @@ public class OrderBrief implements VoObject {
     private Long originPrice;
     private Long discountPrice;
     private Long freightPrice;
+    private Long grouponId;
+    private Long presaleId;
+    private String shipmentSn;
+
 
     public OrderBrief(OrderPo po){
         this.id=po.getId();
@@ -37,6 +42,9 @@ public class OrderBrief implements VoObject {
         this.originPrice=po.getOriginPrice();
         this.discountPrice=po.getDiscountPrice();
         this.freightPrice=po.getFreightPrice();
+        this.grouponId=po.getGrouponId();
+        this.presaleId=po.getPresaleId();
+        this.shipmentSn=po.getShipmentSn();
     }
 
     @Override
@@ -49,10 +57,13 @@ public class OrderBrief implements VoObject {
         orderRetVo.setOrderType(orderType);
         orderRetVo.setState(state);
         orderRetVo.setSubState(subState);
-        orderRetVo.setGmtCreate(gmtCreate);
+        orderRetVo.setGmtCreate(TimeFormat.localDateTimeToString(gmtCreate));
         orderRetVo.setOriginPrice(originPrice);
         orderRetVo.setDiscountPrice(discountPrice);
         orderRetVo.setFreightPrice(freightPrice);
+        orderRetVo.setGrouponId(grouponId);
+        orderRetVo.setPresaleId(presaleId);
+        orderRetVo.setShipmentSn(shipmentSn);
         return orderRetVo;
     }
     @Override
@@ -65,7 +76,7 @@ public class OrderBrief implements VoObject {
         orderRetVo.setOrderType(orderType);
         orderRetVo.setState(state);
         orderRetVo.setSubState(subState);
-        orderRetVo.setGmtCreate(gmtCreate);
+        orderRetVo.setGmtCreate(TimeFormat.localDateTimeToString(gmtCreate));
         orderRetVo.setOriginPrice(originPrice);
         orderRetVo.setDiscountPrice(discountPrice);
         orderRetVo.setFreightPrice(freightPrice);

@@ -5,9 +5,7 @@ import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.order.dao.OrderDao;
 import cn.edu.xmu.order.model.bo.OrderBrief;
 import cn.edu.xmu.order.model.bo.OrderInfoBo;
-import cn.edu.xmu.order.model.vo.AdressVo;
-import cn.edu.xmu.order.model.vo.OrderInfoVo;
-import cn.edu.xmu.order.model.vo.OrderRetVo;
+import cn.edu.xmu.order.model.vo.*;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -124,11 +122,12 @@ public class OrderService {
      * @param endTime 从结束时间开始查询
      * @param page  页码
      * @param pageSize 每页数目
+     * @param departId 部门Id
      * @return ReturnObject<PageInfo < VoObject>> 分页返回订单信息
      * createdBy 王子扬 2020/12/04 16:17
      */
-    public ReturnObject<PageInfo<VoObject>> selectOrders(Long shopId, Long customerId, String orderSn, LocalDateTime beginTime, LocalDateTime endTime, Integer page, Integer pageSize){
-        ReturnObject<PageInfo<VoObject>> returnObject = orderDao.findAllOrders(shopId, customerId, orderSn, beginTime, endTime, page, pageSize);
+    public ReturnObject<PageInfo<VoObject>> selectOrders(Long shopId, Long customerId, String orderSn, String beginTime, String endTime, Integer page, Integer pageSize,Long departId){
+        ReturnObject<PageInfo<VoObject>> returnObject = orderDao.findAllOrders(shopId, customerId, orderSn, beginTime, endTime, page, pageSize,departId);
         return returnObject;
     }
 
@@ -137,8 +136,8 @@ public class OrderService {
      * @author 王子扬 30320182200071
      * @date  2020/12/5 23:38
      */
-    public ReturnObject<OrderBrief> updateOrderMessage(Long shopId, Long id, String message) {
-        ReturnObject<OrderBrief> returnObject = orderDao.updateOrderMessage(shopId,id,message);
+    public ReturnObject<OrderBrief> updateOrderMessage(Long shopId, Long id, OrderMessageVo orderMessageVo, Long departId) {
+        ReturnObject<OrderBrief> returnObject = orderDao.updateOrderMessage(shopId,id,orderMessageVo,departId);
         return returnObject;
     }
 
@@ -156,8 +155,8 @@ public class OrderService {
      * @author 陈星如
      * @date 2020/12/5 15:15
      **/
-    public ReturnObject<VoObject> deleteShopOrder(Long shopId,Long id){
-        return orderDao.deleteShopOrder(shopId,id);
+    public ReturnObject<VoObject> deleteShopOrder(Long shopId,Long id,Long departId){
+        return orderDao.deleteShopOrder(shopId,id,departId);
     }
 
     /**
@@ -165,6 +164,7 @@ public class OrderService {
      * @author 陈星如
      * @date 2020/12/5 21:16
      */
-    public ReturnObject<VoObject> shipOrder(Long shopId, Long id, String shipmentSn) {return orderDao.shipOrder(shopId,id,shipmentSn);
+    public ReturnObject<VoObject> shipOrder(Long shopId, Long id, OrderShipmentSnVo orderShipmentSnVo, Long departId) {
+        return orderDao.shipOrder(shopId,id,orderShipmentSnVo,departId);
     }
 }

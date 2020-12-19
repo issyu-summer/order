@@ -1,5 +1,6 @@
 package cn.edu.xmu.payment.service;
 
+import cn.edu.xmu.inner.service.OrderInnerService;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import cn.edu.xmu.payment.dao.PaymentDao;
 import cn.edu.xmu.payment.model.vo.AfterSalePaymentVo;
@@ -118,5 +119,24 @@ public class PaymentService {
      */
     public ReturnObject getPayPatternsByOrderId(Long userId,Long departId){
         return paymentDao.getPayPatternsByOrderId(userId,departId);
+    }
+
+    /**
+     *买家查询自己的退款信息(订单)
+     * @author 王子扬 30320182200071
+     * @date 2020/12/11
+     */
+    public ReturnObject<java.awt.List> getUsersOrdersRefunds(Long userId, Long id,Long departId,Long actualUserId) {
+        ReturnObject returnObject = paymentDao.getUsersOrdersRefunds(userId, id,departId,actualUserId);
+        return returnObject;
+    }
+    /**
+     *买家查询自己的退款信息(售后订单)
+     * @author 王子扬 30320182200071
+     * @date 2020/12/11
+     **/
+    public ReturnObject getUsersAftersalesRefunds(Long userId, Long id, Long departId) {
+        ReturnObject returnObject = paymentDao.getUsersAftersalesRefunds(userId, id,departId);
+        return returnObject;
     }
 }

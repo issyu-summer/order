@@ -1,16 +1,14 @@
 package cn.edu.xmu.order.dao;
 
 import cn.edu.xmu.ooad.model.VoObject;
-import cn.edu.xmu.ooad.util.AuthVerify;
-import cn.edu.xmu.ooad.util.OrderStateCode;
-import cn.edu.xmu.ooad.util.ResponseCode;
-import cn.edu.xmu.ooad.util.ReturnObject;
+import cn.edu.xmu.ooad.util.*;
 import cn.edu.xmu.order.mapper.OrderItemPoMapper;
 import cn.edu.xmu.order.mapper.OrderPoMapper;
 import cn.edu.xmu.order.model.bo.*;
 import cn.edu.xmu.order.model.po.OrderItemPo;
 import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.order.model.po.OrderPoExample;
+import cn.edu.xmu.order.model.vo.*;
 import cn.edu.xmu.order.model.vo.AdressVo;
 import cn.edu.xmu.order.model.vo.OrderInfoVo;
 import cn.edu.xmu.order.model.vo.OrderRetVo;
@@ -395,33 +393,50 @@ public class OrderDao {
      * @author 王子扬 30320182200071
      * @date  2020/12/5 16:09
      */
-    public ReturnObject<PageInfo<VoObject>> findAllOrders(Long shopId, Long customerId, String orderSn, LocalDateTime beginTime,
-                                                          LocalDateTime endTime, Integer page, Integer pageSize){
-        OrderPoExample example = new OrderPoExample();
-        OrderPoExample.Criteria criteria = example.createCriteria();
-        criteria.andShopIdEqualTo(shopId);
-        criteria.andBeDeletedEqualTo((byte)0);//已经删除订单即被删除状态不为0的订单就不再显示
-        if(customerId != null){
-            criteria.andCustomerIdEqualTo(customerId);
-        }
-        if(orderSn != null){
-            criteria.andOrderSnEqualTo(orderSn);
-        }
-        if(beginTime != null && endTime != null){
-            criteria.andConfirmTimeBetween(beginTime,endTime);
-        }else{
-            if(endTime != null){
-                criteria.andConfirmTimeLessThanOrEqualTo(endTime);
-            }
-            if(beginTime != null){
-                criteria.andConfirmTimeGreaterThanOrEqualTo(beginTime);
-            }
-        }
-
-        PageHelper.startPage(page,pageSize);
-        List<OrderPo> orderPos = null;
-        logger.debug("page = " + page + "pageSize = " + pageSize);
+    public ReturnObject<PageInfo<VoObject>> findAllOrders(Long shopId, Long customerId, String orderSn, String beginTime,
+                                                          String endTime, Integer page, Integer pageSize,Long departId){
         try{
+            LocalDateTime localBeginTime = null;
+            LocalDateTime localEndTime = null;
+            if(beginTime!=null){
+                localBeginTime= TimeFormat.stringToDateTime(beginTime);
+            }
+            if(endTime!=null){
+                localEndTime=TimeFormat.stringToDateTime(endTime);
+            }
+            page = (page == null)?1:page;
+            pageSize = (pageSize == null)?10:pageSize;
+
+            if(departId<=0){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("登陆的用户不是已经注册店铺的卖家用户"));
+            }
+            if(!departId.equals(shopId)){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("请求店铺Id和登陆的店铺Id不一致"));
+            }
+            OrderPoExample example = new OrderPoExample();
+            OrderPoExample.Criteria criteria = example.createCriteria();
+            criteria.andShopIdEqualTo(shopId);
+            if(customerId != null){
+                criteria.andCustomerIdEqualTo(customerId);
+            }
+            if(orderSn != null){
+                criteria.andOrderSnEqualTo(orderSn);
+            }
+            if(localBeginTime != null && localEndTime != null){
+                criteria.andGmtCreateBetween(localBeginTime,localEndTime);
+            }else{
+                if(localEndTime != null){
+                    criteria.andGmtCreateLessThanOrEqualTo(localEndTime);
+                }
+                if(localBeginTime != null){
+                    criteria.andGmtCreateGreaterThanOrEqualTo(localBeginTime);
+                }
+            }
+
+            PageHelper.startPage(page,pageSize);
+            List<OrderPo> orderPos = null;
+            logger.debug("page = " + page + "pageSize = " + pageSize);
+
             orderPos = orderPoMapper.selectByExample(example);
             List<VoObject> ret = new ArrayList<>(orderPos.size());
             for(OrderPo po : orderPos){
@@ -444,19 +459,27 @@ public class OrderDao {
      * @author 王子扬 30320182200071
      * @date  2020/12/5 23:38
      */
-    public ReturnObject<OrderBrief> updateOrderMessage(Long shopId, Long id, String message) {
+    public ReturnObject<OrderBrief> updateOrderMessage(Long shopId, Long id, OrderMessageVo orderMessageVo, Long departId) {
         ReturnObject<OrderBrief> retObj = null;
         try{
+            if(departId<=0){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("登陆的用户不是已经注册店铺的卖家用户"));
+            }
+            if(!departId.equals(shopId)){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("请求店铺Id和登陆的店铺Id不一致"));
+            }
+            String message=orderMessageVo.getMessage();
             OrderPo orderPo=orderPoMapper.selectByPrimaryKey(id);
             if(orderPo==null || orderPo.getBeDeleted()!=(byte)0){//订单已经逻辑删除视为订单不存在
                 retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单id不存在：" + id));
                 return retObj;
             }
-            if(orderPo.getShopId()!=shopId){
+            if(orderPo.getShopId()==null || !orderPo.getShopId().equals(shopId)){
                 retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("店铺不存在该订单：" + shopId));
                 return retObj;
             }
             orderPo.setMessage(message);
+            orderPo.setGmtModified(LocalDateTime.now());
             orderPoMapper.updateByPrimaryKey(orderPo);
             return new ReturnObject<>();
         }catch (DataAccessException e){
@@ -495,90 +518,50 @@ public class OrderDao {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR);
         }
     }
-    /*
-     * 管理员取消本店铺订单
-     * @author 陈星如
-     * @date 2020/12/5 15:15
-     */
-    public ReturnObject<VoObject> deleteShopOrder(Long shopId, Long id) {
-        logger.debug("confirmOrder: ID =" + id);
-        OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
-        ReturnObject<VoObject> retObj = null;
-        //订单不存在
-        if (orderPo == null){
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单不存在：id=" + id));
-            return retObj;
-        }
-        //该订单不是此店铺订单
-        if (!shopId.equals(orderPo.getShopId())) {
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("操作的店铺id不是自己的对象：id=" + id));
-            return retObj;
-        }
-        //订单处于无法取消状态
-        if (!orderPo.getState().equals((byte) 8)&&!orderPo.getState().equals((byte) 9)&&!orderPo.getState().equals((byte) 10)&&!orderPo.getState().equals((byte) 11)&&!orderPo.getState().equals((byte) 12)&&!orderPo.getState().equals((byte) 15)) {
-            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止：id=" + id));
-            return retObj;
-        }
-        //取消订单
-        orderPo.setState((byte) 0);
-        try {
-            int ret = orderPoMapper.updateByPrimaryKey(orderPo);
-            if (ret == 0) {
-                //取消订单失败
-                logger.debug("confirmOrders: confirm order fail: " + orderPo.toString());
-                retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库更新不成功"));
-            } else {
-                //取消订单成功
-                logger.debug("confirmOrders: confirm order = " + orderPo.toString());
-                retObj = new ReturnObject<>(ResponseCode.OK,String.format("成功"));
-            }
-        } catch (DataAccessException e) {
-            logger.error("database exception: " + e.getMessage());
-            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
-        } catch (Exception e) {
-            // 其他Exception错误
-            logger.error("other exception : " + e.getMessage());
-            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
-        }
-        return retObj;
-    }
-    /*
+
+    /**
      * 店家对订单标记发货
      * @author 陈星如
      * @date 2020/12/5 15:16
      */
-    public ReturnObject<VoObject> shipOrder(Long shopId, Long id, String shipmentSn) {
-        logger.debug("confirmOrder: ID =" + id);
-        OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
-        ReturnObject<VoObject> retObj = null;
-        //订单不存在
-        if (orderPo == null){
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单不存在：id=" + id));
-            return retObj;
-        }
-        //该订单不是此店铺订单
-        if (!shopId.equals(orderPo.getShopId())) {
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("操作的店铺id不是自己的对象：id=" + id));
-            return retObj;
-        }
-        //订单处于无法发货状态
-        if (!orderPo.getState().equals((byte) 8)&&!orderPo.getState().equals((byte) 9)&&!orderPo.getState().equals((byte) 10)&&!orderPo.getState().equals((byte) 11)&&!orderPo.getState().equals((byte) 12)&&!orderPo.getState().equals((byte) 15)) {
-            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止：id=" + id));
-            return retObj;
-        }
-        //发货
-        orderPo.setState((byte) 16);
-        orderPo.setShipmentSn(shipmentSn);
+    public ReturnObject<VoObject> shipOrder(Long shopId, Long id, OrderShipmentSnVo orderShipmentSnVo,Long departId) {
         try {
+            String shipmentSn=orderShipmentSnVo.getFreightSn();
+            OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
+            ReturnObject<VoObject> retObj = null;
+            //订单不存在
+            if (orderPo == null){
+                retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单不存在：id=" + id));
+                return retObj;
+            }
+            //该订单不是此店铺订单
+            if (!shopId.equals(orderPo.getShopId())) {
+                retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("操作的店铺id不是自己的对象：id=" + id));
+                return retObj;
+            }
+            //该用户不是店家
+            if (!departId.equals(shopId)) {
+                retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("该用户不是店家"));
+                return retObj;
+            }
+            //订单处于无法发货状态
+            if (orderPo.getState()!=(byte)OrderStateCode.ORDER_STATE_PAID.getCode()) {
+                retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止"));
+                return retObj;
+            }
+            //发货
+            orderPo.setState((byte)OrderStateCode.ORDER_STATE_SHIP.getCode());
+            orderPo.setShipmentSn(shipmentSn);
+            orderPo.setGmtModified(LocalDateTime.now());
             int ret = orderPoMapper.updateByPrimaryKey(orderPo);
             if (ret == 0) {
                 //标记发货失败
                 logger.debug("confirmOrders: confirm order fail: " + orderPo.toString());
-                retObj = new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库更新不成功"));
+                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库更新不成功"));
             } else {
                 //标记发货成功
                 logger.debug("confirmOrders: confirm order = " + orderPo.toString());
-                retObj = new ReturnObject<>(ResponseCode.OK,String.format("成功"));
+                return new ReturnObject<>(ResponseCode.OK,String.format("成功"));
             }
         } catch (DataAccessException e) {
             logger.error("database exception: " + e.getMessage());
@@ -588,7 +571,59 @@ public class OrderDao {
             logger.error("other exception : " + e.getMessage());
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
         }
-        return retObj;
+    }
+    /**
+     * 管理员取消本店铺订单
+     * @author 陈星如
+     * @date 2020/12/5 15:15
+     */
+    public ReturnObject<VoObject> deleteShopOrder(Long shopId, Long id,Long departId) {
+        try {
+            logger.debug("confirmOrder: ID =" + id);
+            OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
+            ReturnObject<VoObject> retObj = null;
+            //订单不存在
+            if (orderPo == null){
+                retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("订单不存在：id=" + id));
+                return retObj;
+            }
+            //该订单不是此店铺订单
+            if (!shopId.equals(orderPo.getShopId())) {
+                retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("操作的店铺id不是自己的对象：id=" + id));
+                return retObj;
+            }
+            //该用户不是管理员
+            if (!AuthVerify.adminAuth(departId)){
+                retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("该用户不是管理员"));
+                return retObj;
+            }
+
+            //订单处于无法取消状态
+            if (orderPo.getState()!=(byte)OrderStateCode.ORDER_STATE_GROUP_NOT_COMPLETED.getCode()) {
+                retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW, String.format("订单状态禁止：id=" + id));
+                return retObj;
+            }
+            //取消订单
+            orderPo.setState((byte)OrderStateCode.ORDER_STATE_CANCEL.getCode());
+            orderPo.setGmtModified(LocalDateTime.now());
+            int ret = orderPoMapper.updateByPrimaryKey(orderPo);
+            if (ret == 0) {
+                //取消订单失败
+                logger.debug("confirmOrders: confirm order fail: " + orderPo.toString());
+                return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库更新不成功"));
+            } else {
+                //取消订单成功
+                logger.debug("confirmOrders: confirm order = " + orderPo.toString());
+                return new ReturnObject<>(ResponseCode.OK,String.format("成功"));
+            }
+        } catch (DataAccessException e) {
+            logger.error("database exception: " + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
+        } catch (Exception e) {
+            // 其他Exception错误
+            logger.error("other exception : " + e.getMessage());
+            return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
+        }
     }
 
 }
