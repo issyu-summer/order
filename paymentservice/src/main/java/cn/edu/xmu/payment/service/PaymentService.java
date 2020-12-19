@@ -63,13 +63,14 @@ public class PaymentService {
     public ReturnObject<PaymentRetVo> getPaymentByOrderIdAndShopId(Long id,Long shopId) {
         //return paymentDao.getPaymentByOrderIdAndShopId(id,shopId);
         return null;
-    } /**
+    }
+    /**
      *管理员查询订单的退款信息
      * @author 陈星如
      * @date 2020/12/9 18:13
      **/
-    public ReturnObject<List> getShopsOrdersRefunds(Long shopId, Long id) {
-        ReturnObject returnObject = paymentDao.getShopsOrdersRefunds(shopId, id);
+    public ReturnObject<List> getShopsOrdersRefunds(Long shopId, Long id,Long departId) {
+        ReturnObject returnObject = paymentDao.getShopsOrdersRefunds(shopId, id,departId);
         return returnObject;
     }
     /**
@@ -77,8 +78,8 @@ public class PaymentService {
      * @author 陈星如
      * @date 2020/12/9 18:10
      **/
-    public ReturnObject getShopsAftersalesRefunds(Long shopId, Long id) {
-        ReturnObject returnObject = paymentDao.getShopsAftersalesRefunds(shopId, id);
+    public ReturnObject getShopsAftersalesRefunds(Long shopId, Long id,Long departId) {
+        ReturnObject returnObject = paymentDao.getShopsAftersalesRefunds(shopId, id,departId);
         return returnObject;
     }
 

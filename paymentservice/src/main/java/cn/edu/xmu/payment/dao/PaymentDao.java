@@ -176,56 +176,72 @@ public class PaymentDao {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR,String.format("数据库错误："+e.getMessage()));
         }
     }
-    /*
+    /**
      *管理员查询订单的退款信息
      * @author 陈星如
      * @date 2020/12/9 18:13
      */
-
-    public ReturnObject getShopsOrdersRefunds(Long shopId, Long id) {
+    public ReturnObject getShopsOrdersRefunds(Long shopId, Long id,Long departId) {
         try {
-            //获得订单id=退款单id的退款单
+            //该用户不是管理员
+            if (!AuthVerify.adminAuth(departId)){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("该用户不是管理员"));
+
+            }
+
             RefundPoExample refundPoExample= new RefundPoExample();
             RefundPoExample.Criteria criteria = refundPoExample.createCriteria();
-            criteria.andAftersaleIdEqualTo(id);
+            criteria.andOrderIdEqualTo(id);
             List<RefundPo> refundPos = refundPoMapper.selectByExample(refundPoExample);
             if (criteria.isValid()) {
+                if(refundPos.size()>1){
+                    return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("同一笔订单不能有两个退款单号"));
+                }
                 for (RefundPo po : refundPos) {
+                    if(shopId==null||!shopId.equals(orderInnerService.getShopIdByOrderId(po.getOrderId()))){
+                        return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("没有传入shopId或者该退款单不属于该商店"));
+                    }
                     ShopsPaymentsInfoRetVo shopsOrdersRefundsInfoRetVo = new ShopsPaymentsInfoRetVo(po);
                     return new ReturnObject<>(shopsOrdersRefundsInfoRetVo);
                 }
             } else {
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
             }
-        } catch(
-                DataAccessException e)
-
-        {
+        } catch(DataAccessException e) {
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("数据库错误：%s", e.getMessage()));
-        } catch(
-                Exception e)
-
-        {
+        } catch(Exception e) {
             // 其他Exception错误
             return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("发生了未知错误：%s", e.getMessage()));
         }
         return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
     }
-    /*
+    /**
      *管理员查询售后订单的退款信息
      * @author 陈星如
      * @date 2020/12/9 18:10
      */
-
-    public ReturnObject getShopsAftersalesRefunds(Long shopId, Long id) {
+    public ReturnObject getShopsAftersalesRefunds(Long shopId, Long id,Long departId) {
         try {
+
             //获得afterSaleId=id的退款单
             RefundPoExample refundPoExample=new RefundPoExample();
             RefundPoExample.Criteria criteria=refundPoExample.createCriteria();
             criteria.andAftersaleIdEqualTo(id);
             List<RefundPo> refundPos=refundPoMapper.selectByExample(refundPoExample);
+            //该用户不是管理员
+            if (!AuthVerify.adminAuth(departId)) {
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("该用户不是管理员"));
+
+            }
+
             if (criteria.isValid()){
                 for (RefundPo po : refundPos) {
+                    if(refundPos.size()>1){
+                        return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("同一笔订单不能有两个退款单号"));
+                    }
+                    if(shopId==null||!shopId.equals(orderInnerService.getShopIdByOrderId(po.getOrderId()))){
+                        return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("没有传入shopId或者该退款单不属于该商店"));
+                    }
                     ShopsPaymentsInfoRetVo shopsAftersalesPaymentsInfoRetVo=new ShopsPaymentsInfoRetVo(po);
                     return new ReturnObject<>(shopsAftersalesPaymentsInfoRetVo);
                 }

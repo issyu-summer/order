@@ -248,8 +248,6 @@ public class FreightController {
      * @author 陈星如
      * @date 2020/12/9 9:13
      */
-
-
     @ApiOperation(value = "管理员定义件数模板明细",produces="application/json")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺Id", required = true),
@@ -266,9 +264,10 @@ public class FreightController {
             @LoginUser Long userId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id,
-            @RequestBody PieceModelInfoVo vo
+            @RequestBody PieceModelInfoVo vo,
+            @Depart @ApiIgnore Long departId
     ){
-        return Common.decorateReturnObject(freightService.postPieceItems(vo,shopId,id));
+        return Common.decorateReturnObject(freightService.postPieceItems(vo,shopId,id,departId));
     }
 
     /**
@@ -385,16 +384,17 @@ public class FreightController {
     @GetMapping("/shops/{shopId}/freightmodels/{id}/weightItems")
     public Object getFreightModelsWeightItems(
             @PathVariable(name="shopId") Long shopId,
-            @PathVariable(name="id")  Long id){
+            @PathVariable(name="id")  Long id,
+            @Depart @ApiIgnore Long departId){
 
-        return Common.decorateReturnObject(freightService.getFreightModelsWeightItems(shopId,id));
+        return Common.decorateReturnObject(freightService.getFreightModelsWeightItems(shopId,id,departId));
 
     }
 
     /**
-     * 店家或管理员查询件数运费模板的明细
-     * @author 陈星如
-     * @date 2020/12/8 14:13
+     *店家或管理员查询件数运费模板的明细
+     *@author 陈星如
+     *@date 2020/12/8 14:13
      */
     @ApiOperation(value = "店家或管理员查询件数运费模板的明细",produces="application/json")
     @ApiImplicitParams({
@@ -408,8 +408,8 @@ public class FreightController {
     @GetMapping("/shops/{shopId}/freightmodels/{id}/pieceItems")
     public Object getFreightModelsPieceItems(
             @PathVariable("shopId") Long shopId,
-            @PathVariable("id")  Long id){
-        return Common.decorateReturnObject(freightService.getFreightModelsPieceItems(shopId,id));
+            @PathVariable("id")  Long id, @Depart @ApiIgnore Long departId){
+        return Common.decorateReturnObject(freightService.getFreightModelsPieceItems(shopId,id,departId));
     }
     /**
      * 买家使用运费模板计算运费

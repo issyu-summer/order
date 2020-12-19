@@ -90,10 +90,14 @@ public class OrderInnerServiceImpl implements OrderInnerService {
     }
 
     @Override
-    public Long getShopIdByOrderId(Long orderId) {
-        Long shopId = orderPoMapper.selectByPrimaryKey(orderId).getShopId();
-        return shopId;
+    public Long getShopIdByOrderId(Long orderId){
+        try{
+            OrderPo orderPo = orderPoMapper.selectByPrimaryKey(orderId);
+            return orderPo.getShopId();
+        }catch (Exception e){
+            log.debug(e.getMessage());
+            return null;
+        }
     }
-
 }
 

@@ -27,7 +27,7 @@ dubbo:
   coprotol:
     name: dubbo
     port: -1
-    host: 192.168.43.144
+    host: 10.30.160.1
     # 设置超时时间
   consumer:
     timeout: 4000

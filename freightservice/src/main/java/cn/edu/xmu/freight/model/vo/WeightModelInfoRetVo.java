@@ -3,6 +3,7 @@ package cn.edu.xmu.freight.model.vo;
 import cn.edu.xmu.freight.model.bo.FreightModelBo;
 import cn.edu.xmu.freight.model.bo.WeightModelInfoBo;
 import cn.edu.xmu.freight.model.po.WeightFreightModelPo;
+import cn.edu.xmu.ooad.util.TimeFormat;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -23,10 +24,12 @@ public class WeightModelInfoRetVo {
     private Long trihunPrice;
     private Long abovePrice;
     private Long regionId;
-    private LocalDateTime gmtCreate;
-    private LocalDateTime gmtModified;
+    private String gmtCreate;
+    private String gmtModified;
+
     public WeightModelInfoRetVo(WeightModelInfoBo weightModelInfoBo){
         this.id=weightModelInfoBo.getId();
+
         this.firstWeight=weightModelInfoBo.getFirstWeight();
         this.firstWeightFreight=weightModelInfoBo.getFirstWeightFreight();
         this.tenPrice=weightModelInfoBo.getTenPrice();
@@ -35,8 +38,8 @@ public class WeightModelInfoRetVo {
         this.trihunPrice=weightModelInfoBo.getTrihunPrice();
         this.abovePrice=weightModelInfoBo.getAbovePrice();
         this.regionId=weightModelInfoBo.getRegionId();
-        this.gmtCreate=weightModelInfoBo.getGmtCreate();
-        this.gmtModified=weightModelInfoBo.getGmtModified();
+        this.gmtCreate=TimeFormat.localDateTimeToString(weightModelInfoBo.getGmtCreate());
+        this.gmtModified=TimeFormat.localDateTimeToString(weightModelInfoBo.getGmtModified());
     }
 
     public WeightModelInfoRetVo(WeightFreightModelPo weightFreightModelPo){
@@ -49,7 +52,7 @@ public class WeightModelInfoRetVo {
         this.trihunPrice=weightFreightModelPo.getTrihunPrice();
         this.abovePrice=weightFreightModelPo.getAbovePrice();
         this.regionId=weightFreightModelPo.getRegionId();
-        this.gmtCreate=weightFreightModelPo.getGmtCreate();
-        this.gmtModified=weightFreightModelPo.getGmtModified();
+        this.gmtCreate=TimeFormat.localDateTimeToString(weightFreightModelPo.getGmtCreate());
+        this.gmtModified=TimeFormat.localDateTimeToString(weightFreightModelPo.getGmtModified());
     }
 }
