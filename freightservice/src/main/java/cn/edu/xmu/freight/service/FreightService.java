@@ -148,8 +148,8 @@ public class FreightService {
      * @author 陈星如
      * @date 2020/12/8 13:33
      */
-    public ReturnObject<java.util.List> getFreightModelsWeightItems(Long shopId, Long id) {
-        ReturnObject returnObject = freightDao.getFreightModelsWeightItems(shopId,id);
+    public ReturnObject<java.util.List> getFreightModelsWeightItems(Long shopId, Long id,Long departId) {
+        ReturnObject returnObject = freightDao.getFreightModelsWeightItems(shopId,id,departId);
         return returnObject;
     }
     /**

@@ -397,9 +397,10 @@ public class FreightController {
     @GetMapping("/shops/{shopId}/freightmodels/{id}/weightItems")
     public Object getFreightModelsWeightItems(
             @PathVariable(name="shopId") Long shopId,
-            @PathVariable(name="id")  Long id){
+            @PathVariable(name="id")  Long id,
+            @Depart @ApiIgnore Long departId){
 
-        return Common.decorateReturnObject(freightService.getFreightModelsWeightItems(shopId,id));
+        return Common.decorateReturnObject(freightService.getFreightModelsWeightItems(shopId,id,departId));
 
     }
 
