@@ -1,0 +1,22 @@
+2020-12-13 12:29:17.618 [http-nio-8080-exec-5] DEBUG cn.edu.xmu.user.dao.UserDao - is checking email in user table
+2020-12-13 12:29:17.628 [http-nio-8080-exec-5] DEBUG cn.edu.xmu.user.dao.UserDao - is checking mobile in user table
+2020-12-13 12:29:17.639 [http-nio-8080-exec-5] DEBUG cn.edu.xmu.user.dao.UserDao - is checking userName in user table
+2020-12-13 12:29:17.662 [http-nio-8080-exec-5] DEBUG cn.edu.xmu.user.dao.UserDao - insertUser: insert success
+2020-12-13 12:31:02.033 [http-nio-8080-exec-4] DEBUG cn.edu.xmu.user.dao.UserDao - is checking email in user table
+2020-12-13 12:31:02.103 [http-nio-8080-exec-4] DEBUG cn.edu.xmu.user.dao.UserDao - is checking mobile in user table
+2020-12-13 12:31:02.114 [http-nio-8080-exec-4] DEBUG cn.edu.xmu.user.dao.UserDao - is checking userName in user table
+2020-12-13 12:31:02.138 [http-nio-8080-exec-4] DEBUG cn.edu.xmu.user.dao.UserDao - insertUser: insert success
+2020-12-13 12:44:21.490 [http-nio-8080-exec-2] DEBUG cn.edu.xmu.user.dao.UserDao - is checking email in user table
+2020-12-13 12:44:21.561 [http-nio-8080-exec-2] DEBUG cn.edu.xmu.user.dao.UserDao - is checking mobile in user table
+2020-12-13 12:44:21.572 [http-nio-8080-exec-2] DEBUG cn.edu.xmu.user.dao.UserDao - is checking userName in user table
+2020-12-13 12:44:21.594 [http-nio-8080-exec-2] DEBUG cn.edu.xmu.user.dao.UserDao - insertUser: insert success
+2020-12-13 12:45:48.902 [http-nio-8080-exec-3] DEBUG cn.edu.xmu.user.dao.UserDao - is checking email in user table
+2020-12-13 12:45:48.974 [http-nio-8080-exec-3] DEBUG cn.edu.xmu.user.dao.UserDao - is checking mobile in user table
+2020-12-13 12:45:48.985 [http-nio-8080-exec-3] DEBUG cn.edu.xmu.user.dao.UserDao - is checking userName in user table
+2020-12-13 12:45:49.008 [http-nio-8080-exec-3] DEBUG cn.edu.xmu.user.dao.UserDao - insertUser: insert success
+2020-12-13 12:52:07.984 [http-nio-8080-exec-2] DEBUG cn.edu.xmu.user.dao.UserDao - is checking email in user table
+2020-12-13 12:52:08.057 [http-nio-8080-exec-2] DEBUG cn.edu.xmu.user.dao.UserDao - is checking mobile in user table
+2020-12-13 12:52:08.067 [http-nio-8080-exec-2] DEBUG cn.edu.xmu.user.dao.UserDao - is checking userName in user table
+2020-12-13 12:52:08.099 [http-nio-8080-exec-2] DEBUG cn.edu.xmu.user.dao.UserDao - insertUser: insert success
+2020-12-13 12:53:46.350 [http-nio-8080-exec-6] DEBUG cn.edu.xmu.user.dao.UserDao - modifyUserInfoById: userId = 17330
+2020-12-13 12:54:18.224 [http-nio-8080-exec-8] ERROR cn.edu.xmu.ooad.annotation.AuditAspect - the api path is null

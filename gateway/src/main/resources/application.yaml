@@ -58,6 +58,21 @@ spring:
             - PrefixPath=/payment
             - Auth=authorization
 
+        - id: users-nonAuth
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/users, /users/login, /users/password/**
+          filters:
+            - PrefixPath=/user
+
+        - id: users
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/users/states, /users/all, users/logout, /users/{id}/**
+          filters:
+            - PrefixPath=/user
+            - Auth=authorization
+
 
 management:
   endpoint:

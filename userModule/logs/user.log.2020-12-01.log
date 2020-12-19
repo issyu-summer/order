@@ -1,0 +1,6 @@
+2020-12-01 18:43:57.367 [http-nio-8080-exec-1] DEBUG cn.edu.xmu.user.dao.UserDao - insertUser: insert success
+2020-12-01 18:45:54.993 [http-nio-8080-exec-1] DEBUG cn.edu.xmu.user.dao.UserDao - insertUser: insert success
+2020-12-01 18:45:57.458 [http-nio-8080-exec-3] DEBUG cn.edu.xmu.user.dao.UserDao - insertUser: insert success
+2020-12-01 18:46:01.527 [http-nio-8080-exec-7] DEBUG cn.edu.xmu.user.dao.UserDao - insertUser: insert success
+2020-12-01 18:46:41.453 [http-nio-8080-exec-5] DEBUG cn.edu.xmu.user.dao.UserDao - insertUser: insert success
+2020-12-01 18:46:43.801 [http-nio-8080-exec-6] DEBUG cn.edu.xmu.user.dao.UserDao - insertUser: insert success
