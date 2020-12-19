@@ -12,9 +12,9 @@ public class AuthVerify {
  * @author issyu 30320182200070
  * @date 2020/12/16 12:18
  */
-public static Boolean customerAuth(Long userId){
+public static Boolean customerAuth(Long departId){
     Long id = -2L;
-    if(userId.equals(id)){
+    if(departId.equals(id)){
         return Boolean.TRUE;
     }else {
         return Boolean.FALSE;

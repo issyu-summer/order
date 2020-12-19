@@ -29,7 +29,7 @@ public class FreightOuterServerImpl implements IFreightService {
      * @date 2020/12/11
      */
     @Override
-    public Freight getFreightById(Long freightId){
+    public MyReturn<Freight> getFreightById(Long freightId){
         FreightModelPo po=freightModelPoMapper.selectByPrimaryKey(freightId);
         if(po==null){
             return null;
@@ -42,6 +42,6 @@ public class FreightOuterServerImpl implements IFreightService {
         freight.setIsDefault(po.getDefaultModel());
         freight.setType(po.getType());
         freight.setUnit(po.getUnit());
-        return freight;
+        return new MyReturn<>(freight);
     }
 }

@@ -34,11 +34,14 @@ public interface IOrderService {
    * @return
    */
   MyReturn<Long> aftersaleSendback(Long orderItemId);
-}
 
-/**额外:
- * 定时任务1：订单完成时发送消息，传输OrderId/OrderItemId(如果为分享订单)
- * 或定时任务2：定期检查订单，对满足：1.存有分享ID，2.完成时间在7-8内，3.未退货。三个条件的OrderItem，调用我们实现的方法
- * void giveRebate(List<OrderItem> orderItemList);
- * 定时任务优先级较低
- */
+  /**
+   * 判断该订单是否存在
+   * @author issyu 30320182200070
+   * @date 2020/12/17 19:39
+   * @param userId
+   * @param skuId
+   * @return
+   */
+  MyReturn<Boolean> confirmBought(Long userId,Long skuId);
+}

@@ -12,7 +12,6 @@ import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.*;
-import org.apache.http.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,8 @@ import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.*;
 
 /**
  * @author issyu 30320182200070
@@ -186,7 +187,7 @@ public class FreightController {
         }
         return Common.decorateReturnObject(freightService.deleteFreightModel(shopId,id));
     }
-    /*
+    /**
      * 管理员克隆店铺的运费模板
      * @author 史韬韬
      * @parameter shopId 店铺id
@@ -210,7 +211,7 @@ public class FreightController {
         return Common.decorateReturnObject(retVoReturnObject);
     }
 
-    /*
+    /**
      * 获得运费模板概要
      * @author 史韬韬
      * @parameter id 运费模板id
@@ -230,7 +231,7 @@ public class FreightController {
         return Common.decorateReturnObject(freightService.getFreightModelSimpleInfo(id));
     }
 
-    /*
+    /**
      * 管理员修改店铺运费模板
      * @author 史韬韬
      * @parameter id 运费模板id
@@ -307,7 +308,6 @@ public class FreightController {
     ){
         return Common.decorateReturnObject(freightService.putPieceItems(vo,shopId,id,departId));
     }
-
     /**
      * 店家或管理员修改重量模板明细
      * @author 王子扬
@@ -357,7 +357,6 @@ public class FreightController {
         return Common.decorateReturnObject(freightService.deletePieceItems(shopId,id,departId));
     }
 
-
     /**
      * 管理员删除重量模板明细
      * @author 王子扬
@@ -380,7 +379,7 @@ public class FreightController {
     ){
         return Common.decorateReturnObject(freightService.deleteWeightItems(shopId,id,departId));
     }
-    /*
+    /**
      * 店家或管理员查询重量运费模板明细
      * @author 陈星如
      * @date 2020/12/8 13:33
@@ -404,7 +403,7 @@ public class FreightController {
 
     }
 
-    /*
+    /**
      * 店家或管理员查询件数运费模板的明细
      * @author 陈星如
      * @date 2020/12/8 14:13
@@ -423,6 +422,29 @@ public class FreightController {
             @PathVariable("shopId") Long shopId,
             @PathVariable("id")  Long id){
         return Common.decorateReturnObject(freightService.getFreightModelsPieceItems(shopId,id));
+    }
+    /**
+     * 买家使用运费模板计算运费
+     * @author issyu 30320182200070
+     * @date 2020/12/18 11:43
+     */
+    @ApiOperation(value = "买家用运费模板计算一批订单商品的运费",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "Integer",name = "rid", value = "地区店铺id", required = true),
+            @ApiImplicitParam(paramType = "body",dataType = "ItemInfoVo",name = "items", value = "订单商品详情", required = true,allowMultiple=true)
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @GetMapping("/region/{rid}/price")
+    public Object calculateFreightPrice(
+            @LoginUser @ApiIgnore Long userId,
+            @Depart @ApiIgnore Long departId,
+            @PathVariable("rid") Long rid,
+            @RequestBody List<ItemInfoVo> itemInfoVoList){
+        return Common.decorateReturnObject(freightService.calculateFreightPrice(userId,departId,rid,itemInfoVoList));
     }
 
 

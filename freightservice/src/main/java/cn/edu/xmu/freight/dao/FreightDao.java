@@ -7,6 +7,7 @@ import cn.edu.xmu.freight.model.bo.*;
 import cn.edu.xmu.freight.model.po.*;
 import cn.edu.xmu.freight.model.vo.*;
 import cn.edu.xmu.ooad.model.VoObject;
+import cn.edu.xmu.ooad.util.AuthVerify;
 import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import com.github.pagehelper.PageHelper;
@@ -861,4 +862,24 @@ public class FreightDao {
         }
     }
 
+    /**
+     * 买家使用运费模板计算一批商品的运费，可能需要运费工具类
+     * @author issyu 30320182200070
+     * @date 2020/12/18 16:02
+     * @param userId
+     * @param departId
+     * @param rid
+     * @param itemInfoVoList
+     * @return
+     */
+    public ReturnObject calculateFreightPrice(
+            Long userId, Long departId,
+            Long rid, List<ItemInfoVo> itemInfoVoList) {
+
+        if(!AuthVerify.customerAuth(departId)){
+            return new ReturnObject(ResponseCode.AUTH_NOT_ALLOW,"不是买家用户，departId="+departId);
+        }else{
+            return null;
+        }
+    }
 }

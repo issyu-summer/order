@@ -10,8 +10,9 @@
         <module>paymentservice</module>
         <module>inner-api</module>
         <module>outer-api</module>
-        <module>customer</module>
-        <module>order-test</module>
+        <module>Other-External-Interface</module>
+        <module>gateway</module>
+        <module>customertest</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -122,12 +123,19 @@
                 <version>3.10.3</version>
             </dependency>
 
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+<!--                <version>2.2.3.RELEASE</version>-->
+<!--            </dependency>-->
+
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
                 <version>2.2.3.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
-
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
                 <artifactId>dubbo-spring-boot-starter</artifactId>
@@ -165,6 +173,8 @@
                 </exclusions>
             </dependency>
         </dependencies>
+
+
     </dependencyManagement>
 
     <build>

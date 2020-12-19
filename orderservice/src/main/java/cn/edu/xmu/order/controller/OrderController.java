@@ -114,21 +114,19 @@ public class OrderController {
     @PostMapping("/orders")
     public Object createOrder(
             @Validated @RequestBody OrderInfoVo vo, BindingResult bindingResult,
-            @LoginUser @ApiIgnore @RequestParam(required = false) Long userId
+            @LoginUser @ApiIgnore @RequestParam(required = false) Long userId,
+            @Depart @ApiIgnore Long departId
     ){
         Object returnObject = Common.processFieldErrors(bindingResult, httpServletResponse);
         if (null != returnObject) {
             logger.debug("validate fail");
             return returnObject;
         }
-        ReturnObject retObject = new ReturnObject<>(orderService.createOrder(vo));
+        ReturnObject retObject = orderService.createOrder(vo,userId,departId);
 
         if (retObject.getData() != null) {
             httpServletResponse.setStatus(HttpStatus.CREATED.value());
             return Common.getRetObject(retObject);
-            /*
-            此处返回值错误。
-             */
         } else {
             return Common.getNullRetObj(new ReturnObject<>(retObject.getCode(), retObject.getErrmsg()), httpServletResponse);
         }

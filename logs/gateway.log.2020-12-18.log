@@ -1,0 +1,430 @@
+2020-12-18 10:59:53.901 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-18 11:00:18.481 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 31.431 seconds (JVM running for 34.692)
+2020-12-18 11:04:08.613 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 11:04:08.657 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 11:04:08.701 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 11:04:08.701 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/states
+2020-12-18 11:04:08.702 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 11:04:08.705 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/states
+2020-12-18 11:08:26.477 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Failed to load property source from 'file:/D:/order/gateway/target/classes/application.yaml' (classpath:/application.yaml)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:553)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.loadForFileExtension(ConfigFileApplicationListener.java:498)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:468)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$null$7(ConfigFileApplicationListener.java:447)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$load$8(ConfigFileApplicationListener.java:447)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:444)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.lambda$load$0(ConfigFileApplicationListener.java:347)
+	at org.springframework.boot.context.config.FilteredPropertySource.apply(FilteredPropertySource.java:54)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:335)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.addPropertySources(ConfigFileApplicationListener.java:226)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.postProcessEnvironment(ConfigFileApplicationListener.java:210)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.onApplicationEnvironmentPreparedEvent(ConfigFileApplicationListener.java:200)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.onApplicationEvent(ConfigFileApplicationListener.java:188)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:80)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:345)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at cn.edu.xmu.gateway.Application.main(Application.java:10)
+Caused by: org.yaml.snakeyaml.scanner.ScannerException: mapping values are not allowed here
+ in 'reader', line 47, column 16:
+                uri: http://localhost:8083/
+                   ^
+
+	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchValue(ScannerImpl.java:870)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchMoreTokens(ScannerImpl.java:358)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.checkToken(ScannerImpl.java:227)
+	at org.yaml.snakeyaml.parser.ParserImpl$ParseBlockMappingKey.produce(ParserImpl.java:558)
+	at org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:158)
+	at org.yaml.snakeyaml.parser.ParserImpl.checkEvent(ParserImpl.java:148)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:235)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.composeSequenceNode(Composer.java:209)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:160)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.composeValueNode(Composer.java:257)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:248)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:236)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:162)
+	at org.yaml.snakeyaml.composer.Composer.getNode(Composer.java:95)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getData(BaseConstructor.java:134)
+	at org.yaml.snakeyaml.Yaml$1.next(Yaml.java:494)
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:200)
+	at org.springframework.beans.factory.config.YamlProcessor.process(YamlProcessor.java:164)
+	at org.springframework.boot.env.OriginTrackedYamlLoader.load(OriginTrackedYamlLoader.java:76)
+	at org.springframework.boot.env.YamlPropertySourceLoader.load(YamlPropertySourceLoader.java:50)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.loadDocuments(ConfigFileApplicationListener.java:607)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener$Loader.load(ConfigFileApplicationListener.java:523)
+	... 25 common frames omitted
+2020-12-18 11:16:50.562 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-18 11:17:09.509 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 25.764 seconds (JVM running for 29.033)
+2020-12-18 14:46:57.684 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-18 14:47:17.141 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 25.963 seconds (JVM running for 30.094)
+2020-12-18 14:51:35.299 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:51:35.401 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:51:35.402 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders
+2020-12-18 14:51:44.408 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:51:44.411 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:51:44.412 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders
+2020-12-18 14:51:56.328 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:51:56.330 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:51:56.330 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 14:52:10.669 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:52:10.671 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:52:10.671 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 14:52:29.479 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:52:29.480 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:52:29.481 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 14:52:46.413 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:52:46.415 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:52:46.415 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/confirm
+2020-12-18 14:52:57.974 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:52:57.976 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:52:57.976 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/confirm
+2020-12-18 14:53:18.290 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:53:18.292 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:53:18.293 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/groupon-normal
+2020-12-18 14:53:34.442 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:53:34.443 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:53:34.444 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders
+2020-12-18 14:53:47.115 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:53:47.116 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:53:47.116 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders
+2020-12-18 14:53:58.874 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:53:58.876 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:53:58.876 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 14:54:13.676 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:54:13.677 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:54:13.678 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 14:54:21.395 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:54:21.396 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:54:21.396 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 14:54:34.602 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:54:34.604 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:54:34.604 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/deliver
+2020-12-18 14:55:03.071 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:55:03.072 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:55:03.072 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels
+2020-12-18 14:55:14.257 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:55:14.259 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:55:14.259 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels
+2020-12-18 14:55:40.433 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:55:40.434 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:55:40.435 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}
+2020-12-18 14:55:41.677 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:55:41.679 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:55:41.679 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}
+2020-12-18 14:55:41.774 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:55:41.776 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:55:41.776 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}
+2020-12-18 14:57:01.647 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:57:01.648 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:57:01.648 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}
+2020-12-18 14:57:37.221 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:57:37.223 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:57:37.223 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}/weightItems
+2020-12-18 14:57:38.230 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:57:38.231 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:57:38.232 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}/weightItems
+2020-12-18 14:58:04.873 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:58:04.874 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:58:04.875 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/payments/states
+2020-12-18 14:58:17.050 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:58:17.051 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:58:17.052 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/payments/patterns
+2020-12-18 14:58:37.602 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:58:37.603 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:58:37.603 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-18 14:58:53.577 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:58:53.578 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:58:53.579 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 14:58:55.039 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:58:55.041 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:58:55.041 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 14:59:30.105 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:59:30.107 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:59:30.107 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-18 14:59:34.753 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:59:34.754 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:59:34.754 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-18 14:59:35.193 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:59:35.194 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:59:35.194 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-18 14:59:35.460 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 14:59:35.461 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 14:59:35.461 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-18 15:00:14.223 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:00:14.228 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:00:14.228 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-18 15:00:14.319 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:00:14.320 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:00:14.321 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-18 15:00:15.125 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:00:15.126 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:00:15.126 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-18 15:00:15.388 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:00:15.389 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:00:15.389 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-18 15:01:45.181 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-18 15:02:03.475 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 25.508 seconds (JVM running for 28.383)
+2020-12-18 15:02:14.049 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:02:14.134 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:02:14.135 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-18 15:02:42.840 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:02:42.841 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:02:42.841 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:02:44.221 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:02:44.222 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:02:44.222 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:02:44.590 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:02:44.592 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:02:44.592 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:02:45.227 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:02:45.229 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:02:45.229 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:02:45.544 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:02:45.544 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:02:45.545 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:02:45.855 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:02:45.856 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:02:45.857 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:02:46.198 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:02:46.199 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:02:46.200 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:02:46.499 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:02:46.500 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:02:46.500 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:02:46.922 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:02:46.923 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:02:46.924 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:02:47.281 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:02:47.282 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:02:47.282 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:02:47.703 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:02:47.704 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:02:47.705 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:02:48.527 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:02:48.528 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:02:48.528 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:03:30.704 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:03:30.706 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:03:30.706 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/refunds
+2020-12-18 15:03:33.294 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:03:33.295 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:03:33.296 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/refunds
+2020-12-18 15:03:34.080 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:03:34.081 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:03:34.082 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/refunds
+2020-12-18 15:06:12.912 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:06:12.913 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:06:12.913 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/refunds
+2020-12-18 15:24:56.491 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-18 15:25:14.808 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 25.407 seconds (JVM running for 28.172)
+2020-12-18 15:25:49.148 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:25:49.210 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:25:49.210 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/states
+2020-12-18 15:25:53.872 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:25:53.873 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:25:53.874 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders
+2020-12-18 15:26:00.046 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:26:00.048 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:26:00.048 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders
+2020-12-18 15:26:09.904 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:26:09.905 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:26:09.905 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 15:26:15.794 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:26:15.795 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:26:15.795 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 15:26:22.630 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:26:22.631 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:26:22.631 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 15:26:39.063 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:26:39.065 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:26:39.065 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/confirm
+2020-12-18 15:26:56.139 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:26:56.140 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:26:56.140 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/groupon-normal
+2020-12-18 15:27:01.817 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:27:01.818 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:27:01.818 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/groupon-norma
+2020-12-18 15:27:23.626 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:27:23.627 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:27:23.628 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders
+2020-12-18 15:27:32.590 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:27:32.591 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:27:32.591 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 15:27:40.792 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:27:40.793 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:27:40.793 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 15:27:47.452 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:27:47.453 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:27:47.454 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 15:27:55.829 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:27:55.830 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:27:55.831 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/deliver
+2020-12-18 15:28:09.487 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:28:09.488 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:28:09.489 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/region/{id}/price
+2020-12-18 15:28:19.450 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:28:19.452 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:28:19.452 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels
+2020-12-18 15:29:16.335 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-18 15:29:34.489 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 25.082 seconds (JVM running for 27.88)
+2020-12-18 15:30:19.932 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:30:20.030 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:30:20.031 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels
+2020-12-18 15:30:32.992 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:30:32.994 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:30:32.994 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders
+2020-12-18 15:30:42.515 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:30:42.516 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:30:42.516 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels
+2020-12-18 15:30:50.302 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:30:50.303 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:30:50.303 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels
+2020-12-18 15:31:01.652 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:31:01.653 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:31:01.654 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels
+2020-12-18 15:31:09.001 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:31:09.002 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:31:09.002 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels
+2020-12-18 15:31:13.852 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:31:13.853 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:31:13.853 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels
+2020-12-18 15:31:26.502 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:31:26.503 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:31:26.503 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}/clone
+2020-12-18 15:31:40.765 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:31:40.766 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:31:40.767 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/clone
+2020-12-18 15:31:47.232 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:31:47.233 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:31:47.234 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}/clone
+2020-12-18 15:31:59.168 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:31:59.169 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:31:59.169 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}
+2020-12-18 15:33:55.738 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:33:55.739 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:33:55.739 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}
+2020-12-18 15:34:25.703 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:34:25.705 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:34:25.706 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}
+2020-12-18 15:34:40.491 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:34:40.492 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:34:40.492 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}/default
+2020-12-18 15:34:58.985 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:34:58.986 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:34:58.987 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}/weightItems
+2020-12-18 15:35:11.229 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:35:11.230 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:35:11.231 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}/pieceItems
+2020-12-18 15:35:15.134 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:35:15.135 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:35:15.135 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/freightmodels/{id}/pieceItems
+2020-12-18 15:35:27.050 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:35:27.051 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:35:27.052 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/weightItems/{id}
+2020-12-18 15:35:29.292 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:35:29.293 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:35:29.293 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/weightItems/{id}
+2020-12-18 15:35:31.040 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:35:31.041 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:35:31.041 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/weightItems/{id}
+2020-12-18 15:35:39.533 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:35:39.534 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:35:39.534 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/pieceItems/{id}
+2020-12-18 15:35:40.576 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:35:40.578 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:35:40.578 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/pieceItems/{id}
+2020-12-18 15:35:49.202 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:35:49.203 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:35:49.203 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/payments/states
+2020-12-18 15:36:01.072 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:36:01.073 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:36:01.073 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/payments/patterns
+2020-12-18 15:36:13.705 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:36:13.706 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:36:13.706 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/payments
+2020-12-18 15:37:25.320 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-18 15:37:44.249 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 26.107 seconds (JVM running for 29.14)
+2020-12-18 15:38:13.749 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:38:13.805 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:38:13.806 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/payments
+2020-12-18 15:38:34.531 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:38:34.532 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:38:34.533 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/payments
+2020-12-18 15:39:19.220 [main] INFO  cn.edu.xmu.gateway.Application - No active profile set, falling back to default profiles: default
+2020-12-18 15:39:37.469 [main] INFO  cn.edu.xmu.gateway.Application - Started Application in 25.299 seconds (JVM running for 28.183)
+2020-12-18 15:39:42.723 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:39:42.782 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:39:42.782 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/payments
+2020-12-18 15:39:47.433 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:39:47.435 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:39:47.435 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/payments
+2020-12-18 15:40:06.883 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:40:06.884 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:40:06.885 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/refunds
+2020-12-18 15:40:34.779 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:40:34.781 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:40:34.781 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-18 15:40:49.935 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:40:49.937 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:40:49.938 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/payments/{id}/refunds
+2020-12-18 15:41:04.041 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:41:04.043 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:41:04.043 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/refunds
+2020-12-18 15:41:16.194 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:41:16.195 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:41:16.195 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:41:28.383 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:41:28.385 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:41:28.385 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/refunds
+2020-12-18 15:41:36.990 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:41:36.993 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:41:36.994 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/refunds
+2020-12-18 15:41:44.335 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:41:44.336 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:41:44.336 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders
+2020-12-18 15:41:49.919 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:41:49.920 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:41:49.920 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/states
+2020-12-18 15:41:56.278 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:41:56.279 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:41:56.279 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 15:41:59.854 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:41:59.855 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:41:59.855 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 15:42:07.712 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:42:07.714 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:42:07.714 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/confirm
+2020-12-18 15:42:18.724 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:42:18.727 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:42:18.729 [reactor-http-nio-1] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 15:42:28.764 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:42:28.766 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:42:28.766 [reactor-http-nio-2] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/payments
+2020-12-18 15:42:57.962 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:42:57.963 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:42:57.964 [reactor-http-nio-3] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}
+2020-12-18 15:43:13.242 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE3MTUyMjM3NFhHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjE4MTg5NzU3LCJ1c2VySWQiOjMsImlhdCI6MTYwODE4OTc1N30.rMJ4QdbxfgGUbTua60poiKCoE1XfwwoqTztmIy1N62k
+2020-12-18 15:43:13.243 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - did匹配
+2020-12-18 15:43:13.244 [reactor-http-nio-4] DEBUG cn.edu.xmu.gateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/deliver

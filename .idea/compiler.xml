@@ -9,10 +9,12 @@
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
         <module name="freightservice" />
-        <module name="order-test" />
         <module name="inner-api" />
         <module name="outer-api" />
+        <module name="customertest" />
+        <module name="Other-External-Interface" />
         <module name="paymentservice" />
+        <module name="gateway" />
         <module name="orderservice" />
         <module name="customer" />
       </profile>
@@ -20,21 +22,27 @@
     <bytecodeTargetLevel>
       <module name="core" target="11" />
       <module name="customer" target="11" />
+      <module name="customertest" target="11" />
       <module name="freightservice" target="11" />
+      <module name="gateway" target="11" />
       <module name="inner-api" target="11" />
       <module name="order" target="11" />
       <module name="order-test" target="11" />
       <module name="ordercustomer" target="11" />
       <module name="orderservice" target="11" />
+      <module name="Other-External-Interface" target="11" />
       <module name="outer-api" target="11" />
       <module name="paymentservice" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Other-External-Interface" options="-parameters" />
       <module name="core" options="-parameters" />
       <module name="customer" options="-parameters" />
+      <module name="customertest" options="-parameters" />
       <module name="freightservice" options="-parameters" />
+      <module name="gateway" options="-parameters" />
       <module name="inner-api" options="-parameters" />
       <module name="order" options="-parameters" />
       <module name="order-test" options="-parameters" />
