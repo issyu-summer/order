@@ -13,6 +13,9 @@
         <module>Other-External-Interface</module>
         <module>gateway</module>
         <module>customertest</module>
+        <module>privilegeservice-client</module>
+        <module>privilegeservice</module>
+        <module>privilegegateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

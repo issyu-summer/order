@@ -8,7 +8,12 @@
     <file url="file://$PROJECT_DIR$/gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/inner-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/orderservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/otherinterface/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/outer-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/paymentservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/privilegegateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/privilegeservice-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/privilegeservice/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/userModule/src/main/java" charset="UTF-8" />
   </component>
 </project>

@@ -10,8 +10,13 @@
       <module fileurl="file://$PROJECT_DIR$/inner-api/inner-api.iml" filepath="$PROJECT_DIR$/inner-api/inner-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/order.iml" filepath="$PROJECT_DIR$/order.iml" />
       <module fileurl="file://$PROJECT_DIR$/orderservice/orderservice.iml" filepath="$PROJECT_DIR$/orderservice/orderservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/otherinterface/otherinterface.iml" filepath="$PROJECT_DIR$/otherinterface/otherinterface.iml" />
       <module fileurl="file://$PROJECT_DIR$/outer-api/outer-api.iml" filepath="$PROJECT_DIR$/outer-api/outer-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/paymentservice/paymentservice.iml" filepath="$PROJECT_DIR$/paymentservice/paymentservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/privilegegateway/privilegegateway.iml" filepath="$PROJECT_DIR$/privilegegateway/privilegegateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/privilegeservice/privilegeservice.iml" filepath="$PROJECT_DIR$/privilegeservice/privilegeservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/privilegeservice-client/privilegeservice-client.iml" filepath="$PROJECT_DIR$/privilegeservice-client/privilegeservice-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/userModule/userService.iml" filepath="$PROJECT_DIR$/userModule/userService.iml" />
     </modules>
   </component>
 </project>
