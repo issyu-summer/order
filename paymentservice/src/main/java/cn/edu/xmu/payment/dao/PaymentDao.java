@@ -194,7 +194,7 @@ public class PaymentDao {
                     return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("同一笔订单不能有两个退款单号"));
                 }
                 for (RefundPo po : refundPos) {
-                    if(shopId==null||shopId.equals(orderInnerService.getShopIdByOrderId(po.getOrderId()))){
+                    if(shopId==null||!shopId.equals(orderInnerService.getShopIdByOrderId(po.getOrderId()))){
                         return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("没有传入shopId或者该退款单不属于该商店"));
                     }
                     ShopsPaymentsInfoRetVo shopsOrdersRefundsInfoRetVo = new ShopsPaymentsInfoRetVo(po);
@@ -211,21 +211,33 @@ public class PaymentDao {
         }
         return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
     }
-    /*
+    /**
      *管理员查询售后订单的退款信息
      * @author 陈星如
      * @date 2020/12/9 18:10
      */
-
-    public ReturnObject getShopsAftersalesRefunds(Long shopId, Long id) {
+    public ReturnObject getShopsAftersalesRefunds(Long shopId, Long id,Long departId) {
         try {
+
             //获得afterSaleId=id的退款单
             RefundPoExample refundPoExample=new RefundPoExample();
             RefundPoExample.Criteria criteria=refundPoExample.createCriteria();
             criteria.andAftersaleIdEqualTo(id);
             List<RefundPo> refundPos=refundPoMapper.selectByExample(refundPoExample);
+            //该用户不是管理员
+            if (!AuthVerify.adminAuth(departId)) {
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("该用户不是管理员"));
+
+            }
+
             if (criteria.isValid()){
                 for (RefundPo po : refundPos) {
+                    if(refundPos.size()>1){
+                        return new ReturnObject<>(ResponseCode.INTERNAL_SERVER_ERR, String.format("同一笔订单不能有两个退款单号"));
+                    }
+                    if(shopId==null||!shopId.equals(orderInnerService.getShopIdByOrderId(po.getOrderId()))){
+                        return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE,String.format("没有传入shopId或者该退款单不属于该商店"));
+                    }
                     ShopsPaymentsInfoRetVo shopsAftersalesPaymentsInfoRetVo=new ShopsPaymentsInfoRetVo(po);
                     return new ReturnObject<>(shopsAftersalesPaymentsInfoRetVo);
                 }

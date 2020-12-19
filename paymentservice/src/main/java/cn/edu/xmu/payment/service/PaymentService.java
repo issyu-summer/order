@@ -78,8 +78,8 @@ public class PaymentService {
      * @author 陈星如
      * @date 2020/12/9 18:10
      **/
-    public ReturnObject getShopsAftersalesRefunds(Long shopId, Long id) {
-        ReturnObject returnObject = paymentDao.getShopsAftersalesRefunds(shopId, id);
+    public ReturnObject getShopsAftersalesRefunds(Long shopId, Long id,Long departId) {
+        ReturnObject returnObject = paymentDao.getShopsAftersalesRefunds(shopId, id,departId);
         return returnObject;
     }
 

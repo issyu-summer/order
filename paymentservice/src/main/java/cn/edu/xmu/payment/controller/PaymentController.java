@@ -188,8 +188,8 @@ public class PaymentController {
     @GetMapping("/shops/{shopId}/aftersales/{id}/refunds")
     public Object getShopsAftersalesRefunds(
             @PathVariable("shopId") Long shopId,
-            @PathVariable("id")  Long id){
-        return Common.decorateReturnObject(paymentService.getShopsAftersalesRefunds(shopId,id));
+            @PathVariable("id")  Long id, @Depart @ApiIgnore Long departId){
+        return Common.decorateReturnObject(paymentService.getShopsAftersalesRefunds(shopId,id,departId));
     }
     /**
      *管理员创建退款信息
