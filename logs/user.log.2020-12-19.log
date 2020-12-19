@@ -639,3 +639,147 @@ java.lang.NullPointerException: null
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+2020-12-19 14:08:52.679 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'userService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userService': Lookup method resolution failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [cn.edu.xmu.user.service.UserService] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@57fa26b7]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.__refresh(AbstractApplicationContext.java:551)
+	at org.springframework.context.support.AbstractApplicationContext.jrLockAndRefresh(AbstractApplicationContext.java:40002)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:41008)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at cn.edu.xmu.user.UserServiceApplication.main(UserServiceApplication.java:13)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userService': Lookup method resolution failed; nested exception is java.lang.IllegalStateException: Failed to introspect Class [cn.edu.xmu.user.service.UserService] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@57fa26b7]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:289)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1285)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1200)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	... 22 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [cn.edu.xmu.user.service.UserService] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@57fa26b7]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:481)
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:321)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:267)
+	... 34 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: cn/edu/xmu/ooad/util/ReturnObject
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3166)
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2309)
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:463)
+	... 36 common frames omitted
+Caused by: java.lang.ClassNotFoundException: cn.edu.xmu.ooad.util.ReturnObject
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	... 40 common frames omitted
+2020-12-19 14:41:40.460 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:41:40.623 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.dao.UserDao - selectUserByUsername: username not exist
+2020-12-19 14:43:57.480 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:43:57.497 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.dao.UserDao - selectUserByUsername: username not exist
+2020-12-19 14:45:19.452 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:45:24.602 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:45:24.660 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:45:24.721 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:45:24.889 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:45:24.944 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:46:29.036 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:46:29.378 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:46:29.449 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:46:29.511 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:46:29.573 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:46:29.633 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:46:44.720 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:46:44.811 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:46:44.985 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:46:45.081 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:46:45.136 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 14:46:45.182 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:03.217 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:03.386 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:03.472 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:03.540 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:03.604 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:03.642 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:03.681 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:03.800 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:03.857 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:16.562 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:21.591 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:44.718 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:46.725 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:48.699 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:50.710 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:08:53.529 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:09:05.918 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:47:36.378 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:47:36.559 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:47:36.622 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:47:36.729 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:47:36.833 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:47:36.884 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:47:36.933 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:47:37.040 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:47:37.102 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:47:54.525 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:47:59.556 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:48:25.018 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:48:27.030 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:48:29.483 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:48:32.024 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:48:33.945 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:48:46.242 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:49:53.660 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:49:53.778 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:54:44.984 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 15:54:45.364 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:01.869 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:02.019 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:40.399 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:40.782 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:40.865 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:40.973 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.037 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.137 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.202 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.261 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.328 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.449 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.510 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.559 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.615 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.663 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.709 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.754 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.789 [http-nio-8082-exec-5] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.826 [http-nio-8082-exec-10] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.856 [http-nio-8082-exec-9] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.893 [http-nio-8082-exec-8] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.940 [http-nio-8082-exec-7] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:41.982 [http-nio-8082-exec-6] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:42.404 [http-nio-8082-exec-1] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:42.433 [http-nio-8082-exec-2] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:42.465 [http-nio-8082-exec-3] DEBUG cn.edu.xmu.user.controller.UserController - start: login
+2020-12-19 16:28:42.493 [http-nio-8082-exec-4] DEBUG cn.edu.xmu.user.controller.UserController - start: login

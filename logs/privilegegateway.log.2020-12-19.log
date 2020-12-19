@@ -1195,3 +1195,518 @@ Caused by: org.apache.rocketmq.remoting.exception.RemotingConnectException: conn
 2020-12-19 13:03:13.884 [main] INFO  cn.edu.xmu.privilegegateway.util.GatewayUtil - 初始化-------GatewayService----
 2020-12-19 13:03:16.343 [main] INFO  cn.edu.xmu.privilegegateway.util.GatewayUtil - 初始化-------gatewayPrivList----
 2020-12-19 13:03:27.841 [main] INFO  cn.edu.xmu.privilegegateway.Application - Started Application in 36.958 seconds (JVM running for 42.644)
+2020-12-19 14:22:23.661 [main] INFO  cn.edu.xmu.privilegegateway.Application - No active profile set, falling back to default profiles: default
+2020-12-19 14:22:25.949 [main] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean of type 'org.apache.rocketmq.spring.core.RocketMQTemplate' that could not be found.
+
+The following candidates were found but could not be injected:
+	- Bean method 'rocketMQTemplate' in 'RocketMQAutoConfiguration' not loaded because @ConditionalOnBean (types: org.apache.rocketmq.client.producer.DefaultMQProducer; SearchStrategy: all) did not find any beans of type org.apache.rocketmq.client.producer.DefaultMQProducer
+
+
+Action:
+
+Consider revisiting the entries above or defining a bean of type 'org.apache.rocketmq.spring.core.RocketMQTemplate' in your configuration.
+
+2020-12-19 14:26:52.319 [main] INFO  cn.edu.xmu.privilegegateway.Application - No active profile set, falling back to default profiles: default
+2020-12-19 14:27:54.717 [main] INFO  cn.edu.xmu.privilegegateway.util.GatewayUtil - 初始化-------redisTemplate----
+2020-12-19 14:27:54.717 [main] INFO  cn.edu.xmu.privilegegateway.util.GatewayUtil - 初始化-------GatewayService----
+2020-12-19 14:27:57.033 [main] INFO  cn.edu.xmu.privilegegateway.util.GatewayUtil - 初始化-------gatewayPrivList----
+2020-12-19 14:28:08.690 [main] INFO  cn.edu.xmu.privilegegateway.Application - Started Application in 85.716 seconds (JVM running for 91.495)
+2020-12-19 14:40:33.460 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTQ0MDMwMVpKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjM2MzAsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzYwMDMwfQ.AZeAWNZ3jO-Jz30aNOllPT-4pUcwSkfBlu4M-sdpVuU
+2020-12-19 14:40:34.958 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 14:40:35.471 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/refunds
+2020-12-19 14:40:35.479 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/refunds-0
+2020-12-19 14:40:54.865 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTQ0MDUxODNGIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjM2NTEsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzYwMDUxfQ.chXrDwgpWt2Fl5lPLC-Hkwv8xqGaAR2RIc9I8LQ0TKM
+2020-12-19 14:40:56.270 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 14:40:56.758 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/weightItems/{id}
+2020-12-19 14:40:57.205 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 无权限
+2020-12-19 14:45:37.939 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTQ0NTM1NTJHIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjM5MzUsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzYwMzM1fQ.HQv13Lle2GrIhfutfrS9Unxb_9Q4PLNaNZpTkBiOiuQ
+2020-12-19 14:45:39.439 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 14:45:40.448 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/aftersales/{id}/refunds
+2020-12-19 14:45:40.448 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/aftersales/{id}/refunds-0
+2020-12-19 14:45:53.192 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTQ0NTUwOTRUIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjM5NTAsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzYwMzUwfQ.0vrBvGzaRxkooP0gQ5bRoupJkd8lr7XBsA9VX7kYMqI
+2020-12-19 14:45:55.145 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 14:45:55.618 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/refunds
+2020-12-19 14:45:55.618 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/refunds-0
+2020-12-19 14:46:14.891 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTQ0NjExMlRVIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjM5NzEsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzYwMzcxfQ.Dce35Yn0xzlw8k22XItUq_TzSjHgc7fu2fi2H2cdHlk
+2020-12-19 14:46:16.919 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 14:46:17.399 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/weightItems/{id}
+2020-12-19 14:54:27.388 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTQ1NDIzNEdYIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjQ0NjMsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzYwODYzfQ.SaCZbXvNs_l7AGeMNmvQbOMvr8BMjR8xLFf6l1Oo40c
+2020-12-19 14:54:28.917 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 14:54:29.422 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders
+2020-12-19 14:54:29.422 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders-0
+2020-12-19 14:54:37.723 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTQ1NDM1MlBNIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjQ0NzUsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzYwODc1fQ.iMQ7M-ZTrVY1zPmlA6kNMk_IdQ5g5ayDET_0bwm6_Hk
+2020-12-19 14:54:39.838 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 14:54:40.345 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 14:54:40.345 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-0
+2020-12-19 14:56:35.773 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = test
+2020-12-19 14:56:35.784 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = test
+2020-12-19 14:58:31.078 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTQ1NDQ2MDdBIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjQ0ODYsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzYwODg2fQ.tRCVjSkvGUxOLMCodeCr9hqFkxQe2W1oXvInXI_FFZo
+2020-12-19 14:58:33.111 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 14:58:35.900 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 14:58:35.900 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-1
+2020-12-19 15:08:16.592 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTUwODE2NUVIIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY1Mjk2LCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2MTY5Nn0.LA1ZaqFwOmN1QVD82D1faQtNiZy06aYLLp0CLq4sNsY
+2020-12-19 15:08:18.006 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:08:21.614 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTUwODIxNklSIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY1MzAxLCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2MTcwMX0.urjAPhp8vzV3UytkU_KbGl68JJTu5BFUD7wZMTyG9Zg
+2020-12-19 15:08:23.008 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:08:23.479 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/payments
+2020-12-19 15:08:23.479 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/orders/{id}/payments-1
+2020-12-19 15:08:24.485 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/payments
+2020-12-19 15:08:24.485 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/orders/{id}/payments-0
+2020-12-19 15:08:32.722 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTUwODI5NlgxIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjUzMDksInVzZXJJZCI6MSwiaWF0IjoxNjA4MzYxNzA5fQ.FqCfqH0hS76nmFw0WoKwApIWbtz9uZ81bmN8y4_o544
+2020-12-19 15:08:34.159 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:08:34.677 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/aftersales/{id}/payments
+2020-12-19 15:08:34.677 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/aftersales/{id}/payments-0
+2020-12-19 15:08:44.738 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTUwODQ0N1BRIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY1MzI0LCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2MTcyNH0.H6y4YtU0DWM21_9RctZPi7-YD-r-Zbnkrbi2ydu2fAs
+2020-12-19 15:08:46.176 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:08:46.676 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-19 15:08:46.676 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/aftersales/{id}/payments-0
+2020-12-19 15:08:46.747 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTUwODQ2NzVWIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY1MzI2LCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2MTcyNn0.Y6YFyNQ-MWWmFASby7FKiqNVJwZ2lkX4W1RZQydFtgs
+2020-12-19 15:08:48.178 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:08:48.663 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-19 15:08:48.663 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/aftersales/{id}/payments-1
+2020-12-19 15:08:48.720 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTUwODQ4N0pEIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY1MzI4LCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2MTcyOH0.O9m_cGu772ko9w4RcA1kKq1iB2yaQjDc-Zqbmgknc4k
+2020-12-19 15:08:50.190 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:08:50.688 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-19 15:08:50.688 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/aftersales/{id}/payments-1
+2020-12-19 15:08:50.728 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTUwODUwNzYyIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY1MzMwLCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2MTczMH0.slVf4fHIEIjlKnSDPggCvthxrk56B9VJaBA8_yYnnys
+2020-12-19 15:08:53.012 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:08:53.506 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/payments
+2020-12-19 15:08:53.506 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/orders/{id}/payments-0
+2020-12-19 15:08:53.549 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTUwODUzNTkwIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY1MzMzLCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2MTczM30.hsJvtl6n3UqRj2YXCM5s20CvhTs30w3LUsVIaoON53k
+2020-12-19 15:08:55.008 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:08:56.034 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/payments
+2020-12-19 15:08:56.034 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/payments-0
+2020-12-19 15:09:03.982 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTUwOTAxNkU0IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjUzNDEsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzYxNzQxfQ.Wy_LD44db5O_WIj95Q3Wk6X_lW9Gx_Rl6vyQT8MG1Uk
+2020-12-19 15:09:05.421 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:09:05.897 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/payments
+2020-12-19 15:09:05.898 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/payments-0
+2020-12-19 15:09:05.936 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTUwOTA1OUFIIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY1MzQ1LCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2MTc0NX0.WrXghQJiJ-okRheEMysRqLOylT0CWuT7_2r4lr2R5C4
+2020-12-19 15:09:07.351 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:09:07.801 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-19 15:09:07.801 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/aftersales/{id}/payments-0
+2020-12-19 15:45:38.389 [main] INFO  cn.edu.xmu.privilegegateway.Application - No active profile set, falling back to default profiles: default
+2020-12-19 15:46:46.945 [main] INFO  cn.edu.xmu.privilegegateway.util.GatewayUtil - 初始化-------redisTemplate----
+2020-12-19 15:46:46.945 [main] INFO  cn.edu.xmu.privilegegateway.util.GatewayUtil - 初始化-------GatewayService----
+2020-12-19 15:46:47.317 [main] INFO  cn.edu.xmu.privilegegateway.util.GatewayUtil - 初始化-------gatewayPrivList----
+2020-12-19 15:46:59.118 [main] INFO  cn.edu.xmu.privilegegateway.Application - Started Application in 89.89 seconds (JVM running for 95.502)
+2020-12-19 15:47:47.289 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU0NzQyOU44IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjc2NjIsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzY0MDYyfQ.Fcehxrc4uJyZFBHwG-oH2Juwgg-Z7wThDFW439Kwt4k
+2020-12-19 15:47:47.344 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:47:49.436 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}/weightItems
+2020-12-19 15:47:49.443 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}/weightItems-1
+2020-12-19 15:47:54.563 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU0NzU0NURGIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY3Njc0LCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2NDA3NH0.SkpXTFE7Yqo-lIJcsoiFssbVppXHmvC3e85R73UMzAQ
+2020-12-19 15:47:54.566 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:48:00.744 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/payments
+2020-12-19 15:48:00.745 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/orders/{id}/payments-0
+2020-12-19 15:48:00.752 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU0NzU5NTg1IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY3Njc5LCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2NDA3OX0.l1jocsoRWRPIv8a8ogpeyl3clcdGHU7wXjcgjaGPZ5w
+2020-12-19 15:48:00.757 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:48:03.234 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/payments
+2020-12-19 15:48:03.235 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/orders/{id}/payments-1
+2020-12-19 15:48:11.930 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU0ODA4OVBTIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjc2ODgsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzY0MDg4fQ.G8c8d-clpi7gglFndB8nxCytD46fL25nIHmSsxQVSFU
+2020-12-19 15:48:11.933 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:48:13.890 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/aftersales/{id}/payments
+2020-12-19 15:48:13.890 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/aftersales/{id}/payments-0
+2020-12-19 15:48:22.970 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU0ODE5NkZDIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjc2OTksInVzZXJJZCI6MSwiaWF0IjoxNjA4MzY0MDk5fQ.0_TuDLbJyKzKNnrX0_Uo4bNLreSni4ZergerMaWI3Ys
+2020-12-19 15:48:22.973 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:48:24.994 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/aftersales/{id}/payments
+2020-12-19 15:48:24.994 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/aftersales/{id}/payments-0
+2020-12-19 15:48:25.038 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU0ODI1MERBIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY3NzA1LCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2NDEwNX0.ltHJ-rkTsvCTJV4fITKjL2VYWv3NbJYnq77rOm0UAOE
+2020-12-19 15:48:25.042 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:48:26.987 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-19 15:48:26.988 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/aftersales/{id}/payments-0
+2020-12-19 15:48:27.049 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU0ODI3ME85IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY3NzA3LCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2NDEwN30.HUpCfq3PCvlOSlpXJffQknrjBUXNRC34CVb8E_rGz2s
+2020-12-19 15:48:27.054 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:48:29.459 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-19 15:48:29.460 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/aftersales/{id}/payments-1
+2020-12-19 15:48:29.503 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU0ODI5NFNMIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY3NzA5LCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2NDEwOX0.Vfd2K8zzS8y_OyExLzMobj3VUyL4UJBMkFjGyIh7Jb0
+2020-12-19 15:48:29.506 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:48:32.003 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-19 15:48:32.003 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/aftersales/{id}/payments-1
+2020-12-19 15:48:32.042 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU0ODMyMEFYIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY3NzEyLCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2NDExMn0.YW7PVWQy85CrBvohgf-9MwQfBWUFVHRz_xFoX4BdtYg
+2020-12-19 15:48:32.045 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:48:33.922 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/orders/{id}/payments
+2020-12-19 15:48:33.922 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/orders/{id}/payments-0
+2020-12-19 15:48:33.964 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU0ODMzOUUxIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY3NzEzLCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2NDExM30.v7bUbo5sl_1Ss5FvppBhFF6MVqWX8ho4ksNfB0VaDN4
+2020-12-19 15:48:33.968 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:48:36.372 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/payments
+2020-12-19 15:48:36.372 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/payments-0
+2020-12-19 15:48:44.272 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU0ODQxOVk2IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjc3MjEsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzY0MTIxfQ.QfxxSD9d1njV6XgiSwe_JWPhDH6asyZNyM4CzY4H0VI
+2020-12-19 15:48:44.275 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:48:46.215 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/payments
+2020-12-19 15:48:46.215 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/payments-0
+2020-12-19 15:48:46.268 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU0ODQ2MkVCIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjotMiwiZXhwIjoxNjA4MzY3NzI2LCJ1c2VySWQiOjg3NjMsImlhdCI6MTYwODM2NDEyNn0.H6pndGu5QJv9tNT8cOGsOdcxi6Zgk2hH2f_tSKHraoE
+2020-12-19 15:48:46.271 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:48:48.359 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/aftersales/{id}/payments
+2020-12-19 15:48:48.359 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/aftersales/{id}/payments-0
+2020-12-19 15:50:26.906 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU1MDI0Mzk3IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjoxLCJleHAiOjE2MDgzNjc4MjQsInVzZXJJZCI6NTksImlhdCI6MTYwODM2NDIyNH0.eiCxlzkWjwYXoln7QmAWjxOpp3cErsEBAULo8NZO92U
+2020-12-19 15:50:26.909 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:50:28.950 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels
+2020-12-19 15:50:28.950 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels-0
+2020-12-19 15:54:47.514 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU1NDQ1OEhMIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjoxLCJleHAiOjE2MDgzNjgwODUsInVzZXJJZCI6NTksImlhdCI6MTYwODM2NDQ4NX0.9byiAa95PDnTIXM7JH4gS4Gza88IaBYqPEEe98dBTfs
+2020-12-19 15:54:47.517 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:54:49.082 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}
+2020-12-19 15:54:49.082 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}-0
+2020-12-19 15:55:01.220 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU1NDU5NlE0IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjoxLCJleHAiOjE2MDgzNjgwOTksInVzZXJJZCI6NTksImlhdCI6MTYwODM2NDQ5OX0.06hUf3FGI-2BI3iaETjK2BzcS44OT0jKt7AniBu9kGA
+2020-12-19 15:55:01.224 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:55:02.815 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels
+2020-12-19 15:55:02.815 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels-0
+2020-12-19 15:55:12.483 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU1NTA4N0o4IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNjgxMDgsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzY0NTA4fQ.CY3B0FK7Xdp2byNxCSXf1UpWgWSYKo3tSHDXMLYpjPY
+2020-12-19 15:55:12.486 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:55:14.029 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels
+2020-12-19 15:55:14.029 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels-0
+2020-12-19 15:55:36.219 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU1NTM0NEkwIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjoxLCJleHAiOjE2MDgzNjgxMzQsInVzZXJJZCI6NTksImlhdCI6MTYwODM2NDUzNH0.Y-h5SGrs6LT2wIFJ2uB6ff-LWQs6HrdZ2E8TQq0qH10
+2020-12-19 15:55:36.222 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:55:38.174 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}/default
+2020-12-19 15:55:38.174 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}/default-1
+2020-12-19 15:55:50.721 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU1NTQ4NlNSIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjoxLCJleHAiOjE2MDgzNjgxNDgsInVzZXJJZCI6NTksImlhdCI6MTYwODM2NDU0OH0.gk727qFQAZ3VVdqtXb5YvpkHoHGzuU0iBfpQE4Bwp8s
+2020-12-19 15:55:50.724 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:55:52.299 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels
+2020-12-19 15:55:52.299 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels-1
+2020-12-19 15:56:14.489 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU1NjEyODVQIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjoxLCJleHAiOjE2MDgzNjgxNzIsInVzZXJJZCI6NTksImlhdCI6MTYwODM2NDU3Mn0.wGhW_n5QLOKwY8cLgiSbtah99Vb5GCr6m-YLZKVyupI
+2020-12-19 15:56:14.492 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:56:16.169 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}
+2020-12-19 15:56:16.169 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}-2
+2020-12-19 15:56:41.249 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU1NjM5NkVKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjoxLCJleHAiOjE2MDgzNjgxOTksInVzZXJJZCI6NTksImlhdCI6MTYwODM2NDU5OX0.6tlvQe1LM2rIvWwB2si_ykca-zV_N3p5t3svQRTmwjA
+2020-12-19 15:56:41.252 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:56:43.163 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/weightItems/{id}
+2020-12-19 15:56:43.163 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/weightItems/{id}-3
+2020-12-19 15:56:45.129 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU1NjQzNTJWIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjoxLCJleHAiOjE2MDgzNjgyMDMsInVzZXJJZCI6NTksImlhdCI6MTYwODM2NDYwM30.RPPx-R4xbpdrTVjOtSvxlJmgJ2FCW6ANEFGsS7v9OcA
+2020-12-19 15:56:45.132 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:56:46.660 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/weightItems/{id}
+2020-12-19 15:56:46.660 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/weightItems/{id}-3
+2020-12-19 15:56:51.733 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU1NjUwMUFBIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjoxLCJleHAiOjE2MDgzNjgyMTAsInVzZXJJZCI6NTksImlhdCI6MTYwODM2NDYxMH0.Tn1M91pyR4p0zYt7IpSxS732bhCB8oNTKwDORcQEA7Y
+2020-12-19 15:56:51.736 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:56:53.883 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/weightItems/{id}
+2020-12-19 15:56:53.883 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/weightItems/{id}-2
+2020-12-19 15:57:08.962 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTU1NzA3NFlOIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjoxLCJleHAiOjE2MDgzNjgyMjcsInVzZXJJZCI6NTksImlhdCI6MTYwODM2NDYyN30.JeO5yPqjl1ZwvutKJkjruPNbOnBAWQ_ciifPdL4QuRQ
+2020-12-19 15:57:08.965 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 15:57:10.473 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/pieceItems/{id}
+2020-12-19 15:57:10.473 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/pieceItems/{id}-2
+2020-12-19 16:21:56.913 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyMTUzMVhJIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk3MTMsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2MTEzfQ.CWvCa37RFqtkWW5Z_1kCmrysFSe3KDilZ_qi4TZ4Mgw
+2020-12-19 16:21:56.916 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:22:00.340 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels
+2020-12-19 16:22:00.340 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels-1
+2020-12-19 16:22:11.528 [reactor-http-nio-2] ERROR o.s.b.a.w.r.error.AbstractErrorWebExceptionHandler - [08d1bde4-102]  500 Server Error for HTTP POST "/adminusers/login"
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
+	|_ checkpoint ⇢ HTTP POST "/adminusers/login" [ExceptionHandlingWebHandler]
+Stack trace:
+		at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+		at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+		at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+		at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+		at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+		at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+		at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:253)
+		at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1133)
+		at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:350)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:148)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:829)
+2020-12-19 16:22:13.649 [reactor-http-nio-2] ERROR o.s.b.a.w.r.error.AbstractErrorWebExceptionHandler - [08d1bde4-103]  500 Server Error for HTTP POST "/adminusers/login"
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:8081
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
+	|_ checkpoint ⇢ HTTP POST "/adminusers/login" [ExceptionHandlingWebHandler]
+Stack trace:
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:779)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:702)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2020-12-19 16:22:15.675 [reactor-http-nio-2] ERROR o.s.b.a.w.r.error.AbstractErrorWebExceptionHandler - [08d1bde4-104]  500 Server Error for HTTP POST "/adminusers/login"
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:8081
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
+	|_ checkpoint ⇢ HTTP POST "/adminusers/login" [ExceptionHandlingWebHandler]
+Stack trace:
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:779)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:702)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2020-12-19 16:22:17.709 [reactor-http-nio-2] ERROR o.s.b.a.w.r.error.AbstractErrorWebExceptionHandler - [08d1bde4-105]  500 Server Error for HTTP POST "/adminusers/login"
+io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:8081
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
+	|_ checkpoint ⇢ HTTP POST "/adminusers/login" [ExceptionHandlingWebHandler]
+Stack trace:
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:779)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:330)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:702)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2020-12-19 16:22:17.712 [reactor-http-nio-2] ERROR o.s.web.server.adapter.HttpWebHandlerAdapter - [08d1bde4-105] Error [java.io.IOException: 远程主机强迫关闭了一个现有的连接。] for HTTP POST "/adminusers/login", but ServerHttpResponse already committed (500 INTERNAL_SERVER_ERROR)
+2020-12-19 16:26:20.800 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjE5ODhCIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5NzksInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzc5fQ.dgfCKXQ8aVmU08JygB1tD9CNYOjBBzlczmA1rZYG4zw
+2020-12-19 16:26:20.803 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:20.804 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels
+2020-12-19 16:26:20.804 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels-1
+2020-12-19 16:26:23.003 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjIyMzRaIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5ODIsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2MzgyfQ.W814jxOPDninwzNOVX1MHtJbupI5gUJ6bB5jggktXW0
+2020-12-19 16:26:23.005 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:23.006 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels
+2020-12-19 16:26:23.006 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels-1
+2020-12-19 16:26:25.033 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjIzNVVOIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5ODMsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2MzgzfQ.KkYtpV6a8I9F8oMAGe4P_5EteVAas_A2hH6pGji4gZM
+2020-12-19 16:26:25.036 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:25.036 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels
+2020-12-19 16:26:25.036 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels-1
+2020-12-19 16:26:25.959 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjI1NTVZIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5ODUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzg1fQ.iU-MDLvPkZXObFtRxOMZlxXKGJImXeZnbQO_3sgpFdM
+2020-12-19 16:26:25.962 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:25.963 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}/pieceItems
+2020-12-19 16:26:25.963 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}/pieceItems-1
+2020-12-19 16:26:28.207 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjI3MzAwIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5ODcsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzg3fQ.l6jZy49pDPYMQpVaCrjPyPsu1O6C3SllbI3FyHYNRFo
+2020-12-19 16:26:28.210 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:28.211 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}/clone
+2020-12-19 16:26:28.211 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}/clone-1
+2020-12-19 16:26:28.939 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjI4MlRUIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5ODgsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzg4fQ.SBRAvHfr6RzvdsPdguZQjJMerlKWpbruyFb0N0wN-Uc
+2020-12-19 16:26:28.942 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:28.943 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}/clone
+2020-12-19 16:26:28.943 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}/clone-1
+2020-12-19 16:26:29.606 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjI4OUhTIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5ODgsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzg4fQ.havueH2QdUfUCPlzoSzaQSRPauF0tz1r-Q8mweaMtk0
+2020-12-19 16:26:29.608 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:29.609 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels
+2020-12-19 16:26:29.609 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels-0
+2020-12-19 16:26:30.291 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjI5Nk5RIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5ODksInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzg5fQ.o5W1l0EA0LKUUW0kcm0jrp01VoDBWIvkIErw4r3lT1c
+2020-12-19 16:26:30.295 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:30.296 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}
+2020-12-19 16:26:30.296 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}-3
+2020-12-19 16:26:30.347 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjMwM08xIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTAsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2MzkwfQ.uN-0lpMrPXUy_qJGHUx0OwlX8O400i0seIyvixVoqDM
+2020-12-19 16:26:30.349 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:30.350 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}
+2020-12-19 16:26:30.351 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}-3
+2020-12-19 16:26:30.408 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjMwM1BCIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTAsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2MzkwfQ.wYDdCD22aLkhRgNra2SpEtSeo5Y9GvXj_kmklfrqyJs
+2020-12-19 16:26:30.409 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:30.410 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:26:30.410 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:26:31.980 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjMwM1BCIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTAsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2MzkwfQ.wYDdCD22aLkhRgNra2SpEtSeo5Y9GvXj_kmklfrqyJs
+2020-12-19 16:26:31.982 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:31.984 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:26:31.984 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-0
+2020-12-19 16:26:32.835 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjMyMEJTIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTIsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2MzkyfQ.YKzaRvzSwiqNQh86Ir8qZG9Dh8bmqLuav_KXO2mLZvo
+2020-12-19 16:26:32.837 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:32.840 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:26:32.840 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:26:33.537 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjMyOFhXIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTIsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2MzkyfQ.GFFw5959qGQ7u2QJo-u53EnJ4_3vQ7fHq5fvzixc6Bo
+2020-12-19 16:26:33.539 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:33.540 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:26:33.540 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:26:34.243 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjMzNTZXIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTMsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2MzkzfQ.APrBj57CAb1pCkOXldeYNCVe731bgeughYhy8nU3YiA
+2020-12-19 16:26:34.244 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:34.245 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:26:34.245 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:26:34.959 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = 12u8789781379127312ui3y1i3
+2020-12-19 16:26:35.645 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjM0OUsxIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTQsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzk0fQ.MW5OE5Xhhna1H9I1np9QpMfrFSrkjcdg7HWxrFEigv0
+2020-12-19 16:26:35.646 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:35.647 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:26:35.647 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:26:36.264 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjM1NjkwIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzk1fQ.ekIcYplOHauxU82jrZBHZbGxu46-oYj4TtpHu4tv6Ks
+2020-12-19 16:26:36.266 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:36.267 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:26:36.267 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:26:36.318 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjM2M1MwIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTYsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzk2fQ.ZYVepkuaawXGNu5YWoMyPUvOm0Vm5gS0SMIsfizEHkg
+2020-12-19 16:26:36.320 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:36.320 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:26:36.320 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:26:36.364 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjM2M05JIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTYsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzk2fQ.sqCipXuxOUtDRJkIcgrc88q2Fy15GjvK-4Kc1leektk
+2020-12-19 16:26:36.366 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:36.366 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:26:36.367 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:26:36.404 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjM2MzZLIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTYsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzk2fQ.zohIkNSqQV0_ek7YGnhIpFI6Z2TIBBjKkI8zBbdHMn0
+2020-12-19 16:26:36.406 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:36.407 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:26:36.407 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:26:36.443 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjM2NDhZIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTYsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzk2fQ.4KmDRZPdZ2Jj4BRxcW_8S-V7Sb58br2713Ap2igeiIE
+2020-12-19 16:26:36.444 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:36.444 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:26:36.445 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:26:36.479 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjM2NFZIIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTYsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzk2fQ.4Mj1cIjVjSQ3Q-oToM5H2Jawgh8mGrsU0JJaPnnuEIo
+2020-12-19 16:26:36.481 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:36.481 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/payments
+2020-12-19 16:26:36.481 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/payments-0
+2020-12-19 16:26:37.462 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjM2OE4wIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTYsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzk2fQ.YdvdTOTADqwOtzGA4GeyC46CNXo3dOx8lgVRcl6EVaE
+2020-12-19 16:26:37.464 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:37.465 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/payments
+2020-12-19 16:26:37.465 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/payments-0
+2020-12-19 16:26:37.503 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyNjM3NEpaIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNjk5OTcsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2Mzk3fQ.MJzkufl1uRaJdunI9T654U7S9DbrV73RB3SaYpg_4-4
+2020-12-19 16:26:37.506 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:26:37.506 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/payments
+2020-12-19 16:26:37.506 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/payments-0
+2020-12-19 16:29:00.965 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyOTAwOEs0IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNzAxNDAsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzY2NTQwfQ.dSZO6tS1S7sfLpiPFR1JQn3QeOv-bi7Vv6Ezanhv52o
+2020-12-19 16:29:00.967 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:29:00.968 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:29:00.968 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:29:01.061 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyOTAxMDI1IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjoxLCJleHAiOjE2MDgzNzAxNDEsInVzZXJJZCI6NTksImlhdCI6MTYwODM2NjU0MX0.Z4ExB-YJWne5ayFe_JZcUUIunKLgWECfgCy38qiBosU
+2020-12-19 16:29:01.063 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:29:01.064 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:29:01.065 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:29:01.112 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyOTAxMFI5IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNzAxNDEsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzY2NTQxfQ.J4vBBmGzpdl9Nal5AeHASqFcrl5jgH2YzGGzZEUxUNU
+2020-12-19 16:29:01.113 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:29:01.113 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:29:01.114 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:29:01.159 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyOTAxMVVKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNzAxNDEsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzY2NTQxfQ.pBm1pjvUm345FhUaBAWhIwkdCdTTInxKja2uUdvhs0Y
+2020-12-19 16:29:01.161 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:29:01.161 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:29:01.161 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:29:01.208 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYyOTAxMVcwIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNzAxNDEsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzY2NTQxfQ.3EAYy8gYkMTYAyHpENqrIiPmy8HmXNpkshQAfu2vq8I
+2020-12-19 16:29:01.210 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:29:01.210 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:29:01.210 [reactor-http-nio-4] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:30:07.485 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzMDA3MzQ5IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNzAyMDcsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzY2NjA3fQ.gHYtvgXf1q8EXE16Gt_Fyl6N3Mk5VuL2Re2QGwb32mI
+2020-12-19 16:30:07.486 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:30:07.487 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:30:07.487 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:30:07.564 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzMDA3NTY2IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjoxLCJleHAiOjE2MDgzNzAyMDcsInVzZXJJZCI6NTksImlhdCI6MTYwODM2NjYwN30.Sz7Ku7M9Fw_4WsI1fEl5CmUvFL1B8TZr-t9PwrJMRSg
+2020-12-19 16:30:07.565 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:30:07.565 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:30:07.565 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:30:07.647 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzMDA3NTZOIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNzAyMDcsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzY2NjA3fQ.xCPzKiydH2-938Be5YswIHNQ4OmZHVPfZJD8m3SvzxE
+2020-12-19 16:30:07.649 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:30:07.649 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:30:07.649 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:30:07.728 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzMDA3NlNVIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNzAyMDcsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzY2NjA3fQ.qAKSwjEF_uie33C2_6wquO--hOLK2nf-nWwT-6mLFQs
+2020-12-19 16:30:07.732 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:30:07.733 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:30:07.733 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:30:07.799 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzMDA3N0wxIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjowLCJleHAiOjE2MDgzNzAyMDcsInVzZXJJZCI6MSwiaWF0IjoxNjA4MzY2NjA3fQ.hlEsz4_reZhACgKhfCajAtHe9DzgOaRYUxp9aHIwynM
+2020-12-19 16:30:07.801 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:30:07.801 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:30:07.801 [reactor-http-nio-1] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:33:44.184 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzMzQ0MDNKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0MjQsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODI0fQ.NscWHtp4j06Thxq0k0-mvUfkyWnCFfy0j6B0Yej_8gE
+2020-12-19 16:33:44.186 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:33:44.186 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:33:44.186 [reactor-http-nio-2] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:34:15.054 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE0OUgwIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTQsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU0fQ.O33zRjiWPomwfXMT7Fh45rLzUwEAWAuuzE6eCjdrujQ
+2020-12-19 16:34:15.056 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.056 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels
+2020-12-19 16:34:15.057 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels-1
+2020-12-19 16:34:15.141 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1MVUxIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.-B6y_9Qp3ba93Pa0D1VCblqKDyyt6cWnE66MyOUZatk
+2020-12-19 16:34:15.142 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.143 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels
+2020-12-19 16:34:15.143 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels-1
+2020-12-19 16:34:15.268 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1MkoxIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.Vp6kML0WQTUVgO1f73IDlSM1vWcI7CDwfEVpm3jQH-s
+2020-12-19 16:34:15.270 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.270 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels
+2020-12-19 16:34:15.270 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels-1
+2020-12-19 16:34:15.316 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1M1VYIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.Tt9eq-mfZ9OViLUJXKtCdToc0VtKsaJ9QF0aOYIyXiA
+2020-12-19 16:34:15.318 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.318 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}/pieceItems
+2020-12-19 16:34:15.318 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}/pieceItems-1
+2020-12-19 16:34:15.422 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1NFlUIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.VIFTkvgtY6Y_dFs6aoFJ_HUCGl01FbloLpV_71zaqPw
+2020-12-19 16:34:15.424 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.424 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}/clone
+2020-12-19 16:34:15.424 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}/clone-1
+2020-12-19 16:34:15.462 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1NERSIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.EXoRZVhThrh927MliVZH611I1UpuVDgEJKEgDirrSLQ
+2020-12-19 16:34:15.463 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.463 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}/clone
+2020-12-19 16:34:15.463 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}/clone-1
+2020-12-19 16:34:15.541 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1NE0yIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.f6lhV8Dfu4Icduth6augcYE6L2k7RqavJOBDTX7Xh1M
+2020-12-19 16:34:15.542 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.542 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels
+2020-12-19 16:34:15.542 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels-0
+2020-12-19 16:34:15.588 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1NUgxIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.wl6TbzLhrb87z_1jjDDFeR_JVwLDjNH5xDOaoYPiDkI
+2020-12-19 16:34:15.590 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.590 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}
+2020-12-19 16:34:15.591 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}-3
+2020-12-19 16:34:15.630 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1NkFFIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.-xHuAkUrqs5HwWeLnz4MttTCw-hmqsAYUUkzSKZciy4
+2020-12-19 16:34:15.631 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.631 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/freightmodels/{id}
+2020-12-19 16:34:15.631 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/freightmodels/{id}-3
+2020-12-19 16:34:15.674 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1NkhBIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.qWnTI03ogfvG4nZY9e7PeftU9Cq36Iu6CTomZ4iwwgc
+2020-12-19 16:34:15.676 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.677 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:34:15.677 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:34:15.717 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1NkhBIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.qWnTI03ogfvG4nZY9e7PeftU9Cq36Iu6CTomZ4iwwgc
+2020-12-19 16:34:15.718 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.719 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:34:15.719 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-0
+2020-12-19 16:34:15.770 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1N1VRIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.gNwh6DW0qhcGsGWPjfSXFBGvxQvNDEqd3h4LH4-tN4A
+2020-12-19 16:34:15.773 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.773 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:34:15.773 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:34:15.825 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1OEtKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.uq7leMzduAUM1hyRDhJ44aJ0KF_Y7BSkJBhArBCJSoY
+2020-12-19 16:34:15.826 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.826 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:34:15.826 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:34:15.870 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1OFFMIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.LuAGgodLXpA85mlGmlI_FZAHjO0ckfMWXBoKMfDO8K4
+2020-12-19 16:34:15.871 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.872 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}
+2020-12-19 16:34:15.872 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}-2
+2020-12-19 16:34:15.946 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = 12u8789781379127312ui3y1i3
+2020-12-19 16:34:15.973 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1OUxaIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.TYrL9hxfpzRH7-JBsDHdxPYHFJLK9XFsN0DQi-fUWFk
+2020-12-19 16:34:15.974 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:15.975 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:34:15.975 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:34:16.007 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE1OVVUIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTUsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU1fQ.QdLzOMQCWWWRkk-NdnqT0V9q0ZEVi3my4VlfjeHdKic
+2020-12-19 16:34:16.008 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:16.008 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:34:16.008 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:34:16.048 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE2MDIxIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTYsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU2fQ.LMl67t-vHF2IXjuUMoUP6ZoCXaBPwBcNAoANmCmhF7A
+2020-12-19 16:34:16.049 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:16.049 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:34:16.049 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:34:16.086 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE2MENKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTYsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU2fQ.l8bDAqITENv7lEcT170Au1LUDumR25_KI3ZhHUMYW8k
+2020-12-19 16:34:16.087 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:16.087 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:34:16.088 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:34:16.181 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE2MTdRIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTYsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU2fQ.EuNSiKGTiwht1MSyBEDw5H6OGsQjK5oRO-0Jey9hKYQ
+2020-12-19 16:34:16.182 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:16.183 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:34:16.183 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:34:16.221 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE2MjdaIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTYsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU2fQ.dAfdZ7gpA5p_FYYYqggdNIrdPSZNXbMdqqqzwkVHZSo
+2020-12-19 16:34:16.223 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:16.224 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/deliver
+2020-12-19 16:34:16.224 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/deliver-2
+2020-12-19 16:34:16.266 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE2MkgzIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTYsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU2fQ.kR-qg4ZGMmzIJGOKIAxjVFD39eF2cyuUFsv4SklymT0
+2020-12-19 16:34:16.267 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:16.268 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/payments
+2020-12-19 16:34:16.268 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/payments-0
+2020-12-19 16:34:16.330 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE2MzdKIiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTYsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU2fQ.D4EHTYgqARH_stcC_bHi-bs691X1GT2EezXmJLOhz58
+2020-12-19 16:34:16.331 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:16.332 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/payments
+2020-12-19 16:34:16.332 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/payments-0
+2020-12-19 16:34:16.369 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - filter: token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0aGlzIGlzIGEgdG9rZW4iLCJhdWQiOiJNSU5JQVBQIiwidG9rZW5JZCI6IjIwMjAxMjE5MTYzNDE2M1o1IiwiaXNzIjoiT09BRCIsImRlcGFydElkIjo3LCJleHAiOjE2MDgzNzA0NTYsInVzZXJJZCI6MzEyMywiaWF0IjoxNjA4MzY2ODU2fQ.nbfv7ZOAo9lMkzerGxeKc1A1oYzcbmMI9S5tinkx4D4
+2020-12-19 16:34:16.370 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - did匹配
+2020-12-19 16:34:16.371 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 获取通用请求路径:/shops/{id}/orders/{id}/payments
+2020-12-19 16:34:16.371 [reactor-http-nio-3] DEBUG cn.edu.xmu.privilegegateway.localfilter.AuthFilter - 该url无权限id:/shops/{id}/orders/{id}/payments-0

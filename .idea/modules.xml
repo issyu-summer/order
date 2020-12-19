@@ -16,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/privilegegateway/privilegegateway.iml" filepath="$PROJECT_DIR$/privilegegateway/privilegegateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/privilegeservice/privilegeservice.iml" filepath="$PROJECT_DIR$/privilegeservice/privilegeservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/privilegeservice-client/privilegeservice-client.iml" filepath="$PROJECT_DIR$/privilegeservice-client/privilegeservice-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/public-test/public-test.iml" filepath="$PROJECT_DIR$/public-test/public-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/userModule/userService.iml" filepath="$PROJECT_DIR$/userModule/userService.iml" />
     </modules>
   </component>
