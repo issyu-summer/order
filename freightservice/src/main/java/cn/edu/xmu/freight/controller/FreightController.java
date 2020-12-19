@@ -260,8 +260,6 @@ public class FreightController {
      * @author 陈星如
      * @date 2020/12/9 9:13
      */
-
-
     @ApiOperation(value = "管理员定义件数模板明细",produces="application/json")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺Id", required = true),
@@ -278,9 +276,10 @@ public class FreightController {
             @LoginUser Long userId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id,
-            @RequestBody PieceModelInfoVo vo
+            @RequestBody PieceModelInfoVo vo,
+            @Depart @ApiIgnore Long departId
     ){
-        return Common.decorateReturnObject(freightService.postPieceItems(vo,shopId,id));
+        return Common.decorateReturnObject(freightService.postPieceItems(vo,shopId,id,departId));
     }
 
     /**

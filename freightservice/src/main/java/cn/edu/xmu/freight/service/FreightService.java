@@ -99,8 +99,8 @@ public class FreightService {
      * @author 陈星如
      * @date 2020/12/9 9:13
      */
-    public ReturnObject postPieceItems(PieceModelInfoVo vo, Long shopId, Long id) {
-        ReturnObject returnObject = freightDao.postPieceItems(vo,shopId,id);
+    public ReturnObject postPieceItems(PieceModelInfoVo vo, Long shopId, Long id,Long departId) {
+        ReturnObject returnObject = freightDao.postPieceItems(vo,shopId,id,departId);
         return returnObject;
     }
 

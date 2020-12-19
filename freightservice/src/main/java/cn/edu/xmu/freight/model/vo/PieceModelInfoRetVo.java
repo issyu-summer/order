@@ -2,6 +2,7 @@ package cn.edu.xmu.freight.model.vo;
 
 import cn.edu.xmu.freight.model.bo.PieceModelInfoBo;
 import cn.edu.xmu.freight.model.po.PieceFreightModelPo;
+import cn.edu.xmu.ooad.util.TimeFormat;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -15,34 +16,32 @@ import java.time.LocalDateTime;
 public class PieceModelInfoRetVo {
     private Long id;
     private Long regionId;
-    private Integer firstItems;
-    private Long firstItemsPrice;
+    private Integer firstItem;
+    private Long firstItemPrice;
     private Integer additionalItems;
     private Long additionalItemsPrice;
-    private LocalDateTime gmtCreate;
-    private LocalDateTime gmtModified;
+    private String gmtCreate;
+    private String gmtModified;
 
     public PieceModelInfoRetVo(PieceModelInfoBo pieceModelInfoBo){
         this.id=pieceModelInfoBo.getId();
         this.regionId=pieceModelInfoBo.getRegionId();
-        this.firstItems=pieceModelInfoBo.getFirstItems();
-        this.firstItemsPrice=pieceModelInfoBo.getFirstItemsPrice();
+        this.firstItem =pieceModelInfoBo.getFirstItems();
+        this.firstItemPrice =pieceModelInfoBo.getFirstItemsPrice();
         this.additionalItems=pieceModelInfoBo.getAdditionalItems();
         this.additionalItemsPrice=pieceModelInfoBo.getAdditionalItemsPrice();
-        this.gmtCreate=pieceModelInfoBo.getGmtCreate();
-        this.gmtModified=pieceModelInfoBo.getGmtModified();
-
+        this.gmtCreate= TimeFormat.localDateTimeToString(pieceModelInfoBo.getGmtCreate());
+        this.gmtModified=TimeFormat.localDateTimeToString(pieceModelInfoBo.getGmtModified());
     }
 
     public PieceModelInfoRetVo(PieceFreightModelPo pieceFreightModelPo){
         this.id=pieceFreightModelPo.getId();
         this.regionId=pieceFreightModelPo.getRegionId();
-        this.firstItems=pieceFreightModelPo.getFirstItems();
-        this.firstItemsPrice=pieceFreightModelPo.getFirstItemsPrice();
+        this.firstItem =pieceFreightModelPo.getFirstItems();
+        this.firstItemPrice =pieceFreightModelPo.getFirstItemsPrice();
         this.additionalItems=pieceFreightModelPo.getAdditionalItems();
         this.additionalItemsPrice=pieceFreightModelPo.getAdditionalItemsPrice();
-        this.gmtCreate=pieceFreightModelPo.getGmtCreate();
-        this.gmtModified=pieceFreightModelPo.getGmtModified();
-
+        this.gmtCreate=TimeFormat.localDateTimeToString(pieceFreightModelPo.getGmtCreate());
+        this.gmtModified=TimeFormat.localDateTimeToString(pieceFreightModelPo.getGmtModified());
     }
 }
