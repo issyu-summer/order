@@ -1855,3 +1855,317 @@ javax.mail.AuthenticationFailedException: 535 Login Fail. Please enter your auth
 2020-12-19 16:29:01.028 [http-nio-8081-exec-5] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 85 privId = 11
 2020-12-19 16:29:01.028 [http-nio-8081-exec-5] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 85 privId = 12
 2020-12-19 16:29:01.029 [http-nio-8081-exec-5] DEBUG cn.edu.xmu.privilege.dao.RoleDao - getPrivIdsBByRoleId: roleId = 85 privId = 13
+2020-12-19 17:01:16.980 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.5.Final
+2020-12-19 17:01:20.768 [main] INFO  o.a.d.s.b.c.event.WelcomeLogoApplicationListener - 
+
+ :: Dubbo Spring Boot (v2.7.8) : https://github.com/apache/dubbo-spring-boot-project
+ :: Dubbo (v2.7.8) : https://github.com/apache/dubbo
+ :: Discuss group : dev@dubbo.apache.org
+
+2020-12-19 17:01:20.776 [main] INFO  o.a.d.s.b.c.e.OverrideDubboConfigApplicationListener - Dubbo Config was overridden by externalized configuration {dubbo.application.qos-enable=false, dubbo.config.multiple=true}
+2020-12-19 17:01:21.188 [pool-1-thread-1] INFO  o.a.d.s.b.c.e.AwaitingNonWebApplicationListener -  [Dubbo] Current Spring Boot Application is await...
+2020-12-19 17:01:22.861 [main] INFO  o.a.d.s.b.c.e.OverrideDubboConfigApplicationListener - Dubbo Config was overridden by externalized configuration {dubbo.application.name=privilege-service, dubbo.application.qos-accept-foreign-ip=false, dubbo.application.qos-enable=false, dubbo.config.multiple=true, dubbo.consumer.check=false, dubbo.consumer.timeout=4000, dubbo.protocol.name=dubbo, dubbo.protocol.port=-1, dubbo.registry.address=nacos://47.113.100.78:8848}
+2020-12-19 17:01:22.898 [main] INFO  cn.edu.xmu.privilege.PrivilegeServiceApplication - The following profiles are active: dev
+2020-12-19 17:01:24.360 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [referenceAnnotationBeanPostProcessor] has been registered.
+2020-12-19 17:01:24.361 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigAliasPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [dubboConfigAliasPostProcessor] has been registered.
+2020-12-19 17:01:24.362 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.context.DubboLifecycleComponentApplicationListener]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [dubboLifecycleComponentApplicationListener] has been registered.
+2020-12-19 17:01:24.363 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.context.DubboBootstrapApplicationListener]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [dubboBootstrapApplicationListener] has been registered.
+2020-12-19 17:01:24.364 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.beans.factory.config.DubboConfigDefaultPropertyValueBeanPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [dubboConfigDefaultPropertyValueBeanPostProcessor] has been registered.
+2020-12-19 17:01:24.477 [main] WARN  o.springframework.boot.actuate.endpoint.EndpointId - Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2020-12-19 17:01:24.863 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-19 17:01:24.869 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-19 17:01:24.933 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43ms. Found 0 Redis repository interfaces.
+2020-12-19 17:01:25.046 [main] WARN  o.springframework.boot.actuate.endpoint.EndpointId - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-12-19 17:01:25.109 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingRegistrar - The configuration bean definition [name : org.apache.dubbo.config.ApplicationConfig#0, content : Root bean: class [org.apache.dubbo.config.ApplicationConfig]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] has been registered.
+2020-12-19 17:01:25.109 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [com.alibaba.spring.beans.factory.annotation.ConfigurationBeanBindingPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [configurationBeanBindingPostProcessor] has been registered.
+2020-12-19 17:01:25.109 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingRegistrar - The configuration bean definition [name : org.apache.dubbo.config.RegistryConfig#0, content : Root bean: class [org.apache.dubbo.config.RegistryConfig]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] has been registered.
+2020-12-19 17:01:25.110 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingRegistrar - The configuration bean definition [name : org.apache.dubbo.config.ProtocolConfig#0, content : Root bean: class [org.apache.dubbo.config.ProtocolConfig]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] has been registered.
+2020-12-19 17:01:25.110 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingRegistrar - The configuration bean definition [name : org.apache.dubbo.config.ConsumerConfig#0, content : Root bean: class [org.apache.dubbo.config.ConsumerConfig]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] has been registered.
+2020-12-19 17:01:25.213 [main] INFO  o.s.c.annotation.ConfigurationClassPostProcessor - Cannot enhance @Configuration bean definition 'org.apache.dubbo.spring.boot.autoconfigure.DubboAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2020-12-19 17:01:25.325 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=04e27ba0-c819-3474-b309-749f9b9f3ca9
+2020-12-19 17:01:26.376 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2020-12-19 17:01:26.393 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2020-12-19 17:01:26.393 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-19 17:01:26.394 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-12-19 17:01:26.750 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-12-19 17:01:26.751 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3807 ms
+2020-12-19 17:01:27.425 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-12-19 17:01:28.175 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-12-19 17:01:30.755 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/adminusers/{id}-0 p = Privilege(id=2, name=查看任意用户信息, url=/shops/{id}/adminusers/{id}, requestType=GET, signature=07fc539235716e80dc4405464750eaadfcbe05cb086cd3b47adbf9915385c42e, gmtCreate=2020-11-01T09:52:20, gmtModified=2020-11-02T21:51:45, key=/shops/{id}/adminusers/{id}-0, cacuSignature=07fc539235716e80dc4405464750eaadfcbe05cb086cd3b47adbf9915385c42e)
+2020-12-19 17:01:33.889 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'privilegeServiceApplication': Unsatisfied dependency expressed through field 'userDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userDao': Unsatisfied dependency expressed through field 'roleDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'roleDao': Unsatisfied dependency expressed through field 'privDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'privilegeDao' defined in file [E:\IDEANew\order\privilegeservice\target\classes\cn\edu\xmu\privilege\dao\PrivilegeDao.class]: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+2020-12-19 17:01:34.031 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2020-12-19 17:01:34.040 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-12-19 17:01:34.042 [main] INFO  o.a.d.c.s.b.f.a.ReferenceAnnotationBeanPostProcessor - class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!
+2020-12-19 17:01:34.044 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2020-12-19 17:01:34.078 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-12-19 17:01:34.098 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'privilegeServiceApplication': Unsatisfied dependency expressed through field 'userDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userDao': Unsatisfied dependency expressed through field 'roleDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'roleDao': Unsatisfied dependency expressed through field 'privDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'privilegeDao' defined in file [E:\IDEANew\order\privilegeservice\target\classes\cn\edu\xmu\privilege\dao\PrivilegeDao.class]: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at cn.edu.xmu.privilege.PrivilegeServiceApplication.main(PrivilegeServiceApplication.java:44)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userDao': Unsatisfied dependency expressed through field 'roleDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'roleDao': Unsatisfied dependency expressed through field 'privDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'privilegeDao' defined in file [E:\IDEANew\order\privilegeservice\target\classes\cn\edu\xmu\privilege\dao\PrivilegeDao.class]: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	... 20 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'roleDao': Unsatisfied dependency expressed through field 'privDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'privilegeDao' defined in file [E:\IDEANew\order\privilegeservice\target\classes\cn\edu\xmu\privilege\dao\PrivilegeDao.class]: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	... 33 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'privilegeDao' defined in file [E:\IDEANew\order\privilegeservice\target\classes\cn\edu\xmu\privilege\dao\PrivilegeDao.class]: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1794)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	... 46 common frames omitted
+Caused by: org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:54)
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:52)
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:273)
+	at org.springframework.data.redis.connection.lettuce.LettuceHashCommands.convertLettuceAccessException(LettuceHashCommands.java:471)
+	at org.springframework.data.redis.connection.lettuce.LettuceHashCommands.hSetNX(LettuceHashCommands.java:97)
+	at org.springframework.data.redis.connection.DefaultedRedisConnection.hSetNX(DefaultedRedisConnection.java:1089)
+	at org.springframework.data.redis.core.DefaultHashOperations.lambda$putIfAbsent$10(DefaultHashOperations.java:208)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:228)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:188)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:96)
+	at org.springframework.data.redis.core.DefaultHashOperations.putIfAbsent(DefaultHashOperations.java:208)
+	at cn.edu.xmu.privilege.dao.PrivilegeDao.afterPropertiesSet(PrivilegeDao.java:59)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790)
+	... 56 common frames omitted
+Caused by: io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:135)
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:108)
+	at io.lettuce.core.protocol.AsyncCommand.completeResult(AsyncCommand.java:118)
+	at io.lettuce.core.protocol.AsyncCommand.complete(AsyncCommand.java:109)
+	at io.lettuce.core.protocol.CommandWrapper.complete(CommandWrapper.java:59)
+	at io.lettuce.core.protocol.CommandHandler.complete(CommandHandler.java:680)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:640)
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:591)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-12-19 17:06:09.832 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.5.Final
+2020-12-19 17:06:11.647 [main] INFO  o.a.d.s.b.c.event.WelcomeLogoApplicationListener - 
+
+ :: Dubbo Spring Boot (v2.7.8) : https://github.com/apache/dubbo-spring-boot-project
+ :: Dubbo (v2.7.8) : https://github.com/apache/dubbo
+ :: Discuss group : dev@dubbo.apache.org
+
+2020-12-19 17:06:11.655 [main] INFO  o.a.d.s.b.c.e.OverrideDubboConfigApplicationListener - Dubbo Config was overridden by externalized configuration {dubbo.application.qos-enable=false, dubbo.config.multiple=true}
+2020-12-19 17:06:12.125 [pool-1-thread-1] INFO  o.a.d.s.b.c.e.AwaitingNonWebApplicationListener -  [Dubbo] Current Spring Boot Application is await...
+2020-12-19 17:06:13.690 [main] INFO  o.a.d.s.b.c.e.OverrideDubboConfigApplicationListener - Dubbo Config was overridden by externalized configuration {dubbo.application.name=privilege-service, dubbo.application.qos-accept-foreign-ip=false, dubbo.application.qos-enable=false, dubbo.config.multiple=true, dubbo.consumer.check=false, dubbo.consumer.timeout=4000, dubbo.protocol.name=dubbo, dubbo.protocol.port=-1, dubbo.registry.address=nacos://47.113.100.78:8848}
+2020-12-19 17:06:13.721 [main] INFO  cn.edu.xmu.privilege.PrivilegeServiceApplication - The following profiles are active: dev
+2020-12-19 17:06:15.214 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [referenceAnnotationBeanPostProcessor] has been registered.
+2020-12-19 17:06:15.215 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.beans.factory.annotation.DubboConfigAliasPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [dubboConfigAliasPostProcessor] has been registered.
+2020-12-19 17:06:15.216 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.context.DubboLifecycleComponentApplicationListener]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [dubboLifecycleComponentApplicationListener] has been registered.
+2020-12-19 17:06:15.216 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.context.DubboBootstrapApplicationListener]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [dubboBootstrapApplicationListener] has been registered.
+2020-12-19 17:06:15.217 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [org.apache.dubbo.config.spring.beans.factory.config.DubboConfigDefaultPropertyValueBeanPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [dubboConfigDefaultPropertyValueBeanPostProcessor] has been registered.
+2020-12-19 17:06:15.363 [main] WARN  o.springframework.boot.actuate.endpoint.EndpointId - Endpoint ID 'nacos-discovery' contains invalid characters, please migrate to a valid format.
+2020-12-19 17:06:15.909 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-12-19 17:06:15.914 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-12-19 17:06:15.983 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42ms. Found 0 Redis repository interfaces.
+2020-12-19 17:06:16.087 [main] WARN  o.springframework.boot.actuate.endpoint.EndpointId - Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2020-12-19 17:06:16.172 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingRegistrar - The configuration bean definition [name : org.apache.dubbo.config.ApplicationConfig#0, content : Root bean: class [org.apache.dubbo.config.ApplicationConfig]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] has been registered.
+2020-12-19 17:06:16.172 [main] INFO  com.alibaba.spring.util.BeanRegistrar - The Infrastructure bean definition [Root bean: class [com.alibaba.spring.beans.factory.annotation.ConfigurationBeanBindingPostProcessor]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=nullwith name [configurationBeanBindingPostProcessor] has been registered.
+2020-12-19 17:06:16.173 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingRegistrar - The configuration bean definition [name : org.apache.dubbo.config.RegistryConfig#0, content : Root bean: class [org.apache.dubbo.config.RegistryConfig]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] has been registered.
+2020-12-19 17:06:16.173 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingRegistrar - The configuration bean definition [name : org.apache.dubbo.config.ProtocolConfig#0, content : Root bean: class [org.apache.dubbo.config.ProtocolConfig]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] has been registered.
+2020-12-19 17:06:16.173 [main] INFO  c.a.s.b.f.a.ConfigurationBeanBindingRegistrar - The configuration bean definition [name : org.apache.dubbo.config.ConsumerConfig#0, content : Root bean: class [org.apache.dubbo.config.ConsumerConfig]; scope=; abstract=false; lazyInit=null; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null] has been registered.
+2020-12-19 17:06:16.330 [main] INFO  o.s.c.annotation.ConfigurationClassPostProcessor - Cannot enhance @Configuration bean definition 'org.apache.dubbo.spring.boot.autoconfigure.DubboAutoConfiguration' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2020-12-19 17:06:16.469 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=04e27ba0-c819-3474-b309-749f9b9f3ca9
+2020-12-19 17:06:17.591 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2020-12-19 17:06:17.608 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2020-12-19 17:06:17.610 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2020-12-19 17:06:17.610 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-12-19 17:06:17.939 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-12-19 17:06:17.939 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4190 ms
+2020-12-19 17:06:18.778 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-12-19 17:06:19.881 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-12-19 17:06:22.592 [main] DEBUG cn.edu.xmu.privilege.dao.PrivilegeDao - afterPropertiesSet: key = /shops/{id}/adminusers/{id}-0 p = Privilege(id=2, name=查看任意用户信息, url=/shops/{id}/adminusers/{id}, requestType=GET, signature=07fc539235716e80dc4405464750eaadfcbe05cb086cd3b47adbf9915385c42e, gmtCreate=2020-11-01T09:52:20, gmtModified=2020-11-02T21:51:45, key=/shops/{id}/adminusers/{id}-0, cacuSignature=07fc539235716e80dc4405464750eaadfcbe05cb086cd3b47adbf9915385c42e)
+2020-12-19 17:06:25.518 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'privilegeServiceApplication': Unsatisfied dependency expressed through field 'userDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userDao': Unsatisfied dependency expressed through field 'roleDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'roleDao': Unsatisfied dependency expressed through field 'privDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'privilegeDao' defined in file [E:\IDEANew\order\privilegeservice\target\classes\cn\edu\xmu\privilege\dao\PrivilegeDao.class]: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+2020-12-19 17:06:25.648 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2020-12-19 17:06:25.657 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-12-19 17:06:25.659 [main] INFO  o.a.d.c.s.b.f.a.ReferenceAnnotationBeanPostProcessor - class org.apache.dubbo.config.spring.beans.factory.annotation.ReferenceAnnotationBeanPostProcessor was destroying!
+2020-12-19 17:06:25.660 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2020-12-19 17:06:25.694 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-12-19 17:06:25.721 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'privilegeServiceApplication': Unsatisfied dependency expressed through field 'userDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userDao': Unsatisfied dependency expressed through field 'roleDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'roleDao': Unsatisfied dependency expressed through field 'privDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'privilegeDao' defined in file [E:\IDEANew\order\privilegeservice\target\classes\cn\edu\xmu\privilege\dao\PrivilegeDao.class]: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at cn.edu.xmu.privilege.PrivilegeServiceApplication.main(PrivilegeServiceApplication.java:44)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userDao': Unsatisfied dependency expressed through field 'roleDao'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'roleDao': Unsatisfied dependency expressed through field 'privDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'privilegeDao' defined in file [E:\IDEANew\order\privilegeservice\target\classes\cn\edu\xmu\privilege\dao\PrivilegeDao.class]: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	... 20 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'roleDao': Unsatisfied dependency expressed through field 'privDao'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'privilegeDao' defined in file [E:\IDEANew\order\privilegeservice\target\classes\cn\edu\xmu\privilege\dao\PrivilegeDao.class]: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	... 33 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'privilegeDao' defined in file [E:\IDEANew\order\privilegeservice\target\classes\cn\edu\xmu\privilege\dao\PrivilegeDao.class]: Invocation of init method failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1794)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	... 46 common frames omitted
+Caused by: org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:54)
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:52)
+	at org.springframework.data.redis.connection.lettuce.LettuceExceptionConverter.convert(LettuceExceptionConverter.java:41)
+	at org.springframework.data.redis.PassThroughExceptionTranslationStrategy.translate(PassThroughExceptionTranslationStrategy.java:44)
+	at org.springframework.data.redis.FallbackExceptionTranslationStrategy.translate(FallbackExceptionTranslationStrategy.java:42)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnection.convertLettuceAccessException(LettuceConnection.java:273)
+	at org.springframework.data.redis.connection.lettuce.LettuceHashCommands.convertLettuceAccessException(LettuceHashCommands.java:471)
+	at org.springframework.data.redis.connection.lettuce.LettuceHashCommands.hSetNX(LettuceHashCommands.java:97)
+	at org.springframework.data.redis.connection.DefaultedRedisConnection.hSetNX(DefaultedRedisConnection.java:1089)
+	at org.springframework.data.redis.core.DefaultHashOperations.lambda$putIfAbsent$10(DefaultHashOperations.java:208)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:228)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:188)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:96)
+	at org.springframework.data.redis.core.DefaultHashOperations.putIfAbsent(DefaultHashOperations.java:208)
+	at cn.edu.xmu.privilege.dao.PrivilegeDao.afterPropertiesSet(PrivilegeDao.java:59)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790)
+	... 56 common frames omitted
+Caused by: io.lettuce.core.RedisCommandExecutionException: NOAUTH Authentication required.
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:135)
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:108)
+	at io.lettuce.core.protocol.AsyncCommand.completeResult(AsyncCommand.java:118)
+	at io.lettuce.core.protocol.AsyncCommand.complete(AsyncCommand.java:109)
+	at io.lettuce.core.protocol.CommandWrapper.complete(CommandWrapper.java:59)
+	at io.lettuce.core.protocol.CommandHandler.complete(CommandHandler.java:680)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:640)
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:591)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:163)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:714)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:576)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
