@@ -7,22 +7,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="orderservice" />
-        <module name="inner-api" />
-        <module name="userService" />
-        <module name="public-test" />
-        <module name="gateway" />
         <module name="customertest" />
-        <module name="Other-External-Interface" />
-        <module name="freightservice" />
-        <module name="privilegeservice" />
-        <module name="customer" />
-        <module name="paymentservice" />
-        <module name="outer-api" />
-        <module name="privilegegateway" />
+        <module name="public-test" />
+        <module name="privilegeservice-client" />
+        <module name="userService" />
         <module name="core" />
         <module name="otherinterface" />
-        <module name="privilegeservice-client" />
+        <module name="freightservice" />
+        <module name="inner-api" />
+        <module name="outer-api" />
+        <module name="Other-External-Interface" />
+        <module name="privilegeservice" />
+        <module name="paymentservice" />
+        <module name="privilegegateway" />
+        <module name="gateway" />
+        <module name="orderservice" />
+        <module name="customer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

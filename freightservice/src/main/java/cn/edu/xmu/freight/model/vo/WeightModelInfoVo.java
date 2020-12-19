@@ -3,6 +3,8 @@ package cn.edu.xmu.freight.model.vo;
 import cn.edu.xmu.freight.model.bo.WeightModelInfoBo;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 
 /**
  * 重量运费模板传入值对象
@@ -30,6 +32,22 @@ public class WeightModelInfoVo {
         this.setTrihunPrice(weightModelInfoBo.getTrihunPrice());
         this.setAbovePrice(weightModelInfoBo.getAbovePrice());
         this.setRegionId(weightModelInfoBo.getRegionId());
+    }
+
+    public WeightModelInfoBo createWeightModelInfoBo(Long id){
+        WeightModelInfoBo weightModelInfoBo = new WeightModelInfoBo();
+        weightModelInfoBo.setFreightModelId(id);
+        weightModelInfoBo.setGmtCreate(LocalDateTime.now());
+        weightModelInfoBo.setGmtModified(LocalDateTime.now());
+        weightModelInfoBo.setFirstWeight(this.getFirstWeight());
+        weightModelInfoBo.setFirstWeightFreight(this.getFirstWeightFreight());
+        weightModelInfoBo.setTenPrice(this.getTenPrice());
+        weightModelInfoBo.setHundredPrice(this.hundredPrice);
+        weightModelInfoBo.setFiftyPrice(this.getFiftyPrice());
+        weightModelInfoBo.setTrihunPrice(this.getTrihunPrice());
+        weightModelInfoBo.setAbovePrice(this.getAbovePrice());
+        weightModelInfoBo.setRegionId(this.getRegionId());
+        return weightModelInfoBo;
     }
     public WeightModelInfoBo createWeightModelInfoBo(){
         WeightModelInfoBo weightModelInfoBo = new WeightModelInfoBo();

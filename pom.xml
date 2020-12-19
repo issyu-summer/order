@@ -16,8 +16,8 @@
         <module>privilegeservice-client</module>
         <module>privilegeservice</module>
         <module>privilegegateway</module>
-        <module>userModule</module>
         <module>otherinterface</module>
+        <module>userModule</module>
         <module>public-test</module>
     </modules>
     <parent>

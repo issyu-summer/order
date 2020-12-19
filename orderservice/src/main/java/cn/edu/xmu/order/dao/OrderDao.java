@@ -158,41 +158,40 @@ public class OrderDao {
      * 试试可不可以在dao层调用
      */
     public ReturnObject createOrder(OrderInfoVo orderInfoVo,Long userId,Long departId) {
-        //插入orderInfo
-        //OrderPoExample orderPoExample = new OrderPoExample();
-        //插入orderItemInfo
-        //OrderItemPoExample orderItemPoExample = new OrderItemPoExample();
+
         if(!AuthVerify.customerAuth(departId)){
             return new ReturnObject(ResponseCode.AUTH_NOT_ALLOW,"不是买家用户，departId="+departId);
         }
 
-        OrderPo orderPo = orderInfoVo.getOrderPo();
+        Long originPrice=null,freightPrice=null,discount=null,grouponDiscount=null;
         /**
-         * 计算运费,计算原来的总价,运费,折扣加个,
+         * originPrice = 外部接口通过sku获得价格*count
+         * freightPrice = 内部接口计算运费
+         * if(couponId!=null)  discount = 通过外部接口计算优惠券优惠
+         * if(grouponId!=null)  grouponDiscount = 通过外部接口计算团购优惠
          */
-//        Long freightPrice;
-//        Long price;
-//        //orderPo
+        OrderPo orderPo = orderInfoVo.getOrderPo(userId,originPrice,freightPrice,discount,grouponDiscount);
+
         List<OrderItemPo> orderItemPos = orderInfoVo.getOrderItemPoList();
         try {
             int retOrder = orderPoMapper.insertSelective(orderPo);
             if (retOrder == 0) {
                 logger.debug("插入订单信息失败：收货人=" + orderPo.getConsignee());
+                return new ReturnObject(ResponseCode.INTERNAL_SERVER_ERR);
             }
             for (OrderItemPo orderItemPo : orderItemPos) {
                 int retOrderItem = orderItemPoMapper.insertSelective(orderItemPo);
                 if (retOrderItem == 0) {
                     logger.debug("插入订单明细失败:" + orderItemPo.getName());
+                    return new ReturnObject(ResponseCode.INTERNAL_SERVER_ERR);
                 }
             }
 
             //返回值
             OrderInfoBo orderInfoBo = new OrderInfoBo(orderPo);
-            return new ReturnObject<>(orderInfoBo);
-            //return orderInfoBo;
+            return new ReturnObject<>(orderInfoBo.toString());
         }catch (DataAccessException e){
-            //return new ReturnObject<>(ResponseCode.)
-            return null;
+            return new ReturnObject(ResponseCode.INTERNAL_SERVER_ERR);
         }
     }
 
@@ -284,7 +283,8 @@ public class OrderDao {
         OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
         ReturnObject<Object> retObj = null;
         //订单不存在
-        if (orderPo == null){
+        if (orderPo==null){
+            System.out.println("order");
             retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
             return retObj;
         }
@@ -302,6 +302,7 @@ public class OrderDao {
         //收货
         orderPo.setState((byte)OrderStateCode.ORDER_STATE_COMPLETED.getCode());
         orderPo.setGmtModified(LocalDateTime.now());
+        orderPo.setConfirmTime(LocalDateTime.now());
         try {
             int ret = orderPoMapper.updateByPrimaryKey(orderPo);
             if (ret == 0) {
@@ -333,9 +334,15 @@ public class OrderDao {
         logger.debug("confirmOrder: ID =" + id);
         OrderPo orderPo = orderPoMapper.selectByPrimaryKey(id);
         ReturnObject<Object> retObj = null;
+        System.out.println("dao");
         //订单不存在
         if (orderPo == null){
             retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+            return retObj;
+        }
+        //订单已删除
+        if (orderPo.getBeDeleted()==(byte)1) {
+            retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW);
             return retObj;
         }
         //该订单不是此用户订单
@@ -344,7 +351,7 @@ public class OrderDao {
             return retObj;
         }
         //订单不是团购订单
-        if (orderPo.getOrderType()!=(byte)1){
+        if (orderPo.getOrderType()!=(byte)1) {
             retObj = new ReturnObject<>(ResponseCode.ORDER_STATENOTALLOW);
             return retObj;
         }

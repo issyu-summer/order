@@ -87,10 +87,7 @@ public class PaymentController {
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id,
             @Depart Long departId){
-        if(shopId!=departId||departId!=0){
-            return Common.decorateReturnObject(new ReturnObject(ResponseCode.RESOURCE_ID_OUTSCOPE));
-        }
-        return Common.decorateReturnObject(paymentService.getShopAfterSalesPayments(shopId,id));
+        return Common.decorateReturnObject(paymentService.getShopAfterSalesPayments(shopId,id,departId));
     }
     /**
      * @author 史韬韬
@@ -213,11 +210,7 @@ public class PaymentController {
             @PathVariable("shopId") Long shopId,
             @PathVariable("id")  Long id,
             @RequestBody String amount){
-        if(shopId!=departId||departId!=0){
-            return Common.decorateReturnObject(new ReturnObject(ResponseCode.RESOURCE_ID_OUTSCOPE));
-        }
-            Long amout=Long.valueOf(amount);
-            return Common.decorateReturnObject(paymentService.postRefunds(shopId,id,amout));
+            return Common.decorateReturnObject(paymentService.postRefunds(shopId,id,amount,departId));
     }
 
     /**

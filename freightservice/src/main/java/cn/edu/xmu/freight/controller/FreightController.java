@@ -118,16 +118,12 @@ public class FreightController {
             @ApiResponse(code = 0,message = "成功")
     })
     @Audit
-    @PostMapping("/shops/{shopId}/freight_models/{id}/default")
+    @PostMapping("/shops/{shopId}/freightmodels/{id}/default")
     public Object postFreightModelToShop(
-            @LoginUser Long userId,
             @Depart Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id){
-        if(shopId!=departId||departId!=0){
-            return Common.decorateReturnObject(new ReturnObject(ResponseCode.RESOURCE_ID_OUTSCOPE));
-        }
-        return Common.decorateReturnObject(freightService.postFreightModelToShop(shopId,id));
+        return Common.decorateReturnObject(freightService.postFreightModelToShop(shopId,id,departId));
     }
     /**
      * 管理员定义重量模板明细
@@ -147,16 +143,13 @@ public class FreightController {
             @ApiResponse(code = 803,message = "运费模板中该地区已经定义")
     })
     @Audit
-    @PostMapping("/shops/{shopId}/freight_models/{id}/weightItems")
+    @PostMapping("/shops/{shopId}/freightmodels/{id}/weightItems")
     public Object postWeightItems(
             @Depart Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id,
             @RequestBody WeightModelInfoVo vo){
-        if(shopId!=departId||departId!=0){
-            return Common.decorateReturnObject(new ReturnObject(ResponseCode.RESOURCE_ID_OUTSCOPE));
-        }
-        return Common.decorateReturnObject(freightService.postWeightItems(vo,shopId,id));
+        return Common.decorateReturnObject(freightService.postWeightItems(vo,shopId,id,departId));
     }
     /**
      * 管理员删除运费模板
@@ -164,16 +157,14 @@ public class FreightController {
      * @date 2020/12/9
      */
 
-    @ApiOperation(value = "管理员定义重量模板明细",produces="application/json")
+    @ApiOperation(value = "管理员删除运费模板",produces="application/json")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
             @ApiImplicitParam(paramType = "path",dataType = "int",name = "shopId", value = "店铺Id", required = true),
             @ApiImplicitParam(paramType = "path",dataType = "int",name = "id", value = "运费模板Id", required = true),
-            @ApiImplicitParam(paramType = "body", dataType = "class", name = "vo", value = "运费模板明细", required = true)
     })
     @ApiResponses({
-            @ApiResponse(code = 0,message = "成功"),
-            @ApiResponse(code = 803,message = "运费模板中该地区已经定义")
+            @ApiResponse(code = 0,message = "成功")
     })
     @Audit
     @DeleteMapping("/shops/{shopId}/freightmodels/{id}")
@@ -182,10 +173,7 @@ public class FreightController {
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id
     ){
-        if(shopId!=departId||departId!=0){
-            return Common.decorateReturnObject(new ReturnObject(ResponseCode.RESOURCE_ID_OUTSCOPE));
-        }
-        return Common.decorateReturnObject(freightService.deleteFreightModel(shopId,id));
+        return Common.decorateReturnObject(freightService.deleteFreightModel(shopId,id,departId));
     }
     /**
      * 管理员克隆店铺的运费模板

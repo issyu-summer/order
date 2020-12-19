@@ -272,24 +272,24 @@ public class UserService {
 
         String key = "up_" + user.getId();
         logger.debug("login: key = "+ key);
-        if(redisTemplate.hasKey(key) && !canMultiplyLogin){
-            logger.debug("login: multiply  login key ="+key);
-            // 用户重复登录处理
-            Set<Serializable > set = redisTemplate.opsForSet().members(key);
-            redisTemplate.delete(key);
-
-            /* 将旧JWT加入需要踢出的集合 */
-            String jwt = null;
-            for (Serializable str : set) {
-                /* 找出JWT */
-                if((str.toString()).length() > 8){
-                    jwt =  str.toString();
-                    break;
-                }
-            }
-            logger.debug("login: oldJwt" + jwt);
-            this.banJwt(jwt);
-        }
+//        if(redisTemplate.hasKey(key) && !canMultiplyLogin){
+//            logger.debug("login: multiply  login key ="+key);
+//            // 用户重复登录处理
+//            Set<Serializable > set = redisTemplate.opsForSet().members(key);
+//            redisTemplate.delete(key);
+//
+//            /* 将旧JWT加入需要踢出的集合 */
+//            String jwt = null;
+//            for (Serializable str : set) {
+//                /* 找出JWT */
+//                if((str.toString()).length() > 8){
+//                    jwt =  str.toString();
+//                    break;
+//                }
+//            }
+//            logger.debug("login: oldJwt" + jwt);
+//            this.banJwt(jwt);
+//        }
 
         //创建新的token
         JwtHelper jwtHelper = new JwtHelper();

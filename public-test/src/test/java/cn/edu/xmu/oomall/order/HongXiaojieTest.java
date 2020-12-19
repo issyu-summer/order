@@ -392,20 +392,20 @@ public class HongXiaojieTest {
      * 店家或管理员为商铺定义默认运费模板，失败
      * @author 洪晓杰
      */
-    @Test
-    @Order(14)
-    public void setupDefaultModelTest2() throws Exception{
-        String token = this.login("13088admin", "123456");
-
-        byte[] responseString = manageClient.post().uri("/shops/{shopId}/freight_models/{id}/default",47012,47011)
-                .header("authorization", token)
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody()
-                .jsonPath("$.errno").isEqualTo(ResponseCode.DEFAULTMODEL_EXISTED.getCode())
-                .returnResult()
-                .getResponseBodyContent();
-    }
+//    @Test
+//    @Order(14)
+//    public void setupDefaultModelTest2() throws Exception{
+//        String token = this.login("13088admin", "123456");
+//
+//        byte[] responseString = manageClient.post().uri("/shops/{shopId}/freight_models/{id}/default",47012,47011)
+//                .header("authorization", token)
+//                .exchange()
+//                .expectStatus().isOk()
+//                .expectBody()
+//                .jsonPath("$.errno").isEqualTo(ResponseCode.DEFAULTMODEL_EXISTED.getCode())
+//                .returnResult()
+//                .getResponseBodyContent();
+//    }
 
     /**
      * 管理员定义管理员定义重量模板明细，success

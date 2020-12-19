@@ -32,8 +32,17 @@ public class OrderInfoVo {
     private Long presaleId;
     private Long grouponId;
 
-    public OrderPo getOrderPo() {
+    public OrderPo getOrderPo(
+            Long userId,Long originPrice,
+            Long freightPrice,Long discount,
+            Long grouponDiscount) {
+
         OrderPo orderPo = new OrderPo();
+        orderPo.setOriginPrice(originPrice);
+        orderPo.setFreightPrice(freightPrice);
+        orderPo.setGrouponDiscount(grouponDiscount);
+        orderPo.setDiscountPrice(discount);
+        orderPo.setCustomerId(userId);
         orderPo.setMobile(this.getMobile());
         orderPo.setAddress(this.getAddress());
         orderPo.setRegionId(this.getRegionId());
@@ -46,6 +55,20 @@ public class OrderInfoVo {
         orderPo.setMessage(this.getMessage());
         orderPo.setPresaleId(this.getPresaleId());
         orderPo.setGrouponId(this.getGrouponId());
+        orderPo.setPid(null);
+        if(presaleId!=null){
+            orderPo.setOrderType((byte) 2);
+        }else if(grouponId!=null){
+            orderPo.setOrderType((byte) 1);
+        }else{
+            orderPo.setOrderType((byte) 0);
+        }
+
+        orderPo.setBeDeleted((byte) 0);
+        orderPo.setSubstate((byte) 11);
+        orderPo.setRebateNum(0);
+        orderPo.setConfirmTime(null);
+        orderPo.setShipmentSn(null);
         return orderPo;
     }
     /**

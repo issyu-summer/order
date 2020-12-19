@@ -8,6 +8,7 @@ import cn.edu.xmu.freight.model.po.*;
 import cn.edu.xmu.freight.model.vo.*;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.AuthVerify;
+import cn.edu.xmu.ooad.util.Common;
 import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import com.github.pagehelper.PageHelper;
@@ -108,24 +109,26 @@ public class FreightDao {
      * @date 2020/12/7
      */
 
-    public ReturnObject<Object> postFreightModelToShop(Long shopId,Long id){
-        FreightModelPo freightModelPo = freightModelPoMapper.selectByPrimaryKey(id);
+    public ReturnObject<Object> postFreightModelToShop(Long shopId,Long id,Long departId){
         ReturnObject<Object> retObj = null;
-        //资源不存在
-        if (freightModelPo == null) {
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
-            return retObj;
+        //效验
+        //路径不合法
+        //获得运费模板
+        FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(id);
+        //运费模板不存在
+        if(freightModelPo==null){
+            return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
         }
-        //不是本店铺模板
-        if (freightModelPo.getShopId()!=shopId) {
-            retObj = new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + id));
-            return retObj;
+        //无权限
+        //管理员不是该店铺管理员
+        if(departId!=0L){
+            return new ReturnObject(ResponseCode.AUTH_NOT_ALLOW);
         }
-        //已经是默认
-        if(freightModelPo.getDefaultModel().equals((byte)1)){
-            retObj = new ReturnObject<>(ResponseCode.OK,String.format("已定义成默认"));
-            return retObj;
+        //运费模板不是本店铺的
+        if(!freightModelPo.getShopId().equals(shopId)){
+            return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象"));
         }
+        //效验结束
         //设为默认
         freightModelPo.setDefaultModel((byte)1);
         freightModelPo.setGmtModified(LocalDateTime.now());
@@ -151,29 +154,34 @@ public class FreightDao {
      * @author 王薪蕾
      * @date 2020/12/9
      */
-    public ReturnObject<Object> postWeightItems(WeightModelInfoVo vo, Long shopId, Long id){
+    public ReturnObject<Object> postWeightItems(WeightModelInfoVo vo, Long shopId, Long id,Long departId){
 
         ReturnObject<Object> retObj = null;
         try {
-            WeightModelInfoBo weightModelInfoBo=vo.createWeightModelInfoBo();
-            weightModelInfoBo.setFreightModelId(id);
-            weightModelInfoBo.setGmtCreate(LocalDateTime.now());
-            weightModelInfoBo.setGmtModified(LocalDateTime.now());
-
+            //路径不合法
             //获得运费模板
             FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(id);
+
             //运费模板不存在
             if(freightModelPo==null){
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
             }
-            //运费模板不是本店铺的
-            if(freightModelPo.getShopId()!=shopId){
-                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
-            }
             //运费模板模式不是重量运费模板
             if(freightModelPo.getType()!=(byte)0){
-                return new ReturnObject<>(ResponseCode.FIELD_NOTVALID, String.format("运费模板模式不是重量运费模板"));
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板模式不是重量运费模板"));
             }
+            //无权限
+            //管理员不是该店铺管理员
+            if(!shopId.equals(departId) &&departId!=0L){
+                return new ReturnObject(ResponseCode.AUTH_NOT_ALLOW);
+            }
+            //运费模板不是本店铺的
+            if(!freightModelPo.getShopId().equals(shopId)){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象"));
+            }
+            //字段不合法
+            WeightModelInfoBo weightModelInfoBo;
+            weightModelInfoBo=vo.createWeightModelInfoBo(id);
             //获得数据库中此运费模板的所有明细
             WeightFreightModelPoExample weightFreightModelPoExample=new WeightFreightModelPoExample();
             WeightFreightModelPoExample.Criteria criteria=weightFreightModelPoExample.createCriteria();
@@ -213,16 +221,24 @@ public class FreightDao {
      * @author 王薪蕾
      * @date 2020/12/9
      */
-    public ReturnObject deleteFreightModel(Long shopId, Long id) {
+    public ReturnObject deleteFreightModel(Long shopId, Long id,Long departId) {
         try{
+            //效验
+            //路径不合法
+            //获得运费模板
             FreightModelPo freightModelPo=freightModelPoMapper.selectByPrimaryKey(id);
             //运费模板不存在
             if(freightModelPo==null){
                 return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, String.format("运费模板不存在"));
             }
+            //无权限
+            //管理员不是该店铺管理员
+            if(!shopId.equals(departId) &&departId!=0L){
+                return new ReturnObject(ResponseCode.AUTH_NOT_ALLOW);
+            }
             //运费模板不是本店铺的
-            if(freightModelPo.getId()!=shopId){
-                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象：运费模板id=" + freightModelPo.getId()));
+            if(!freightModelPo.getShopId().equals(shopId)){
+                return new ReturnObject<>(ResponseCode.RESOURCE_ID_OUTSCOPE, String.format("运费模板不是本店铺的对象"));
             }
             //未实现级联删除与商品关联的
             //获得数据库中此运费模板的所有明细,删除之

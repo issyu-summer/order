@@ -1,10 +1,7 @@
 package cn.edu.xmu.payment.dao;
 
 import cn.edu.xmu.inner.service.OrderInnerService;
-import cn.edu.xmu.ooad.util.AuthVerify;
-import cn.edu.xmu.ooad.util.PaymentStateCode;
-import cn.edu.xmu.ooad.util.ResponseCode;
-import cn.edu.xmu.ooad.util.ReturnObject;
+import cn.edu.xmu.ooad.util.*;
 import cn.edu.xmu.payment.mapper.PaymentPoMapper;
 import cn.edu.xmu.payment.mapper.RefundPoMapper;
 import cn.edu.xmu.payment.model.bo.PaymentBo;
@@ -47,6 +44,8 @@ public class PaymentDao {
 
         ReturnObject<Object> retObj = null;
         try {
+            //效验after是否存在
+            //效验after的顾客id是否与传入值相等
             //获得afterSaleId=id的支付单
             PaymentPoExample paymentPoExample=new PaymentPoExample();
             PaymentPoExample.Criteria criteria=paymentPoExample.createCriteria();
@@ -78,9 +77,14 @@ public class PaymentDao {
      * @date 2020/12/9
      */
 
-    public ReturnObject getShopAfterSalesPayments(Long shopId, Long id) {
+    public ReturnObject getShopAfterSalesPayments(Long shopId, Long id,Long departId) {
 
         try {
+            //效验after是否存在
+            //效验after的shopId是否与传入值相等
+            if(!shopId.equals(departId) &&departId!=0L){
+                return new ReturnObject(ResponseCode.AUTH_NOT_ALLOW);
+            }
             PaymentPoExample paymentPoExample=new PaymentPoExample();
             PaymentPoExample.Criteria criteria=paymentPoExample.createCriteria();
             //获得AfterSaleId符合的支付
@@ -258,19 +262,43 @@ public class PaymentDao {
      * @author 王薪蕾
      * @date 2020/12/11
      */
-    public ReturnObject postRefunds(Long shopId, Long id,Long amount) {
+    public ReturnObject postRefunds(Long shopId, Long id,String amount_str,Long departId) {
         PaymentPo paymentPo=paymentPoMapper.selectByPrimaryKey(id);
-        //未查找到
+        //支付不存在
         if(paymentPo==null)
         {
             return new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+        }
+        //管理员不是该店铺管理员
+        if(!shopId.equals(departId) &&departId!=0L){
+            return new ReturnObject(ResponseCode.AUTH_NOT_ALLOW);
+        }
+        //该支付不是店铺支付
+        Long paymentShopId=orderInnerService.getShopIdByOrderId(paymentPo.getOrderId());
+        if(!paymentShopId.equals(shopId))
+        {
+            return new ReturnObject(ResponseCode.RESOURCE_ID_OUTSCOPE);
+        }
+        //字段不合法
+        Long amount;
+        try{
+            System.out.println("try");
+            amount=Long.valueOf(amount_str);
+        }
+        catch (Exception e){
+            return new ReturnObject(ResponseCode.FIELD_NOTVALID);
         }
         //查询是否已有退款
         RefundPoExample refundPoExample=new RefundPoExample();
         RefundPoExample.Criteria criteria=refundPoExample.createCriteria();
         criteria.andPaymentIdEqualTo(id);
-        List<RefundPo> refundPos = refundPoMapper.selectByExample(refundPoExample);
-        if (!refundPos.isEmpty()) {
+        List<RefundPo> refundPos = null;
+        try{
+            refundPos= refundPoMapper.selectByExample(refundPoExample);
+        }
+        catch (Exception e){
+        }
+        if (refundPos!=null) {
             for (RefundPo po : refundPos) {
                 //如果找到payment的退款，且退款成功，则不在进行退款
                 if (po.getPaymentId().equals(id)&&po.getState().equals((byte)1)) {
@@ -279,11 +307,10 @@ public class PaymentDao {
             }
         }
         //支付未成功或退款大于付款
-        if(paymentPo.getState()!=(byte)1||paymentPo.getAmount()<amount)
+        if(paymentPo.getState()!=(byte)1||paymentPo.getActualAmount()<amount)
         {
             return new ReturnObject<>(ResponseCode.REFUND_MORE);
         }
-        //未验证shopId与paymen的shopid，通过order或aftersale判断
         RefundBo refundBo=new RefundBo(id,amount,paymentPo.getOrderId(),paymentPo.getAftersaleId());
         RefundPo refundPo=refundBo.createPo();
         refundPoMapper.insert(refundPo);

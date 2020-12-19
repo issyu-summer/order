@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/privilegegateway/pom.xml" />
         <option value="$PROJECT_DIR$/privilegeservice/pom.xml" />
         <option value="$PROJECT_DIR$/userModule/pom.xml" />
+        <option value="$PROJECT_DIR$/public-test/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
