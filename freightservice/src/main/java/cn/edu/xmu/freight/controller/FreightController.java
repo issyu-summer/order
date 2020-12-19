@@ -404,9 +404,9 @@ public class FreightController {
     }
 
     /**
-     * 店家或管理员查询件数运费模板的明细
-     * @author 陈星如
-     * @date 2020/12/8 14:13
+     *店家或管理员查询件数运费模板的明细
+     *@author 陈星如
+     *@date 2020/12/8 14:13
      */
     @ApiOperation(value = "店家或管理员查询件数运费模板的明细",produces="application/json")
     @ApiImplicitParams({
@@ -420,8 +420,8 @@ public class FreightController {
     @GetMapping("/shops/{shopId}/freightmodels/{id}/pieceItems")
     public Object getFreightModelsPieceItems(
             @PathVariable("shopId") Long shopId,
-            @PathVariable("id")  Long id){
-        return Common.decorateReturnObject(freightService.getFreightModelsPieceItems(shopId,id));
+            @PathVariable("id")  Long id, @Depart @ApiIgnore Long departId){
+        return Common.decorateReturnObject(freightService.getFreightModelsPieceItems(shopId,id,departId));
     }
     /**
      * 买家使用运费模板计算运费
