@@ -63,9 +63,10 @@ public class PaymentController {
     @Audit
     @GetMapping("/aftersales/{id}/payments")
     public Object getAfterSalesPayments(
+            @Depart @ApiIgnore Long departId,
             @PathVariable("id") Long id,
             @LoginUser Long userId){
-        return Common.decorateReturnObject(paymentService.getAfterSalesPayments(userId,id));
+        return Common.decorateReturnObject(paymentService.getAfterSalesPayments(userId,id,departId));
     }
     /**
      * 管理员查询售后单的支付信息
@@ -83,7 +84,7 @@ public class PaymentController {
     })
     @Audit
     @GetMapping("/shops/{shopId}/aftersales/{id}/payments")
-    public Object getAfterSalesPayments(
+    public Object getAfterSalesPaymentsForAdmin(
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id,
             @Depart Long departId){
@@ -104,10 +105,37 @@ public class PaymentController {
             @ApiResponse(code = 0,message = "成功")
     })
     @Audit
-    @GetMapping("/orders/{id}/payment")
-    public Object getPaymentById(@PathVariable Long id){
-        return Common.decorateReturnObject(paymentService.getPaymentById(id));
+    @GetMapping("/orders/{id}/payments")
+    public Object getPaymentById(@PathVariable Long id,@LoginUser Long userId){
+        return Common.decorateReturnObject(paymentService.getPaymentById(id,userId));
     }
+
+    /**
+     * @author 王薪蕾
+     * @date 2020/12/20
+     * 买家为订单创建支付单
+     */
+    @ApiOperation(value = "买家查询自己的支付信息",produces="application/json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(paramType = "header",dataType = "String",name = "authorization", value = "Token", required = true),
+            @ApiImplicitParam(paramType = "path",dataType = "Long",name = "id", value = "订单Id", required = true),
+            @ApiImplicitParam(paramType = "body",dataType = "Object",name = "afterSalePaymentVo", value = "售后单支付信息", required = true)
+
+    })
+    @ApiResponses({
+            @ApiResponse(code = 0,message = "成功")
+    })
+    @Audit
+    @PostMapping("/orders/{id}/payments")
+    public Object postPaymentById(
+            @PathVariable Long id,
+            @LoginUser Long userId,
+            @Depart Long departId,
+            @RequestBody AfterSalePaymentVo afterSalePaymentVo){
+        return Common.decorateReturnObject(paymentService.createPaymentForOrder(userId,id,departId,afterSalePaymentVo));
+    }
+
+
     /**
      * @author 史韬韬
      * @date 2020/12/10
@@ -124,8 +152,8 @@ public class PaymentController {
     })
     @Audit
     @PostMapping("/aftersales/{id}/payments")
-    public Object createPaymentForAftersale(@PathVariable Long id,@RequestBody AfterSalePaymentVo afterSalePaymentVo){
-        return Common.decorateReturnObject(paymentService.createPaymentForAftersale(id,afterSalePaymentVo));
+    public Object createPaymentForAftersale(@LoginUser Long userId,@PathVariable Long id,@RequestBody AfterSalePaymentVo afterSalePaymentVo){
+        return Common.getListRetObject(paymentService.createPaymentForAftersale(userId,id,afterSalePaymentVo));
     }
     /**
      * @author 史韬韬
@@ -143,9 +171,10 @@ public class PaymentController {
     })
     @Audit
     @GetMapping("/shops/{shopId}/orders/{id}/payments")
-    public Object getPaymentByOrderIdAndShopId(@PathVariable Long id,@PathVariable Long shopId){
-        return Common.decorateReturnObject(paymentService.getPaymentByOrderIdAndShopId(id,shopId));
+    public Object getPaymentByOrderIdAndShopId(@PathVariable Long id,@PathVariable Long shopId,@Depart Long departId){
+        return Common.decorateReturnObject(paymentService.getPaymentByOrderIdAndShopId(id,shopId,departId));
     }
+
     /**
      *管理员查询订单的退款信息
      * @author 陈星如
@@ -210,7 +239,7 @@ public class PaymentController {
             @PathVariable("shopId") Long shopId,
             @PathVariable("id")  Long id,
             @RequestBody String amount){
-            return Common.decorateReturnObject(paymentService.postRefunds(shopId,id,amount,departId));
+            return Common.decoratePostReturnObject(paymentService.postRefunds(shopId,id,amount,departId));
     }
 
     /**
@@ -225,15 +254,17 @@ public class PaymentController {
     @ApiResponses({
             @ApiResponse(code = 0,message = "成功")
     })
-    @Audit
+    //@Audit
     @GetMapping("/payments/states")
-    public Object postRefunds(@LoginUser @ApiIgnore Long userId,
-                              @Depart @ApiIgnore Long departId){
+    public Object postRefunds(//@LoginUser @ApiIgnore Long userId,
+                              //@Depart @ApiIgnore Long departId
+    ){
         //List<Long> orderIds = orderInnerService.getOrderIdByUserId(userId);
 
-        ReturnObject returnObject = paymentService.getPaymentStateByOrderIds(userId,departId);
+        ReturnObject returnObject = paymentService.getPaymentStateByOrderIds();
         return Common.getListRetObject(returnObject);
     }
+
 
 
     /**
@@ -250,11 +281,12 @@ public class PaymentController {
     })
     @Audit
     @GetMapping("/payments/patterns")
-    public Object getPayPatternsByToken(@LoginUser @ApiIgnore Long userId,@Depart @ApiIgnore Long departId){
+//    public Object getPayPatternsByToken(@LoginUser @ApiIgnore Long userId,@Depart @ApiIgnore Long departId){
+    public Object getPayPatternsByToken(){
 
         //List<Long> orderIds = orderInnerService.getOrderIdByUserId(userId);
 
-        ReturnObject returnObject = paymentService.getPayPatternsByOrderId(userId,departId);
+        ReturnObject returnObject = paymentService.getPayPatternsByOrderId();
 
         return Common.getListRetObject(returnObject);
     }

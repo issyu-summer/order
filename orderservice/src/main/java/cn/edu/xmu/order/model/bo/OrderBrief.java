@@ -34,7 +34,7 @@ public class OrderBrief implements VoObject {
         this.id=po.getId();
         this.customerId=po.getCustomerId();
         this.shopId=po.getShopId();
-        this.pid=po.getShopId();
+        this.pid=po.getPid();
         this.orderType=po.getOrderType();
         this.state=po.getState();
         this.subState=po.getSubstate();
@@ -57,7 +57,8 @@ public class OrderBrief implements VoObject {
         orderRetVo.setOrderType(orderType);
         orderRetVo.setState(state);
         orderRetVo.setSubState(subState);
-        orderRetVo.setGmtCreate(TimeFormat.localDateTimeToString(gmtCreate));
+        orderRetVo.setGmtCreate(gmtCreate);
+        orderRetVo.setGmtCreate(gmtCreate);
         orderRetVo.setOriginPrice(originPrice);
         orderRetVo.setDiscountPrice(discountPrice);
         orderRetVo.setFreightPrice(freightPrice);
@@ -76,7 +77,7 @@ public class OrderBrief implements VoObject {
         orderRetVo.setOrderType(orderType);
         orderRetVo.setState(state);
         orderRetVo.setSubState(subState);
-        orderRetVo.setGmtCreate(TimeFormat.localDateTimeToString(gmtCreate));
+        orderRetVo.setGmtCreate(gmtCreate);
         orderRetVo.setOriginPrice(originPrice);
         orderRetVo.setDiscountPrice(discountPrice);
         orderRetVo.setFreightPrice(freightPrice);

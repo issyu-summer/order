@@ -5,12 +5,14 @@ import cn.edu.xmu.ooad.util.PaymentPatternCode;
 import cn.edu.xmu.payment.model.po.PaymentPo;
 import cn.edu.xmu.payment.model.vo.PaymentPatternRetVo;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author issyu 30320182200070
  * @date 2020/12/14 11:26
  */
 @Data
+@NoArgsConstructor
 public class PaymentPatternBo implements VoObject {
 
     private String payPattern;

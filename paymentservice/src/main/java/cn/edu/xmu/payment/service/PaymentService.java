@@ -19,8 +19,8 @@ public class PaymentService {
      * @author 王薪蕾
      * @date 2020/12/9
      */
-    public ReturnObject getAfterSalesPayments(Long userId, Long id) {
-        ReturnObject returnObject = paymentDao.getAfterSalesPayments(userId,id);
+    public ReturnObject getAfterSalesPayments(Long userId, Long id,Long departId) {
+        ReturnObject returnObject = paymentDao.getAfterSalesPayments(userId,id,departId);
         return returnObject;
     }
     /**
@@ -33,15 +33,16 @@ public class PaymentService {
         return returnObject;
     }
 
+
+
     /**
      * @author 史韬韬
      * @date 2020/12/9
      * 买家查询自己的支付信息
      */
 
-    public ReturnObject<PaymentRetVo> getPaymentById(Long id){
-        //return paymentDao.getPaymentById(id);
-        return null;
+    public ReturnObject<PaymentRetVo> getPaymentById(Long id,Long userid){
+        return paymentDao.getPaymentById(id,userid);
     }
 
     /**
@@ -50,9 +51,8 @@ public class PaymentService {
      * 买家为售后单创建支付单
      */
 
-    public ReturnObject<PaymentRetVo> createPaymentForAftersale(Long id, AfterSalePaymentVo afterSalePaymentVo){
-        //return paymentDao.createPaymentForAftersale(id,afterSalePaymentVo);
-        return null;
+    public ReturnObject createPaymentForAftersale(Long userId,Long id, AfterSalePaymentVo afterSalePaymentVo){
+        return paymentDao.createPaymentForAftersale(userId,id,afterSalePaymentVo);
     }
 
     /**
@@ -60,10 +60,10 @@ public class PaymentService {
      * @date 2020/12/10
      * 管理员查看订单支付信息
      */
-    public ReturnObject<PaymentRetVo> getPaymentByOrderIdAndShopId(Long id,Long shopId) {
-        //return paymentDao.getPaymentByOrderIdAndShopId(id,shopId);
-        return null;
+    public ReturnObject getPaymentByOrderIdAndShopId(Long id,Long shopId,Long departId) {
+        return paymentDao.getPaymentByOrderIdAndShopId(id,shopId,departId);
     }
+
     /**
      *管理员查询订单的退款信息
      * @author 陈星如
@@ -109,8 +109,8 @@ public class PaymentService {
      * @date 2020/12/12 18:47
      * 在dao层实装DubboReference
      */
-    public ReturnObject getPaymentStateByOrderIds(Long userId,Long departId){
-        return paymentDao.getPaymentStateByOrderIds(userId,departId);
+    public ReturnObject getPaymentStateByOrderIds(){
+        return paymentDao.getPaymentStateByOrderIds();
     }
 
     /**
@@ -118,8 +118,8 @@ public class PaymentService {
      * @author issyu 30320182200070
      * @date 2020/12/14 11:31
      */
-    public ReturnObject getPayPatternsByOrderId(Long userId,Long departId){
-        return paymentDao.getPayPatternsByOrderId(userId,departId);
+    public ReturnObject getPayPatternsByOrderId(){
+        return paymentDao.getPayPatternsByOrderId();
     }
 
     /**
@@ -139,5 +139,18 @@ public class PaymentService {
     public ReturnObject getUsersAftersalesRefunds(Long userId, Long id, Long departId) {
         ReturnObject returnObject = paymentDao.getUsersAftersalesRefunds(userId, id,departId);
         return returnObject;
+    }
+
+    /**
+     * @author 王薪蕾
+     * @Date 2020/12/20
+     * @param userId
+     * @param id
+     * @param departId
+     * @param afterSalePaymentVo
+     * @return
+     */
+    public ReturnObject createPaymentForOrder(Long userId, Long id, Long departId, AfterSalePaymentVo afterSalePaymentVo) {
+        return paymentDao.createPaymentForOrder(userId, id,departId,afterSalePaymentVo);
     }
 }

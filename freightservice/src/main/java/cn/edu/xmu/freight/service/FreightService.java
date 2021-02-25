@@ -23,9 +23,9 @@ public class FreightService {
     @Autowired
     private FreightDao freightDao;
 
-    public ReturnObject getFreghtModelsInShop(FreightModelVo freightModelVo, Integer page, Integer pageSize) {
+    public ReturnObject getFreghtModelsInShop(Long departId,FreightModelVo freightModelVo, Integer page, Integer pageSize) {
 
-        ReturnObject returnObject = freightDao.getFreghtModelsInShop(freightModelVo,page,pageSize);
+        ReturnObject returnObject = freightDao.getFreghtModelsInShop(departId,freightModelVo,page,pageSize);
         return returnObject;
     }
 
@@ -73,8 +73,8 @@ public class FreightService {
      * @parameter shopId 店铺id
      * @parameter id 运费模板id
      */
-    public ReturnObject<FreightModelRetVo> cloneFreightModel(Long id, Long shopId){
-        return freightDao.cloneFreightModel(id,shopId);
+    public ReturnObject<FreightModelRetVo> cloneFreightModel(Long departId,Long id, Long shopId){
+        return freightDao.cloneFreightModel(departId,id,shopId);
     }
 
     /**
@@ -82,8 +82,8 @@ public class FreightService {
      * @author 史韬韬
      * @parameter id 运费模板id
      */
-    public ReturnObject<FreightModelSimpleInfoRetVo> getFreightModelSimpleInfo(Long id){
-        return  freightDao.getFreightModelSimpleInfo(id);
+    public ReturnObject<FreightModelSimpleInfoRetVo> getFreightModelSimpleInfo(Long id,Long shopId,Long depaetId,Long userId){
+        return  freightDao.getFreightModelSimpleInfo(id,shopId,depaetId,userId);
     }
     /**
      * 管理员修改店铺运费模板
@@ -93,6 +93,7 @@ public class FreightService {
     public ReturnObject<VoObject> changeFreightModel(Long id, Long shopId, FreightModelInfoVo freightModelInfoVo,Long departId){
         return freightDao.chanegFreightModel(id,shopId,freightModelInfoVo,departId);
     }
+
 
     /**
      * 管理员定义件数模板明细

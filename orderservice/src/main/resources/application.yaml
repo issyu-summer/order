@@ -28,6 +28,7 @@ dubbo:
     name: dubbo
     port: -1
     # 设置超时时间
+#    host:  192.168.0.19
   consumer:
     timeout: 4000
     check: false

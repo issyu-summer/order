@@ -11,8 +11,8 @@
         <module name="public-test" />
         <module name="privilegeservice-client" />
         <module name="userService" />
-        <module name="core" />
         <module name="otherinterface" />
+        <module name="core" />
         <module name="freightservice" />
         <module name="inner-api" />
         <module name="outer-api" />
@@ -31,6 +31,8 @@
       <module name="customertest" target="11" />
       <module name="freightservice" target="11" />
       <module name="gateway" target="11" />
+      <module name="gateway (1)" target="11" />
+      <module name="gateway (2)" target="11" />
       <module name="inner-api" target="11" />
       <module name="order" target="11" />
       <module name="order-test" target="11" />
@@ -55,6 +57,8 @@
       <module name="customertest" options="-parameters" />
       <module name="freightservice" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="gateway (1)" options="-parameters" />
+      <module name="gateway (2)" options="-parameters" />
       <module name="inner-api" options="-parameters" />
       <module name="order" options="-parameters" />
       <module name="order-test" options="-parameters" />

@@ -13,8 +13,10 @@ import cn.edu.xmu.order.model.vo.OrderInfoVo;
 import cn.edu.xmu.order.model.vo.OrderMessageVo;
 import cn.edu.xmu.order.model.vo.OrderShipmentSnVo;
 import cn.edu.xmu.order.service.OrderService;
+import cn.edu.xmu.otherinterface.service.GoodsModuleService;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.*;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -45,6 +48,19 @@ public class OrderController {
     @Autowired
     private HttpServletResponse httpServletResponse;
 
+
+    @DubboReference(version = "0.0.1")
+    private GoodsModuleService goodsModuleService;
+    @GetMapping("/test")
+    public Object Test(){
+        List<Long>  skuIds = new ArrayList<>();
+        skuIds.add(273L);
+        skuIds.add(10000L);
+        skuIds.add(2L);
+                Object o =goodsModuleService.getGoodsInfoBySkuId(skuIds).getData();
+                System.out.println();
+                return o;
+    }
     /**
      * 获得订单的所有状态
      * @author issyu 30320182200070
@@ -94,7 +110,11 @@ public class OrderController {
 
         ReturnObject<PageInfo<VoObject>> returnObject = orderService.getOrderSimpleInfo(
                 userId,departId,orderSn,state,page,pageSize,beginTime,endTime);
-        return  Common.getPageRetObject(returnObject);
+        if(returnObject.getCode()==ResponseCode.OK){
+            return  Common.getPageRetObject(returnObject);
+        }else{
+            return Common.decorateReturnObject(returnObject);
+        }
 
     }
 
@@ -136,7 +156,6 @@ public class OrderController {
     }
 
     /**
-     * 需要集成接口
      * 买家查询订单完整信息
      * @author 史韬韬
      * created in 2020/12/2
@@ -153,8 +172,8 @@ public class OrderController {
     })
     @Audit
     @GetMapping("/orders/{id}")
-    public Object getOrderById(@PathVariable Long id){
-        return Common.decorateReturnObject(orderService.getOrderById(id));
+    public Object getOrderById(@LoginUser @ApiIgnore Long userId,@PathVariable Long id){
+        return Common.decorateReturnObject(orderService.getOrderById(userId,id));
 
     }
     /**
@@ -195,9 +214,9 @@ public class OrderController {
     public Object deleteOrder(@LoginUser @ApiIgnore Long userId,@PathVariable Long id){
         return Common.decorateReturnObject(orderService.deleteOrder(userId,id));
     }
-
     /**
      * 买家标记确认收货
+     *
      * @param id 订单ID
      * @return Object 确认后结果
      * createdBy 王薪蕾 2020/11/30
@@ -218,12 +237,7 @@ public class OrderController {
             @LoginUser Long userId,
             @Depart Long departId
     ) {
-
-        if (departId.equals(-2L)){
-            return Common.decorateReturnObject(orderService.confirmOrders(id,userId));
-        }
-        ReturnObject returnObject=new ReturnObject(ResponseCode.AUTH_NOT_ALLOW);
-        return Common.decorateReturnObject(returnObject);
+        return Common.decorateReturnObject(orderService.confirmOrders(id,userId,departId));
         //return Common.getNullRetObj()
     }
 
@@ -249,12 +263,8 @@ public class OrderController {
             @PathVariable("id") Long id,
             @Depart Long departId,
             @LoginUser Long userId) {
-        if(departId.equals(-2L)) {
-            return Common.getRetObject(orderService.grouponToNormalOrders(id,userId));
-        }
-        ReturnObject returnObject=new ReturnObject(ResponseCode.AUTH_NOT_ALLOW);
-        return Common.decorateReturnObject(returnObject);
-
+        return Common.decorateReturnObject(orderService.grouponToNormalOrders(id,userId,departId));
+        //return Common.getRetObject();
     }
 
     /**
@@ -283,8 +293,8 @@ public class OrderController {
                                @RequestParam(required = false) String orderSn,
                                @RequestParam(required = false) String beginTime,
                                @RequestParam(required = false) String endTime,
-                               @RequestParam(required = false) Integer page,
-                               @RequestParam(required = false) Integer pageSize,
+                               @RequestParam(required = false,defaultValue = "1") Integer page,
+                               @RequestParam(required = false,defaultValue = "10") Integer pageSize,
                                @Depart @ApiIgnore Long departId){
         System.out.println(departId);
         logger.debug("getAllOrders: page = "+ page +"  pageSize ="+pageSize);
@@ -314,10 +324,15 @@ public class OrderController {
                                @PathVariable("id") Long id,
                                @Validated @RequestBody OrderMessageVo orderMessageVo,
                                @Depart @ApiIgnore Long departId){
+
+        if(orderMessageVo.getMessage() == null){
+            return Common.decorateReturnObject(new ReturnObject<>(ResponseCode.FIELD_NOTVALID));
+        }
         return Common.decorateReturnObject(orderService.updateOrderMessage(shopId,id,orderMessageVo,departId));
+        //return Common.decorateReturnObject(orderService.updateOrderMessage(shopId,id,orderMessageVo,departId));
     }
     /**
-     * 店家查询店内订单完整信息(普通，团购，预售)
+     * 店家查询店内订单完整信息(普通，团购，预售),
      * @author 陈星如
      * @date 2020/12/5 14:55
      */
@@ -360,7 +375,13 @@ public class OrderController {
     public Object deleteShopOrder(
             @LoginUser @ApiIgnore Long userId,
             @PathVariable Long shopId,@PathVariable Long id,@Depart @ApiIgnore Long departId){
-        return Common.getRetObject(orderService.deleteShopOrder(shopId,id,departId));
+        ReturnObject returnObject =orderService.deleteShopOrder(shopId,id,departId);
+        if(returnObject.getCode().equals(ResponseCode.RESOURCE_ID_OUTSCOPE)){
+            return Common.getRetObject(returnObject);
+        }else{
+            return Common.decorateReturnObject(returnObject);
+
+        }
     }
     /**
      *店家对订单标记发货
@@ -381,8 +402,20 @@ public class OrderController {
     @Audit
     @PutMapping("/shops/{shopId}/orders/{id}/deliver")
 
-    public Object shipOrder(@PathVariable(name="shopId") Long shopId, @PathVariable(name="id")  Long id, @Validated @RequestBody OrderShipmentSnVo orderShipmentSnVo,
+    public Object shipOrder(@PathVariable(name="shopId") Long shopId, @PathVariable(name="id")  Long id,
+                            @Validated @RequestBody OrderShipmentSnVo orderShipmentSnVo,BindingResult bindingResult,
                             @Depart @ApiIgnore Long departId){
+        Object returnObject = Common.processFieldErrors(bindingResult, httpServletResponse);
+        if (null != returnObject) {
+            logger.debug("validate fail");
+            return returnObject;
+        }
+        if(orderShipmentSnVo.getFreightSn()==""){
+            return Common.decorateReturnObject(new ReturnObject<>(ResponseCode.FIELD_NOTVALID));
+        }
+        if(orderShipmentSnVo.getFreightSn()==null){
+            return Common.decorateReturnObject(new ReturnObject<>(ResponseCode.FIELD_NOTVALID));
+        }
         return Common.decorateReturnObject(orderService.shipOrder(shopId,id,orderShipmentSnVo,departId));
     }
 }

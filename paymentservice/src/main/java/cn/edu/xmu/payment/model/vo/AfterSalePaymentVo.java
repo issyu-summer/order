@@ -10,5 +10,5 @@ import lombok.Data;
 @Data
 public class AfterSalePaymentVo {
     private Long price;
-    private Byte paymentPattern;
+    private String paymentPattern;
 }

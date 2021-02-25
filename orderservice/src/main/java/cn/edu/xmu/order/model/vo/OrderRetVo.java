@@ -15,12 +15,15 @@ import java.time.LocalDateTime;
 public class OrderRetVo {
     private Long id;
     private String orderSn;
+
     public CustomerVo customer=new CustomerVo();
+
     public ShopVo shop=new ShopVo();
+
     private Long pid;
     private Byte orderType;
     private Byte state;
-    private Byte substate;
+    private Byte subState;
     private LocalDateTime gmtCreate;
     private LocalDateTime gmtModified;
     private LocalDateTime confirmTime;
@@ -37,5 +40,6 @@ public class OrderRetVo {
     private Long grouponId;
     private Long presaleId;
     private String shipmentSn;
+
     public OrderItemVo orderItem=new OrderItemVo();
 }

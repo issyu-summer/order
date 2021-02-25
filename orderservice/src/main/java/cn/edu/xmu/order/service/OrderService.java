@@ -70,8 +70,8 @@ public class OrderService {
      * @author 史韬韬
      * created in 2020/12/2
      */
-    public ReturnObject<OrderRetVo> getOrderById(Long id){
-        return orderDao.getOrderById(id);
+    public ReturnObject<OrderRetVo> getOrderById(Long userId,Long id){
+        return orderDao.getOrderById(userId,id);
     }
 
     /**
@@ -100,8 +100,8 @@ public class OrderService {
      * created in 2020/12/6
      */
     @Transactional
-    public ReturnObject confirmOrders(Long id,Long userId) {
-        return orderDao.confirmOrders(id,userId);
+    public ReturnObject confirmOrders(Long id,Long userId,Long departId) {
+        return orderDao.confirmOrders(id,userId,departId);
     }
 
     /**
@@ -111,8 +111,8 @@ public class OrderService {
      * created in 2020/12/6
      */
     @Transactional
-    public ReturnObject grouponToNormalOrders(Long id,Long userId) {
-        return orderDao.grouponToNormalOrders(id,userId);
+    public ReturnObject grouponToNormalOrders(Long id,Long userId,Long departId) {
+        return orderDao.grouponToNormalOrders(id,userId,departId);
     }
 
     /**
@@ -159,7 +159,7 @@ public class OrderService {
      * @author 陈星如
      * @date 2020/12/5 15:15
      **/
-    public ReturnObject<VoObject> deleteShopOrder(Long shopId,Long id,Long departId){
+    public ReturnObject deleteShopOrder(Long shopId,Long id,Long departId){
         return orderDao.deleteShopOrder(shopId,id,departId);
     }
 

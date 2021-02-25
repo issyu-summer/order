@@ -68,7 +68,7 @@ spring:
         - id: payment
           uri: http://localhost:8085/
           predicates:
-          - Path=/payments/**,/orders/{id}/payments,/shops/{shopId}/orders/{id}/payments,/aftersales/{id}/**,/shops/{shopId}/aftersales/{id}/**,/shops/{shopId}/payments/{id}/**,/shops/{shopId}/orders/{id}/refunds,/orders/{id}/refunds,/aftersales/{id}/refunds
+          - Path=/payments/states,/payment/patterns,/orders/{id}/payments,/shops/{shopId}/orders/{id}/payments,/aftersales/{id}/payments,/aftersales/{id}/refunds,/shops/{shopId}/aftersales/{id}/paymenys,/shops/{shopId}/aftersales/{id}/refunds,/shops/{shopId}/orders/{id}/refunds,/shops/{shopId}/payments/{id}/refunds,/shops/{shopId}/orders/{id}/refunds,/orders/{id}/refunds,/aftersales/{id}/refunds
           filters:
             - PrefixPath=/payment
             - Auth=authorization

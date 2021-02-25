@@ -1,6 +1,5 @@
 package cn.edu.xmu.freight.controller;
 
-import cn.edu.xmu.freight.model.bo.FreightModelBo;
 import cn.edu.xmu.freight.model.vo.*;
 import cn.edu.xmu.freight.service.FreightService;
 import cn.edu.xmu.ooad.annotation.Audit;
@@ -8,7 +7,6 @@ import cn.edu.xmu.ooad.annotation.Depart;
 import cn.edu.xmu.ooad.annotation.LoginUser;
 import cn.edu.xmu.ooad.model.VoObject;
 import cn.edu.xmu.ooad.util.Common;
-import cn.edu.xmu.ooad.util.ResponseCode;
 import cn.edu.xmu.ooad.util.ReturnObject;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.*;
@@ -21,7 +19,6 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-import java.util.*;
 
 /**
  * @author issyu 30320182200070
@@ -61,13 +58,14 @@ public class FreightController {
     @Audit
     @GetMapping("/shops/{id}/freightmodels")
     public Object getFreightModelsInShop(
+            @Depart @ApiIgnore Long departId,
             @PathVariable("id") Long id,
             @RequestParam(required = false) String name,
             @RequestParam(required = false,defaultValue = "1") Integer page,
-            @RequestParam(required = false,defaultValue = "1") Integer pageSize){
+            @RequestParam(required = false,defaultValue = "10") Integer pageSize){
 
         FreightModelVo freightModelVo = new FreightModelVo(id,name);
-        ReturnObject<PageInfo<VoObject>> returnObject = freightService.getFreghtModelsInShop(freightModelVo,page,pageSize);
+        ReturnObject<PageInfo<VoObject>> returnObject = freightService.getFreghtModelsInShop(departId,freightModelVo,page,pageSize);
         return Common.getPageRetObject(returnObject);
     }
 
@@ -98,7 +96,9 @@ public class FreightController {
             return returnObject;
         }
 
-        return Common.getRetObject(freightService.defineFreightModel(freightModelVo,id,departId));
+        //return Common.decoratePostReturnObject(freightService.defineFreightModel(freightModelVo,id,departId));
+        return Common.decorateReturnObject(freightService.defineFreightModel(freightModelVo,id,departId));
+
     }
 
 
@@ -123,7 +123,9 @@ public class FreightController {
             @Depart Long departId,
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id){
-        return Common.decorateReturnObject(freightService.postFreightModelToShop(shopId,id,departId));
+        return Common.decoratePostReturnObject(freightService.postFreightModelToShop(shopId,id,departId));
+        //return Common.decorateReturnObject(freightService.postFreightModelToShop(shopId,id,departId));
+
     }
     /**
      * 管理员定义重量模板明细
@@ -149,7 +151,9 @@ public class FreightController {
             @PathVariable("shopId") Long shopId,
             @PathVariable("id") Long id,
             @RequestBody WeightModelInfoVo vo){
-        return Common.decorateReturnObject(freightService.postWeightItems(vo,shopId,id,departId));
+       return Common.decoratePostReturnObject(freightService.postWeightItems(vo,shopId,id,departId));
+        //return Common.decorateReturnObject(freightService.postWeightItems(vo,shopId,id,departId));
+
     }
     /**
      * 管理员删除运费模板
@@ -181,7 +185,6 @@ public class FreightController {
      * @parameter shopId 店铺id
      * @parameter id 运费模板id
      * created in 2020/12/7
-     * 此api的测试用例暂时没跑通，应该是数据库查询的问题，我之后再修改
      */
     @ApiOperation(value = "管理员克隆店铺的运费模板",produces="application/json")
     @ApiImplicitParams({
@@ -194,9 +197,11 @@ public class FreightController {
     })
     @Audit
     @PostMapping("/shops/{shopId}/freightmodels/{id}/clone")
-    public Object cloneFreightModel(@PathVariable Long id,@PathVariable Long shopId) {
-        ReturnObject<FreightModelRetVo> retVoReturnObject = freightService.cloneFreightModel(id, shopId);
-        return Common.decorateReturnObject(retVoReturnObject);
+    public Object cloneFreightModel(@Depart Long departId,@PathVariable Long id,@PathVariable Long shopId) {
+        ReturnObject<FreightModelRetVo> retVoReturnObject = freightService.cloneFreightModel(departId,id, shopId);
+        return Common.decoratePostReturnObject(retVoReturnObject);
+        //return Common.decorateReturnObject(retVoReturnObject);
+
     }
 
     /**
@@ -214,13 +219,12 @@ public class FreightController {
             @ApiResponse(code = 0,message = "成功")
     })
     @Audit
-    @GetMapping("shops/{shopId}/freightmodels/{id}")
-    public Object getFreightModelSimpleInfo(
-            @LoginUser @ApiIgnore Long userId,
-            @Depart @ApiIgnore Long departId,
-            @PathVariable Long id
-            ){
-        return Common.decorateReturnObject(freightService.getFreightModelSimpleInfo(id));
+    @GetMapping("/shops/{shopId}/freightmodels/{id}")
+    public Object getFreightModelSimpleInfo(@PathVariable Long id,@PathVariable Long shopId,
+                                            @Depart @ApiIgnore Long departId,
+                                            @LoginUser @ApiIgnore Long userId
+    ){
+        return Common.decorateReturnObject(freightService.getFreightModelSimpleInfo(id,shopId,departId,userId));
     }
 
     /**
@@ -271,7 +275,9 @@ public class FreightController {
             @RequestBody PieceModelInfoVo vo,
             @Depart @ApiIgnore Long departId
     ){
-        return Common.decorateReturnObject(freightService.postPieceItems(vo,shopId,id,departId));
+        return Common.decoratePostReturnObject(freightService.postPieceItems(vo,shopId,id,departId));
+        //return Common.decorateReturnObject(freightService.postPieceItems(vo,shopId,id,departId));
+
     }
 
     /**
@@ -430,13 +436,15 @@ public class FreightController {
             @ApiResponse(code = 0,message = "成功")
     })
     @Audit
-    @GetMapping("/region/{rid}/price")
+    @PostMapping("/region/{rid}/price")
     public Object calculateFreightPrice(
             @LoginUser @ApiIgnore Long userId,
             @Depart @ApiIgnore Long departId,
             @PathVariable("rid") Long rid,
             @RequestBody List<ItemInfoVo> itemInfoVoList){
-        return Common.decorateReturnObject(freightService.calculateFreightPrice(userId,departId,rid,itemInfoVoList));
+        return Common.decoratePostReturnObject(freightService.calculateFreightPrice(userId,departId,rid,itemInfoVoList));
+        //return Common.decorateReturnObject(freightService.calculateFreightPrice(userId,departId,rid,itemInfoVoList));
+
     }
 
 

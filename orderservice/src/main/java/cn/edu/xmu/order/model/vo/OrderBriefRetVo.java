@@ -18,7 +18,7 @@ public class OrderBriefRetVo {
     private Byte orderType;
     private Byte state;
     private Byte subState;
-    private String gmtCreate;
+    private LocalDateTime gmtCreate;
     private Long originPrice;
     private Long discountPrice;
     private Long freightPrice;

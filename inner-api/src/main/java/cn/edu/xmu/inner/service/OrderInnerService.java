@@ -1,5 +1,7 @@
 package cn.edu.xmu.inner.service;
 
+import cn.edu.xmu.inner.model.bo.MyReturn;
+
 import java.util.List;
 
 /**
@@ -27,7 +29,7 @@ public interface OrderInnerService {
      * 通过订单Id获取用户Id
      * @author issyu 30320182200070
      * @date 2020/12/16 12:28
-    */
+     */
     Long getCustomerIdByOrderId(Long orderId);
     /**
      * 通过订单Id获得用户Id
@@ -45,4 +47,48 @@ public interface OrderInnerService {
      * @return
      */
     Long getShopIdByOrderId(Long orderId);
+
+    /**
+     * 通过订单id知单订单是否存在
+     * @param orderId
+     * @return
+     */
+    Boolean orderIsExistByOrderId(Long orderId);
+    /**
+     * 通过订单id获得价格
+     * @param orderId
+     * @return
+     */
+    Long getActAmountByOrderId(Long orderId);
+
+    /**
+     * @王薪蕾
+     * @param orderId
+     * @return
+     */
+    Boolean payForOrder(Long orderId);
+
+    /**
+     * 获得订单类型
+     * @param orderId
+     * @return
+     */
+    Byte getTypeByOrderId(Long orderId);
+
+    /**
+     * 获得订单状态
+     * @param orderId
+     * @return
+     */
+    Byte getStateByOrderId(Long orderId);
+
+    /**
+     * 获得订单子状态
+     * @param orderId
+     * @return
+     */
+    Byte getSubstateByOrderId(Long orderId);
+
+    Long getPresaleIdByOrderId(Long orderId);
+
 }

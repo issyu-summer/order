@@ -5,7 +5,6 @@ import cn.edu.xmu.external.model.CustomerInfo;
 import cn.edu.xmu.order.model.po.OrderItemPo;
 import cn.edu.xmu.order.model.po.OrderPo;
 import cn.edu.xmu.order.model.vo.OrderRetVo;
-
 import cn.edu.xmu.otherinterface.bo.ShopInfo;
 import lombok.Data;
 
@@ -62,7 +61,7 @@ public class Order {
 
     private Byte state;
 
-    private Byte substate;
+    private Byte subState;
 
     private Byte beDeleted;
 
@@ -97,7 +96,7 @@ public class Order {
         this.setConfirmTime(po.getConfirmTime());
         this.setShipmentSn(po.getShipmentSn());
         this.setState(po.getState());
-        this.setSubstate(po.getSubstate());
+        this.setSubState(po.getSubstate());
         this.setBeDeleted(po.getBeDeleted());
         this.setGmtCreate(po.getGmtCreate());
         this.setGmtModified(po.getGmtModified());
@@ -110,7 +109,7 @@ public class Order {
         orderRetVo.setPid(pid);
         orderRetVo.setOrderType(orderType);
         orderRetVo.setState(state);
-        orderRetVo.setSubstate(substate);
+        orderRetVo.setSubState(subState);
         orderRetVo.setGmtCreate(gmtCreate);
         orderRetVo.setGmtModified(gmtModified);
         orderRetVo.setConfirmTime(confirmTime);
@@ -153,7 +152,7 @@ public class Order {
         orderRetVo.setPid(pid);
         orderRetVo.setOrderType(orderType);
         orderRetVo.setState(state);
-        orderRetVo.setSubstate(substate);
+        orderRetVo.setSubState(subState);
         orderRetVo.setGmtCreate(gmtCreate);
         orderRetVo.setGmtModified(gmtModified);
         orderRetVo.setConfirmTime(confirmTime);
@@ -203,7 +202,7 @@ public class Order {
         po.setConfirmTime(this.getConfirmTime());
         po.setShipmentSn(this.getShipmentSn());
         po.setState(this.getState());
-        po.setSubstate(this.getSubstate());
+        po.setSubstate(this.getSubState());
         po.setBeDeleted(this.getBeDeleted());
         po.setGmtCreate(this.getGmtCreate());
         po.setGmtModified(this.getGmtModified());

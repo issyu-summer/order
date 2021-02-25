@@ -1,5 +1,7 @@
 package cn.edu.xmu.order.service.impl;
 
+import cn.edu.xmu.inner.service.OrderInnerService;
+import cn.edu.xmu.inner.service.PaymentInnerService;
 import cn.edu.xmu.ooad.util.Common;
 import cn.edu.xmu.ooad.util.OrderStateCode;
 import cn.edu.xmu.ooad.util.ResponseCode;
@@ -14,6 +16,7 @@ import cn.edu.xmu.outer.model.bo.OrderItem;
 import cn.edu.xmu.outer.model.bo.OrderItemInfo;
 import cn.edu.xmu.outer.service.IOrderService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -104,9 +107,28 @@ public class OrderOuterServiceImpl implements IOrderService {
     }
 
 
+    @DubboReference(version = "0.0.1")
+    private OrderInnerService orderInnerService;
+
+
+    @DubboReference(version = "0.0.1")
+    private PaymentInnerService paymentInnerService;
+
     @Override
     public MyReturn<Boolean> aftersaleRefund(Long orderItemId) {
-        return null;
+
+
+        //return new MyReturn(false);
+        OrderItemPo orderItemPo = orderItemPoMapper.selectByPrimaryKey(orderItemId);
+        if(orderItemPo == null){
+            return new MyReturn<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+        }
+        Long orderId = orderItemPo.getOrderId();
+
+        Boolean b = paymentInnerService.updateRefundStateByOrderId(orderId);
+
+        System.out.println("asdfhkdsjkf");
+        return new MyReturn<>(b);
 
     }
 
